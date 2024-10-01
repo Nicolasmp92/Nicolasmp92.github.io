@@ -11,7 +11,7 @@ import { ExperienceComponent } from './components/experience/experience.componen
 
 
 export const routes: Routes = [
-  { path: '', component: HomeComponent }, // Ruta principal, carga HomeComponent directamente
+  { path: '', component: HomeComponent },
   { path: 'home', component: HomeComponent },
   { path: 'about', component: AboutComponent},
   { path: 'experiencia', component: ExperienceComponent},

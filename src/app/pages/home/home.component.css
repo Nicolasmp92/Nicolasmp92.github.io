@@ -1,17 +1,14 @@
-
-/* Estilos existentes */
-
-header {
-  position: fixed !important;
-  top: 0;
-  width: 100%;
-  z-index: 10; /* Asegura que el header esté por encima del contenido */
-  background-color: red;
+.hero {
+  padding: 50px 0;
 }
 
-footer {
-  position: fixed;
-  bottom: 0;
-  width: 100%;
-  z-index: 10; /* Asegura que el footer esté por encima del contenido */
+.animated-letter {
+  display: inline-block;
+  font-size: 1rem;
+  transition: color 0.3s ease;
+}
+
+.container-xxl {
+  max-width: 1200px;
+  text-align: center;
 }

@@ -23,7 +23,7 @@ button.toggle-btn{
   top: 0;
   left: 0;
   border-radius: 0 50px 50px 0;
-  z-index: 1000;
+  z-index: 9000;
   background-color: #6f4e37; /* Reemplazo del amarillo por un tono café */
   color: #fff; /* Blanco para los íconos */
   border: 0.2em solid #45474B; /* Gris oscuro para el borde */
@@ -108,17 +108,17 @@ mat-sidenav{
   border-radius: 4px;
 }
 .active-link{
-  background-color: #117554!important;
+  background-color: #028391!important;
 }
 
 .nav-link:not(:active):hover,
 .nav-link:focus{
-  background-color: #21262C;
+  background-color: #01204E;
 }
 
 .nav-link:focus,
 .nav-link:active{
-  background-color: #117554 !important;
+  background-color: #028391 !important;
   outline: none;
 }
 
@@ -173,7 +173,7 @@ mat-nav-list:hover  :not(.nav-link:hover){
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 3px solid #6f4e37; /* Reemplazo del amarillo */
+  border: 3px solid #01204E; /* Reemplazo del amarillo */
   object-fit: cover;
   z-index: 2;
 }
@@ -197,7 +197,8 @@ mat-nav-list:hover  :not(.nav-link:hover){
   border-radius: 999px;
   box-sizing: border-box;
   z-index: 2;
-  background-image: linear-gradient(#6f4e37, #6EC207, #117554); /* Sustitución de amarillo por café */
+  background-image: linear-gradient(#FEAE6F, #F6DCAC, #028391);
+  box-shadow: 0 4px 15px #028391;
   background-size: 100% 100%;
   animation: rotate 4s linear infinite;
 }
@@ -214,11 +215,11 @@ mat-nav-list:hover  :not(.nav-link:hover){
 /* +++++++++++++++BOTONES REDES SOCIALES+++++++++++++++*/
 span{
   font-size: 1.5rem;
-  color: #6f4e37; /* Color café */
+  color: #FEAE6F; /* Color café */
   text-transform: uppercase;
   padding: 10px 20px;
   border-radius: 10px;
-  border: 2px solid #6f4e37; /* Café */
+  border: 2px solid #FEAE6F; /* Café */
   background: #252525;
   box-shadow: 0 0.4rem #6f4e37; /* Café para el sombreado */
   cursor: pointer;
@@ -227,13 +228,14 @@ span{
 }
 
 span .bi:hover{
-  color: #d669a6;
+  color: #FEAE6F;
 }
 
 span .bi{
-  color: #198754;
+  color: #028391;
   padding-left: 5px;
 }
+
 
 
 /* ---------------BOTONES REDES SOCIALES----------------- */

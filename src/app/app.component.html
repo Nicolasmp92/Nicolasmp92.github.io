@@ -16,8 +16,8 @@
       <!-- {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav -->
       <!-- IMGANE DE PERFIL -->
       <div class="profile-container">
-        <a class="align-self-center" routerLink="home">
-          <div class="image-container align-items-center mt-5">
+        <a class="align-self-center" routerLink="/home" >
+          <div class="image-container align-items-center mt-5" >
             <img class="profile-image" src="img/IMG_20220615_144311.jpg" alt="MiFotoDePerfil" >
           </div>
         </a>
@@ -71,11 +71,9 @@
           <i *ngIf="!isSidenavOpen" class="bi bi-list fs-3"></i>
         </button>
 
-      <div class="container-xxl">
-        <!-- <app-header></app-header> -->
+        <app-header></app-header>
         <router-outlet></router-outlet>
         <!-- <app-footer></app-footer> -->
-      </div>
 
     </mat-sidenav-content>
 
