@@ -1,0 +1,17 @@
+
+/* Estilos existentes */
+
+header {
+  position: fixed !important;
+  top: 0;
+  width: 100%;
+  z-index: 10; /* Asegura que el header esté por encima del contenido */
+  background-color: red;
+}
+
+footer {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  z-index: 10; /* Asegura que el footer esté por encima del contenido */
+}

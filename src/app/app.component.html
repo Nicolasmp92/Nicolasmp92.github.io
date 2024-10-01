@@ -1,0 +1,102 @@
+<!--
+  <mat-toolbar class="example-header justify-content-center">
+    <p><button mat-button (click)="sidenav.toggle()">Toggle</button></p>
+  </mat-toolbar> -->
+
+
+
+
+  <!-- EL CONTENEDOR PARA TODO EL CONTENIDO DE SIDENAV -->
+  <mat-sidenav-container class="sidenav-container">
+
+    <!-- MENU -->
+    <mat-sidenav #sidenav mode="side" [(opened)]="isSidenavOpen" class="example-sidenav text-center"
+                 [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+                 [fixedBottomGap]="options.value.bottom">
+      <!-- {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav -->
+      <!-- IMGANE DE PERFIL -->
+      <div class="profile-container">
+        <a class="align-self-center" routerLink="home">
+          <div class="image-container align-items-center mt-5">
+            <img class="profile-image" src="img/IMG_20220615_144311.jpg" alt="MiFotoDePerfil" >
+          </div>
+        </a>
+      </div>
+      <!-- LISTADO DE ENLACES -->
+      <mat-nav-list class="pt-3">
+        <!-- <a class="nav-link" routerLinkActive="active-link" mat-list-item routerLink="/home">Inicio</a> -->
+        <a class="mt-2 nav-link" routerLinkActive="active-link" mat-list-item routerLink="/about">Sobre mí</a>
+        <a class="mt-2 nav-link" routerLinkActive="active-link" mat-list-item routerLink="/experiencia">Experiencia</a>
+        <a class="mt-2 nav-link" routerLinkActive="active-link" mat-list-item routerLink="/habilidades">Habilidades</a>
+        <a class="mt-2 nav-link" routerLinkActive="active-link" mat-list-item routerLink="/contacto">Contacto</a>
+      </mat-nav-list>
+      <!-- BOTONER PARA REDES SOCIALES -->
+      <span class="badge py-2 px-3 sticky-bottom" data-bs-content="Disabled popover">
+        <a href="https://www.linkedin.com/in/nicolas-mu%C3%B1oz-2551b8b6/" target="_blank">
+          <i class="bi bi-linkedin fs-2"></i>
+          <!-- <mat-icon>linkedin</mat-icon> -->
+        </a>
+        <a href="https://github.com/Nicolasmp92" target="_blank">
+          <i class="bi bi-github fs-2"></i>
+          <!-- <mat-icon>github</mat-icon> -->
+        </a>
+        <a href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank">
+          <i class="bi bi-instagram fs-2"></i>
+          <!-- <mat-icon>github</mat-icon> -->
+        </a>
+        <a href="https://web.facebook.com/nikolas.munozpalacios/" target="_blank">
+          <i class="bi bi-facebook fs-2"></i>
+          <!-- <mat-icon>github</mat-icon> -->
+        </a>
+        </span>
+    </mat-sidenav>
+
+
+
+    <!-- CONTENEDOR DE CONTENIDO Y RUTAS -->
+    <mat-sidenav-content [formGroup]="options">
+
+      <!-- <p>
+        <button class="toggle-btn" mat-button (click)="sidenav.toggle()">
+          <i *ngIf="isSidenavOpen" class="bi bi-x fs-3 "></i>
+          <i *ngIf="!isSidenavOpen" class="bi bi-list fs-3"></i>
+        </button>
+      </p> -->
+        <button
+          class="toggle-btn"
+          mat-button
+          (click)="toggleSidenav()"
+          [ngClass]="{ 'icon-shake': !isSidenavOpen }">
+          <i *ngIf="isSidenavOpen" class="bi bi-x fs-3"></i>
+          <i *ngIf="!isSidenavOpen" class="bi bi-list fs-3"></i>
+        </button>
+
+      <div class="container-xxl">
+        <!-- <app-header></app-header> -->
+        <router-outlet></router-outlet>
+        <!-- <app-footer></app-footer> -->
+      </div>
+<!--
+
+   <mat-sidenav #sidenav mode="side" opened class="example-sidenav"
+                 [fixedInViewport]="options.value.fixed" [fixedTopGap]="options.value.top"
+                 [fixedBottomGap]="options.value.bottom">
+      {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav
+      <p><mat-checkbox formControlName="fixed">Fixed</mat-checkbox></p>
+      <p><mat-form-field>
+        <mat-label>Top gap</mat-label>
+        <input matInput type="number" formControlName="top">
+      </mat-form-field></p>
+      <p><mat-form-field>
+        <mat-label>Bottom gap</mat-label>
+        <input matInput type="number" formControlName="bottom">
+      </mat-form-field></p> -->
+
+    </mat-sidenav-content>
+
+
+
+  </mat-sidenav-container>
+
+  <!-- <mat-toolbar class="example-footer">Footer</mat-toolbar> -->
+

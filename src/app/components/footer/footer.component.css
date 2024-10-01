@@ -1,0 +1,19 @@
+/* estilo para el contenedor */
+span{
+    font-size: 1.5rem;
+    color: #ffc107;
+    text-transform: uppercase;
+    padding: 10px 20px;
+    border-radius: 10px;
+    border: 2px solid #ffc107;
+    background: #252525;
+    box-shadow: 3px 3px #ffc107;
+    cursor: pointer;
+    margin: 35px 0;
+}
+
+/* acomodando los iconos de bootsrap */
+.bi{
+  color: #ffc107;
+  padding-left: 10px;
+}

@@ -1,0 +1,239 @@
+/* +++++++++FONDO/CONTENIDO++++++++++ */
+.container-xxl {
+  background-color: #313131;
+
+}
+mat-sidenav-content {
+  flex: 1; /* Esto le indica al contenido que ocupe el espacio sobrante */
+  height: 100vh;
+  overflow-y: auto; /* Para permitir el desplazamiento si el contenido es muy largo */
+  background-color: #313131;
+  background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
+  background-size: 30px 30px;
+  background-position: -5px -5px;
+}
+/* ----------FONDO/CONTENIDO---------- */
+
+
+
+
+/* ++++++++++BOTON PARA ESCONDER LA BARRA++++++++++++++ */
+button.toggle-btn {
+  position: absolute;
+  top: 0;
+  left: 0;
+  border-radius: 0 50px 50px 0;
+  z-index: 1000;
+  background-color: #6f4e37; /* Reemplazo del amarillo por un tono café */
+  color: #fff; /* Blanco para los íconos */
+  border: 0.2em solid #45474B; /* Gris oscuro para el borde */
+  transition: all 0.6s ease;
+}
+
+button.toggle-btn:hover {
+  background-color: #4caf50; /* Un verde un poco más claro en hover */
+  cursor: pointer;
+}
+
+button.toggle-btn i {
+  /* margin: -0.2em 0.8em 0; */
+  position: relative;
+  display: flex;
+  transition: transform 0.6s ease;
+}
+
+/* Animación de balanceo del icono */
+@keyframes shake {
+  0% { transform: translateX(0); }
+  25% { transform: translateX(-5px); }
+  50% { transform: translateX(5px); }
+  75% { transform: translateX(-5px); }
+  100% { transform: translateX(0); }
+}
+
+/* Añadir el shake solo cuando la barra esté cerrada */
+.icon-shake i.bi-list {
+  animation: shake 1.8s ease-in-out infinite; /* Ajusta la duración y el tipo de transición */
+}
+
+
+button.toggle-btn:hover i.bi-x {
+  transform: translateX(-5px); /* Mover hacia la izquierda */
+}
+
+button.toggle-btn:hover i.bi-list {
+  transform: translateX(5px); /* Mover hacia la derecha */
+}
+/* -----------------BOTON PARA ESCONDER LA BARRA------------------- */
+
+
+
+
+
+
+/* ++++++++++MENU SIDE NAV+++++++++++++ */
+.sidenav-container {
+  position: absolute;
+  left: 0;
+  right: 0;
+  height: 100%;
+  width: 100%;
+}
+
+@media (max-width:768px) {
+  .sidenav-container {
+    flex-direction: column;
+  }
+}
+
+/* Barra lateral izquierda vertical */
+mat-sidenav {
+  width: 230px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: #45474B;
+  border-radius: 0%;
+}
+.nav-link {
+  background-color: transparent;
+  border: none;
+  padding: 10px;
+  color: white;
+  display: flex;
+  position: relative;
+  gap: 5px;
+  cursor: pointer;
+  border-radius: 4px;
+}
+.active-link{
+  background-color: #117554!important;
+}
+
+.nav-link:not(:active):hover,
+.nav-link:focus {
+  background-color: #21262C;
+}
+
+.nav-link:focus,
+.nav-link:active {
+  background-color: #117554 !important;
+  outline: none;
+}
+
+
+.nav-link::before {
+  content: "";
+  position: absolute;
+  top: 5px;
+  left: -10px;
+  width: 5px;
+  height: 80%;
+  border-radius: 5px;
+  opacity: 0;
+
+}
+
+.nav-link:focus::before,
+.nav-link:active::before {
+  color: #fff;
+  background-color: #117554;
+
+}
+
+.nav-link i {
+  width: 15px
+}
+
+mat-nav-list:hover > :not(.nav-link:hover) {
+  transition: 300ms;
+  filter: blur(1px);
+  transform: scale(0.95,0.95);
+
+}
+
+/* --------------MENU SIDE NAV---------------- */
+
+
+
+
+
+
+
+/* ++++++++++IMAGEN DE PERFIL++++++++++++ */
+.profile-container {
+  display: flex;
+  justify-content: center; /* Centra horizontalmente */
+  align-items: center; /* Centra verticalmente */
+  flex-direction: column; /* Coloca los elementos en una columna */
+  margin-top: 20px; /* Ajusta el espacio superior si es necesario */
+}
+.profile-image {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  border: 3px solid #6f4e37; /* Reemplazo del amarillo */
+  object-fit: cover;
+  z-index: 2;
+}
+
+.image-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 150px;
+  height: 150px;
+}
+
+.image-container::before {
+  content: "";
+  position: absolute;
+  top: -5px;
+  left: -5px;
+  width: calc(100% + 10px);
+  height: calc(100% + 10px);
+  border-radius: 999px;
+  box-sizing: border-box;
+  z-index: 2;
+  background-image: linear-gradient(#6f4e37, #6EC207, #117554); /* Sustitución de amarillo por café */
+  background-size: 100% 100%;
+  animation: rotate 4s linear infinite;
+}
+
+@keyframes rotate {
+  0% {
+    transform: rotate(0deg);
+  }
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+/* +++++++++++++++BOTONES REDES SOCIALES+++++++++++++++*/
+span {
+  font-size: 1.5rem;
+  color: #6f4e37; /* Color café */
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #6f4e37; /* Café */
+  background: #252525;
+  box-shadow: 0 0.4rem #6f4e37; /* Café para el sombreado */
+  cursor: pointer;
+  margin: 35px 0;
+  margin-top: 140px;
+}
+
+span .bi:hover {
+  color: #d669a6;
+}
+
+span .bi {
+  color: #198754;
+  padding-left: 5px;
+}
+
+
+/* ---------------BOTONES REDES SOCIALES----------------- */
