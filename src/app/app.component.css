@@ -1,5 +1,5 @@
 /* +++++++++FONDO/CONTENIDO++++++++++ */
-.container-xxl {
+.container-xxl{
   background-color: #313131;
 
 }
@@ -18,7 +18,7 @@ mat-sidenav-content {
 
 
 /* ++++++++++BOTON PARA ESCONDER LA BARRA++++++++++++++ */
-button.toggle-btn {
+button.toggle-btn{
   position: absolute;
   top: 0;
   left: 0;
@@ -35,7 +35,7 @@ button.toggle-btn:hover {
   cursor: pointer;
 }
 
-button.toggle-btn i {
+button.toggle-btn i{
   /* margin: -0.2em 0.8em 0; */
   position: relative;
   display: flex;
@@ -43,7 +43,7 @@ button.toggle-btn i {
 }
 
 /* Animación de balanceo del icono */
-@keyframes shake {
+@keyframes shake{
   0% { transform: translateX(0); }
   25% { transform: translateX(-5px); }
   50% { transform: translateX(5px); }
@@ -52,16 +52,16 @@ button.toggle-btn i {
 }
 
 /* Añadir el shake solo cuando la barra esté cerrada */
-.icon-shake i.bi-list {
+.icon-shake i.bi-list{
   animation: shake 1.8s ease-in-out infinite; /* Ajusta la duración y el tipo de transición */
 }
 
 
-button.toggle-btn:hover i.bi-x {
+button.toggle-btn:hover i.bi-x{
   transform: translateX(-5px); /* Mover hacia la izquierda */
 }
 
-button.toggle-btn:hover i.bi-list {
+button.toggle-btn:hover i.bi-list{
   transform: translateX(5px); /* Mover hacia la derecha */
 }
 /* -----------------BOTON PARA ESCONDER LA BARRA------------------- */
@@ -72,7 +72,7 @@ button.toggle-btn:hover i.bi-list {
 
 
 /* ++++++++++MENU SIDE NAV+++++++++++++ */
-.sidenav-container {
+.sidenav-container{
   position: absolute;
   left: 0;
   right: 0;
@@ -80,14 +80,14 @@ button.toggle-btn:hover i.bi-list {
   width: 100%;
 }
 
-@media (max-width:768px) {
-  .sidenav-container {
+@media (max-width:768px){
+  .sidenav-container{
     flex-direction: column;
   }
 }
 
 /* Barra lateral izquierda vertical */
-mat-sidenav {
+mat-sidenav{
   width: 230px;
   height: 100%;
   overflow: hidden;
@@ -96,7 +96,7 @@ mat-sidenav {
   background: #45474B;
   border-radius: 0%;
 }
-.nav-link {
+.nav-link{
   background-color: transparent;
   border: none;
   padding: 10px;
@@ -112,18 +112,18 @@ mat-sidenav {
 }
 
 .nav-link:not(:active):hover,
-.nav-link:focus {
+.nav-link:focus{
   background-color: #21262C;
 }
 
 .nav-link:focus,
-.nav-link:active {
+.nav-link:active{
   background-color: #117554 !important;
   outline: none;
 }
 
 
-.nav-link::before {
+.nav-link::before{
   content: "";
   position: absolute;
   top: 5px;
@@ -136,17 +136,17 @@ mat-sidenav {
 }
 
 .nav-link:focus::before,
-.nav-link:active::before {
+.nav-link:active::before{
   color: #fff;
   background-color: #117554;
 
 }
 
-.nav-link i {
+.nav-link i{
   width: 15px
 }
 
-mat-nav-list:hover  :not(.nav-link:hover) {
+mat-nav-list:hover  :not(.nav-link:hover){
   transition: 300ms;
   filter: blur(1px);
   transform: scale(0.95,0.95);
@@ -162,14 +162,14 @@ mat-nav-list:hover  :not(.nav-link:hover) {
 
 
 /* ++++++++++IMAGEN DE PERFIL++++++++++++ */
-.profile-container {
+.profile-container{
   display: flex;
   justify-content: center; /* Centra horizontalmente */
   align-items: center; /* Centra verticalmente */
   flex-direction: column; /* Coloca los elementos en una columna */
   margin-top: 20px; /* Ajusta el espacio superior si es necesario */
 }
-.profile-image {
+.profile-image{
   width: 100%;
   height: 100%;
   border-radius: 50%;
@@ -178,7 +178,7 @@ mat-nav-list:hover  :not(.nav-link:hover) {
   z-index: 2;
 }
 
-.image-container {
+.image-container{
   position: relative;
   display: flex;
   align-items: center;
@@ -187,7 +187,7 @@ mat-nav-list:hover  :not(.nav-link:hover) {
   height: 150px;
 }
 
-.image-container::before {
+.image-container::before{
   content: "";
   position: absolute;
   top: -5px;
@@ -202,7 +202,7 @@ mat-nav-list:hover  :not(.nav-link:hover) {
   animation: rotate 4s linear infinite;
 }
 
-@keyframes rotate {
+@keyframes rotate{
   0% {
     transform: rotate(0deg);
   }
@@ -212,7 +212,7 @@ mat-nav-list:hover  :not(.nav-link:hover) {
 }
 
 /* +++++++++++++++BOTONES REDES SOCIALES+++++++++++++++*/
-span {
+span{
   font-size: 1.5rem;
   color: #6f4e37; /* Color café */
   text-transform: uppercase;
@@ -226,11 +226,11 @@ span {
   margin-top: 140px;
 }
 
-span .bi:hover {
+span .bi:hover{
   color: #d669a6;
 }
 
-span .bi {
+span .bi{
   color: #198754;
   padding-left: 5px;
 }
