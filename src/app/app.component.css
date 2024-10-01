@@ -146,7 +146,7 @@ mat-sidenav {
   width: 15px
 }
 
-mat-nav-list:hover > :not(.nav-link:hover) {
+mat-nav-list:hover  :not(.nav-link:hover) {
   transition: 300ms;
   filter: blur(1px);
   transform: scale(0.95,0.95);
