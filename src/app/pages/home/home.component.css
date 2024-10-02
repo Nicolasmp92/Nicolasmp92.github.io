@@ -1,14 +1,75 @@
-.hero {
-  padding: 50px 0;
+/* ++++++++++++++CARD++++++++++++++++++ */
+.card {
+  position: relative;
+  width: 300px;
+  height: 200px;
+  /* background: linear-gradient(-45deg, #f89b29 0%, #ff0f7b 100% ); */
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 
-.animated-letter {
-  display: inline-block;
-  font-size: 1rem;
-  transition: color 0.3s ease;
+.card i {
+  width: 48px;
+  fill: #333;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+/* Animaciones con rotación opuesta */
+.card:nth-child(1):hover {
+  transform: rotate(-5deg) scale(1.1);
+}
+.card:nth-child(2):hover {
+  transform: rotate(10deg) scale(1.1); /* +5 para contrarrestar el -5 inicial */
+}
+.card:nth-child(3):hover {
+  transform: rotate(-2deg) scale(1.1); /* +3 para contrarrestar el -5 inicial */
+}
+.card:nth-child(4):hover {
+  transform: rotate(8deg) scale(1.1);  /* +3 para contrarrestar el -5 inicial */
 }
 
-.container-xxl {
-  max-width: 1200px;
-  text-align: center;
+.card:hover {
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
+
+.card-body {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%) rotate(-45deg);
+  width: 100%;
+  height: 100%;
+  padding: 20px;
+  box-sizing: border-box;
+  /* background-color: #fff; */
+  opacity: 0;
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+
+.card:hover .card-body {
+  transform: translate(-50%, -50%) rotate(0deg);
+  opacity: 1;
+}
+
+.card-title {
+  margin: 0;
+  font-size: 24px;
+  color: #333;
+  font-weight: 700;
+}
+
+.card-text {
+  margin: 10px 0 0;
+  font-size: 14px;
+  color: #777;
+  line-height: 1.4;
+}
+
+.card:hover svg {
+  scale: 0;
+  transform: rotate(-45deg);
+}
+/* ------------------------CARD-------------------------------- */
