@@ -1,13 +1,10 @@
 <section class="home">
-
-
   <!-- TITULO Y MAS -->
-  <div class="container-xxl mt-5 pb-5 text-center">
-
+  <div class="container-xxl mt-5 pb-5">
 
   <!-- RESUMEN  -->
-  <div class="row">
-    <div class="col-md-3 order-xs-last">
+  <div class="row justify-content-center">
+    <div class="col-md-3  order-xs-last">
       <mat-card class="mb-5 pb-3" appearance="outlined">
         <img src="img/IMG_20240130_201853.jpg" class="card-img-top" mat-card-image>
         <mat-card-content class="mat-content">
@@ -18,50 +15,73 @@
           <p class="text-start mt-3">Te invito a conocer más sobre mí explorando los siguientes enlaces.</p>
         </mat-card-content>
       </mat-card>
-    </div>
-    <div class="col-md-9">
-        <!-- <h1 class="fw-bolder">¡Hola!, Soy Nicolas Muñoz</h1>
-        <h3 class="fw-semibold"> Desarrollador front-end con una gran pasión por el diseño.</h3>
-        <h5 class="fw-normal mb-5"> Te invito a conocer más sobre mí explorando los siguientes enlaces.</h5> -->
-
-        <div class="row justify-content-center">
-          <div class="card card-1 bg-secondary mb-5">
-            <!-- <i class="bi bi-person-square fs-1"></i> -->
-            <h5 class="card-title">Sobre mí</h5>
-            <div class="card-body card2">
-              <!-- <h5 class="card-title">Sobre mí</h5> -->
-              <p class="card-text">Si Quieres conoserme un poquito mas, aqui hablo de mis gustos,
-                Hobbies(no, no los de pies peludos 💍), pasiones, experiencias.
-                ¡Un vistazo a mi mundo más allá del código! 😉</p>
-                <button class="btn btn-info text-bg-info mt-1"> ver mas</button>
-            </div>
-          </div>
-          <div class="card card-2 bg-secondary  mx-5 mb-5">
-            <h5 class="card-title">Mi Experiencia</h5>
-            <div class="card-body">
-              <p class="card-text"> En donde he trabajodo y un poquito de mi camino.</p>
-            </div>
-          </div>
-  <!-- FIN ROW -->
-
-          <div class="card card-3 bg-secondary mb-5 ">
-            <h5 class="card-title">Mis Habilidades</h5>
-            <div class="card-body">
-              <p class="card-text">Aca lo que sé y ultimamente se encuentra en expancion.</p>
-            </div>
-          </div>
-          <div class="card card-2 bg-secondary mx-5 mb-5 ">
-            <h5 class="card-title">Contactame</h5>
-            <div class="card-body">
-              <p class="card-text">Content</p>
-            </div>
-          </div>
-        </div>
-
-
-
-      </div>
   </div>
+
+
+  <div class="col-md-9">
+      <!-- <h1 class="fw-bolder">¡Hola!, Soy Nicolas Muñoz</h1>
+      <h3 class="fw-semibold"> Desarrollador front-end con una gran pasión por el diseño.</h3>
+      <h5 class="fw-normal mb-5"> Te invito a conocer más sobre mí explorando los siguientes enlaces.</h5> -->
+    <div class="row justify-content-center">
+
+      <!-- SOBRE MI -->
+      <div class="card card-1 bg-secondary mb-5 text-center">
+        <!-- <i class="bi bi-person-square fs-1"></i> -->
+        <h5 class="card-title">Sobre mí</h5>
+        <div class="card-body card2">
+          <!-- <h5 class="card-title">Sobre mí</h5> -->
+          <p class="card-text">Si Quieres conoserme un poquito mas, aqui hablo de mis gustos,
+            Hobbies(no, no los de pies peludos 💍), pasiones, experiencias.
+            ¡Un vistazo a mi mundo más allá del código! 😉 </p>
+            <button mat-stroked-button  routerLink="/about" routerLinkActive="router-link-active" >
+              <mat-icon>arrow_right_alt</mat-icon>
+              Ver Mas
+            </button>
+        </div>
+      </div>
+
+      <!-- MI EXPERIENCIA -->
+      <div class="card card-2 bg-secondary  mx-5 mb-5 text-center">
+        <h5 class="card-title">Mi Experiencia</h5>
+        <div class="card-body">
+          <p class="card-text"> Descubre mi trayectoria profesional. Aprende cómo he evolucionado como desarrollador
+            y los proyectos en los que he participado 💼 .</p>
+          <button mat-stroked-button  routerLink="/experiencia" routerLinkActive="router-link-active" >
+            <mat-icon>arrow_right_alt</mat-icon>
+            Ver Mas
+          </button>
+        </div>
+      </div>
+
+      <!-- HABILIDADES -->
+      <div class="card card-3 bg-secondary mb-5  text-center">
+        <h5 class="card-title">Mis Habilidades</h5>
+        <div class="card-body">
+          <p class="card-text">Explora las tecnologías y herramientas que domino... siempre me estoy actualizando :smile:</p>
+          <button mat-stroked-button  routerLink="/experiencia" routerLinkActive="router-link-active" >
+            <mat-icon>arrow_right_alt</mat-icon>
+            Ver Mas
+          </button>
+        </div>
+      </div>
+
+      <!-- CONTACTAME -->
+      <div class="card card-2 bg-secondary mx-5 mb-5  text-center">
+        <h5 class="card-title">Contactame</h5>
+        <div class="card-body">
+          <p class="card-text"> Ponte en contacto conmigo para hablar sobre tu próximo proyecto...</p>
+          <button mat-stroked-button  routerLink="/experiencia" routerLinkActive="router-link-active" >
+            <mat-icon>arrow_right_alt</mat-icon>
+            Ver Mas
+          </button>
+        </div>
+      </div>
+    </div>
+
+
+
+  </div>
+</div>
 
 
 

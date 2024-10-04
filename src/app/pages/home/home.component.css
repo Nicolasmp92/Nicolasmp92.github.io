@@ -23,13 +23,18 @@ mat-card{
   background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
   box-shadow:0px 0px 30px 1px #028391 ;
 }
+@media (width = 768px) {
+  mat-card{
+ display: none;
+  }
+}
 mat-card-content{
   border-radius: 10px;
 
 }
 
 
-/* ++++++++++++++CARD++++++++++++++++++ */
+/* ++++++++++++++CARD MENU++++++++++++++++++ */
 .card {
   position: relative;
   width: 300px;
@@ -43,6 +48,12 @@ mat-card-content{
   justify-content: center;
   overflow: hidden;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+}
+@media (max-width: 768px) {
+  .card {
+    width: 100%; /* Ocupa todo el ancho disponible */
+    max-width: 320px /* Aumenta el ancho en dispositivos móviles */
+  }
 }
 /* rotacion de cada card */
 .card:nth-child(1):hover {
@@ -59,8 +70,7 @@ mat-card-content{
 }
 
 .card i {
-  width: 48px;
-  fill: #fff;
+
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 .card:hover i {
