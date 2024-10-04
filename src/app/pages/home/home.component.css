@@ -1,9 +1,42 @@
+/* PALETA DE COLORES */
+.mi-paleta{
+  color: #01204E;
+  color: #028391;
+  color: #F6DCAC;
+  color: #FEAE6F;
+
+}
+.colores-dominantes{
+color: #1E1E1E;
+color: #333333;
+color: #2A443C;
+color: #996655;
+}
+.colores-acentos{
+  color:#66C2A5;
+  color:#FFD966;
+  color:#FFA500;
+}
+
+/* CARD RESUMEN */
+mat-card{
+  background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
+  box-shadow:0px 0px 30px 1px #028391 ;
+}
+mat-card-content{
+  border-radius: 10px;
+
+}
+
+
 /* ++++++++++++++CARD++++++++++++++++++ */
 .card {
   position: relative;
   width: 300px;
   height: 200px;
-  background: linear-gradient(-45deg, #697565 0%, #3C3D37 100% );
+  background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
+  border-color: #66C2A5;
+  box-shadow:0px 0px 30px 1px #028391 ;
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -27,7 +60,7 @@
 
 .card i {
   width: 48px;
-  fill: #333;
+  fill: #fff;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
 .card:hover i {
@@ -37,9 +70,10 @@
 
 .card .card-title {
   margin: 0;
-  font-size: 24px;
+  font-size: 30px;
   font-weight: 700;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+  color: #66C2A5;
 }
 
 .card:hover .card-title{
@@ -60,7 +94,7 @@
   height: 100%;
   padding: 20px;
   box-sizing: border-box;
-  /* background-color: #fff; */
+  background: (-45deg, #D9CAB3 0%, #2A443C 100% );
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
@@ -73,7 +107,7 @@
 .card-text {
   margin: 10px 0 0;
   font-size: 14px;
-  color: #777;
+  color: #66C2A5;
   line-height: 1.4;
 }
 

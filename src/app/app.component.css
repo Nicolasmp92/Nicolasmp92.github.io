@@ -19,9 +19,9 @@ mat-sidenav-content {
 
 /* ++++++++++BOTON PARA ESCONDER LA BARRA++++++++++++++ */
 button.toggle-btn{
-  position: absolute;
+  position: fixed;
   top: 0;
-  left: 0;
+  left: 50;
   border-radius: 0 50px 50px 0;
   z-index: 9000;
   background-color: #252525; /* Reemplazo del amarillo por un tono café */

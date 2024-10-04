@@ -56,7 +56,7 @@ export class AppComponent {
   // Referencia al sidenav
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isSidenavOpen = true; // Estado inicial del sidenav
+  isSidenavOpen = false; // Estado inicial del sidenav
   options: any;
 
   constructor(private _formBuilder: FormBuilder) {
