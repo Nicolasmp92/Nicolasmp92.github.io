@@ -69,11 +69,15 @@ mat-card-content{
   transform: rotate(3deg) scale(1.1);
 }
 
-.card i {
-
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+.emoji{
+  font-size: 50px;
+  font-style: none;
 }
-.card:hover i {
+.card .emoji{
+  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+
+}
+.card:hover .emoji {
   scale: 0;
   transform: rotate(-45deg);
 }

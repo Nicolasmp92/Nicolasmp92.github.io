@@ -6,7 +6,7 @@ import {MatCardModule} from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
-
+// import { PickerComponent } from '@ctrl/ngx-emoji-mart';
 
 @Component({
   selector: 'app-home',
@@ -20,7 +20,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     NgFor,
     MatCardModule,
     MatIcon,
-    MatButtonModule
+    MatButtonModule,
+    // PickerComponent
 
 
   ],
@@ -30,4 +31,5 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 
 })
 export class HomeComponent {
+  // emoji = '';
 }
