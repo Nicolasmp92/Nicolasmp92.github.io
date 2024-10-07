@@ -1,21 +1,9 @@
-<section class="skills">
-<div class="container">
-  <div class="row">
-    <div class="col-6">
-
-
-      <h2>Habilidades</h2>
-      <ul>
-        <li>...</li>
-      </ul>
-
-      <div *ngFor="let habilidad of habilidades">
-        <h3>{{ habilidad.nombre }}</h3>
-        <mat-progress-bar mode="determinate" [value]="habilidad.progreso"></mat-progress-bar>
-      </div>
-
+<section id="skills" class="skills-section">
+  <div class="container">
+    <h2 class="skills-title">Habilidades</h2>
+    <div class="skills-list" *ngFor="let habilidad of habilidades">
+      <h3 class="skill-name">{{ habilidad.nombre }}</h3>
+      <mat-progress-bar mode="determinate" [value]="habilidad.progreso" class="animated-progress"></mat-progress-bar>
     </div>
   </div>
-</div>
 </section>
-

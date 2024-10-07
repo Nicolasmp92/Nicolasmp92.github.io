@@ -17,6 +17,17 @@ color: #996655;
   color:#FFD966;
   color:#FFA500;
 }
+/* ++++++++++++++SECTION++++++++++++++++ */
+.home-section{
+  padding-top: 170px;
+  padding-bottom: 200px;
+}
+
+/* ------------------------------------- */
+
+
+
+
 
 /* CARD RESUMEN */
 mat-card{
@@ -47,8 +58,73 @@ mat-card-content{
   align-items: center;
   justify-content: center;
   overflow: hidden;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
+
 }
+@keyframes card {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+.ola {
+  /* position: absolute; */
+  /* width: 540px;
+  height: 700px; */
+  /* opacity: 0.6; */
+  /* left: 0;
+  top: 0;
+  margin-left: -50%;
+  margin-top: -70%; */
+  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+}
+
+.ola:nth-child(2),
+.ola:nth-child(3) {
+  top: 210px;
+}
+
+.playing .ola {
+  /* border-radius: 40%; */
+  animation: ola 3000ms infinite linear;
+}
+
+.ola {
+  /* border-radius: 40%; */
+  animation: ola 55s infinite linear;
+}
+
+.playing .ola:nth-child(2) {
+  animation-duration: 4000ms;
+}
+
+.ola:nth-child(2) {
+  animation-duration: 50s;
+}
+
+.playing .ola:nth-child(3) {
+  animation-duration: 5000ms;
+}
+
+.ola:nth-child(3) {
+  animation-duration: 45s;
+}
+
+@keyframes ola {
+  0% {
+    transform: rotate(0deg);
+  }
+
+  100% {
+    transform: rotate(360deg);
+  }
+}
+
+
+/* @MEDIAS CARD */
 @media (max-width: 768px) {
   .card {
     width: 100%; /* Ocupa todo el ancho disponible */

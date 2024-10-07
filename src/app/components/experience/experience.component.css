@@ -1,0 +1,49 @@
+.experiencia-section {
+  margin: 2rem 0;
+}
+
+.experiencia-titulo {
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.experiencia-subrayado {
+  width: 50px;
+  height: 4px;
+  background-color: red;
+  border: none;
+  margin: 0.5rem 0 1rem;
+}
+
+.experiencia-item {
+  margin-bottom: 2rem;
+}
+
+.experiencia-puesto {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+.experiencia-institucion {
+  font-style: italic;
+  color: gray;
+}
+
+.experiencia-fecha {
+  float: right;
+  font-style: normal;
+  color: red;
+}
+
+.experiencia-descripcion {
+  margin: 0.5rem 0;
+}
+
+.experiencia-lista {
+  margin: 0.5rem 0;
+  padding-left: 1.5rem;
+}
+
+.experiencia-lista li {
+  line-height: 1.6;
+}

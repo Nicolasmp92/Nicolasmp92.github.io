@@ -1,8 +1,23 @@
-/* +++++++++FONDO/CONTENIDO++++++++++ */
-.container-xxl{
-  background-color: #313131;
 
+/* +++++++++++++COLOR DE LA BARRA++++++++++++++ */
+/* Estilos para la barra de desplazamiento */
+::-webkit-scrollbar {
+  width: 10px; /* Ancho de la barra */
 }
+
+/* Estilo para el "track" (fondo de la barra) */
+::-webkit-scrollbar-track {
+  background: #f1f1f1; /* Color de fondo del track */
+}
+
+/* Estilo para el "thumb" (parte que se desplaza) */
+::-webkit-scrollbar-thumb {
+  background: #313131; /* Color del thumb (la parte que se desplaza) */
+  box-shadow: 4px 0px 10px 0px #028391;
+  border-radius: 10px; /* Bordes redondeados */
+}
+/* +++++++++FONDO/CONTENIDO++++++++++ */
+
 mat-sidenav-content {
   flex: 1; /* Esto le indica al contenido que ocupe el espacio sobrante */
   height: 100vh;
@@ -11,6 +26,11 @@ mat-sidenav-content {
   background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
+}
+
+mat-toolbar{
+  padding-bottom: 0px;
+  background-color: #313131;
 }
 /* ----------FONDO/CONTENIDO---------- */
 
@@ -93,7 +113,7 @@ mat-sidenav{
   overflow: hidden;
   display: flex;
   justify-content: center;
-  background: #45474B;
+  background: #313131;
   border-radius: 0%;
 }
 .nav-link{

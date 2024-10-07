@@ -1,4 +1,4 @@
-import { Component, ChangeDetectionStrategy, inject, OnInit } from '@angular/core';
+import { Component, ChangeDetectionStrategy, inject, OnInit, viewChild, ElementRef } from '@angular/core';
 import { RouterLink, RouterLinkActive } from '@angular/router';
 import { RouterOutlet } from '@angular/router';
 
@@ -18,6 +18,12 @@ import {MatListModule} from '@angular/material/list';
 import {MatIconModule} from '@angular/material/icon';
 import { ViewChild } from '@angular/core';
 import { NgClass, NgIf } from '@angular/common';
+import { HomeComponent } from './pages/home/home.component';
+import { AboutComponent } from './components/about/about.component';
+import { ExperienceComponent } from './components/experience/experience.component';
+import { SkillsComponent } from './components/skills/skills.component';
+import { ContactComponent } from './components/contact/contact.component';
+
 
 
 
@@ -32,6 +38,11 @@ import { NgClass, NgIf } from '@angular/common';
     RouterLinkActive,
     // Páginas
     HeaderComponent,
+    HomeComponent,
+    AboutComponent,
+    ExperienceComponent,
+    SkillsComponent,
+    ContactComponent,
     FooterComponent,
     // Complementos
     MatToolbarModule,
@@ -53,11 +64,43 @@ export class AppComponent {
   title = 'Niko';
 
 
+  @ViewChild('inicio', { static: false }) inicioSection!: ElementRef;
+  @ViewChild('about', { static: false }) aboutSection!: ElementRef;
+  @ViewChild('experiencia', { static: false }) experienciaSection!: ElementRef;
+  @ViewChild('habilidades', { static: false }) habilidadesSection!: ElementRef;
+  @ViewChild('contacto', { static: false }) contactoSection!: ElementRef;
+
+  scrollToSection(section: string) {
+    let element;
+    switch (section) {
+      case 'inicio':
+        element = this.inicioSection;
+        break;
+      case 'about':
+        element = this.aboutSection;
+        break;
+      case 'experiencia':
+        element = this.experienciaSection;
+        break;
+      case 'habilidades':
+        element = this.habilidadesSection;
+        break;
+      case 'contacto':
+        element = this.contactoSection;
+        break;
+    }
+
+    if (element) {
+      element.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    }
+  }
+
+
   // Referencia al sidenav
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isSidenavOpen = false; // Estado inicial del sidenav
-  options: any;
+  isSidenavOpen = false; // Estado inicial del sidenav, en este caso inicia cerrada
+  options: any;//podria ser boolea
 
   constructor(private _formBuilder: FormBuilder) {
     this.options = this._formBuilder.group({

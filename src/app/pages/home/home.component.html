@@ -1,6 +1,6 @@
-<section class="home">
+<section id="home" class="home-section">
   <!-- TITULO Y MAS -->
-  <div class="container-xxl mt-5 pb-5">
+  <div class="container-xxl ">
 
   <!-- RESUMEN  -->
   <div class="row justify-content-center">
@@ -25,44 +25,47 @@
     <div class="row justify-content-center">
 
       <!-- SOBRE MI -->
-      <div class="card card-1 bg-secondary mb-5 text-center">
+      <div class="card  bg-secondary mb-5 text-center">
+        <div class="ola"></div>
+        <div class="ola"></div>
+        <div class="ola"></div>
         <p class="emoji">🙈</p>
         <h5 class="card-title">Sobre mí</h5>
         <div class="card-body card2">
           <p class="card-text">Si Quieres conoserme un poquito mas, aqui hablo de mis gustos,
             Hobbies(no, no los de pies peludos 💍), pasiones, experiencias.
             ¡Un vistazo a mi mundo más allá del código! 😉 </p>
-            <button mat-stroked-button  routerLink="/about" routerLinkActive="router-link-active" >
+            <a href="#home" mat-stroked-button   routerLinkActive="router-link-active" >
               <mat-icon>arrow_right_alt</mat-icon>
               Ver Mas
-            </button>
+            </a>
         </div>
       </div>
 
       <!-- MI EXPERIENCIA -->
-      <div class="card card-2 bg-secondary  mx-5 mb-5 text-center">
+      <div class="card bg-secondary  mx-5 mb-5 text-center">
         <p class="emoji">💼</p>
         <h5 class="card-title">Mi Experiencia</h5>
         <div class="card-body">
           <p class="card-text"> Descubre mi trayectoria profesional. Aprende cómo he evolucionado como desarrollador
             y los proyectos en los que he participado 💼 .</p>
-          <button mat-stroked-button  routerLink="/experiencia" routerLinkActive="router-link-active" >
+          <a href="#experiencia" mat-stroked-button routerLinkActive="router-link-active" >
             <mat-icon>arrow_right_alt</mat-icon>
             Ver Mas
-          </button>
+          </a>
         </div>
       </div>
 
       <!-- HABILIDADES -->
-      <div class="card card-3 bg-secondary mb-5  text-center">
+      <div class="card bg-secondary mb-5  text-center">
         <p class="emoji">👨🏻‍💻</p>
         <h5 class="card-title">Mis Habilidades</h5>
         <div class="card-body">
           <p class="card-text">Explora las tecnologías y herramientas que domino... siempre me estoy actualizando :smile:</p>
-          <button mat-stroked-button  routerLink="/experiencia" routerLinkActive="router-link-active" >
+          <a href="#skills" mat-stroked-button routerLinkActive="router-link-active" >
             <mat-icon>arrow_right_alt</mat-icon>
             Ver Mas
-          </button>
+          </a>
         </div>
       </div>
 
@@ -72,10 +75,10 @@
         <h5 class="card-title">Contactame</h5>
         <div class="card-body">
           <p class="card-text"> Ponte en contacto conmigo para hablar sobre tu próximo proyecto...</p>
-          <button mat-stroked-button  routerLink="/experiencia" routerLinkActive="router-link-active" >
+          <a href="#contact" mat-stroked-button routerLinkActive="router-link-active" >
             <mat-icon>arrow_right_alt</mat-icon>
             Ver Mas
-          </button>
+          </a>
         </div>
       </div>
     </div>
