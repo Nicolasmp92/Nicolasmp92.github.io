@@ -23,6 +23,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
+import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 
 
@@ -55,7 +56,9 @@ import { ContactComponent } from './components/contact/contact.component';
     MatInputModule,
     MatListModule,
     MatIconModule,
-    NgIf,NgClass
+    NgIf,NgClass,
+
+
   ],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
@@ -99,7 +102,7 @@ export class AppComponent {
   // Referencia al sidenav
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isSidenavOpen = false; // Estado inicial del sidenav, en este caso inicia cerrada
+  isSidenavOpen = true; // Estado inicial del sidenav, en este caso inicia cerrada
   options: any;//podria ser boolea
 
   constructor(private _formBuilder: FormBuilder) {

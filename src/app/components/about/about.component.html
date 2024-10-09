@@ -1,27 +1,33 @@
 <section id="about" class="about mt-5 mb-5">
 
-
-  <div class="container-xxl border border-muted border-opacity-10 ">
+  <div class="container-xxl border border-muted bg-secondary border-opacity-10 pb-5 mb-5 ">
     <div class="row">
-      <div class="col-12">
-        <h2 class="text-center fw-bold pt-3">Sobre mí</h2>
+      <div class="col-md-12">
+        <h2 class="text-center fw-bold pt-3 brillo">Sobre mí</h2>
         <hr class="fw-bolder">
       </div>
 
-      <span class="fs-3 pb-5 fw-bolder lh-sm font-monospace">Hola Mi nombre es Nicolas Muñoz, Vivo en la region de O´Higgin, Entusiasta del desarrollo front-end con
-        amplia experiencia en la creación de
-        interfaces web intuitivas y atractivas
-        utilizando<p class="fst-italic">HTML , CSS, JavaScript y
-        Angular.</p> Apasionado por la informática
-        en todas sus facetas, me dedico
-        constantemente a ampliar mis
-        conocimientos y tengo experiencia en
-        explicar conceptos técnicos complejos
-        de manera clara y comprensible tanto
-        a clientes como a personal con poca expertis.
+      <span class="fs-3 pb-5 fw-bolder lh-sm font-monospace">
+        Hola Mi nombre es Nicolas Muñoz (niko), Vivo en la región de O'Higgins (Chile), actualmente tengo 32 años, mis intereses incluyen:
+
+        <ul class="mt-3">
+          <li>la informática.</li>
+          <li>el Desarrollo front-end (aunque todavía sigo aprendiendo...)</li>
+          <li>el gaming 🎮, más inclinado para el PC y mis favoritos los Resident Evil🧟‍♂️🧬</li>
+          <li>la Naturalesa, criado en un entorno rural y más específicamente en un valle rodiado de cerros, adoro la naturalesa.</li>
+          <li>el manga y el anime</li>
+        </ul>
+
       </span>
+      <span *ngIf="VerMas" class="fs-3 pb-5 fw-bolder lh-sm font-monospace">Me titule de INGENIERO DE EJECUCIÓN EN INFORMÁTICA MENCIÓN
+        DESARROLLO DE SISTEMAS, <p class="fst-italic">En el año 2017</p>
+        Apasionado por la informática
+
+      </span>
+      <div class=" align-items-end">
+        <button (click)="MostrarTexto()" class="btn btn-outline-light btn-xl px-3"> Ver Mas </button>
+      </div>
     </div>
   </div>
 
-
-  </section>
+</section>

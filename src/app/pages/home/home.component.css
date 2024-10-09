@@ -1,31 +1,12 @@
-/* PALETA DE COLORES */
-.mi-paleta{
-  color: #01204E;
-  color: #028391;
-  color: #F6DCAC;
-  color: #FEAE6F;
 
-}
-.colores-dominantes{
-color: #1E1E1E;
-color: #333333;
-color: #2A443C;
-color: #996655;
-}
-.colores-acentos{
-  color:#66C2A5;
-  color:#FFD966;
-  color:#FFA500;
-}
 /* ++++++++++++++SECTION++++++++++++++++ */
 .home-section{
   padding-top: 170px;
   padding-bottom: 200px;
 }
-
 /* ------------------------------------- */
 
-
+/* TITULO */
 
 
 
@@ -52,12 +33,13 @@ mat-card-content{
   height: 200px;
   background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
   border-color: #66C2A5;
-  box-shadow:0px 0px 30px 1px #028391 ;
+  /* box-shadow:0px 0px 30px 1px #028391 ; */
   border-radius: 10px;
   display: flex;
   align-items: center;
   justify-content: center;
   overflow: hidden;
+  z-index: 15;
 
 }
 @keyframes card {
@@ -71,15 +53,16 @@ mat-card-content{
 }
 
 .ola {
-  /* position: absolute; */
-  /* width: 540px;
-  height: 700px; */
-  /* opacity: 0.6; */
-  /* left: 0;
+  z-index: -5;
+  position: absolute;
+  width: 540px;
+  height: 700px;
+  opacity: 0.6;
+  left: 0;
   top: 0;
   margin-left: -50%;
-  margin-top: -70%; */
-  background: linear-gradient(744deg,#af40ff,#5b42f3 60%,#00ddeb);
+  margin-top: -70%;
+  background: linear-gradient(744deg,#808080,#2E2E2E 60%,#141414);
 }
 
 .ola:nth-child(2),
@@ -88,12 +71,12 @@ mat-card-content{
 }
 
 .playing .ola {
-  /* border-radius: 40%; */
+  border-radius: 40%;
   animation: ola 3000ms infinite linear;
 }
 
 .ola {
-  /* border-radius: 40%; */
+  border-radius: 40%;
   animation: ola 55s infinite linear;
 }
 
@@ -163,7 +146,7 @@ mat-card-content{
   font-size: 30px;
   font-weight: 700;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  color: #66C2A5;
+  color: #b6cac4;
 }
 
 .card:hover .card-title{

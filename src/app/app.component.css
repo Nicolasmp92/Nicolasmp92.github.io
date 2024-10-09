@@ -1,62 +1,86 @@
+.mi-paleta{
+  color: #01204E;
+  color: #028391;
+  color: #F6DCAC;
+  color: #FEAE6F;
 
-/* +++++++++++++COLOR DE LA BARRA++++++++++++++ */
-/* Estilos para la barra de desplazamiento */
-::-webkit-scrollbar {
-  width: 10px; /* Ancho de la barra */
 }
-
-/* Estilo para el "track" (fondo de la barra) */
-::-webkit-scrollbar-track {
-  background: #f1f1f1; /* Color de fondo del track */
+.colores-dominantes{
+color: #1E1E1E;
+color: #333333;
+color: #2A443C;
+color: #996655;
 }
-
-/* Estilo para el "thumb" (parte que se desplaza) */
-::-webkit-scrollbar-thumb {
-  background: #313131; /* Color del thumb (la parte que se desplaza) */
-  box-shadow: 4px 0px 10px 0px #028391;
-  border-radius: 10px; /* Bordes redondeados */
+.colores-acentos{
+  color:#66C2A5;
+  color:#FFD966;
+  color:#FFA500;
 }
-/* +++++++++FONDO/CONTENIDO++++++++++ */
+mat-sidenav-container{
+  z-index: 1000 !important;
+}
+mat-toolbar{
+  padding-bottom: 0px;
+  background-color: #313131;
+  z-index: 1020 !important;
 
+}
+mat-sidenav{
+  width: 230px;
+  height: 100%;
+  overflow: hidden;
+  display: flex;
+  justify-content: center;
+  background: #313131;
+  border-radius: 0%;
+  /* border-right: 0.2em solid #F6DCAC; */
+  z-index: 1030 !important;
+  position: absolute;
+}
 mat-sidenav-content {
-  flex: 1; /* Esto le indica al contenido que ocupe el espacio sobrante */
+  flex: 1;
   height: 100vh;
-  overflow-y: auto; /* Para permitir el desplazamiento si el contenido es muy largo */
+  overflow-y: auto;
   background-color: #313131;
   background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0);
   background-size: 30px 30px;
   background-position: -5px -5px;
+  z-index: 1010 !important;
 }
 
-mat-toolbar{
-  padding-bottom: 0px;
-  background-color: #313131;
+/* +++++++++++++COLOR DE LA BARRA++++++++++++++ */
+::-webkit-scrollbar {
+  width: 10px;
 }
-/* ----------FONDO/CONTENIDO---------- */
+::-webkit-scrollbar-track {
+  background: #f1f1f1;
+}
+::-webkit-scrollbar-thumb {
+  background: #313131;
+  box-shadow: 4px 0px 10px 0px #028391;
+  border-radius: 10px;
+}
 
 
-
-
-/* ++++++++++BOTON PARA ESCONDER LA BARRA++++++++++++++ */
+/* ++++++++++BOTON PARA ESCONDER LA BARRA LATERAL++++++++++++++ */
 button.toggle-btn{
   position: fixed;
   top: 0;
   left: 50;
   border-radius: 0 50px 50px 0;
-  z-index: 9000;
-  background-color: #252525; /* Reemplazo del amarillo por un tono café */
-  color: #fff; /* Blanco para los íconos */
-  border: 0.2em solid #F6DCAC; /* Gris oscuro para el borde */
+  z-index: 3000 !important;
+  background-color: #252525;
+  color: #fff;
+  /* border: 0.2em solid #F6DCAC; */
   transition: all 0.6s ease;
 }
 
 button.toggle-btn:hover {
-  background-color: #FEAE6F; /* Un verde un poco más claro en hover */
+  background-color: #FEAE6F;
   cursor: pointer;
 }
 
 button.toggle-btn i{
-  /* margin: -0.2em 0.8em 0; */
   position: relative;
   display: flex;
   transition: transform 0.6s ease;
@@ -69,27 +93,17 @@ button.toggle-btn i{
   50% { transform: translateX(5px); }
   75% { transform: translateX(-5px); }
   100% { transform: translateX(0); }
-}
 
-/* Añadir el shake solo cuando la barra esté cerrada */
+}
 .icon-shake i.bi-list{
-  animation: shake 1.8s ease-in-out infinite; /* Ajusta la duración y el tipo de transición */
+  animation: shake 1.8s ease-in-out infinite;
 }
-
-
 button.toggle-btn:hover i.bi-x{
-  transform: translateX(-5px); /* Mover hacia la izquierda */
+  transform: translateX(-5px);
 }
-
 button.toggle-btn:hover i.bi-list{
-  transform: translateX(5px); /* Mover hacia la derecha */
+  transform: translateX(5px);
 }
-/* -----------------BOTON PARA ESCONDER LA BARRA------------------- */
-
-
-
-
-
 
 /* ++++++++++MENU SIDE NAV+++++++++++++ */
 .sidenav-container{
@@ -106,26 +120,18 @@ button.toggle-btn:hover i.bi-list{
   }
 }
 
-/* Barra lateral izquierda vertical */
-mat-sidenav{
-  width: 230px;
-  height: 100%;
-  overflow: hidden;
-  display: flex;
-  justify-content: center;
-  background: #313131;
-  border-radius: 0%;
-}
+/* MENU*/
 .nav-link{
   background-color: transparent;
   border: none;
   padding: 10px;
-  color: white;
-  display: flex;
+  /* color: white; */
+  /* display: flex; */
   position: relative;
-  gap: 5px;
+  /* gap: 5px; */
   cursor: pointer;
-  border-radius: 4px;
+  /* border-radius: 4px; */
+  font-size: 1rem;
 }
 .active-link{
   background-color: #028391!important;
@@ -159,7 +165,7 @@ mat-sidenav{
 .nav-link i{
   width: 15px
 }
-mat-nav-list:hover  :not(.nav-link:hover){
+.nav-options:hover  :not(.nav-link:hover){
   transition: 300ms;
   filter: blur(1px);
   transform: scale(0.95,0.95);
