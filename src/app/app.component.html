@@ -13,8 +13,8 @@
 
       <!-- IMGANE DE PERFIL -->
       <div class="container">
-        <h5 class="mt-2">Nicolas Muñoz</h5>
-        <hr>
+        <h5 class="mt-3 ">Nicolas Muñoz</h5>
+        <hr class="border border-light border-1 opacity-50">
 
         <div class="profile-container pb-5">
           <a class="align-self-center" routerLink="/home" >
@@ -55,49 +55,62 @@
     <!-- CONTENEDOR DE CONTENIDO Y RUTAS -->
     <mat-sidenav-content [formGroup]="options">
 
-      <mat-toolbar class="justify-content-center d-flex fixed-top">
-      <div class="row align-items-center">
-        <div class="col-auto ">
-        </div>
-        <!-- MENU DE NAVEGACION -->
-        <div class="col d-flex justify-content-center">
-          <div class="nav-options">
-            <a class="nav-link" href="#home" routerLinkActive="active-link" mat-button >Inicio</a>
-            <a class="nav-link" href="#about"  routerLinkActive="active-link" mat-button>Sobre mí</a>
-            <a class="nav-link" href="#experiencia"  routerLinkActive="active-link" mat-button>Experiencia</a>
-            <a class="nav-link" href="#skills"  routerLinkActive="active-link" mat-button>Habilidades</a>
-            <a class="nav-link" href="#contact"  routerLinkActive="active-link" mat-button>Contacto</a>
-          </div>
-        </div>
-        <div class="col-auto">
-        </div>
-      </div>
-      </mat-toolbar>
-      <!-- <p>
-        <button class="toggle-btn" mat-button (click)="sidenav.toggle()">
-          <i *ngIf="isSidenavOpen" class="bi bi-x fs-3 "></i>
-          <i *ngIf="!isSidenavOpen" class="bi bi-list fs-3"></i>
-        </button>
-      </p> -->
-        <button
-          class="toggle-btn"
-          mat-button
-          (click)="toggleSidenav()"
-          [ngClass]="{ 'icon-shake': !isSidenavOpen }">
-          <i *ngIf="isSidenavOpen" class="bi bi-x fs-3"></i>
-          <i *ngIf="!isSidenavOpen" class="bi bi-list fs-3"></i>
-        </button>
+      <mat-toolbar class="navbar navbar-expand-lg navbar-light fixed-top border-bottom border-light border-2 opacity-50">
+        <div class="container-fluid">
 
-        <!-- <app-header></app-header> -->
-        <!-- <router-outlet></router-outlet> -->
+
+          <button class="toggle-btn" mat-button (click)="toggleSidenav()" [ngClass]="{ 'icon-shake': !isSidenavOpen }">
+            <i *ngIf="isSidenavOpen" class="bi bi-x fs-3"></i>
+            <i *ngIf="!isSidenavOpen" class="bi bi-list fs-3"></i>
+          </button>
+
+          <!-- Contenedor colapsable del menú de navegación -->
+          <div class="collapse navbar-collapse justify-content-center" id="navbarNav">
+            <ul class="navbar-nav">
+              <li class="nav-item">
+                <a class="nav-link" href="#home" routerLinkActive="active-link" mat-button>Inicio</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#about" routerLinkActive="active-link" mat-button>Sobre mí</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#experiencia" routerLinkActive="active-link" mat-button>Experiencia</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#skills" routerLinkActive="active-link" mat-button>Habilidades</a>
+              </li>
+              <li class="nav-item">
+                <a class="nav-link" href="#contact" routerLinkActive="active-link" mat-button>Contacto</a>
+              </li>
+            </ul>
+
+            <!-- Botón de la ampolleta (interruptor) -->
+            <div class="col-auto position-absolute end-0">
+              <input type="checkbox" class="ampolleta">
+            </div>
+
+          </div>
+
+             <!-- Ícono de menú (mat-icon) que actúa como botón de colapso en dispositivos pequeños -->
+          <button mat-icon-button class="navbar-toggler position-absolute end-0" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+             aria-controls="navbarNav"
+             aria-expanded="false"
+             aria-label="Toggle navigation">
+             <mat-icon>menu</mat-icon>
+          </button>
+
+
+
+        </div>
+      </mat-toolbar>
+
+
+
         <app-home></app-home>
         <app-about></app-about>
         <app-experience></app-experience>
         <app-skills></app-skills>
         <app-contact></app-contact>
-
-
-        <!-- <app-footer></app-footer> -->
 
     </mat-sidenav-content>
 
@@ -105,5 +118,4 @@
 
   </mat-sidenav-container>
 
-  <!-- <mat-toolbar class="example-footer">Footer</mat-toolbar> -->
 

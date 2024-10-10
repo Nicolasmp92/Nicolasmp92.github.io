@@ -6,10 +6,6 @@
 }
 /* ------------------------------------- */
 
-/* TITULO */
-
-
-
 /* CARD RESUMEN */
 mat-card{
   background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
@@ -24,8 +20,6 @@ mat-card-content{
   border-radius: 10px;
 
 }
-
-
 /* ++++++++++++++CARD MENU++++++++++++++++++ */
 .card {
   position: relative;
@@ -40,7 +34,6 @@ mat-card-content{
   justify-content: center;
   overflow: hidden;
   z-index: 15;
-
 }
 @keyframes card {
   0% {
@@ -51,7 +44,6 @@ mat-card-content{
     transform: rotate(360deg);
   }
 }
-
 .ola {
   z-index: -5;
   position: absolute;
@@ -64,49 +56,38 @@ mat-card-content{
   margin-top: -70%;
   background: linear-gradient(744deg,#808080,#2E2E2E 60%,#141414);
 }
-
 .ola:nth-child(2),
 .ola:nth-child(3) {
   top: 210px;
 }
-
 .playing .ola {
   border-radius: 40%;
   animation: ola 3000ms infinite linear;
 }
-
 .ola {
   border-radius: 40%;
   animation: ola 55s infinite linear;
 }
-
 .playing .ola:nth-child(2) {
   animation-duration: 4000ms;
 }
-
 .ola:nth-child(2) {
   animation-duration: 50s;
 }
-
 .playing .ola:nth-child(3) {
   animation-duration: 5000ms;
 }
-
 .ola:nth-child(3) {
   animation-duration: 45s;
 }
-
 @keyframes ola {
   0% {
     transform: rotate(0deg);
   }
-
   100% {
     transform: rotate(360deg);
   }
 }
-
-
 /* @MEDIAS CARD */
 @media (max-width: 768px) {
   .card {
@@ -127,20 +108,17 @@ mat-card-content{
 .card:nth-child(4):hover {
   transform: rotate(3deg) scale(1.1);
 }
-
 .emoji{
   font-size: 50px;
   font-style: none;
 }
 .card .emoji{
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-
 }
 .card:hover .emoji {
   scale: 0;
   transform: rotate(-45deg);
 }
-
 .card .card-title {
   margin: 0;
   font-size: 30px;
@@ -148,16 +126,13 @@ mat-card-content{
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
   color: #b6cac4;
 }
-
 .card:hover .card-title{
   scale: 0;
   transform: rotate(-45deg);
 }
-
 .card:hover {
   box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
 }
-
 .card-body {
   position: absolute;
   top: 50%;
@@ -171,12 +146,10 @@ mat-card-content{
   opacity: 0;
   transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
 }
-
 .card:hover .card-body {
   transform: translate(-50%, -50%) rotate(0deg);
   opacity: 1;
 }
-
 .card-text {
   margin: 10px 0 0;
   font-size: 14px;
@@ -184,7 +157,4 @@ mat-card-content{
   line-height: 1.4;
 }
 
-
-
-/* ------------------------CARD-------------------------------- */
 

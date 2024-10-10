@@ -102,7 +102,7 @@ export class AppComponent {
   // Referencia al sidenav
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isSidenavOpen = true; // Estado inicial del sidenav, en este caso inicia cerrada
+  isSidenavOpen = false; // Estado inicial del sidenav, en este caso inicia cerrada
   options: any;//podria ser boolea
 
   constructor(private _formBuilder: FormBuilder) {

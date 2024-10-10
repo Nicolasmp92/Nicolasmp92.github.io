@@ -2,3 +2,24 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+
+.mi-paleta{
+  color: #01204E;
+  color: #028391;
+  color: #F6DCAC;
+  color: #FEAE6F;
+  color: #f8f9fa;
+}
+.colores-dominantes{
+color: #1E1E1E;
+color: #333333;
+color: #2A443C;
+color: #996655;
+}
+.colores-acentos{
+  color:#66C2A5;
+  color:#FFD966;
+  color:#FFA500;
+}
