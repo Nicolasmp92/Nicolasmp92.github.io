@@ -3,13 +3,14 @@ mat-sidenav-container{
   z-index: 1000 !important;
 }
 .sidenav-container{
-  /* position: absolute; */
-  top: 0;
+  position: absolute;
+  top: 0px;
+  bottom: 0px;
   left: 0;
   right: 0;
-  bottom: 0;
   height: 100%;
   width: 100%;
+  background-color: #313131;
 }
 @media (max-width:768px){
   .sidenav-container{
@@ -95,14 +96,13 @@ mat-sidenav-container{
 .ampolleta:focus {
   outline: 0;
 }
-
 mat-toolbar{
   position: fixed;
   padding-bottom: 0px;
   background-color: #313131;
-  z-index: 1020 !important;
-  /* border-bottom:1px #f8f9fa solid; */
+  border-bottom:1px #f8f9fa solid;
 }
+/* para posicionar el menu en responsivo */
 .mat-menu{
   top: 5px !important;
   right: 5px !important;
@@ -152,17 +152,15 @@ mat-toolbar{
 }
 
 
-mat-sidenav{
+
+.mat-sidenav{
   width: 230px;
-  /* overflow: hidden; */
+  top: 60px;
   display: flex;
   justify-content: center;
   background: #313131;
   border-radius: 0%;
-  /* z-index: 1030 !important; */
-  /* position: absolute; */
 }
-
 .profile-container{
   display: flex;
   justify-content: center;
@@ -235,6 +233,8 @@ span .bi{
   padding-left: 5px;
 }
 button.toggle-btn{
+  position: relative;
+  top: 5;
   border-radius: 0 50px 50px 0;
   border: 1px #f1f1f1 solid;
   z-index: 3000 !important;
@@ -275,8 +275,6 @@ mat-sidenav-content {
   height: 100vh;
   overflow-y: auto;
   background-color: #313131;
-  /* background-image: radial-gradient(rgba(255, 255, 255, 0.171) 2px, transparent 0); */
   background-size: 30px 30px;
   background-position: -5px -5px;
-  z-index: 1010 !important;
 }

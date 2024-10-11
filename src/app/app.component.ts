@@ -103,10 +103,10 @@ export class AppComponent {
   isSidenavOpen = true; // Estado inicial del sidenav, en este caso inicia cerrada
   options: any;//podria ser boolea
 
+
   constructor(private _formBuilder: FormBuilder) {
     this.options = this._formBuilder.group({
       fixed: false,
-// estos parametros no sirven si se encuentra fixed en false
       bottom: 0,
       top: 0,
     });
