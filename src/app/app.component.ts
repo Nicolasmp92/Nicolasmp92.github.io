@@ -65,8 +65,6 @@ import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 })
 export class AppComponent {
   title = 'Niko';
-
-
   @ViewChild('inicio', { static: false }) inicioSection!: ElementRef;
   @ViewChild('about', { static: false }) aboutSection!: ElementRef;
   @ViewChild('experiencia', { static: false }) experienciaSection!: ElementRef;
@@ -102,13 +100,14 @@ export class AppComponent {
   // Referencia al sidenav
   @ViewChild('sidenav') sidenav!: MatSidenav;
 
-  isSidenavOpen = false; // Estado inicial del sidenav, en este caso inicia cerrada
+  isSidenavOpen = true; // Estado inicial del sidenav, en este caso inicia cerrada
   options: any;//podria ser boolea
 
   constructor(private _formBuilder: FormBuilder) {
     this.options = this._formBuilder.group({
+      fixed: false,
+// estos parametros no sirven si se encuentra fixed en false
       bottom: 0,
-      fixed: true,
       top: 0,
     });
   }

@@ -3,9 +3,11 @@ mat-sidenav-container{
   z-index: 1000 !important;
 }
 .sidenav-container{
-  position: absolute;
+  /* position: absolute; */
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   height: 100%;
   width: 100%;
 }
@@ -82,12 +84,10 @@ mat-sidenav-container{
   background-color: rgba(0,0,0,0.45);
   box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.1) inset;
 }
-
 .ampolleta:checked:before {
   background-color: currentColor;
   transform: translateX(125%)
 }
-
 .ampolleta:checked:after {
   border-left-color: currentColor;
   transform: translateX(-2.5%) rotateY(180deg);
@@ -96,14 +96,16 @@ mat-sidenav-container{
   outline: 0;
 }
 
-
-
-
 mat-toolbar{
+  position: fixed;
   padding-bottom: 0px;
   background-color: #313131;
   z-index: 1020 !important;
   /* border-bottom:1px #f8f9fa solid; */
+}
+.mat-menu{
+  top: 5px !important;
+  right: 5px !important;
 }
 .nav-link{
   background-color: transparent;
@@ -152,14 +154,13 @@ mat-toolbar{
 
 mat-sidenav{
   width: 230px;
-  height: 100%;
-  overflow: hidden;
+  /* overflow: hidden; */
   display: flex;
   justify-content: center;
   background: #313131;
   border-radius: 0%;
-  z-index: 1030 !important;
-  position: absolute;
+  /* z-index: 1030 !important; */
+  /* position: absolute; */
 }
 
 .profile-container{
@@ -234,15 +235,11 @@ span .bi{
   padding-left: 5px;
 }
 button.toggle-btn{
-  /* position: fixed;
-  top: 0;
-  left: 50; */
   border-radius: 0 50px 50px 0;
   border: 1px #f1f1f1 solid;
   z-index: 3000 !important;
   background-color: #252525;
   color: #fff;
-  /* border: 0.2em solid #F6DCAC; */
   transition: all 0.6s ease;
 }
 button.toggle-btn:hover {
