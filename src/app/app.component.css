@@ -103,20 +103,48 @@ mat-toolbar{
   position: fixed;
   background: #028391  !important;
 }
+@media(min-width:768px){
+  .navbar-expand-lg {
+    padding: 25px 0;
+    border: 0;
+    background-color: #495E57;
+    -webkit-transition: padding .3s;
+    -moz-transition: padding .3s;
+    transition: padding .3s;
+  }
+
+  .navbar-expand-lg.navbar-brand {
+    font-size: 2em;
+    -webkit-transition: all .3s;
+    -moz-transition: all .3s;
+    transition: all .3s;
+  }
+
+  .navbar-expand-lg.navbar-nav>.active>a {
+    border-radius: 3px;
+  }
+
+  .navbar-expand-lg.navbar-shrink {
+    padding: 10px 0;
+    background-color: #495E57;
+  }
+
+  .navbar-expand-lg.navbar-shrink.navbar-brand {
+    font-size: 1.0em;
+}
+}
+
+
 .mat-menu{
   background-color: #1E1E1E;
 }
-.mat-menu::selection{
-  margin-top: 50px;
-  border-color: red 2px  !important;
-}
-/* Propiedad Bootstrap, sirve para cambiar el aspecto de la barra en responsivo */
+/* navbar collapse, es el boton que aparece cuando se encuentra el menu en responsivo */
 .navbar-collapse{
   background-color: #028391;
-  border: red !important;
   padding: 20px 50px;
   margin: 0px -30px;
 }
+/* El estilo para cada link del menu */
 .nav-link{
   background-color: transparent;
   border: none;
