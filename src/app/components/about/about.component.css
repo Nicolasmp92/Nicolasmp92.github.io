@@ -1,4 +1,7 @@
 /* Estilo para el título con efecto brillo */
+.about{
+  padding-top: 10%;
+}
 .brillo {
   position: relative;
   display: inline-block;
