@@ -1,8 +1,13 @@
 
 /* ++++++++++++++SECTION++++++++++++++++ */
 .home-section{
-  padding-top: 140px;
+  padding-top: 200px;
   padding-bottom: 200px;
+}
+@media (width = 768px){
+  .home-section{
+    padding-top: 50px;
+  }
 }
 /* ------------------------------------- */
 
@@ -26,7 +31,7 @@ mat-card-content{
   width: 300px;
   height: 200px;
   background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
-  border-color: #66C2A5;
+  border-color: #45474B;
   /* box-shadow:0px 0px 30px 1px #028391 ; */
   border-radius: 10px;
   display: flex;

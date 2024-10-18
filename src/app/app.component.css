@@ -29,14 +29,18 @@ mat-sidenav-container{
   border-radius: 0px;
 }
 /* AMPOLLETA */
-.ampolleta {
-
+.ampolleta{
   display: block;
   margin-bottom: 1.5em;
   font-size: 1em;
 }
+@media(max-width = 768px){
+  .ampolleta{
+    margin-right: 100px;
+  }
+}
 
-.ampolleta {
+.ampolleta{
   background-color: rgba(0,0,0,0.7);
   border-radius: 0.75em;
   box-shadow: 0.125em 0.125em 0 0.125em rgba(0,0,0,0.3) inset;
@@ -53,7 +57,7 @@ mat-sidenav-container{
   appearance: none;
 }
 
-.ampolleta:before, .ampolleta:after {
+.ampolleta:before, .ampolleta:after{
   content: "";
   display: block;
 }
@@ -103,6 +107,9 @@ mat-toolbar{
   position: fixed;
   background: #028391  !important;
 }
+.mat-menu{
+  background-color: #252525;
+}
 @media(min-width:768px){
   .navbar-expand-lg {
     padding: 25px 0;
@@ -112,7 +119,6 @@ mat-toolbar{
     -moz-transition: padding .3s;
     transition: padding .3s;
   }
-
   .navbar-expand-lg.navbar-brand {
     font-size: 2em;
     -webkit-transition: all .3s;
@@ -135,9 +141,7 @@ mat-toolbar{
 }
 
 
-.mat-menu{
-  background-color: #1E1E1E;
-}
+
 /* navbar collapse, es el boton que aparece cuando se encuentra el menu en responsivo */
 .navbar-collapse{
   background-color: #028391;
@@ -146,7 +150,6 @@ mat-toolbar{
 }
 /* El estilo para cada link del menu */
 .nav-link{
-  background-color: transparent;
   border: none;
   padding: 10px;
   position: relative;
@@ -154,7 +157,7 @@ mat-toolbar{
   font-size: 1rem;
 }
 .active-link{
-  background-color: #028391!important;
+  background-color: #FEAE6F !important;
 }
 .nav-link:not(:active):hover,
 .nav-link:focus{
@@ -298,13 +301,13 @@ button.toggle-btn i{
   100% { transform: translateX(0); }
 
 }
-.icon-shake i.bi-list{
+.icon-shake i.bi-person-vcard-fill{
   animation: shake 1.8s ease-in-out infinite;
 }
 button.toggle-btn:hover i.bi-x{
   transform: translateX(-5px);
 }
-button.toggle-btn:hover i.bi-list{
+button.toggle-btn:hover i.bi-person-vcard-fill{
   transform: translateX(5px);
 }
 
@@ -319,3 +322,129 @@ mat-sidenav-content {
   background-size: 30px 30px;
   background-position: -5px -5px;
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+/* LAMPARA en estos momentos se encuentra desactivada en html */
+.cable{
+  width: 2px;
+  margin: auto;
+  background-color: #495E57;
+  height: 100px;
+}
+.lampara{
+  width: 300px;
+  /* border-bottom: 10px solid #d7d7d7; */
+  position: relative;
+}
+.boton-lampara {
+  background-color: #626262;
+  border: none;
+  border-radius: 50px 50px 0 0;
+  padding: 7px;
+  cursor: pointer;
+  outline: none;
+  color: white;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background-color 0.3s;
+}
+.boton-lampara:hover {
+  background-color: #4d4d4d;
+}
+.caja{
+  z-index: 1;
+  width: 80px;
+  height: 40px;
+  background-color:#626262;
+  margin: auto;
+  border-radius: 30px 30px 0 0;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+  .luz {
+    max-width: 300px;
+    margin: auto;
+    height: 200px;
+    clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
+    background-color: transparent;
+    box-shadow: none;
+    transition: background-color 0.5s, box-shadow 0.5s;
+  }
+  .luz.encendida {
+    background-color: #F6DCAC;
+    box-shadow: 0px 0px 20px 10px rgba(255, 235, 59, 0.5);
+  }
+  .ampolleta2{
+    z-index: -1;
+    position: absolute;
+    left: 16px;
+    border-radius: 0.75em;
+    color: #F6DCAC;
+    display: inline-flex;
+    align-items: center;
+    margin: auto;
+    padding: 0.15em;
+    width: 3em;
+    height: 1.5em;
+    transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    transform: rotate(270deg);
+
+  }
+  .ampolleta2:before, .ampolleta2:after{
+    content: "";
+    display: block;
+  }
+  /* Cristal/bombillo */
+  .ampolleta2:before {
+    background-color: #d7d7d7;
+    border-radius: 50%;
+    width: 1.2em;
+    height: 1.2em;
+    transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+    z-index: 1;
+  }
+  /* CONECTOR O LATA */
+  .ampolleta2:after {
+    background: linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
+      repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
+      radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
+    background-repeat: no-repeat;
+    border: 0.25em solid transparent;
+    border-left: 0.4em solid #d8d8d8;
+    border-right: 0 solid transparent;
+    transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
+    transform: translateX(-22.5%);
+    transform-origin: 25% 50%;
+    width: 1.2em;
+    height: 1em;
+    box-sizing: border-box;
+  }
+
+  .ampolleta2:checked:before {
+    background-color: currentColor;
+    /* transform: translateX(125%) */
+  }
+  .ampolleta2:checked:after {
+    border-left-color: currentColor;
+    /* transform: translateX(-2.5%) rotateY(180deg); */
+  }
+  .ampolleta2:focus {
+    outline: 0;
+  }

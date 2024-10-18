@@ -55,7 +55,7 @@ export class AppComponent implements OnInit {
   private header: HTMLElement | undefined;
   private changeHeaderOn: number = 100;
   private didScroll: boolean = false;
-
+  isEncendida: boolean = false;
   title = 'Niko';
 
   @ViewChild('inicio', { static: false }) inicioSection!: ElementRef;
@@ -198,5 +198,10 @@ export class AppComponent implements OnInit {
         (toggleButton as HTMLElement).click();
       }
     });
+  }
+
+  // PARA MANEJAR EL ENCENDIDO Y APAGADO DE LA LAMPARA
+  toggleLampara(): void {
+    this.isEncendida = !this.isEncendida;
   }
 }
