@@ -203,7 +203,7 @@ mat-sidenav{
   justify-content: center;
   background: #313131;
   border-radius: 0%;
-  border-right: #bbb 1px solid;
+  /* border-right: #bbb 1px solid; */
 }
 .profile-container{
   display: flex;

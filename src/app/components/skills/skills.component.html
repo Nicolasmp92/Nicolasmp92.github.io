@@ -1,9 +1,23 @@
 <section id="skills" class="skills-section">
+
   <div class="container">
     <h2 class="skills-title">Habilidades</h2>
-    <div class="skills-list" *ngFor="let habilidad of habilidades">
-      <h3 class="skill-name">{{ habilidad.nombre }}</h3>
-      <mat-progress-bar mode="determinate" [value]="habilidad.progreso" class="animated-progress"></mat-progress-bar>
+
+    <div class="row">
+    <div class="col-md-6">
+      <div class="skills-list" *ngFor="let habilidad of habilidadesFront">
+        <img class="skill-img" src="{{ habilidad.icono }}" alt="{{ habilidad.nombre }}" />
+        <h3 class="skill-name">{{ habilidad.nombre }}</h3>
+        <mat-progress-bar mode="determinate" [value]="habilidad.progreso" class="animated-progress"></mat-progress-bar>
+      </div>
     </div>
+    <div class="col-md-6">
+      <div class="skills-list" *ngFor="let habilidad of habilidadesBack">
+        <h3 class="skill-name">{{ habilidad.nombre }}</h3>
+        <mat-progress-bar mode="determinate" [value]="habilidad.progreso" class="animated-progress"></mat-progress-bar>
+      </div>
+    </div>
+  </div>
+
   </div>
 </section>
