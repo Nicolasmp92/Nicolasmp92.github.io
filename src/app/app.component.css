@@ -193,7 +193,47 @@ mat-toolbar{
 }
 /* -------------------------------------- */
 
+/* BTN CURRICULUM */
+.btncv {
+  width: 100%;
+  max-width: 210px;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 100;
+  color: #FEAE6F;
+  text-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: transparent;
+  border: 1px solid #996655;
+  transition: 0.5s ease;
+  user-select: none;
+  line-height: 0.9;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
 
+#cv:hover,
+#cv:focus {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391; /* Cambiado a color de la paleta mi-paleta */
+  text-decoration: none;
+
+}
+
+
+.btncv mat-icon {
+  margin-left: 10px;
+  padding-right: 20px;
+}
+/* -------------------------------------- */
 
 /* REDES SOCIALES BTN */
 mat-sidenav{
@@ -266,11 +306,13 @@ span{
 }
 span .bi:hover{
   color: #FEAE6F;
-}
+
+  }
 span .bi{
   color: #028391;
   padding-left: 5px;
 }
+
 /* ------------------------- */
 
 /* BOTON PARA TARJETA DE PERFIL  */
@@ -448,3 +490,4 @@ mat-sidenav-content {
   .ampolleta2:focus {
     outline: 0;
   }
+

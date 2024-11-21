@@ -1,5 +1,4 @@
-import { Component, OnInit, ViewChild, ElementRef, Renderer2 } from '@angular/core';
-import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { Component, AfterViewInit, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,11 +9,8 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgIf } from '@angular/common';
-import { BreakpointObserver, Breakpoints } from '@angular/cdk/layout';
 
 // Componentes
-import { HeaderComponent } from './components/header/header.component';
-import { FooterComponent } from './components/footer/footer.component';
 import { HomeComponent } from './pages/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
@@ -25,23 +21,19 @@ import { ContactComponent } from './components/contact/contact.component';
   selector: 'app-root',
   standalone: true,
   imports: [
-    RouterOutlet,
-    RouterLink,
-    RouterLinkActive,
-    HeaderComponent,
+
     HomeComponent,
     AboutComponent,
-    ExperienceComponent,
     SkillsComponent,
+    ExperienceComponent,
     ContactComponent,
-    FooterComponent,
-    MatToolbarModule,
-    MatSidenavModule,
     FormsModule,
     ReactiveFormsModule,
-    MatCheckboxModule,
-    MatFormFieldModule,
     MatButtonModule,
+    MatFormFieldModule,
+    MatCheckboxModule,
+    MatSidenavModule,
+    MatToolbarModule,
     MatInputModule,
     MatListModule,
     MatIconModule,
@@ -51,20 +43,9 @@ import { ContactComponent } from './components/contact/contact.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit {
-  private header: HTMLElement | undefined;
-  private changeHeaderOn: number = 100;
-  private didScroll: boolean = false;
-  isEncendida: boolean = false;
-  title = 'Niko';
-
-  @ViewChild('inicio', { static: false }) inicioSection!: ElementRef;
-  @ViewChild('about', { static: false }) aboutSection!: ElementRef;
-  @ViewChild('experiencia', { static: false }) experienciaSection!: ElementRef;
-  @ViewChild('habilidades', { static: false }) habilidadesSection!: ElementRef;
-  @ViewChild('contacto', { static: false }) contactoSection!: ElementRef;
+export class AppComponent implements OnInit, AfterViewInit {
+  @ViewChild('navbarNav') navbarNav!: ElementRef;
   @ViewChild('sidenav') sidenav!: MatSidenav;
-
   isSidenavOpen = false;
   options: FormGroup;
 
@@ -77,78 +58,32 @@ export class AppComponent implements OnInit {
   }
 
   ngOnInit(): void {
-    this.header = document.querySelector('.navbar') as HTMLElement;
-    window.addEventListener('scroll', () => this.onScroll());
-
     this.initScrollSpy();
     this.initCloseResponsiveMenuOnClick();
     this.initCloseResponsiveMenuOnClickOutside();
   }
 
+  ngAfterViewInit(): void {
+    // Verificación para asegurar que sidenav esté inicializado
+    if (this.sidenav) {
+      this.isSidenavOpen = this.sidenav.opened;
+      console.log('Sidenav está abierto:', this.isSidenavOpen);
+    } else {
+      console.error('Sidenav no está definido');
+    }
+  }
+
   toggleSidenav() {
-    this.sidenav.toggle();
-    this.isSidenavOpen = this.sidenav.opened;
+    console.log('Antes de toggle:', this.isSidenavOpen);
+    this.sidenav.toggle().then(() => {
+      this.isSidenavOpen = this.sidenav.opened;
+      console.log('Después de toggle:', this.isSidenavOpen);
+    });
   }
 
-  scrollToSection(section: string) {
-    let element;
-    switch (section) {
-      case 'inicio':
-        element = this.inicioSection;
-        break;
-      case 'about':
-        element = this.aboutSection;
-        break;
-      case 'experiencia':
-        element = this.experienciaSection;
-        break;
-      case 'habilidades':
-        element = this.habilidadesSection;
-        break;
-      case 'contacto':
-        element = this.contactoSection;
-        break;
-    }
-
-    if (element) {
-      element.nativeElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
-    }
-  }
-
-  onScroll() {
-    if (!this.didScroll) {
-      this.didScroll = true;
-      setTimeout(() => this.scrollPage(), 250);
-    }
-  }
-
-  scrollPage() {
-    const sy = this.scrollY();
-    if (this.header) {
-      if (sy >= this.changeHeaderOn) {
-        this.renderer.addClass(this.header, 'navbar-shrink');
-      } else {
-        this.renderer.removeClass(this.header, 'navbar-shrink');
-      }
-    }
-    this.didScroll = false;
-  }
-
-  scrollY(): number {
-    return window.pageYOffset || document.documentElement.scrollTop;
-  }
-
-  smoothScroll(event: Event, target: string) {
-    event.preventDefault();
-    const element = document.querySelector(target);
-    if (element) {
-      const yOffset = -60; // Ajusta este valor según sea necesario
-      const y = element.getBoundingClientRect().top + window.pageYOffset + yOffset;
-      window.scrollTo({ top: y, behavior: 'smooth' });
-    }
-    const toggleButton = document.querySelector('.navbar-toggler');
-    if (toggleButton && toggleButton.classList.contains('collapsed')) {
-      (toggleButton as HTMLElement).click();
+  collapseMenu() {
+    if (this.navbarNav.nativeElement.classList.contains('show')) {
+      this.navbarNav.nativeElement.classList.remove('show');
     }
   }
 
@@ -156,7 +91,7 @@ export class AppComponent implements OnInit {
     const sections = document.querySelectorAll('section');
     const navLi = document.querySelectorAll('.navbar-nav li');
 
-    window.onscroll = () => {
+    window.addEventListener('scroll', () => {
       let current: string | null = '';
 
       sections.forEach((section) => {
@@ -172,7 +107,7 @@ export class AppComponent implements OnInit {
           li.classList.add('active');
         }
       });
-    };
+    });
   }
 
   initCloseResponsiveMenuOnClick() {
@@ -198,10 +133,5 @@ export class AppComponent implements OnInit {
         (toggleButton as HTMLElement).click();
       }
     });
-  }
-
-  // PARA MANEJAR EL ENCENDIDO Y APAGADO DE LA LAMPARA
-  toggleLampara(): void {
-    this.isEncendida = !this.isEncendida;
   }
 }

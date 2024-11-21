@@ -19,7 +19,7 @@ export class SkillsComponent {
     { icono: 'iconos/js.ico', nombre: 'JavaScript', progreso: 80 },
     { icono: 'iconos/html5.ico', nombre: 'HTML5', progreso: 80 },
     { icono: 'iconos/css3.ico', nombre: 'CSS3', progreso: 80 },
-    { icono: 'iconos/bootstrap.ico', nombre: 'Bootstrap5', progreso: 80 },
+    { icono: 'iconos/bootstrap.ico', nombre: 'Bootstrap5ñ', progreso: 80 },
     { icono: 'iconos/angular.ico', nombre: 'Git', progreso: 60 },
     { icono: 'iconos/angular.ico', nombre: 'AWS', progreso: 60 },
     { icono: 'iconos/angular.ico', nombre: 'Suite Office', progreso: 80 },

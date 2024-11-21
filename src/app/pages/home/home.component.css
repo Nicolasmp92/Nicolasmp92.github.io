@@ -38,7 +38,6 @@ mat-card-content{
   height: 200px;
   background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
   border-color: #45474B;
-  /* box-shadow:0px 0px 30px 1px #028391 ; */
   border-radius: 10px;
   display: flex;
   align-items: center;
@@ -55,7 +54,8 @@ mat-card-content{
     transform: rotate(360deg);
   }
 }
-.ola {
+
+/* .ola {
   z-index: -5;
   position: absolute;
   width: 540px;
@@ -98,12 +98,12 @@ mat-card-content{
   100% {
     transform: rotate(360deg);
   }
-}
+} */
 /* @MEDIAS CARD */
 @media (max-width: 768px) {
   .card {
-    width: 100%; /* Ocupa todo el ancho disponible */
-    max-width: 320px /* Aumenta el ancho en dispositivos móviles */
+    width: 100%;
+    max-width: 320px
   }
 }
 /* rotacion de cada card */

@@ -49,11 +49,11 @@
                     [fixedBottomGap]="options.value.bottom">
         <!-- {{options.value.fixed ? 'Fixed' : 'Non-fixed'}} Sidenav -->
         <div class="container">
-          <h5 class="mt-4 ">Nicolas Muñoz</h5>
+          <h5 class="mt-3 mt-md-5 ">Nicolas Muñoz</h5>
           <hr class="border border-light border-1 opacity-50">
           <div class="profile-container pb-5">
             <a class="align-self-center" routerLink="/home" >
-              <div class="image-container align-items-center mt-5" >
+              <div class="image-container align-items-center mt-2 mt-md-5" >
                 <img class="profile-image" src="img/IMG_20220615_144311.jpg" alt="MiFotoDePerfil" >
               </div>
             </a>
@@ -61,7 +61,11 @@
         <p class="text-start mx-2"> Ing informática</p>
         <p class="text-start mx-2"> Desarrollador front-end con una gran pasión por aprender</p>
         <!-- <p class="text-start mx-2">Te invito a conocer más sobre mí explorando los siguientes enlaces.</p> -->
-        <button class="px-5 mb-5" mat-button> Curriculum <mat-icon class=""> picture_as_pdf</mat-icon></button>
+        <a class="text-decoration-none" href="pdf/Nicolas_munoz_20_2024.pdf" download>
+          <button class="btncv px-5 mb-5" id="cv" mat-button> Descargar Curriculum
+            <mat-icon class=""> picture_as_pdf</mat-icon>
+          </button>
+        </a>
         <span class="sticky-bottom" data-bs-content="Disabled popover">
           <a href="https://www.linkedin.com/in/nicolas-mu%C3%B1oz-2551b8b6/" target="_blank">
             <i class="bi bi-linkedin fs-2"></i>
