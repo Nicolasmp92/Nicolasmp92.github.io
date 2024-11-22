@@ -1,6 +1,22 @@
+:root {
+  --mi-paleta-primario: #01204E;
+  --mi-paleta-secundario: #028391;
+  --mi-paleta-terciario: #F6DCAC;
+  --mi-paleta-cuaternario: #FEAE6F;
+  --mi-paleta-quinto: #f8f9fa;
+
+  --colores-dominantes-primario: #1E1E1E;
+  --colores-dominantes-secundario: #333333;
+  --colores-dominantes-terciario: #2A443C;
+  --colores-dominantes-cuaternario: #996655;
+
+  --colores-acentos-primario: #66C2A5;
+  --colores-acentos-secundario: #FFD966;
+  --colores-acentos-terciario: #FFA500;
+}
 
 .experiencia-section {
-  padding-top: 100px ;
+  padding-top: 100px;
   padding-bottom: 100px;
   margin: 2rem 0;
 }
@@ -8,12 +24,13 @@
 .experiencia-titulo {
   font-size: 2rem;
   font-weight: bold;
+  color: var(--mi-paleta-primario);
 }
 
 .experiencia-subrayado {
   width: 100px;
   height: 4px;
-  background-color: red;
+  background-color: var(--mi-paleta-secundario);
   border: none;
   margin: 0.5rem 0 1rem;
 }
@@ -25,21 +42,23 @@
 .experiencia-puesto {
   font-size: 1.5rem;
   font-weight: bold;
+  color: var(--colores-dominantes-primario);
 }
 
 .experiencia-institucion {
   font-style: italic;
-  color: gray;
+  color: var(--colores-dominantes-secundario);
 }
 
 .experiencia-fecha {
   float: right;
   font-style: normal;
-  color: red;
+  color: var(--colores-dominantes-cuaternario);
 }
 
 .experiencia-descripcion {
   margin: 0.5rem 0;
+  color: var(--colores-dominantes-terciario);
 }
 
 .experiencia-lista {
@@ -49,4 +68,114 @@
 
 .experiencia-lista li {
   line-height: 1.6;
+  color: var(--colores-acentos-primario);
+}
+
+.portafolio-item {
+  margin-top: 3rem;
+}
+
+.portafolio-titulo {
+  font-size: 1.8rem;
+  font-weight: bold;
+  color: var(--mi-paleta-primario);
+}
+
+.portafolio-descripcion {
+  margin: 1rem 0;
+  color: var(--mi-paleta-secundario);
+}
+
+.card {
+  margin-bottom: 2rem;
+  background-color: var(--mi-paleta-terciario);
+  border-color: var(--mi-paleta-cuaternario);
+}
+
+.card-img-top {
+  width: 100%;
+  height: auto;
+}
+
+.card-title {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: var(--colores-dominantes-primario);
+}
+
+.card-text {
+  margin: 0.5rem 0;
+  color: var(--colores-dominantes-secundario);
+}
+
+.modal {
+  z-index: 1050; /* Asegura que la modal esté por encima de otros elementos */
+}
+
+.modal-backdrop {
+  z-index: 1040; /* Asegura que el backdrop esté por debajo de la modal */
+}
+
+.modal-content {
+  padding: 2rem;
+  background-color: #028391; /* Fondo de la modal */
+  border-color: var(--mi-paleta-secundario);
+}
+
+.modal-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: var(--mi-paleta-primario);
+}
+
+.modal-body {
+  color: var(--colores-dominantes-terciario);
+}
+
+.modal-footer .btn-secondary {
+  background-color: var(--colores-acentos-primario);
+  border-color: var(--colores-acentos-primario);
+}
+
+.modal-footer .btn-primary {
+  background-color: var(--colores-acentos-terciario);
+  border-color: var(--colores-acentos-terciario);
+}
+
+.btnexp {
+  width: 100%;
+  max-width: 210px;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 17px;
+  font-weight: 100;
+  color: #FEAE6F;
+  text-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: transparent;
+  border: 1px solid #996655;
+  transition: 0.5s ease;
+  user-select: none;
+  line-height: 0.9;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btnexp:hover,
+.btnexp:focus {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391; /* Cambiado a color de la paleta mi-paleta */
+  text-decoration: none;
+}
+
+.btnexp mat-icon {
+  margin-left: 10px;
+  padding-right: 20px;
 }

@@ -1,19 +1,29 @@
-/* estilo para el contenedor */
-span{
-    font-size: 1.5rem;
-    color: #ffc107;
-    text-transform: uppercase;
-    padding: 10px 20px;
-    border-radius: 10px;
-    border: 2px solid #ffc107;
-    background: #252525;
-    box-shadow: 3px 3px #ffc107;
-    cursor: pointer;
-    margin: 35px 0;
+.scroll-top-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background: transparent;
+  color: #FEAE6F;
+  border: 1px solid #996655;
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: transparent;
+  transition: 0.5s ease;
 }
 
-/* acomodando los iconos de bootsrap */
-.bi{
-  color: #ffc107;
-  padding-left: 10px;
+.scroll-top-button:hover,
+.scroll-top-button:focus {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+}
+
+.scroll-top-button mat-icon {
+  font-size: 24px;
 }

@@ -1,29 +1,150 @@
-<section id="experiencia" class="experiencia-section mt-5">
+<section id="experiencia" class="experiencia-section mt-5 px-3">
   <div class="container-xxl">
     <h2 class="experiencia-titulo">Experiencia</h2>
     <hr class="experiencia-subrayado">
 
-    <div class="experiencia-item">
-        <h3 class="experiencia-puesto">Implementador Hospital Digital</h3>
-        <p class="experiencia-institucion">MINSAL <span class="experiencia-fecha">2021/Presente</span></p>
-        <p class="experiencia-descripcion">
+    <!-- Nav tabs -->
+    <ul class="nav nav-tabs" id="myTab" role="tablist">
+      <li class="nav-item" role="presentation">
+        <a class="nav-link active" id="portafolio-tab" data-bs-toggle="tab" href="#portafolio-content" role="tab" aria-controls="portafolio-content" aria-selected="true">Portafolio</a>
+      </li>
+      <li class="nav-item" role="presentation">
+        <a class="nav-link" id="experiencia-tab" data-bs-toggle="tab" href="#experiencia-content" role="tab" aria-controls="experiencia-content" aria-selected="false">Experiencia</a>
+      </li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content" id="myTabContent">
+      <div class="tab-pane fade show active" id="portafolio-content" role="tabpanel" aria-labelledby="portafolio-tab">
+        <div class="portafolio-item mt-3">
+          <h3 class="portafolio-titulo">Mi Portafolio</h3>
+          <p class="portafolio-descripcion">
+            Aquí puedes agregar una descripción de tu portafolio y los proyectos que has realizado.
+          </p>
+          <!-- Agrega aquí el contenido de tu portafolio -->
+        </div>
+        <div class="row mt-4 px-3">
+          <div class="col-md-4">
+            <div class="card">
+              <img src="path/to/image1.jpg" class="card-img-top" alt="Proyecto 1">
+              <div class="card-body">
+                <h5 class="card-title">Proyecto 1</h5>
+                <p class="card-text">Descripción breve del proyecto 1.</p>
+                <a class="text-decoration-none" href="#">
+                  <button class="btnexp px-5 mb-5" data-bs-toggle="modal" data-bs-target="#project1Modal">Ver más
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="path/to/image2.jpg" class="card-img-top" alt="Proyecto 2">
+              <div class="card-body">
+                <h5 class="card-title">Proyecto 2</h5>
+                <p class="card-text">Descripción breve del proyecto 2.</p>
+                <a class="text-decoration-none" href="#">
+                  <button class="btnexp px-5 mb-5" data-bs-toggle="modal" data-bs-target="#project2Modal">Ver más
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-md-4">
+            <div class="card">
+              <img src="path/to/image3.jpg" class="card-img-top" alt="Proyecto 3">
+              <div class="card-body">
+                <h5 class="card-title">Proyecto 3</h5>
+                <p class="card-text">Descripción breve del proyecto 3.</p>
+                <a class="text-decoration-none" href="#">
+                  <button class="btnexp px-5 mb-5" data-bs-toggle="modal" data-bs-target="#project3Modal">Ver más
+                    <mat-icon>visibility</mat-icon>
+                  </button>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <!-- Modals -->
+        <div class="modal fade" id="project1Modal" tabindex="-1" aria-labelledby="project1ModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content p-5" style="background-color: rgba(255, 255, 255, 0.8);">
+              <div class="modal-header">
+                <h5 class="modal-title" id="project1ModalLabel">Proyecto 1</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Información detallada del proyecto 1.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="project2Modal" tabindex="-1" aria-labelledby="project2ModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content p-5" style="background-color: rgba(255, 255, 255, 0.8);">
+              <div class="modal-header">
+                <h5 class="modal-title" id="project2ModalLabel">Proyecto 2</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Información detallada del proyecto 2.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="modal fade" id="project3Modal" tabindex="-1" aria-labelledby="project3ModalLabel" aria-hidden="true">
+          <div class="modal-dialog">
+            <div class="modal-content p-5" style="background-color: rgba(255, 255, 255, 0.8);">
+              <div class="modal-header">
+                <h5 class="modal-title" id="project3ModalLabel">Proyecto 3</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                Información detallada del proyecto 3.
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cerrar</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade" id="experiencia-content" role="tabpanel" aria-labelledby="experiencia-tab">
+        <div class="experiencia-item mt-3">
+          <h3 class="experiencia-puesto">Implementador Hospital Digital</h3>
+          <p class="experiencia-institucion">MINSAL <span class="experiencia-fecha">2021/Presente</span></p>
+          <p class="experiencia-descripcion">
             Prestando servicios como ingeniero en informática, apoyando en la gestión del cambio en proyectos de tecnologías de la información requeridos en MINSAL:
-        </p>
-        <ul class="experiencia-lista">
+          </p>
+          <ul class="experiencia-lista">
             <li>Levantamiento de procesos y análisis funcional de sistemas informáticos.</li>
             <li>Aprobar y gestionar usuarios de las diferentes soluciones tecnológicas.</li>
             <li>Acompañamiento en la gestión del cambio a los usuarios en la implementación e incorporación del uso de las tecnologías de la información.</li>
             <li>Capacitar a los equipos locales en las diferentes soluciones tecnológicas y a su vez en la transferencia de su conocimiento.</li>
             <li>Detectar oportunidades de mejora y realización de propuestas para mejorar las soluciones tecnológicas.</li>
-        </ul>
-    </div>
+          </ul>
+        </div>
 
-    <div class="experiencia-item">
-        <h3 class="experiencia-puesto">Administrativo y soporte técnico</h3>
-        <p class="experiencia-institucion">CESFAM <span class="experiencia-fecha">2017 – 2021</span></p>
-        <p class="experiencia-descripcion">
+        <div class="experiencia-item mt-3">
+          <h3 class="experiencia-puesto">Administrativo y soporte técnico</h3>
+          <p class="experiencia-institucion">CESFAM <span class="experiencia-fecha">2017 – 2021</span></p>
+          <p class="experiencia-descripcion">
             Prestando servicios como técnico-administrativo y subrogante en el área de soporte técnico informático, desenvolviéndome en varios cargos de confianza como coordinador de SIGGES y subrogante de SOME.
-        </p>
+          </p>
+        </div>
+      </div>
     </div>
   </div>
 </section>

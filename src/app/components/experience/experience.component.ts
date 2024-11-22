@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 
 
 export class TuComponenteModule { }
@@ -6,6 +7,7 @@ export class TuComponenteModule { }
   selector: 'app-experience',
   standalone: true,
   imports: [
+    MatIconModule
 
   ],
   templateUrl: './experience.component.html',

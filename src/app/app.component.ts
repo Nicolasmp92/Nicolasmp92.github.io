@@ -16,7 +16,7 @@ import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
-
+import { FooterComponent } from './components/footer/footer.component';
 @Component({
   selector: 'app-root',
   standalone: true,
@@ -27,6 +27,7 @@ import { ContactComponent } from './components/contact/contact.component';
     SkillsComponent,
     ExperienceComponent,
     ContactComponent,
+    FooterComponent,
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
