@@ -3,24 +3,24 @@
     <h2>Contáctanos</h2>
     <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
       <div class="form-group">
-        <label for="name">Nombre</label>
-        <input type="text" id="name" class="form-control" formControlName="name" placeholder="Tu nombre">
+        <label for="contact-name">Nombre</label>
+        <input type="text" id="contact-name" class="form-control" formControlName="name" placeholder="Tu nombre">
         <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error">
           El nombre es obligatorio.
         </div>
       </div>
 
       <div class="form-group">
-        <label for="email">Correo electrónico</label>
-        <input type="email" id="email" class="form-control" formControlName="email" placeholder="Tu correo electrónico">
+        <label for="contact-email">Correo electrónico</label>
+        <input type="email" id="contact-email" class="form-control" formControlName="email" placeholder="Tu correo electrónico">
         <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error">
           Proporcione un correo electrónico válido.
         </div>
       </div>
 
       <div class="form-group">
-        <label for="message">Mensaje</label>
-        <textarea id="message" class="form-control" formControlName="message" rows="4" placeholder="Tu mensaje"></textarea>
+        <label for="contact-message">Mensaje</label>
+        <textarea id="contact-message" class="form-control" formControlName="message" rows="4" placeholder="Tu mensaje"></textarea>
         <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error">
           El mensaje debe tener al menos 10 caracteres.
         </div>
@@ -29,3 +29,4 @@
       <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
     </form>
   </div>
+</section>

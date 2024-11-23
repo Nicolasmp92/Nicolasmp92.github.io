@@ -1,148 +1,94 @@
-:root {
-  --mi-paleta-primario: #01204E;
-  --mi-paleta-secundario: #028391;
-  --mi-paleta-terciario: #F6DCAC;
-  --mi-paleta-cuaternario: #FEAE6F;
-  --mi-paleta-quinto: #f8f9fa;
-
-  --colores-dominantes-primario: #1E1E1E;
-  --colores-dominantes-secundario: #333333;
-  --colores-dominantes-terciario: #2A443C;
-  --colores-dominantes-cuaternario: #996655;
-
-  --colores-acentos-primario: #66C2A5;
-  --colores-acentos-secundario: #FFD966;
-  --colores-acentos-terciario: #FFA500;
-}
-
 .experiencia-section {
-  padding-top: 100px;
-  padding-bottom: 100px;
-  margin: 2rem 0;
+  margin-top: 5rem;
+  padding-left: 1rem;
+  padding-right: 1rem;
+  width: 100%; /* Ajusta el ancho para evitar la barra de desplazamiento */
+  box-sizing: border-box; /* Asegura que el padding no cause desbordamiento */
 }
 
 .experiencia-titulo {
   font-size: 2rem;
   font-weight: bold;
-  color: var(--mi-paleta-primario);
+  color: #f8f9fa; /* mi-paleta secundario */
+  text-align: center;
 }
 
-.experiencia-subrayado {
-  width: 100px;
-  height: 4px;
-  background-color: var(--mi-paleta-secundario);
-  border: none;
-  margin: 0.5rem 0 1rem;
-}
-
-.experiencia-item {
-  margin-bottom: 2rem;
-}
-
-.experiencia-puesto {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--colores-dominantes-primario);
-}
-
-.experiencia-institucion {
-  font-style: italic;
-  color: var(--colores-dominantes-secundario);
-}
-
-.experiencia-fecha {
-  float: right;
-  font-style: normal;
-  color: var(--colores-dominantes-cuaternario);
-}
-
-.experiencia-descripcion {
-  margin: 0.5rem 0;
-  color: var(--colores-dominantes-terciario);
-}
-
-.experiencia-lista {
-  margin: 0.5rem 0;
-  padding-left: 1.5rem;
-}
-
-.experiencia-lista li {
-  line-height: 1.6;
-  color: var(--colores-acentos-primario);
+.mat-divider {
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  background-color: #F6DCAC; /* mi-paleta terciario */
 }
 
 .portafolio-item {
-  margin-top: 3rem;
+  margin-top: 1rem;
 }
 
 .portafolio-titulo {
-  font-size: 1.8rem;
+  font-size: 1.5rem;
   font-weight: bold;
-  color: var(--mi-paleta-primario);
+  color: #f8f9fa; /* mi-paleta primario */
 }
 
 .portafolio-descripcion {
-  margin: 1rem 0;
-  color: var(--mi-paleta-secundario);
+  color: #f8f9fa; /* colores-dominantes secundario */
 }
 
-.card {
-  margin-bottom: 2rem;
-  background-color: var(--mi-paleta-terciario);
-  border-color: var(--mi-paleta-cuaternario);
+.experiencia-item {
+  margin-top: 1rem;
 }
 
-.card-img-top {
-  width: 100%;
-  height: auto;
+.experiencia-puesto {
+  font-size: 1.25rem;
+  font-weight: bold;
+  color: #028391; /* mi-paleta secundario */
+}
+
+.experiencia-institucion {
+  font-size: 1rem;
+  color: #66C2A5; /* colores-dominantes terciario */
+}
+
+.experiencia-fecha {
+  font-size: 0.875rem;
+  color: #F6DCAC; /* colores-dominantes cuaternario */
+}
+
+.experiencia-descripcion {
+  color: #f8f9fa; /* colores-dominantes secundario */
+}
+
+.experiencia-lista {
+  list-style-type: disc;
+  padding-left: 1.5rem;
+  color: #f8f9fa; /* colores-dominantes cuaternario */
+}
+
+mat-card {
+  margin-bottom: 1rem;
+  overflow: hidden; /* Asegúrate de que el contenido no desborde */
+  background-color: #f8f9fa; /* mi-paleta quinto */
+  border: 1px solid #996655; /* colores-dominantes cuaternario */
+  display: flex;
+  flex-direction: column;
+  max-width: 100%; /* Asegúrate de que las tarjetas no excedan el ancho disponible */
 }
 
 .card-title {
+  margin-top: 15px;
   font-size: 1.25rem;
   font-weight: bold;
-  color: var(--colores-dominantes-primario);
+  color: #f8f9fa; /* mi-paleta primario */
 }
 
-.card-text {
-  margin: 0.5rem 0;
-  color: var(--colores-dominantes-secundario);
+mat-card-content {
+  background-color: #1E1E1E; /* colores-dominantes primario */
+  white-space: nowrap; /* Evita que el texto se desborde */
+  overflow: hidden; /* Oculta el desbordamiento */
+  text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto desbordado */
+  flex-grow: 1;
 }
 
-.modal {
-  z-index: 1050; /* Asegura que la modal esté por encima de otros elementos */
-}
-
-.modal-backdrop {
-  z-index: 1040; /* Asegura que el backdrop esté por debajo de la modal */
-}
-
-.modal-content {
-  padding: 2rem;
-  background-color: #028391; /* Fondo de la modal */
-  border-color: var(--mi-paleta-secundario);
-}
-
-.modal-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: var(--mi-paleta-primario);
-}
-
-.modal-body {
-  color: var(--colores-dominantes-terciario);
-}
-
-.modal-footer .btn-secondary {
-  background-color: var(--colores-acentos-primario);
-  border-color: var(--colores-acentos-primario);
-}
-
-.modal-footer .btn-primary {
-  background-color: var(--colores-acentos-terciario);
-  border-color: var(--colores-acentos-terciario);
-}
-
-.btnexp {
+.btnpor, .btnexp, .btncerrar {
   width: 100%;
   max-width: 210px;
   padding: 10px;
@@ -150,12 +96,12 @@
   border-radius: 8px;
   font-size: 17px;
   font-weight: 100;
-  color: #FEAE6F;
+  color: #FEAE6F; /* mi-paleta cuaternario */
   text-shadow: none;
   background: transparent;
   cursor: pointer;
   box-shadow: transparent;
-  border: 1px solid #996655;
+  border: 1px solid #996655; /* colores-dominantes cuaternario */
   transition: 0.5s ease;
   user-select: none;
   line-height: 0.9;
@@ -166,16 +112,30 @@
   text-decoration: none;
 }
 
-.btnexp:hover,
-.btnexp:focus {
-  color: #f8f9fa;
-  background: #028391;
-  border: 1px solid #028391;
+.btnpor:hover, .btnpor:focus, .btnexp:hover, .btnexp:focus, .btncerrar:hover, .btncerrar:focus {
+  color: #f8f9fa; /* mi-paleta quinto */
+  background: #028391; /* mi-paleta secundario */
+  border: 1px solid #028391; /* mi-paleta secundario */
   box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391; /* Cambiado a color de la paleta mi-paleta */
   text-decoration: none;
 }
 
-.btnexp mat-icon {
-  margin-left: 10px;
-  padding-right: 20px;
+mat-dialog-title {
+  font-size: 1.5rem;
+  font-weight: bold;
+  color: #01204E; /* mi-paleta primario */
+}
+
+.mat-dialog-content {
+  color: #1E1E1E; /* colores-dominantes primario */
+}
+
+.mat-dialog-actions .mat-button {
+  background-color: #66C2A5; /* colores-acentos primario */
+  border-color: #66C2A5; /* colores-acentos primario */
+}
+
+.mat-dialog-actions .mat-button-primary {
+  background-color: #FFA500; /* colores-acentos terciario */
+  border-color: #FFA500; /* colores-acentos terciario */
 }

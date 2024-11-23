@@ -1,29 +1,25 @@
-.scroll-top-button {
-  position: fixed;
-  bottom: 20px;
-  right: 20px;
-  background: transparent;
-  color: #FEAE6F;
-  border: 1px solid #996655;
-  border-radius: 50%;
-  width: 50px;
-  height: 50px;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  cursor: pointer;
-  box-shadow: transparent;
-  transition: 0.5s ease;
-}
+  footer {
+    background-color: #333;
+    color: #fff;
+    padding: 20px;
+    text-align: center;
+    position: relative;
+  }
 
-.scroll-top-button:hover,
-.scroll-top-button:focus {
-  color: #f8f9fa;
-  background: #028391;
-  border: 1px solid #028391;
-  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
-}
+  .scroll-top-button {
+    background-color: #ff4081;
+    border: none;
+    border-radius: 50%;
+    color: white;
+    cursor: pointer;
+    font-size: 24px;
+    padding: 10px;
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  }
 
-.scroll-top-button mat-icon {
-  font-size: 24px;
-}
+  .scroll-top-button:hover {
+    background-color: #e91e63;
+  }

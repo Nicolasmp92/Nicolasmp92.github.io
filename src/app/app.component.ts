@@ -1,4 +1,4 @@
-import { Component, AfterViewInit, ElementRef, OnInit, ViewChild, Renderer2 } from '@angular/core';
+import { Component, AfterViewInit, ElementRef, OnInit, ViewChild, Renderer2, HostListener } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -11,17 +11,17 @@ import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgIf } from '@angular/common';
 
 // Componentes
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+
 @Component({
   selector: 'app-root',
   standalone: true,
   imports: [
-
     HomeComponent,
     AboutComponent,
     SkillsComponent,
@@ -49,6 +49,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('sidenav') sidenav!: MatSidenav;
   isSidenavOpen = false;
   options: FormGroup;
+  showScrollToTopButton = false;
 
   constructor(private renderer: Renderer2, private _formBuilder: FormBuilder) {
     this.options = this._formBuilder.group({
@@ -65,7 +66,6 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
-    // Verificación para asegurar que sidenav esté inicializado
     if (this.sidenav) {
       this.isSidenavOpen = this.sidenav.opened;
       console.log('Sidenav está abierto:', this.isSidenavOpen);
@@ -96,8 +96,8 @@ export class AppComponent implements OnInit, AfterViewInit {
       let current: string | null = '';
 
       sections.forEach((section) => {
-        const sectionTop = section.offsetTop;
-        if (pageYOffset >= sectionTop - 60) {
+        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
+        if (window.scrollY >= sectionTop - 60) {
           current = section.getAttribute('id');
         }
       });
@@ -108,6 +108,8 @@ export class AppComponent implements OnInit, AfterViewInit {
           li.classList.add('active');
         }
       });
+
+      this.showScrollToTopButton = window.scrollY > 200;
     });
   }
 
@@ -134,5 +136,9 @@ export class AppComponent implements OnInit, AfterViewInit {
         (toggleButton as HTMLElement).click();
       }
     });
+  }
+
+  scrollToTop() {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

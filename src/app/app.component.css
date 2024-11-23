@@ -55,6 +55,7 @@ mat-sidenav-container{
   -webkit-appearance: none;
   -moz-appearance: none;
   appearance: none;
+  z-index: 2000;
 }
 
 .ampolleta:before, .ampolleta:after{
@@ -478,4 +479,35 @@ mat-sidenav-content {
   .ampolleta2:focus {
     outline: 0;
   }
+  .scroll-top {
+    position: fixed;
+    bottom: 20px;
+    right: 20px;
+    background-color: #028391;
+    color: #fff;
+    z-index: 3000;
+    border-radius: 50%;
+    width: 50px;
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    transition: opacity 0.3s ease, visibility 0.3s ease, background-color 0.5s ease, box-shadow 0.5s ease;
+  }
 
+  .scroll-top.hidden {
+    opacity: 0;
+    visibility: hidden;
+  }
+
+  .scroll-top.show {
+    opacity: 1;
+    visibility: visible;
+  }
+
+  .scroll-top:hover,
+  .scroll-top:focus {
+    background-color: #028391;
+    box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  }

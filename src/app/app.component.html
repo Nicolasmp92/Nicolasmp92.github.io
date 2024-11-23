@@ -1,4 +1,4 @@
-<mat-toolbar class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 opacity-50">
+<mat-toolbar  #toolbar class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 opacity-50">
   <div class="container-fluid">
     <!-- BOTON PARA LA TARJETA -->
     <button class="toggle-btn position-absolute start-0 top-0 mt-2"
@@ -10,6 +10,10 @@
     <button class="navbar-toggler position-absolute top-0 end-0 mt-2 mx-2 mat-menu"
       mat-icon-button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
       <mat-icon>menu</mat-icon>
+    </button>
+
+    <button mat-fab class="scroll-top" (click)="scrollToTop()" >
+      <mat-icon>arrow_upward</mat-icon>
     </button>
     <div class="collapse navbar-collapse justify-content-center text-center mt-xl-0 mt-5"
       id="navbarNav">
@@ -31,7 +35,7 @@
         </li>
         <!-- BOTON PARA LA AMPOLLETA -->
         <div class="col-auto position-absolute end-0"></div>
-          <input type="checkbox" class="ampolleta">
+          <input type="checkbox" class="ampolleta" id="ampolleta">
         </ul>
       </div>
     </div>
@@ -86,6 +90,8 @@
     <app-contact></app-contact>
     <app-footer></app-footer>
   </mat-sidenav-content>
-</mat-sidenav-container>
 
+
+
+</mat-sidenav-container>
 

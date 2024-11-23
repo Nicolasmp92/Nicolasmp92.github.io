@@ -1,7 +1,7 @@
 import { Routes } from '@angular/router';
 
 // Paginas
-import { HomeComponent } from './pages/home/home.component';
+import { HomeComponent } from './components/home/home.component';
 import { NotFoundComponent } from './pages/not-found/not-found.component'; // Componente para manejar errores 404 (opcional)
 import { SkillsComponent } from './components/skills/skills.component';
 import { AboutComponent } from './components/about/about.component';
