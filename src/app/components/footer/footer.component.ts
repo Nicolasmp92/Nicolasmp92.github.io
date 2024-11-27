@@ -19,4 +19,11 @@ export class FooterComponent {
       }
     }, 16); // Ajusta el intervalo de tiempo para un desplazamiento más suave
   }
+
+  toggleFooter() {
+    const footer = document.querySelector('.footer-content');
+    if (footer) {
+      footer.classList.toggle('show');
+    }
+  }
 }

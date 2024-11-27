@@ -1,8 +1,10 @@
 
+
 /* ++++++++++++++SECTION++++++++++++++++ */
 .home-section{
   padding-top: 100px;
   padding-bottom: 200px;
+  background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
 }
 @media (width = 768px){
   .home-section{
@@ -55,6 +57,69 @@ mat-card-content{
   }
 }
 
+/* BOTONOES REDES SOCIALES */
+span{
+  font-size: 1.5rem;
+  color: #FEAE6F;
+  text-transform: uppercase;
+  padding: 10px 20px;
+  border-radius: 10px;
+  border: 2px solid #FEAE6F;
+  background: #252525;
+  box-shadow: 0 0.4rem #6f4e37;
+  cursor: pointer;
+  margin: 35px 40px;
+  margin-top: 140px;
+}
+span .bi:hover{
+  color: #FEAE6F;
+
+  }
+span .bi{
+  color: #028391;
+  padding-left: 5px;
+}
+
+
+/* BTN CURRICULUM */
+.btncv {
+  width: 100%;
+  max-width: 210px;
+  padding: 15px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size: 18px;
+  font-weight: 100;
+  color: #028391;
+  text-shadow: none;
+  background: transparent;
+  cursor: pointer;
+  box-shadow: transparent;
+  border: 1px solid #996655;
+  transition: 0.5s ease;
+  user-select: none;
+  line-height: 0.9;
+  margin: 0;
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  text-decoration: none;
+}
+
+.btncv:hover,
+.btncv:focus {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  text-decoration: none;
+}
+
+.btncv .bi {
+  margin-left: 5px;
+  padding-right: 20px;
+}
+/* -------------------------------------- */
 /* .ola {
   z-index: -5;
   position: absolute;

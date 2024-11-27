@@ -47,9 +47,9 @@ import { FooterComponent } from './components/footer/footer.component';
 export class AppComponent implements OnInit, AfterViewInit {
   @ViewChild('navbarNav') navbarNav!: ElementRef;
   @ViewChild('sidenav') sidenav!: MatSidenav;
+  @ViewChild('toolbar') toolbar!: ElementRef;
   isSidenavOpen = false;
   options: FormGroup;
-  showScrollToTopButton = false;
 
   constructor(private renderer: Renderer2, private _formBuilder: FormBuilder) {
     this.options = this._formBuilder.group({
@@ -66,6 +66,7 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngAfterViewInit(): void {
+    // Verificación para asegurar que sidenav esté inicializado
     if (this.sidenav) {
       this.isSidenavOpen = this.sidenav.opened;
       console.log('Sidenav está abierto:', this.isSidenavOpen);
@@ -74,7 +75,19 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  toggleSidenav() {
+  @HostListener('window:scroll', [])
+  onWindowScroll(): void {
+    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
+    if (offset > 50) {
+      this.renderer.addClass(this.toolbar.nativeElement, 'scrolled');
+      this.renderer.addClass(document.querySelector('.scroll-top')!, 'show');
+    } else {
+      this.renderer.removeClass(this.toolbar.nativeElement, 'scrolled');
+      this.renderer.removeClass(document.querySelector('.scroll-top')!, 'show');
+    }
+  }
+
+  toggleSidenav(): void {
     console.log('Antes de toggle:', this.isSidenavOpen);
     this.sidenav.toggle().then(() => {
       this.isSidenavOpen = this.sidenav.opened;
@@ -82,13 +95,13 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  collapseMenu() {
+  collapseMenu(): void {
     if (this.navbarNav.nativeElement.classList.contains('show')) {
       this.navbarNav.nativeElement.classList.remove('show');
     }
   }
 
-  initScrollSpy() {
+  initScrollSpy(): void {
     const sections = document.querySelectorAll('section');
     const navLi = document.querySelectorAll('.navbar-nav li');
 
@@ -108,12 +121,10 @@ export class AppComponent implements OnInit, AfterViewInit {
           li.classList.add('active');
         }
       });
-
-      this.showScrollToTopButton = window.scrollY > 200;
     });
   }
 
-  initCloseResponsiveMenuOnClick() {
+  initCloseResponsiveMenuOnClick(): void {
     const navLinks = document.querySelectorAll('.navbar-collapse ul li a');
     const toggleButton = document.querySelector('.navbar-toggler');
 
@@ -126,7 +137,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  initCloseResponsiveMenuOnClickOutside() {
+  initCloseResponsiveMenuOnClickOutside(): void {
     document.body.addEventListener('click', (event) => {
       const nav = document.querySelector('nav');
       const toggleButton = document.querySelector('button.navbar-toggler');
@@ -138,7 +149,7 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  scrollToTop() {
+  scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
 }

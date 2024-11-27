@@ -1,101 +1,61 @@
-<section id="home" class="home-section">
+<section id="home" class="home-section"> <!-- Apertura sección home -->
   <!-- TITULO Y MAS -->
-  <div class="container-xxl mt-sm-0">
+  <div class="container-xxl"> <!-- Apertura contenedor principal -->
+    <h1 class="fw-bold text-decoration-underline"> Fron-End Developmen</h1> <!-- Título -->
 
-  <!-- RESUMEN  -->
-  <div class="row justify-content-center">
+    <!-- RESUMEN  -->
+    <div class="row justify-content-center mt-5"> <!-- Apertura fila resumen -->
 
-    <div class="col-md-4  order-xs-last">
-      <img class="img-thumbnail mb-2" src="img/avatarP.png" alt="">
-      <h1 class="fw-bold text-decoration-underline"> Fron-End Developmen</h1>
-      <p class="fs-3 pt-3"> Te invito a conocer más sobre mí, explorando los siguientes enlaces.</p>
-    </div>
+      <div class="col-md-4 text-start"> <!-- Apertura columna resumen -->
+        <img class="img-thumbnail mb-5" src="img/avatarP.png" alt=""> <!-- Imagen -->
+        <div class="col-md-10 text-start"> <!-- Apertura columna interna -->
+          <span class="sticky-bottom text-center" data-bs-content="Disabled popover"> <!-- Apertura span -->
+            <a href="https://www.linkedin.com/in/nicolas-mu%C3%B1oz-2551b8b6/" target="_blank"> <!-- Enlace LinkedIn -->
+              <i class="bi bi-linkedin fs-2"></i> <!-- Icono LinkedIn -->
+            </a> <!-- Cierre enlace LinkedIn -->
+            <a href="https://github.com/Nicolasmp92" target="_blank"> <!-- Enlace GitHub -->
+              <i class="bi bi-github fs-2"></i> <!-- Icono GitHub -->
+            </a> <!-- Cierre enlace GitHub -->
+            <a href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank"> <!-- Enlace Instagram -->
+              <i class="bi bi-instagram fs-2"></i> <!-- Icono Instagram -->
+            </a> <!-- Cierre enlace Instagram -->
+            <a href="https://web.facebook.com/nikolas.munozpalacios/" target="_blank"> <!-- Enlace Facebook -->
+              <i class="bi bi-facebook fs-2"></i> <!-- Icono Facebook -->
+            </a> <!-- Cierre enlace Facebook -->
+          </span> <!-- Cierre span -->
+        </div> <!-- Cierre columna interna -->
+      </div> <!-- Cierre columna resumen -->
 
+      <div class="col-md-8">
+        <!-- <h2 class="text-star fw-bold brillo">Sobre mí</h2> -->
+        <h4 class="text-decoration-underline">Soy Nicolas (niko):</h4>
+        <p class="fw-bolder fs-5 lh-sm font-monospace">
+          👨‍💻 Soy un chileno de 32 años que actualmente reside en la región de O’Higgins. 🏞️
+          Soy un apasionado de la informática, pero sobre todo del desarrollo front-end. Desde mi etapa académica hasta el presente profesionalmente no he dejado de aprender. 📚
+           Programar es mi pasión 💻, pero debo confesar que me he desviado del camino. 🎯
 
-  <div class="col-md-8">
+          🎓 Me titulé de Ingeniero de Ejecución en Informática con mención en Desarrollo de Sistemas en 2017 y he ejercido en el área de la salud. 🏥
+          🔄 Aunque he podido desarrollarme en el área de la informática, siempre he tenido la inquietud de emprender nuevamente mi carrera desde las raíces: desde el desarrollo. 🌱
+          💪 A pesar de los obstáculos, la pasión por mi profesión no ha muerto y la sigo alimentando con mis proyectos personales y cursos.
+        </p>
 
-    <div class="row justify-content-center">
+        <div class="col-md-8 mt-4 d-flex align-items-start">
+        <a class="text-decoration-none btncv" href="pdf/Nicolas_munoz_20_2024.pdf" download>
+            <i class="bi bi-file-earmark-pdf mx-2" id="cv"> </i>
+            Descargar Curriculum
+        </a>
+            <button type="button" class="btn btn-primary mx-5 me-5">Botón 1</button>
+            <button type="button" class="btn btn-secondary me-5">Botón 2</button>
+            <button type="button" class="btn btn-success me-5">Botón 3</button>
+            <button type="button" class="btn btn-danger">Botón 4</button>
 
-      <!-- SOBRE MI -->
-      <div class="card playing  bg-secondary mb-5 text-center">
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <p class="emoji">🙋🏻‍♂️</p>
-        <h5 class="card-title text-light">Sobre mí</h5>
-        <div class="card-body card2">
-          <p class="card-text">Si Quieres conoserme un poquito mas, aqui hablo de mis gustos,
-            Hobbies(no, no los de pies peludos 💍), pasiones, experiencias.
-            ¡Un vistazo a mi mundo más allá del código! 😉 </p>
-            <a  href="#about" mat-button>
-              <mat-icon>arrow_right_alt</mat-icon>
-              Ver Mas
-            </a>
         </div>
+
+
+
       </div>
 
-      <!-- MI EXPERIENCIA -->
-      <div class="card playing bg-secondary  mx-5 mb-5 text-center">
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <p class="emoji">💼</p>
-        <h5 class="card-title text-light">Mi Experiencia</h5>
-        <div class="card-body">
-          <p class="card-text"> Descubre mi trayectoria profesional. Aprende cómo he evolucionado como desarrollador
-            y los proyectos en los que he participado 💼 .</p>
-          <a class="mt-2" href="#experiencia" mat-stroked-button routerLinkActive="router-link-active" >
-            <mat-icon>arrow_right_alt</mat-icon>
-            Ver Mas
-          </a>
-        </div>
-      </div>
 
-      <!-- HABILIDADES -->
-      <div class="card playing bg-secondary mb-5  text-center">
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <p class="emoji">👨🏻‍💻</p>
-        <h5 class="card-title text-light">Mis Habilidades</h5>
-        <div class="card-body">
-          <p class="card-text">Explora las tecnologías y herramientas que domino... siempre me estoy actualizando 😉</p>
-          <a class="mt-2" href="#skills" mat-stroked-button routerLinkActive="router-link-active" >
-            <mat-icon>arrow_right_alt</mat-icon>
-            Ver Mas
-          </a>
-        </div>
-      </div>
-
-      <!-- CONTACTAME -->
-      <div class="card playing card-2 bg-secondary mx-5 mb-5  text-center">
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <div class="ola"></div>
-        <p class="emoji">📧</p>
-        <h5 class="card-title text-light">Contactame</h5>
-        <div class="card-body">
-          <p class="card-text"> Ponte en contacto conmigo para hablar sobre tu próximo proyecto...</p>
-          <a class="mt-2" href="#contact" mat-stroked-button routerLinkActive="router-link-active" >
-            <mat-icon>arrow_right_alt</mat-icon>
-            Ver Mas
-          </a>
-        </div>
-      </div>
-    </div>
-
-
-
-  </div>
-</div>
-
-
-
-
-
-
-
-  <!-- FIN CONTAINER -->
-    </div>
-
-</section>
+    </div> <!-- Cierre fila resumen -->
+  </div> <!-- Cierre contenedor principal -->
+</section> <!-- Cierre sección home -->

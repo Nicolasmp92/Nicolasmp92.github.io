@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import { MatIcon } from '@angular/material/icon';
 import {MatButtonModule} from '@angular/material/button';
@@ -19,6 +19,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
     MatCardModule,
     MatIcon,
     MatButtonModule,
+    NgIf
     // PickerComponent
 
 
@@ -30,4 +31,8 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
 })
 export class HomeComponent {
   // emoji = '';
+  VerMas = false;
+  MostrarTexto(){
+    this.VerMas = !this.VerMas;
+};
 }

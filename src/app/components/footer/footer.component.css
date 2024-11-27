@@ -1,25 +1,67 @@
-  footer {
-    background-color: #333;
-    color: #fff;
-    padding: 20px;
-    text-align: center;
-    position: relative;
-  }
+.footer-content {
+  display: none;
+}
 
-  .scroll-top-button {
-    background-color: #ff4081;
-    border: none;
-    border-radius: 50%;
-    color: white;
-    cursor: pointer;
-    font-size: 24px;
-    padding: 10px;
-    position: fixed;
-    bottom: 20px;
-    right: 20px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  }
+.footer-content.show {
+  display: block;
+}
 
-  .scroll-top-button:hover {
-    background-color: #e91e63;
-  }
+.navbar {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 10px;
+}
+
+.toggle-footer {
+  position: fixed;
+  bottom: 0px;
+  left: 20px;
+  background-color: #252525;
+  color: white;
+  border: none;
+  padding: 10px;
+  cursor: pointer;
+  border-radius: 50px 50px 0px 0px; /* Parte redondeada hacia arriba */
+  z-index: 3000;
+  transition: all 0.6s ease;
+}
+
+.toggle-footer:hover {
+  background-color: #FEAE6F;
+  box-shadow: 0 0 5px #FEAE6F, 0 0 20px #FEAE6F, 0 0 50px #FEAE6F, 0 0 100px #FEAE6F;
+}
+
+/* Estilo del botón "Scroll to Top" */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #028391;
+  color: #fff;
+  z-index: 3000;
+  border-radius: 50%; /* Mantener el botón redondo */
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.6s ease;
+  padding: 0;
+}
+
+.scroll-top.hidden {
+  opacity: 0;
+  visibility: hidden;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover,
+.scroll-top:focus {
+  background-color: #FEAE6F;
+  box-shadow: 0 0 5px #FEAE6F, 0 0 20px #FEAE6F, 0 0 50px #FEAE6F, 0 0 100px #FEAE6F;
+}
