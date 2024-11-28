@@ -152,4 +152,8 @@ export class AppComponent implements OnInit, AfterViewInit {
   scrollToTop(): void {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   }
+
+  navigateTo(url: string): void {
+    window.location.href = url;
+  }
 }

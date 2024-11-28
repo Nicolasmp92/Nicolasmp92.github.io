@@ -197,19 +197,13 @@ mat-toolbar{
 /* BTN CURRICULUM */
 .btncv {
   width: 100%;
-  max-width: 210px;
   padding: 10px;
-  text-transform: uppercase;
   border-radius: 8px;
+  border-color:#FFA500 ;
   font-size: 17px;
   font-weight: 100;
-  color: #FEAE6F;
   text-shadow: none;
-  background: transparent;
   cursor: pointer;
-  box-shadow: transparent;
-  border: 1px solid #996655;
-  transition: 0.5s ease;
   user-select: none;
   line-height: 0.9;
   margin: 0 auto;
@@ -217,30 +211,22 @@ mat-toolbar{
   justify-content: center;
   align-items: center;
   text-decoration: none;
-}
-
-#cv:hover,
-#cv:focus {
-  color: #f8f9fa;
-  background: #028391;
-  border: 1px solid #028391;
   box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391; /* Cambiado a color de la paleta mi-paleta */
   text-decoration: none;
+}
+#cv{
+  color: #f8f9fa;
+}
 
-}
-.btncv mat-icon {
-  margin-left: 10px;
-  padding-right: 20px;
-}
 /* -------------------------------------- */
 
 /* REDES SOCIALES BTN */
 mat-sidenav{
-  width: 230px;
+  /* width: 230px; */
   top: 50px;
   display: flex;
   justify-content: center;
-  background: #313131;
+  background: #212121;
   border-radius: 0%;
   /* border-right: #bbb 1px solid; */
 }
@@ -355,6 +341,21 @@ button.toggle-btn:hover i.bi-person-vcard-fill{
 
 
 
+/* TARJETA DE PERFIL DATOS DE CONTACTO */
+
+.contact-text{
+  color: #f8f9fa;
+  font-size: 1.2rem;
+  margin: 0;
+  padding: 0;
+  text-align: left;
+}
+/* ----------------------- */
+
+
+
+
+/* CONTENIDO DE LA PAGINA PRINCIPAL */
 mat-sidenav-content {
   flex: 1;
   height: 100vh;
@@ -363,120 +364,6 @@ mat-sidenav-content {
   background-size: 30px 30px;
   background-position: -5px -5px;
 }
-
-/* LAMPARA en estos momentos se encuentra desactivada en html */
-.cable{
-  width: 2px;
-  margin: auto;
-  background-color: #495E57;
-  height: 100px;
-}
-.lampara{
-  width: 300px;
-  /* border-bottom: 10px solid #d7d7d7; */
-  position: relative;
-}
-.boton-lampara {
-  background-color: #626262;
-  border: none;
-  border-radius: 50px 50px 0 0;
-  padding: 7px;
-  cursor: pointer;
-  outline: none;
-  color: white;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  transition: background-color 0.3s;
-}
-.boton-lampara:hover {
-  background-color: #4d4d4d;
-}
-.caja{
-  z-index: 1;
-  width: 80px;
-  height: 40px;
-  background-color:#626262;
-  margin: auto;
-  border-radius: 30px 30px 0 0;
-  position: relative;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  }
-  .luz {
-    max-width: 300px;
-    margin: auto;
-    height: 200px;
-    clip-path: polygon(40% 0, 60% 0, 100% 100%, 0 100%);
-    background-color: transparent;
-    box-shadow: none;
-    transition: background-color 0.5s, box-shadow 0.5s;
-  }
-  .luz.encendida {
-    background-color: #F6DCAC;
-    box-shadow: 0px 0px 20px 10px rgba(255, 235, 59, 0.5);
-  }
-  .ampolleta2{
-    z-index: -1;
-    position: absolute;
-    left: 16px;
-    border-radius: 0.75em;
-    color: #F6DCAC;
-    display: inline-flex;
-    align-items: center;
-    margin: auto;
-    padding: 0.15em;
-    width: 3em;
-    height: 1.5em;
-    transition: background-color 0.1s 0.3s ease-out, box-shadow 0.1s 0.3s ease-out;
-    -webkit-appearance: none;
-    -moz-appearance: none;
-    appearance: none;
-    transform: rotate(270deg);
-
-  }
-  .ampolleta2:before, .ampolleta2:after{
-    content: "";
-    display: block;
-  }
-  /* Cristal/bombillo */
-  .ampolleta2:before {
-    background-color: #d7d7d7;
-    border-radius: 50%;
-    width: 1.2em;
-    height: 1.2em;
-    transition: background-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-    z-index: 1;
-  }
-  /* CONECTOR O LATA */
-  .ampolleta2:after {
-    background: linear-gradient(transparent 50%, rgba(0,0,0,0.15) 0) 0 50% / 50% 100%,
-      repeating-linear-gradient(90deg,#bbb 0,#bbb,#bbb 20%,#999 20%,#999 40%) 0 50% / 50% 100%,
-      radial-gradient(circle at 50% 50%,#888 25%, transparent 26%);
-    background-repeat: no-repeat;
-    border: 0.25em solid transparent;
-    border-left: 0.4em solid #d8d8d8;
-    border-right: 0 solid transparent;
-    transition: border-left-color 0.1s 0.3s ease-out, transform 0.3s ease-out;
-    transform: translateX(-22.5%);
-    transform-origin: 25% 50%;
-    width: 1.2em;
-    height: 1em;
-    box-sizing: border-box;
-  }
-
-  .ampolleta2:checked:before {
-    background-color: currentColor;
-    /* transform: translateX(125%) */
-  }
-  .ampolleta2:checked:after {
-    border-left-color: currentColor;
-    /* transform: translateX(-2.5%) rotateY(180deg); */
-  }
-  .ampolleta2:focus {
-    outline: 0;
-  }
-
+/* -------------------------------------- */
 
 
