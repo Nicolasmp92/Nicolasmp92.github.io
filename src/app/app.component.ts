@@ -1,4 +1,12 @@
-import { Component, AfterViewInit, ElementRef, OnInit, ViewChild, Renderer2, HostListener } from '@angular/core';
+import { Component,
+         AfterViewInit,
+         ElementRef,
+         OnInit,
+         ViewChild,
+         Renderer2,
+         NgZone,
+         ChangeDetectorRef,
+         OnDestroy } from '@angular/core';
 import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
@@ -10,13 +18,15 @@ import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgIf } from '@angular/common';
 
-// Componentes
+// componentes de rutas
 import { HomeComponent } from './components/home/home.component';
 import { AboutComponent } from './components/about/about.component';
 import { ExperienceComponent } from './components/experience/experience.component';
 import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
+import { Router } from '@angular/router';
+
 
 @Component({
   selector: 'app-root',
@@ -24,10 +34,11 @@ import { FooterComponent } from './components/footer/footer.component';
   imports: [
     HomeComponent,
     AboutComponent,
-    SkillsComponent,
     ExperienceComponent,
+    SkillsComponent,
     ContactComponent,
     FooterComponent,
+
     FormsModule,
     ReactiveFormsModule,
     MatButtonModule,
@@ -44,14 +55,25 @@ import { FooterComponent } from './components/footer/footer.component';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit, AfterViewInit {
+export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
   @ViewChild('navbarNav') navbarNav!: ElementRef;
   @ViewChild('sidenav') sidenav!: MatSidenav;
-  @ViewChild('toolbar') toolbar!: ElementRef;
+
+  // para generar cambios en toolbar al hacer scroll
+  private header: HTMLElement | undefined;
+  private changeHeaderOn: number = 100;
+  private didScroll: boolean = false;
+  // ---------------------------------------
+
   isSidenavOpen = false;
   options: FormGroup;
 
-  constructor(private renderer: Renderer2, private _formBuilder: FormBuilder) {
+  constructor(
+    private renderer: Renderer2,
+    private _formBuilder: FormBuilder,
+    private z: NgZone,
+    private changeDetectorRef: ChangeDetectorRef
+  ) {
     this.options = this._formBuilder.group({
       fixed: false,
       bottom: 0,
@@ -60,38 +82,54 @@ export class AppComponent implements OnInit, AfterViewInit {
   }
 
   ngOnInit(): void {
-    this.initScrollSpy();
+    this.header = document.querySelector('.navbar') as HTMLElement;
+    window.addEventListener('scroll', () => this.onScroll());
+
     this.initCloseResponsiveMenuOnClick();
     this.initCloseResponsiveMenuOnClickOutside();
+
   }
 
+  // Cambiando toolbar al hacer scroll
+  onScroll() {
+    if (!this.didScroll) {
+      this.didScroll = true;
+      setTimeout(() => this.scrollPage(), 250);
+    }
+  }
+  scrollY(): number {
+    return window.scrollY || document.documentElement.scrollTop;
+    console.log('scrollY');
+  }
+  scrollPage() {
+    const sy = this.scrollY();
+    if (this.header) {
+      if (sy >= this.changeHeaderOn) {
+        this.renderer.addClass(this.header, 'scrolled');
+        console.log('add scroll');
+      } else {
+        this.renderer.removeClass(this.header, 'scrolled');
+        console.log('remove scroll');
+      }
+    }
+    this.didScroll = false;
+  }
+
+
+
   ngAfterViewInit(): void {
-    // Verificación para asegurar que sidenav esté inicializado
     if (this.sidenav) {
       this.isSidenavOpen = this.sidenav.opened;
-      console.log('Sidenav está abierto:', this.isSidenavOpen);
     } else {
       console.error('Sidenav no está definido');
     }
   }
 
-  @HostListener('window:scroll', [])
-  onWindowScroll(): void {
-    const offset = window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop || 0;
-    if (offset > 50) {
-      this.renderer.addClass(this.toolbar.nativeElement, 'scrolled');
-      this.renderer.addClass(document.querySelector('.scroll-top')!, 'show');
-    } else {
-      this.renderer.removeClass(this.toolbar.nativeElement, 'scrolled');
-      this.renderer.removeClass(document.querySelector('.scroll-top')!, 'show');
-    }
-  }
+  ngOnDestroy() {}
 
   toggleSidenav(): void {
-    console.log('Antes de toggle:', this.isSidenavOpen);
     this.sidenav.toggle().then(() => {
       this.isSidenavOpen = this.sidenav.opened;
-      console.log('Después de toggle:', this.isSidenavOpen);
     });
   }
 
@@ -101,27 +139,11 @@ export class AppComponent implements OnInit, AfterViewInit {
     }
   }
 
-  initScrollSpy(): void {
-    const sections = document.querySelectorAll('section');
-    const navLi = document.querySelectorAll('.navbar-nav li');
-
-    window.addEventListener('scroll', () => {
-      let current: string | null = '';
-
-      sections.forEach((section) => {
-        const sectionTop = section.getBoundingClientRect().top + window.scrollY;
-        if (window.scrollY >= sectionTop - 60) {
-          current = section.getAttribute('id');
-        }
-      });
-
-      navLi.forEach((li) => {
-        li.classList.remove('active');
-        if (li.querySelector('a')?.getAttribute('href') === `#${current}`) {
-          li.classList.add('active');
-        }
-      });
-    });
+  scrollToSection(sectionId: string) {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 
   initCloseResponsiveMenuOnClick(): void {
@@ -149,11 +171,9 @@ export class AppComponent implements OnInit, AfterViewInit {
     });
   }
 
-  scrollToTop(): void {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  }
-
   navigateTo(url: string): void {
     window.location.href = url;
   }
+
+
 }

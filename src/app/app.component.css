@@ -34,7 +34,7 @@ mat-sidenav-container{
   margin-bottom: 1.5em;
   font-size: 1em;
 }
-@media(max-width = 768px){
+@media(max-width: 768px){
   .ampolleta{
     margin-right: 100px;
   }
@@ -106,16 +106,28 @@ mat-sidenav-container{
 /* MENU BARRA SUPERIOR*/
 mat-toolbar{
   position: fixed;
-  background: #028391  !important;
+  background: #028391  ;
+}
+mat-toolbar.navbar.scrolled {
+  background-color: red;
+}
+
+.navbar-expand-lg.navbar-nav>.active>a {
+  border-radius: 3px;
+}
+
+.navbar-expand-lg.navbar-shrink {
+  padding: 10px 0;
+  background-color: #495E57;
 }
 .mat-menu{
   background-color: #252525;
 }
 @media(min-width:768px){
   .navbar-expand-lg {
-    padding: 25px 0;
+    /* padding: 25px 0; */
     border: 0;
-    background-color: #495E57;
+    /* background-color: #495E57; */
     -webkit-transition: padding .3s;
     -moz-transition: padding .3s;
     transition: padding .3s;
@@ -157,16 +169,16 @@ mat-toolbar{
   cursor: pointer;
   font-size: 1rem;
 }
-.active-link{
+.activebutton{
   background-color: #FEAE6F !important;
 }
 .nav-link:not(:active):hover,
 .nav-link:focus{
-  background-color: #01204E;
+  background-color: #FEAE6F;
 }
 .nav-link:focus,
 .nav-link:active{
-  background-color: #028391 !important;
+  background-color: #FEAE6F !important;
   outline: none;
 }
 .nav-link::before{

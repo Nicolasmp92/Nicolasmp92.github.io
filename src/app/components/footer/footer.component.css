@@ -13,6 +13,8 @@
 }
 
 .toggle-footer {
+  width: 60px;
+  height: 70px;
   position: fixed;
   bottom: 0px;
   left: 20px;
@@ -24,6 +26,8 @@
   border-radius: 50px 50px 0px 0px; /* Parte redondeada hacia arriba */
   z-index: 3000;
   transition: all 0.6s ease;
+  align-items: flex-start;
+  text-align: center;
 }
 
 .toggle-footer:hover {

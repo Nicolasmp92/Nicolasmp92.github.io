@@ -1,4 +1,5 @@
-<mat-toolbar  #toolbar class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 opacity-50">
+<mat-toolbar
+class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 ">
   <div class="container-fluid">
     <!-- BOTON PARA LA TARJETA -->
     <button class="toggle-btn position-absolute start-0 top-0 mt-2"
@@ -13,29 +14,31 @@
     </button>
 
     <div class="collapse navbar-collapse justify-content-center text-center mt-xl-0 mt-5"
-      id="navbarNav">
-      <ul class="navbar-nav">
-        <li class="nav-item">
-          <a class="nav-link" href="#home" routerLinkActive="active-link" mat-button>Inicio</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#about" routerLinkActive="active-link" mat-button>Sobre mí</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#experiencia" routerLinkActive="active-link" mat-button>Experiencia</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#skills" routerLinkActive="active-link" mat-button>Habilidades</a>
-        </li>
-        <li class="nav-item">
-          <a class="nav-link" href="#contact" routerLinkActive="active-link" mat-button>Contacto</a>
-        </li>
-        <!-- BOTON PARA LA AMPOLLETA -->
-        <div class="col-auto position-absolute end-0"></div>
-          <input type="checkbox" class="ampolleta" id="ampolleta">
-        </ul>
-      </div>
+    id="navbarNav">
+    <ul class="navbar-nav">
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/home" (click)="scrollToSection('home')"
+         routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Inicio</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/about" (click)="scrollToSection('about')"
+        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Sobre mí</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" routerLink="/experiencia" (click)="scrollToSection('experiencia')"
+        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Experiencia</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/skills" (click)="scrollToSection('skills')"
+        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Habilidades</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link"  routerLink="/contact" (click)="scrollToSection('contact')"
+        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Contacto</a>
+      </li>
+    </ul>
     </div>
+  </div>
 </mat-toolbar>
 
 <mat-sidenav-container class="sidenav-container">
@@ -61,59 +64,46 @@
         </button>
       </a>
 
-    <!-- lista Datos de contacto -->
-   <!-- lista Datos de contacto -->
-<!-- lista Datos de contacto -->
-<!-- lista Datos de contacto -->
-
-
-
-<ul class="contact-info list-unstyled">
-  <li class="d-flex align-items-center mb-2">
-    <button class="btn-contact" mat-button (click)="navigateTo('tel:+56963978090')">
-      <i class="bi bi-telephone"></i>
-    </button>
-    <div class="contact-text">+569 63978090</div>
-  </li>
-  <li class="d-flex align-items-center mb-2">
-    <button class="btn-contact" mat-button (click)="navigateTo('mailto:nikolasmp92@gmail.com')">
-      <i class="bi bi-envelope"></i>
-    </button>
-    <div class="contact-text">nikolasmp92&#64;gmail.com</div>
-  </li>
-  <li class="d-flex align-items-center mb-2">
-    <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/maps/search/?api=1&query=Las+Camelias+villa+el+bosque,+parral,+coltauco')">
-      <i class="bi bi-geo-alt"></i>
-    </button>
-    <div class="contact-text">Las Camelias villa el bosque, parral, coltauco</div>
-  </li>
-  <li class="d-flex align-items-center">
-    <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/calendar')">
-      <i class="bi bi-calendar"></i>
-    </button>
-    <div class="contact-text">14 de Enero de 1992</div>
-  </li>
-  <li class="d-flex align-items-center">
-    <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/search?q=Capricornio+horoscope')">
-      <i class="bi bi-star"></i>
-    </button>
-    <div class="contact-text">Capricornio</div>
-  </li>
-</ul>
-
-
-</div>
+    <ul class="contact-info list-unstyled">
+      <li class="d-flex align-items-center mb-2">
+        <button class="btn-contact" mat-button (click)="navigateTo('tel:+56963978090')">
+          <i class="bi bi-telephone"></i>
+        </button>
+        <div class="contact-text">+569 63978090</div>
+      </li>
+      <li class="d-flex align-items-center mb-2">
+        <button class="btn-contact" mat-button (click)="navigateTo('mailto:nikolasmp92@gmail.com')">
+          <i class="bi bi-envelope"></i>
+        </button>
+        <div class="contact-text">nikolasmp92&#64;gmail.com</div>
+      </li>
+      <li class="d-flex align-items-center mb-2">
+        <button class="btn-contact" mat-button (click)="navigateTo('https://maps.app.goo.gl/BLNCL2xx164ratvN9')">
+          <i class="bi bi-geo-alt"></i>
+        </button>
+        <div class="contact-text">Las Camelias villa el bosque, parral, coltauco</div>
+      </li>
+      <li class="d-flex align-items-center">
+        <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/calendar')">
+          <i class="bi bi-calendar"></i>
+        </button>
+        <div class="contact-text">14 de Enero de 1992</div>
+      </li>
+      <li class="d-flex align-items-center">
+        <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/search?q=Capricornio+horoscope')">
+          <i class="bi bi-star"></i>
+        </button>
+        <div class="contact-text">Capricornio</div>
+      </li>
+    </ul>
+  </div>
 </mat-sidenav>
-<mat-sidenav-content [formGroup]="options">
+<mat-sidenav-content  [formGroup]="options">
     <app-home></app-home>
     <app-about></app-about>
     <app-experience></app-experience>
     <app-skills></app-skills>
     <app-contact></app-contact>
     <app-footer></app-footer>
-  </mat-sidenav-content>
-
-
-
+</mat-sidenav-content>
 </mat-sidenav-container>
-
