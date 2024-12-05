@@ -1,49 +1,9 @@
-<mat-toolbar
-class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 ">
-  <div class="container-fluid">
-    <!-- BOTON PARA LA TARJETA -->
-    <button class="toggle-btn position-absolute start-0 top-0 mt-2"
-      mat-button (click)="toggleSidenav()" [ngClass]="{ 'icon-shake': !isSidenavOpen }">
-      <i *ngIf="isSidenavOpen" class="bi bi-x fs-3"></i>
-      <i *ngIf="!isSidenavOpen" class="bi bi-person-vcard-fill fs-3"></i>
-    </button>
-    <!-- BOTON PARA EL MENU EN RESPONSIVO -->
-    <button class="navbar-toggler position-absolute top-0 end-0 mt-2 mx-2 mat-menu"
-      mat-icon-button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-      <mat-icon>menu</mat-icon>
-    </button>
 
-    <div class="collapse navbar-collapse justify-content-center text-center mt-xl-0 mt-5"
-    id="navbarNav">
-    <ul class="navbar-nav">
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/home" (click)="scrollToSection('home')"
-         routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Inicio</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/about" (click)="scrollToSection('about')"
-        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Sobre mí</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link" routerLink="/experiencia" (click)="scrollToSection('experiencia')"
-        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Experiencia</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/skills" (click)="scrollToSection('skills')"
-        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Habilidades</a>
-      </li>
-      <li class="nav-item">
-        <a class="nav-link"  routerLink="/contact" (click)="scrollToSection('contact')"
-        routerLinkActive="activebutton" ariaCurrentWhenActive="page" mat-button>Contacto</a>
-      </li>
-    </ul>
-    </div>
-  </div>
-</mat-toolbar>
 
-<mat-sidenav-container class="sidenav-container">
+<mat-sidenav-container  class="sidenav-container">
   <mat-sidenav #sidenav mode="side"
-    [(opened)]="isSidenavOpen"
+    [opened]="isSidenavOpen"
+    (openedChange)="sidenavState.next($event)"
     class="mat-sidenav text-center"
     [fixedInViewport]="options.value.fixed"
     [fixedTopGap]="options.value.top"
@@ -78,13 +38,13 @@ class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 ">
         <div class="contact-text">nikolasmp92&#64;gmail.com</div>
       </li>
       <li class="d-flex align-items-center mb-2">
-        <button class="btn-contact" mat-button (click)="navigateTo('https://maps.app.goo.gl/BLNCL2xx164ratvN9')">
+        <button class="btn-contact" mat-button (click)="navigateTo('https://maps.app.goo.gl/7eTzs1oybKFieuNt7')">
           <i class="bi bi-geo-alt"></i>
         </button>
-        <div class="contact-text">Las Camelias villa el bosque, parral, coltauco</div>
+        <div class="contact-text">Coltauco, O'Higgins</div>
       </li>
       <li class="d-flex align-items-center">
-        <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/calendar')">
+        <button class="btn-contact" mat-button (click)="navigateTo('https://www.google.com/calendar/render?action=TEMPLATE&text=Recordatorio&dates=19920114T090000Z/19920114T100000Z&details=Descripción del evento&location=Ubicación del evento')">
           <i class="bi bi-calendar"></i>
         </button>
         <div class="contact-text">14 de Enero de 1992</div>
@@ -98,12 +58,58 @@ class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2 ">
     </ul>
   </div>
 </mat-sidenav>
-<mat-sidenav-content  [formGroup]="options">
+
+
+<mat-sidenav-content fxFlexFill cdkScrollable id="sidenav-content">
+
+  <!-- MENU SUPERIOR -->
+  <mat-toolbar olor="primary" [ngClass]="{'shrink-toolbar': shrinkToolbar}"
+  #toolbar
+    class="navbar navbar-expand-lg navbar-light sticky-top border-bottom border-2">
+      <div class="container-fluid">
+        <!-- BOTON PARA LA TARJETA -->
+        <button aria-label="Tarjeta de contacto"
+        class="toggle-btn position-absolute start-0 top-0 mt-2"
+        mat-button
+        (click)="toggleSidenav()"
+        [ngClass]="{ 'icon-shake': !isSidenavOpen }">
+        <i *ngIf="isSidenavOpen" class="bi bi-x fs-3"></i>
+        <i *ngIf="!isSidenavOpen" class="bi bi-person-vcard-fill fs-3"></i>
+      </button>
+        <!-- BOTON PARA EL MENU EN RESPONSIVO -->
+        <button aria-label="Menu dispositivos moviles"
+          class="navbar-toggler position-absolute top-0 end-0 mt-2 mx-2 mat-menu"
+          mat-icon-button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
+          <mat-icon>menu</mat-icon>
+        </button>
+
+        <nav class="collapse navbar-collapse justify-content-center text-center mt-xl-0 mt-5"
+        id="navbarNav">
+        <ul class="navbar-nav">
+          <li class="nav-item" *ngFor="let link of navigationLinks">
+            <a
+              class="nav-link mx-2"
+              [routerLink]="link.path"
+              (click)="scrollToSection(link.section)"
+              ariaCurrentWhenActive="page"
+              mat-button>
+              {{ link.label }}
+            </a>
+          </li>
+
+        </ul>
+        </nav>
+      </div>
+    </mat-toolbar>
+
     <app-home></app-home>
     <app-about></app-about>
     <app-experience></app-experience>
     <app-skills></app-skills>
     <app-contact></app-contact>
-    <app-footer></app-footer>
+
+    <mat-toolbar>
+      <app-footer></app-footer>
+    </mat-toolbar>
 </mat-sidenav-content>
 </mat-sidenav-container>

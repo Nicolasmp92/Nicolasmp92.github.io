@@ -15,7 +15,7 @@
 .toggle-footer {
   width: 60px;
   height: 70px;
-  position: fixed;
+  /* position: fixed; */
   bottom: 0px;
   left: 20px;
   background-color: #252525;
