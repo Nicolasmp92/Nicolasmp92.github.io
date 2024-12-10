@@ -90,7 +90,7 @@
             <a
               class="nav-link mx-2"
               [routerLink]="link.path"
-              (click)="scrollToSection(link.section)"
+              (click)="scrollToSection(link.section); collapseNavbarResponsive()"
               ariaCurrentWhenActive="page"
               mat-button>
               {{ link.label }}

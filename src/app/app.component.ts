@@ -18,8 +18,7 @@ import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgFor, NgIf } from '@angular/common';
-import { fromEvent } from 'rxjs';
-import { throttleTime, map } from 'rxjs/operators';
+import { throttleTime, debounceTime, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollDispatcher, CdkScrollable } from '@angular/cdk/scrolling';
@@ -70,7 +69,7 @@ import { RouterLink } from '@angular/router';
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 })
-export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
+export class AppComponent implements OnInit, OnDestroy {
   private readonly SHRINK_TOP_SCROLL_POSITION = 50;
   shrinkToolbar = false;
 
@@ -116,91 +115,66 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       this.isSidenavOpen = state;
     });
   }
-
-
-
-
- ngOnInit(): void {
-    // Suscribirse a los eventos de scroll utilizando el ScrollDispatcher
+  ngOnInit(): void {
     this.scrollDispatcher.scrolled()
       .pipe(
         map((event: void | CdkScrollable) => {
           if (event instanceof CdkScrollable) {
             return event.getElementRef().nativeElement.scrollTop;
           }
-          return 0;
-        })
+          return this.scrollY();
+        }),
+        debounceTime(100) // Reduce la sensibilidad al scroll
       )
       .subscribe((scrollTop: number) => {
-        // Utilizamos NgZone para ejecutar el cambio dentro de Angular
         this.ngZone.run(() => {
-          this.shrinkToolbar = scrollTop > this.SHRINK_TOP_SCROLL_POSITION;
+          const shouldShrink = scrollTop > this.SHRINK_TOP_SCROLL_POSITION;
+          if (this.shrinkToolbar !== shouldShrink) {
+            this.shrinkToolbar = shouldShrink;
+            this.updateNavbarClass();
+          }
         });
       });
   }
-
-
-  onScroll() {
-    if (!this.didScroll) {
-      this.didScroll = true;
-      setTimeout(() => this.scrollPage(), 250);
+  // Método para actualizar la clase de la barra
+  updateNavbarClass(): void {
+    const navbar = document.querySelector('.navbar');
+    if (navbar) {
+      if (this.shrinkToolbar) {
+        navbar.classList.add('shrink');
+      } else {
+        navbar.classList.remove('shrink');
+      }
     }
   }
-
   scrollY(): number {
     return window.scrollY || document.documentElement.scrollTop;
   }
-
-  scrollPage() {
-    if (!this.toolbar || !this.sidenavContent || !this.sidenavContent.nativeElement) return;
-
-    const sy = this.sidenavContent.nativeElement.scrollTop;
-    if (sy >= this.changeHeaderOn) {
-      // Cambiar la altura y hacer la barra transparente
-      this.renderer.addClass(this.toolbar.nativeElement, 'scrolled');
-    } else {
-      // Volver al estilo original cuando sube
-      this.renderer.removeClass(this.toolbar.nativeElement, 'scrolled');
-    }
-  }
-
-  ngAfterViewInit(): void {
-    if (this.sidenavContent && this.sidenavContent.nativeElement) {
-      const observer = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (entry.isIntersecting) {
-              this.renderer.removeClass(this.toolbar.nativeElement, 'scrolled');
-            } else {
-              this.renderer.addClass(this.toolbar.nativeElement, 'scrolled');
-            }
-          });
-        },
-        { threshold: [0, 1] } // Ajusta según lo necesario.
-      );
-
-      observer.observe(this.sidenavContent.nativeElement);
-    } else {
-      console.error('sidenavContent no está disponible en ngAfterViewInit');
-    }
-  }
-
-
   ngOnDestroy(): void {
     // Eliminar el listener al destruir el componente para evitar memory leaks
     if (this.scrollListener) {
       this.scrollListener();
     }
   }
-
-  toggleSidenav() {
-    const currentState = this.sidenavState.value;
-    this.sidenavState.next(!currentState); // Cambia el estado.
+  toggleSidenav(): void {
+    this.sidenavState.next(!this.sidenavState.value);
   }
 
-  collapseMenu(): void {
-    if (this.navbarNav.nativeElement.classList.contains('show')) {
-      this.navbarNav.nativeElement.classList.remove('show');
+  closeSidenavOnLinkClick(): void {
+    // Verificar si el sidenav está abierto y si la pantalla está en modo móvil
+    if (window.innerWidth <= 768 && this.sidenav.opened) {
+      this.sidenav.close();
+    }
+  }
+
+  collapseNavbarResponsive(): void {
+    // Verificamos si estamos en una vista móvil
+    if (window.innerWidth <= 768) {
+      const navbar = document.querySelector('.navbar-collapse');
+      if (navbar && navbar.classList.contains('show')) {
+        // Remover la clase 'show' para colapsar el menú
+        navbar.classList.remove('show');
+      }
     }
   }
 
@@ -208,11 +182,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
-
-      // Aplicar los mismos cambios al navegar a una sección
-      setTimeout(() => {
-        this.scrollPage(); // Llamamos para aplicar los estilos después de que la animación termine.
-      }, 300);
     }
   }
   initCloseResponsiveMenuOnClick(): void {
@@ -227,7 +196,6 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       });
     });
   }
-
   initCloseResponsiveMenuOnClickOutside(): void {
     document.body.addEventListener('click', (event) => {
       const nav = document.querySelector('nav');
@@ -239,11 +207,9 @@ export class AppComponent implements OnInit, AfterViewInit, OnDestroy {
       }
     });
   }
-
   navigateTo(url: string): void {
     window.open(url, '_blank');
   }
-
   handleRouterLinkActive(): void {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 

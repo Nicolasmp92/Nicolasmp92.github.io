@@ -2,6 +2,26 @@
 
 html, body { height: 100%; }
 body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+
+
+/* FUENTE PARA TODO  */
+/* Establecer la fuente Poppins como predeterminada */
+* {
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+/* Si quieres establecer pesos específicos */
+body {
+  font-weight: 400; /* Regular */
+  color: #f8f9fa; /* Color de texto principal */
+  background-color: #212121; /* Fondo oscuro como en tu diseño */
+}
+
+
+
 .mi-paleta{
   color: #01204E;
   color: #028391;

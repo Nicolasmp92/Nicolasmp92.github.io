@@ -2,7 +2,7 @@
 
 /* ++++++++++++++SECTION++++++++++++++++ */
 .home-section{
-  padding-top: 100px;
+  padding-top: 120px;
   padding-bottom: 200px;
   background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
 }
@@ -58,33 +58,40 @@ mat-card-content{
 }
 
 /* BOTONOES REDES SOCIALES */
-span{
+span {
   font-size: 1.5rem;
   color: #FEAE6F;
-  text-transform: uppercase;
-  padding: 10px 20px;
+  /* text-transform: uppercase; */
+  padding: 10px 20px 10px;
   border-radius: 10px;
   border: 2px solid #FEAE6F;
   background: #252525;
   box-shadow: 0 0.4rem #6f4e37;
   cursor: pointer;
-  margin: 35px 40px;
-  margin-top: 140px;
 }
-span .bi:hover{
-  color: #FEAE6F;
 
-  }
-span .bi{
+span .bi:hover {
+  color: #FEAE6F;
+}
+
+span .bi {
   color: #028391;
   padding-left: 5px;
 }
 
+@media (max-width: 768px) {
+  span {
+    font-size: 1rem;
+    padding: 8px 16px;
+    margin: 20px 20px;
+    margin-top: 100px;
+    margin-bottom: 50px;
+  }
+}
 
 /* BTN CURRICULUM */
 .btncv {
-  /* width: 100%; */
-  /* max-width: 210px; */
+  max-width: 240px;
   padding: 15px;
   text-transform: uppercase;
   border-radius: 8px;
@@ -98,11 +105,10 @@ span .bi{
   border: 1px solid #996655;
   transition: 0.5s ease;
   user-select: none;
-  /* line-height: 0.9; */
-  margin: 0;
+  line-height: 0.9; /* ajustar el texto al centro */
+  margin: 0 auto; /* centrar el botón */
   display: flex;
-  justify-content: flex-start;
-  align-items: center;
+  justify-content: center; /* centrar el contenido del botón */
   text-decoration: none;
 }
 
@@ -120,50 +126,7 @@ span .bi{
   padding-right: 20px;
 }
 /* -------------------------------------- */
-/* .ola {
-  z-index: -5;
-  position: absolute;
-  width: 540px;
-  height: 700px;
-  opacity: 0.6;
-  left: 0;
-  top: 0;
-  margin-left: -50%;
-  margin-top: -70%;
-  background: linear-gradient(744deg,#808080,#2E2E2E 60%,#141414);
-}
-.ola:nth-child(2),
-.ola:nth-child(3) {
-  top: 210px;
-}
-.playing .ola {
-  border-radius: 40%;
-  animation: ola 3000ms infinite linear;
-}
-.ola {
-  border-radius: 40%;
-  animation: ola 55s infinite linear;
-}
-.playing .ola:nth-child(2) {
-  animation-duration: 4000ms;
-}
-.ola:nth-child(2) {
-  animation-duration: 50s;
-}
-.playing .ola:nth-child(3) {
-  animation-duration: 5000ms;
-}
-.ola:nth-child(3) {
-  animation-duration: 45s;
-}
-@keyframes ola {
-  0% {
-    transform: rotate(0deg);
-  }
-  100% {
-    transform: rotate(360deg);
-  }
-} */
+
 /* @MEDIAS CARD */
 @media (max-width: 768px) {
   .card {
@@ -233,4 +196,35 @@ span .bi{
   line-height: 1.4;
 }
 
+/* -----------------TAGS---------------- */
+/* CONTENEDOR PRINCIPAL PARA BOTÓN Y TAGS */
+.tags-container {
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Centrar los tags */
+  gap: 15px;
+  margin-top: 20px;
+  flex-wrap: wrap;
+}
 
+/* ESTILO PARA LOS TAGS */
+.tags {
+  display: flex;
+  gap: 10px;
+  flex-wrap: wrap;
+  justify-content: center; /* Centrar los tags */
+}
+
+.tag {
+  font-size: 0.9rem;
+  color: #FEAE6F;
+  text-transform: uppercase;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: 1px solid #FEAE6F;
+  background: #252525;
+  box-shadow: 0 0.2rem #6f4e37;
+  cursor: pointer;
+  transition: 0.3s ease-in-out;
+  margin-bottom: 20px;
+}

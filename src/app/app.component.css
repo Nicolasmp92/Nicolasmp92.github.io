@@ -1,3 +1,5 @@
+
+/* -------------------------- */
 mat-sidenav-container {
   z-index: 1 !important;
   background-color: transparent;
@@ -13,27 +15,6 @@ mat-sidenav {
   z-index: 1;
 }
 
-mat-toolbar {
-  height: 100px;
-  position: fixed;
-  background: #028391;
-  opacity: 50%;
-  transition: opacity 0.3s ease;
-}
-
-.shrink-toolbar {
-  height: 40px; /* Ajusta la altura según prefieras */
-  transition: height 0.3s ease, background-color 0.3s ease, opacity 0.3s ease;
-}
-
-mat-toolbar {
-  height: 100px;
-  position: fixed;
-  background: #028391;
-  opacity: 100%;
-  transition: opacity 0.3s ease;
-}
-
 /* CONTENIDO DE LA PAGINA PRINCIPAL */
 mat-sidenav-content {
   flex: 1;
@@ -43,7 +24,6 @@ mat-sidenav-content {
   background-size: 30px 30px;
   background-position: -5px -5px;
 }
-
 /* -------------------------------------- */
 
 .sidenav-container {
@@ -83,6 +63,77 @@ mat-sidenav-content {
 }
 
 /* MENU BARRA SUPERIOR */
+/* Estilos para la barra superior */
+.navbar {
+  height: 100px; /* Altura inicial */
+  padding: 25px 0;
+  background: #028391;
+  transition: all 0.6s ease; /* Suaviza todos los cambios */
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.navbar.shrink {
+  height: 60px; /* Altura al hacer scroll */
+  padding: 10px 0;
+  background-color: #028391; /* Mantiene el fondo */
+  transition: all 0.6s ease; /* Suaviza el cambio */
+}
+
+/* Estilos para dispositivos mas pequeños */
+@media (max-width: 768px) {
+  .navbar {
+    height: 60px; /* Reduce la altura */
+    padding: 10px 0; /* Ajusta el relleno */
+  }
+  .navbar-brand {
+    font-size: 1em; /* Ajusta el tamaño del texto de la marca */
+  }
+
+}
+.navbar-expand-lg {
+  height: 100px;
+  position: fixed;
+  background: #028391;
+  opacity: 50;
+  padding: 25px 0;
+  transition: height 0.6s ease, padding 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-expand-lg.navbar-brand {
+  font-size: 2em;
+  -webkit-transition: all .3s;
+  -moz-transition: all .3s;
+  transition: all .3s;
+}
+
+/* Estilos para cuando la barra se encoge */
+.navbar-expand-lg.shrink-toolbar {
+  height: 60px;
+  padding: 10px 0;
+  transition: height 0.6s ease, padding 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
+  background-color: #028391;
+  opacity: 1;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.navbar-expand-lg.navbar-nav>.active>a {
+  border-radius: 3px;
+}
+
+.navbar-expand-lg.navbar-shrink {
+  padding: 10px 0;
+  background-color: #495E57;
+}
+.navbar-expand-lg.navbar-shrink.navbar-brand {
+  font-size: 1.0em;
+}
+/* ----------------------------------------- */
+
 
 .navbar.scrolled {
   background-color: #fff; /* Cambia esto por el estilo que desees */
