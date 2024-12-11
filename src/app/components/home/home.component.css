@@ -3,15 +3,23 @@
 /* ++++++++++++++SECTION++++++++++++++++ */
 .home-section{
   padding-top: 120px;
-  padding-bottom: 200px;
   background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
+  height: 100%;
 }
 @media (width = 768px){
   .home-section{
     padding-top: 50px;
   }
 }
-/* ------------------------------------- */
+/* CONTAINER */
+@media (min-width: 768px) {
+  .container-xxl {
+    margin: 30px 10%; /* Margen del 10% a ambos lados */
+  }
+}
+
+
+/* IMAGEN */
 @media(width > 800px){
 .img-thumbnail{
   width: 300px;
@@ -19,73 +27,55 @@
 }
 }
 
-/* CARD RESUMEN */
-mat-card{
-  background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
-  box-shadow:0px 0px 30px 1px #028391 ;
+/* TEXTO */
+.fw-bolder.fs-5.lh-sm.font-monospace.text-justify {
+  text-align: justify;
+  line-height: 1.8; /* Ajusta el interlineado para mayor claridad */
+  text-justify: inter-word; /* Justificación entre palabras para mejorar el aspecto */
 }
-@media (width = 768px) {
-  mat-card{
- display: none;
-  }
-}
-mat-card-content{
-  border-radius: 10px;
 
-}
-/* ++++++++++++++CARD MENU++++++++++++++++++ */
-.card {
-  position: relative;
-  width: 300px;
-  height: 200px;
-  background: linear-gradient(-45deg, #45474B 0%, #333333 100% );
-  border-color: #45474B;
-  border-radius: 10px;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  overflow: hidden;
-  z-index: 15;
-}
-@keyframes card {
-  0% {
-    transform: rotate(0deg);
-  }
 
-  100% {
-    transform: rotate(360deg);
-  }
-}
+
+
+
 
 /* BOTONOES REDES SOCIALES */
-span {
+.social-container {
+  margin: 30px 30px;
+  max-width: 240px;
+  text-align: center;
   font-size: 1.5rem;
   color: #FEAE6F;
-  /* text-transform: uppercase; */
-  padding: 10px 20px 10px;
+  padding: 10px 25px 10px 25px;
   border-radius: 10px;
   border: 2px solid #FEAE6F;
   background: #252525;
   box-shadow: 0 0.4rem #6f4e37;
   cursor: pointer;
+  position: static;
 }
 
-span .bi:hover {
+.social-container .bi:hover {
   color: #FEAE6F;
 }
 
-span .bi {
+.social-container .bi {
   color: #028391;
   padding-left: 5px;
 }
 
 @media (max-width: 768px) {
-  span {
+  .social-container {
+    text-align: center;
+    max-width: 50%;
     font-size: 1rem;
-    padding: 8px 16px;
-    margin: 20px 20px;
-    margin-top: 100px;
-    margin-bottom: 50px;
+    margin: 15px 0px;
+    align-items: center;
+    justify-content: space-between;
+    padding: 10 15px;
+  }
+  .spsocial-containeran.bi{
+    font-size: 1.5rem;
   }
 }
 
@@ -125,76 +115,77 @@ span .bi {
   margin-left: 5px;
   padding-right: 20px;
 }
-/* -------------------------------------- */
-
-/* @MEDIAS CARD */
-@media (max-width: 768px) {
-  .card {
-    width: 100%;
-    max-width: 320px
+/* accionando hover cada 2 segundos */
+@keyframes neon-flicker {
+  0%, 2%, 8%, 20%, 100% {
+    color: #028391;
+    background: transparent;
+    border-color: #996655;
+    box-shadow: none;
+  }
+  4%, 18% {
+    color: #f8f9fa;
+    background: #028391;
+    border-color: #028391;
+    box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  }
+  10%, 15% {
+    color: #028391;
+    background: transparent;
+    border-color: #996655;
+    box-shadow: 0 0 10px #028391;
+  }
+  22%, 30% {
+    color: #f8f9fa;
+    background: #028391;
+    border-color: #028391;
+    box-shadow: 0 0 30px #028391, 0 0 60px #028391, 0 0 90px #028391;
   }
 }
-/* rotacion de cada card */
-.card:nth-child(1):hover {
-  transform: rotate(-5deg) scale(1.1);
+
+.btncv {
+  animation: neon-flicker 4s infinite ease-in-out;
 }
-.card:nth-child(2):hover {
-  transform: rotate(5deg) scale(1.1);
+
+
+/* -------------------------------------- */
+
+
+/* ------------------------SALUDO------------------------- */
+.saludo {
+  display: inline-block;
+  animation: wave 1.5s ease-in-out infinite;
+  transform-origin: 70% 70%; /* Punto de pivote para el movimiento */
 }
-.card:nth-child(3):hover {
-  transform: rotate(-3deg) scale(1.1);
+
+@keyframes wave {
+  0% {
+    transform: rotate(0deg);
+  }
+  15% {
+    transform: rotate(-10deg);
+  }
+  30% {
+    transform: rotate(10deg);
+  }
+  45% {
+    transform: rotate(-10deg);
+  }
+  60% {
+    transform: rotate(10deg);
+  }
+  75% {
+    transform: rotate(-10deg);
+  }
+  100% {
+    transform: rotate(0deg);
+  }
 }
-.card:nth-child(4):hover {
-  transform: rotate(3deg) scale(1.1);
-}
-.emoji{
-  font-size: 50px;
-  font-style: none;
-}
-.card .emoji{
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-.card:hover .emoji {
-  scale: 0;
-  transform: rotate(-45deg);
-}
-.card .card-title {
-  margin: 0;
-  font-size: 30px;
-  font-weight: 700;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-  color: #b6cac4;
-}
-.card:hover .card-title{
-  scale: 0;
-  transform: rotate(-45deg);
-}
-.card:hover {
-  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
-}
-.card-body {
-  position: absolute;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%) rotate(-45deg);
-  width: 100%;
-  height: 100%;
-  padding: 20px;
-  box-sizing: border-box;
-  background: (-45deg, #D9CAB3 0%, #2A443C 100% );
-  opacity: 0;
-  transition: all 0.6s cubic-bezier(0.23, 1, 0.320, 1);
-}
-.card:hover .card-body {
-  transform: translate(-50%, -50%) rotate(0deg);
-  opacity: 1;
-}
-.card-text {
-  margin: 10px 0 0;
-  font-size: 14px;
-  color: #66C2A5;
-  line-height: 1.4;
-}
+
+
+/* ---------------------------------------------- */
+
+
 
 /* -----------------TAGS---------------- */
 /* CONTENEDOR PRINCIPAL PARA BOTÓN Y TAGS */
@@ -213,6 +204,9 @@ span .bi {
   gap: 10px;
   flex-wrap: wrap;
   justify-content: center; /* Centrar los tags */
+  user-select: none;
+  cursor: not-allowed;
+
 }
 
 .tag {
