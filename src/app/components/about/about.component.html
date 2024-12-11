@@ -1,39 +1,42 @@
-<section id="about" class="about">
-
-  <div class="container-xxl border border-muted bg-secondary border-opacity-10 pb-5 mb-5 ">
+<section id="about" class="about-section">
+  <div class="container-xxl">
     <div class="row">
-      <div class="col-md-12">
-        <h2 class="text-center fw-bold pt-3 brillo"> Mas Sobre mí</h2>
-        <hr class="fw-bolder">
-      </div>
+      <!-- Título Principal -->
+      <h1 class="text-center fw-bold pt-3 glow-text">Más Sobre Mí</h1>
+      <hr class="fw-bolder">
 
-        <!-- <span class="fs-3 pb-5 fw-bolder lh-sm font-monospace">
-          👨‍💻 Soy un chileno de 32 años que actualmente reside en la región de O’Higgins. 🏞️
-              Soy un apasionado de la informática, pero sobre todo del desarrollo front-end. Desde mi etapa académica hasta el presente profesionalmente no he dejado de aprender. 📚
-           Programar es mi pasión 💻, pero debo confesar que me he desviado del camino. 🎯
+      <!-- Contenido -->
+      <div class="col-md-12 d-flex align-items-start justify-content-between flex-wrap">
+        <!-- Categorías -->
+        <div class="about-categories">
+          <h2 class="about-category text-poppins">💻 Tecnología</h2>
+          <ul class="about-list">
+            <li>Me apasiona la informática y el desarrollo front-end, aprendiendo y mejorando cada día. 🚀</li>
+          </ul>
 
-          🎓 Me titulé de Ingeniero de Ejecución en Informática con mención en Desarrollo de Sistemas en 2017 y he ejercido en el área de la salud. 🏥
-          🔄 Aunque he podido desarrollarme en el área de la informática, siempre he tenido la inquietud de emprender nuevamente mi carrera desde las raíces: desde el desarrollo. 🌱
-          💪 A pesar de los obstáculos, la pasión por mi profesión no ha muerto y la sigo alimentando con mis proyectos personales y cursos online. 🌐
-            </span> -->
-            <h4 class="text-decoration-underline">Mis Gustos y pasiones:</h4>
-            <ul class=" fs-3 pb-5 fw-bold lh-sm font-monospace">
-            <li class="list-group-item text-light border-0">• Informática y tecnología.</li>
-            <li class="list-group-item text-light border-0">• Desarrollo front-end (aprendiendo y mejorando cada día).</li>
-            <li class="list-group-item text-light border-0">• Gaming 🎮, especialmente en PC. Soy fan de la saga <em>Resident Evil</em> 🧟‍♂️🧬.</li>
-            <li class="list-group-item text-light border-0">• Naturaleza 🌳, criado en un entorno rodeado de cerros. Adoro el contacto con lo natural y la tranquilidad del campo.</li>
-            <li class="list-group-item text-light border-0">• Manga y anime 📚🎥, siempre disfrutando de buenas historias y personajes memorables.</li>
-            </ul>
+          <h2 class="about-category text-poppins">🎮 Gaming</h2>
+          <ul class="about-list">
+            <li>Fan de la saga <em>Resident Evil</em> 🧟‍♂️🧬. Disfruto de buenas partidas en PC.</li>
+          </ul>
 
-            <span *ngIf="VerMas" class="fs-3 pb-5 fw-bolder lh-sm font-monospace">
-        Estoy decidido a seguir creciendo y aprendiendo en el mundo del desarrollo front-end, enfrentando nuevos desafíos y creando soluciones innovadoras. 🚀
-        Mi objetivo es contribuir con mis conocimientos y habilidades a proyectos que marquen la diferencia y dejen una huella positiva en el mundo. 🌍
-            </span>
+          <h2 class="about-category text-poppins">🌳 Naturaleza</h2>
+          <ul class="about-list">
+            <li>Adoro el contacto con lo natural, criado entre cerros y rodeado de tranquilidad. 🌿</li>
+          </ul>
 
-      <div class=" align-items-end">
-        <button (click)="MostrarTexto()" class="btn btn-outline-light btn-xl px-3"> Ver Mas </button>
+          <h2 class="about-category text-poppins">📚 Entretenimiento</h2>
+          <ul class="about-list">
+            <li>Amo el manga y el anime, disfrutando de historias memorables y personajes inspiradores. 🎥</li>
+          </ul>
+        </div>
+
+        <!-- Imagen circular -->
+        <div class="circle-image">
+          <div class="circle">
+            <img *ngFor="let image of images" [src]="image" alt="Instagram photo">
+          </div>
+        </div>
       </div>
     </div>
   </div>
-
 </section>

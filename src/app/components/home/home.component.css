@@ -5,6 +5,7 @@
   padding-top: 120px;
   background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
   height: 100%;
+  overflow: auto;
 }
 @media (width = 768px){
   .home-section{
@@ -33,11 +34,6 @@
   line-height: 1.8; /* Ajusta el interlineado para mayor claridad */
   text-justify: inter-word; /* Justificación entre palabras para mejorar el aspecto */
 }
-
-
-
-
-
 
 /* BOTONOES REDES SOCIALES */
 .social-container {
@@ -80,7 +76,96 @@
 }
 
 /* BTN CURRICULUM */
+
 .btncv {
+  --glow-color: #028391; /* Brillo principal */
+  --glow-spread-color: rgba(2, 131, 145, 0.5); /* Brillo difuminado */
+  --enhanced-glow-color: #028391; /* Color intensificado */
+  --btn-color: transparent; /* Fondo base */
+  --text-color: #f8f9fa; /* Color del texto */
+  --border-color: #028391; /* Borde principal */
+
+  font-family:  "Tilt Neon", sans-serif; /* Fuente principal */
+  border: 0.25em solid var(--border-color); /* Borde principal */
+  padding: 1em 3em;
+  color: var(--text-color);
+  font-size: 18px;
+  font-weight: bold;
+  background-color: var(--btn-color);
+  border-radius: 1em;
+  outline: none;
+  position: relative;
+  text-shadow: 0 0 0.5em var(--glow-color);
+  transition: all 0.3s ease-in-out;
+  display: flex;
+  align-items: center; /* Centra verticalmente */
+  justify-content: center; /* Centra horizontalmente */
+  gap: 0.5em; /* Espacio entre texto e ícono */
+
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 1em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+
+  animation: glow-breath 2s infinite alternate;
+}
+
+/* .btncv::after {
+  pointer-events: none;
+  content: "";
+  position: absolute;
+  top: 120%;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  background-color: var(--glow-spread-color);
+  filter: blur(2em);
+  opacity: 0.7;
+  transform: perspective(1.5em) rotateX(35deg) scale(1, 0.6);
+} */
+
+.btncv:hover {
+  color: var(--text-color); /* Texto blanco al hover */
+  background-color: var(--glow-color);
+  box-shadow:
+    0 0 1em 0.25em var(--glow-color),
+    0 0 4em 2em var(--glow-spread-color),
+    inset 0 0 0.75em 0.25em var(--glow-color);
+}
+
+.btncv:active {
+  box-shadow:
+    0 0 0.6em 0.25em var(--glow-color),
+    0 0 2.5em 2em var(--glow-spread-color),
+    inset 0 0 0.5em 0.25em var(--glow-color);
+}
+.btncv .bi-file-earmark-pdf {
+  color: #f8f9fa; /* Cambia el color del ícono PDF */
+}
+
+/* Estilo para el ícono */
+.cvfont {
+  font-size: 24px; /* Ajusta el tamaño del ícono */
+  margin-right: 10px;
+}
+
+@keyframes glow-breath {
+  0% {
+    box-shadow:
+      0 0 1em 0.25em var(--glow-color),
+      0 0 4em 1em var(--glow-spread-color),
+      inset 0 0 0.75em 0.25em var(--glow-color);
+  }
+  100% {
+    box-shadow:
+      0 0 1.5em 0.35em var(--enhanced-glow-color),
+      0 0 5em 1.5em var(--glow-spread-color),
+      inset 0 0 1em 0.35em var(--enhanced-glow-color);
+  }
+}
+
+
+/* .btncv {
   max-width: 240px;
   padding: 15px;
   text-transform: uppercase;
@@ -95,10 +180,10 @@
   border: 1px solid #996655;
   transition: 0.5s ease;
   user-select: none;
-  line-height: 0.9; /* ajustar el texto al centro */
-  margin: 0 auto; /* centrar el botón */
+  line-height: 0.9;
+  margin: 0 auto;
   display: flex;
-  justify-content: center; /* centrar el contenido del botón */
+  justify-content: center;
   text-decoration: none;
 }
 
@@ -115,7 +200,7 @@
   margin-left: 5px;
   padding-right: 20px;
 }
-/* accionando hover cada 2 segundos */
+
 @keyframes neon-flicker {
   0%, 2%, 8%, 20%, 100% {
     color: #028391;
@@ -145,7 +230,7 @@
 
 .btncv {
   animation: neon-flicker 4s infinite ease-in-out;
-}
+} */
 
 
 /* -------------------------------------- */
