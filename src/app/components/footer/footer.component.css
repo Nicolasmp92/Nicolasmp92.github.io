@@ -1,33 +1,43 @@
+/* Contenedor del Footer */
 .footer-content {
-  display: none;
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  width: 100%;
+  max-height: 0;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.1);
+  transition: max-height 0.6s ease-in-out, padding 0.6s ease-in-out;
+  z-index: 2000;
 }
 
 .footer-content.show {
-  display: block;
+  max-height: 200px; /* Ajustar según el contenido */
+  padding: 20px;
 }
 
-.navbar {
-  display: flex;
-  justify-content: center;
-  margin-bottom: 10px;
-}
-
+/* Botón para alternar el Footer */
 .toggle-footer {
-  width: 60px;
-  height: 70px;
-  /* position: fixed; */
-  bottom: 0px;
-  left: 20px;
+  position: fixed;
+  left: 10px;
+  bottom: 0;
   background-color: #252525;
   color: white;
   border: none;
-  padding: 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  border-radius: 50%;
   cursor: pointer;
-  border-radius: 50px 50px 0px 0px; /* Parte redondeada hacia arriba */
   z-index: 3000;
-  transition: all 0.6s ease;
-  align-items: flex-start;
-  text-align: center;
+  transition: all 0.3s ease-in-out;
+  width: 60px;
+  height: 60px;
+  border-radius: 50px 50px 0px 0px;
+  border: #f8f9fa 1px solid;
+  border-bottom: none;
+
 }
 
 .toggle-footer:hover {
@@ -35,28 +45,29 @@
   box-shadow: 0 0 5px #FEAE6F, 0 0 20px #FEAE6F, 0 0 50px #FEAE6F, 0 0 100px #FEAE6F;
 }
 
-/* Estilo del botón "Scroll to Top" */
+.toggle-footer:hover.show{
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+}
+
+/* Botón Scroll to Top */
 .scroll-top {
   position: fixed;
   bottom: 20px;
   right: 20px;
   background-color: #028391;
-  color: #fff;
-  z-index: 3000;
-  border-radius: 50%; /* Mantener el botón redondo */
+  color: white;
+  border-radius: 50%;
+  border: #f8f9fa 1px solid;
   width: 50px;
   height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
   cursor: pointer;
-  transition: all 0.6s ease;
-  padding: 0;
-}
-
-.scroll-top.hidden {
+  transition: all 0.3s ease-in-out;
   opacity: 0;
   visibility: hidden;
+  z-index: 3000;
 }
 
 .scroll-top.show {
@@ -64,8 +75,35 @@
   visibility: visible;
 }
 
-.scroll-top:hover,
-.scroll-top:focus {
+.scroll-top:hover {
   background-color: #FEAE6F;
-  box-shadow: 0 0 5px #FEAE6F, 0 0 20px #FEAE6F, 0 0 50px #FEAE6F, 0 0 100px #FEAE6F;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+}
+
+/* Circuito Circadiano */
+.circadian-indicator {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  color: #333;
+}
+
+.circadian-indicator mat-icon {
+  font-size: 2rem;
+  margin-bottom: 5px;
+}
+
+.slider-container input[type='range'] {
+  width: 80%;
+  -webkit-appearance: none;
+  appearance: none;
+  background: transparent;
+}
+
+.slider-container input[type='range']::-webkit-slider-thumb {
+  width: 15px;
+  height: 15px;
+  background-color: #028391;
+  border-radius: 50%;
+  cursor: pointer;
 }

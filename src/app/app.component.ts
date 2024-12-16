@@ -1,6 +1,4 @@
 import { Component,
-         AfterViewInit,
-         AfterViewChecked,
          ElementRef,
          OnInit,
          ViewChild,
@@ -115,6 +113,10 @@ export class AppComponent implements OnInit, OnDestroy {
       this.isSidenavOpen = state;
     });
   }
+   // Se suscribe al evento de scroll utilizando ScrollDispatcher para detectar
+  // cambios en la posición de desplazamiento. Aplica una lógica de debounce para
+  // reducir la frecuencia de actualizaciones. Cambia la clase de la barra
+  // de navegación según la posición del scroll.
   ngOnInit(): void {
     this.scrollDispatcher.scrolled()
       .pipe(
@@ -124,7 +126,7 @@ export class AppComponent implements OnInit, OnDestroy {
           }
           return this.scrollY();
         }),
-        debounceTime(100) // Reduce la sensibilidad al scroll
+        debounceTime(100)
       )
       .subscribe((scrollTop: number) => {
         this.ngZone.run(() => {
@@ -136,7 +138,8 @@ export class AppComponent implements OnInit, OnDestroy {
         });
       });
   }
-  // Método para actualizar la clase de la barra
+ // Actualiza las clases de la barra de navegación para aplicar o quitar la clase 'shrink',
+  // lo que permite cambiar su apariencia visual según el desplazamiento de la página.
   updateNavbarClass(): void {
     const navbar = document.querySelector('.navbar');
     if (navbar) {
@@ -147,26 +150,38 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     }
   }
+
+  // Retorna la posición actual de desplazamiento en el eje Y (scroll vertical).
   scrollY(): number {
     return window.scrollY || document.documentElement.scrollTop;
   }
+
+  // Elimina el listener de scroll cuando el componente se destruye
+  // para evitar problemas de rendimiento o memory leaks.
   ngOnDestroy(): void {
     // Eliminar el listener al destruir el componente para evitar memory leaks
     if (this.scrollListener) {
       this.scrollListener();
     }
   }
+
+  // Alterna el estado del sidenav (abrir/cerrar) utilizando BehaviorSubject.
   toggleSidenav(): void {
     this.sidenavState.next(!this.sidenavState.value);
   }
 
+  // Cierra el sidenav automáticamente si se hace clic en un enlace y
+  // la pantalla está en modo móvil.
+  // NO FUNCIONA VERIFICAR
   closeSidenavOnLinkClick(): void {
     // Verificar si el sidenav está abierto y si la pantalla está en modo móvil
     if (window.innerWidth <= 768 && this.sidenav.opened) {
       this.sidenav.close();
+      console.log('Cerrando sidenav');
     }
   }
 
+ // Colapsa el menú de navegación en pantallas móviles si está abierto.
   collapseNavbarResponsive(): void {
     // Verificamos si estamos en una vista móvil
     if (window.innerWidth <= 768) {
@@ -177,17 +192,21 @@ export class AppComponent implements OnInit, OnDestroy {
       }
     }
   }
-
+ // Realiza un desplazamiento suave hacia una sección específica de la página
+  // utilizando su ID.
   scrollToSection(sectionId: string): void {
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
   }
+
+  // Configura eventos para cerrar automáticamente el menú de navegación
+  // en pantallas móviles cuando se hace clic en un enlace del menú.
+  //NO FUNCIONA VERIFICAR
   initCloseResponsiveMenuOnClick(): void {
     const navLinks = document.querySelectorAll('.navbar-collapse ul li a');
     const toggleButton = document.querySelector('.navbar-toggler');
-
     navLinks.forEach((link) => {
       link.addEventListener('click', () => {
         if (toggleButton && !toggleButton.classList.contains('collapsed')) {
@@ -196,20 +215,28 @@ export class AppComponent implements OnInit, OnDestroy {
       });
     });
   }
+
+  // Configura un evento para cerrar el menú de navegación cuando se hace clic
+  // fuera de la barra de navegación en pantallas móviles.
+  //NO FUNCIONA VERIFICAR
   initCloseResponsiveMenuOnClickOutside(): void {
     document.body.addEventListener('click', (event) => {
       const nav = document.querySelector('nav');
       const toggleButton = document.querySelector('button.navbar-toggler');
       const target = event.target as HTMLElement;
-
       if (toggleButton && !toggleButton.classList.contains('collapsed') && !nav?.contains(target)) {
         (toggleButton as HTMLElement).click();
       }
     });
   }
+
+  // Navega a una URL abriendo el enlace en una nueva pestaña.
   navigateTo(url: string): void {
     window.open(url, '_blank');
   }
+
+  // Agrega y remueve dinámicamente la clase 'active' a los enlaces de la barra
+  // de navegación según el enlace que se haya hecho clic.
   handleRouterLinkActive(): void {
     const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
 

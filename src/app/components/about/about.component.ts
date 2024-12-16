@@ -1,48 +1,34 @@
-import { Component, OnInit, ViewEncapsulation } from '@angular/core';
+import { Component } from '@angular/core';
 import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [
-    NgFor,
-  ],
-  encapsulation: ViewEncapsulation.None,
+    imports: [
+      NgFor,
+    ],
   templateUrl: './about.component.html',
-  styleUrls: ['./about.component.css']
+  styleUrls: ['./about.component.css'],
 })
-export class AboutComponent implements OnInit {
+export class AboutComponent {
+  images: string[] = []; // Aquí almacenaremos varias URLs de imágenes.
 
-  VerMas = false;
- // Simulación de imágenes de Instagram
- images: string[] = [
-  'https://via.placeholder.com/300x300.png?text=Foto+1',
-  'https://via.placeholder.com/300x300.png?text=Foto+2',
-  'https://via.placeholder.com/300x300.png?text=Foto+3',
-  'https://via.placeholder.com/300x300.png?text=Foto+4',
-];
-
-  // images: string[] = [];
-
-  MostrarTexto() {
-    this.VerMas = !this.VerMas;
+  ngOnInit() {
+    this.fetchInstagramPhotos();
   }
 
-  ngOnInit(): void {
-    this.loadInstagramPhotos(); // Llamar a la función que carga imágenes
-  }
+  fetchInstagramPhotos() {
+    const ACCESS_TOKEN = 'IGAANAZBwtGdrtBZAE0tT1ZASRFpQOXl4NTBBeW1fVEhYbU0tazVtM3V4eVp0aUtrZAHRKVWZA6cHllbUJCNy1IeVNBSFZAGVDhfV09ndk5hX1ZAZAYW5uQ25YRXNkUWtJNkt3ZADZAfMFNzY2ViY1IzS09jYkJHT1FRR2VHZA3E4dGE0bDZAZAMAZDZD'; // Reemplaza con tu token de Instagram
+    const url = `https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=${ACCESS_TOKEN}`;
 
-  loadInstagramPhotos() {
-    const ACCESS_TOKEN = 'YOUR_ACCESS_TOKEN'; // Reemplaza con tu token de Instagram
-    fetch(`https://graph.instagram.com/me/media?fields=id,media_type,media_url&access_token=${ACCESS_TOKEN}`)
-      .then(response => response.json())
-      .then(data => {
+    fetch(url)
+      .then((response) => response.json())
+      .then((data) => {
         this.images = data.data
-          .filter((item: any) => item.media_type === 'IMAGE') // Filtra solo imágenes
-          .slice(0, 4) // Limita a 4 imágenes
-          .map((item: any) => item.media_url); // Obtiene las URLs de las imágenes
+          .filter((item: any) => item.media_type === 'IMAGE') // Filtrar solo imágenes.
+          .map((item: any) => item.media_url); // Obtener las URLs de las imágenes.
       })
-      .catch(error => console.error('Error fetching Instagram photos:', error));
+      .catch((error) => console.error('Error fetching Instagram photos:', error));
   }
-
 }
+

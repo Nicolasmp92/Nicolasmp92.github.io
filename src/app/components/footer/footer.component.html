@@ -1,40 +1,28 @@
-<footer class="fixed-bottom">
-  <div class="footer-content">
-    <div class="row">
-      <div class="col">
-        <div class="footer-section links">
-          <h2>Quick Links</h2>
-          <ul>
-            <li><a href="#home">Home</a></li>
-            <li><a href="#services">Services</a></li>
-            <li><a href="#contact">Contact</a></li>
-            <li><a href="#about">About</a></li>
-          </ul>
-        </div>
-      </div>
-      <div class="col">
-        <div class="footer-section contact">
-          <h2>Contact Us</h2>
-          <p>Email: info&#64;example.com</p>
-          <p>Phone: +123 456 7890</p>
-        </div>
-      </div>
-    </div> <!-- Falta cerrar esta etiqueta -->
+<footer>
+  <!-- Contenido del Footer -->
+  <div class="footer-content" [ngClass]="{ show: isFooterVisible }" [ngStyle]="{'background-color': backgroundColor}">
+    <!-- Circuito Circadiano -->
+    <div class="circadian-indicator">
+      <mat-icon>brightness_5</mat-icon>
+      <p>Circuito Circadiano</p>
+    </div>
+
+    <!-- Control deslizante -->
+    <div class="slider-container">
+      <input type="range" min="0" max="23" [value]="selectedHour" (input)="onSliderChange($event)" />
+      <p>{{ selectedHour }}:00</p>
+    </div>
   </div>
 
-  <!-- <div class="footer-bottom">
-    &copy; 2023 YourCompany. All rights reserved.
-  </div> -->
+  <!-- Botón para mostrar/ocultar el footer -->
+  <button class="toggle-footer"[ngClass]="{ show: isFooterVisible }" (click)="toggleFooter()" placeholder="mostrar/ocultar footer">
+    <mat-icon>{{ isFooterVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+  </button>
 
-  <!-- BOTON SCROLL TO TOP -->
-  <button mat-fab class="scroll-top" (click)="scrollToTop()">
-    <mat-icon>arrow_upward</mat-icon>
+  <!-- Botón Scroll to Top -->
+  <button class="scroll-top" (click)="scrollToTop()" [ngClass]="{ show: isScrollTopVisible }">
+    <mat-icon class="glow-text">vertical_align_top</mat-icon>
   </button>
+
+
 </footer>
-<!-- BOTON NAVAR -->
-<nav class="navbar">
-  <button class="toggle-footer" (click)="toggleFooter()">
-    <mat-icon>expand_more</mat-icon>
-    footer
-  </button>
-</nav>

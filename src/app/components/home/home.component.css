@@ -1,25 +1,3 @@
-
-
-/* ++++++++++++++SECTION++++++++++++++++ */
-.home-section{
-  padding-top: 120px;
-  background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
-  height: 100%;
-  overflow: auto;
-}
-@media (width = 768px){
-  .home-section{
-    padding-top: 50px;
-  }
-}
-/* CONTAINER */
-@media (min-width: 768px) {
-  .container-xxl {
-    margin: 30px 10%; /* Margen del 10% a ambos lados */
-  }
-}
-
-
 /* IMAGEN */
 @media(width > 800px){
 .img-thumbnail{
@@ -62,19 +40,19 @@
 
 @media (max-width: 768px) {
   .social-container {
-    text-align: center;
-    max-width: 50%;
-    font-size: 1rem;
-    margin: 15px 0px;
+    width: 100%; /* Asegura que utilice todo el ancho */
+    max-width: none; /* Elimina cualquier restricción de ancho máximo */
+    font-size: 1rem; /* Ajusta el tamaño de fuente para móviles */
+    margin: 15px 0px; /* Margen superior e inferior */
+    padding: 10px; /* Espaciado interno */
+    display: flex; /* Asegura que el contenido esté alineado */
     align-items: center;
-    justify-content: space-between;
-    padding: 10 15px;
+    justify-content: space-evenly; /* Distribuye los íconos uniformemente */
   }
-  .spsocial-containeran.bi{
-    font-size: 1.5rem;
+  .social-container .bi {
+    font-size: 1.5rem; /* Asegura que los íconos sean suficientemente grandes */
   }
 }
-
 /* BTN CURRICULUM */
 
 .btncv {

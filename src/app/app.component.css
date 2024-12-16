@@ -1,11 +1,10 @@
-
-/* -------------------------- */
+/* CONTENEDOR DE TODO EL SITIO WEB */
 mat-sidenav-container {
   z-index: 1 !important;
   background-color: transparent;
   background-color: red;
 }
-
+/* CONTENEDOR DE LA TARJETA DE CONTACTO */
 mat-sidenav {
   display: flex;
   justify-content: center;
@@ -15,14 +14,19 @@ mat-sidenav {
   z-index: 1;
 }
 
-/* CONTENIDO DE LA PAGINA PRINCIPAL */
+/* CONTENEDOR DE LOS COMPONENTES */
 mat-sidenav-content {
-  flex: 1;
-  height: 100vh;
-  overflow-y: auto;
+  /* flex: 1; */
+  /* margin-top: 60px; */
+  /* height: 100vh; */
+  /* overflow-y: auto; */
   background-color: #313131;
   background-size: 30px 30px;
   background-position: -5px -5px;
+}
+
+mat-toolbar{
+  margin-top: 0px !important;
 }
 /* -------------------------------------- */
 
@@ -344,15 +348,16 @@ button.toggle-btn {
   margin-top: 5px !important;
   border-radius: 0 50px 50px 0;
   border: 1px #f1f1f1 solid;
+  border-left: none;
   z-index: 3000 !important;
   background-color: #252525;
-  color: #fff;
   transition: all 0.6s ease;
 }
 
 button.toggle-btn:hover {
+  /* cursor: pointer; */
   background-color: #FEAE6F;
-  cursor: pointer;
+  box-shadow: 0 0 5px #FEAE6F, 0 0 20px #FEAE6F, 0 0 50px #FEAE6F, 0 0 100px #FEAE6F;
 }
 
 button.toggle-btn i {
@@ -408,4 +413,39 @@ button.toggle-btn:hover i.bi-person-vcard-fill {
   border-radius: 50px 50px;
   transition: background-color 0.3s, color 0.3s;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+
+
+/* SCROLL TOP */
+
+/* Botón Scroll to Top */
+.scroll-top {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  background-color: #028391;
+  color: white;
+  border-radius: 50%;
+  border: #f8f9fa 1px solid;
+  width: 50px;
+  height: 50px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s ease-in-out;
+  opacity: 0;
+  visibility: hidden;
+  z-index: 3000;
+}
+
+.scroll-top.show {
+  opacity: 1;
+  visibility: visible;
+}
+
+.scroll-top:hover {
+  background-color: #FEAE6F;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
 }

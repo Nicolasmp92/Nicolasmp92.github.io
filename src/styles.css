@@ -1,6 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
+html, body {
+  height: 100%;
+  width: 100%; /* Asegura que el ancho sea del viewport */
+  overflow-x: hidden; /* Evita desplazamiento horizontal global */
+ }
 /* body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; } */
 
 
@@ -16,6 +20,33 @@ body {
   font-weight: 400; /* Regular */
   color: #f8f9fa; /* Color de texto principal */
   background-color: #212121; /* Fondo oscuro como en tu diseño */
+}
+/* Asegura que cada sección ocupa el 100% de la altura del viewport */
+section {
+  min-height: 100vh; /* Altura mínima igual al viewport */
+  display: flex; /* Flexbox para centrar contenido */
+  align-items: center; /* Centrado vertical */
+  justify-content: center; /* Centrado horizontal */
+  box-sizing: border-box; /* Incluye padding en el cálculo */
+  margin: 0; /* Evita márgenes no deseados */
+  padding-top: 100px;
+}
+
+/* Opcional: Personalización de fondos por sección */
+#home {
+  background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
+}
+#about {
+  background: linear-gradient(-45deg, #2E2E2E 50%, #212121 50%);
+}
+#experiencia{
+  background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
+}
+#skills {
+  background: linear-gradient(-45deg, #2E2E2E 50%, #212121 50%);
+}
+#contact {
+  background: linear-gradient(45deg, #2E2E2E 50%, #212121 50%);
 }
 
 
@@ -47,5 +78,13 @@ color: #996655;
   color: #2ecc71;
   color: #8e44ad;
 
+  color:#FFFAE3 ;
+  color: #FFF1C1;
+  color: #FFD7B3;
+  color: #2E2E2E;
+
+
 
 }
+
+
