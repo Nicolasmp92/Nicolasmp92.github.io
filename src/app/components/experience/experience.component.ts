@@ -27,8 +27,8 @@ export class ExperienceComponent {
   @ViewChild('dialogTemplate', { static: true }) dialogTemplate!: TemplateRef<any>;
 
   projects = [
-    { title: 'Proyecto 1', description: 'Descripción breve del proyecto 1.', image: 'https://via.placeholder.com/150', details: 'Información detallada del proyecto 1.' },
-    { title: 'Proyecto 2', description: 'Descripción breve del proyecto 2.', image: 'https://via.placeholder.com/150', details: 'Información detallada del proyecto 2.' },
+    { title: 'Recos.cl', description: 'Constructora.', image: 'img/header_Recos.png', fullimage:'img/Recosfull.png', details: 'Información detallada del proyecto 1.' },
+    { title: 'colegioangeles.cl', description: 'Colegio Especial Ángeles.', image: 'img/header_Angeles.png',fullimage:'img/Angelesfull.png', details: 'Información detallada del proyecto 2.' },
     { title: 'Proyecto 3', description: 'Descripción breve del proyecto 3.', image: 'https://via.placeholder.com/150', details: 'Información detallada del proyecto 3.' }
   ];
 

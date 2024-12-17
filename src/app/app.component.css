@@ -2,7 +2,6 @@
 mat-sidenav-container {
   z-index: 1 !important;
   background-color: transparent;
-  background-color: red;
 }
 /* CONTENEDOR DE LA TARJETA DE CONTACTO */
 mat-sidenav {
@@ -14,20 +13,7 @@ mat-sidenav {
   z-index: 1;
 }
 
-/* CONTENEDOR DE LOS COMPONENTES */
-mat-sidenav-content {
-  /* flex: 1; */
-  /* margin-top: 60px; */
-  /* height: 100vh; */
-  /* overflow-y: auto; */
-  background-color: #313131;
-  background-size: 30px 30px;
-  background-position: -5px -5px;
-}
 
-mat-toolbar{
-  margin-top: 0px !important;
-}
 /* -------------------------------------- */
 
 .sidenav-container {
@@ -47,31 +33,13 @@ mat-toolbar{
   }
 }
 
-::-webkit-scrollbar {
-  width: 10px;
-}
-
-::-webkit-scrollbar-track {
-  background: #f8f9fa;
-}
-
-::-webkit-scrollbar-thumb {
-  background-color: #028391;
-  border-radius: 4px;
-  box-shadow: 4px 0px 10px 0px #313131;
-  border-radius: 0px;
-}
-
-::-webkit-scrollbar-thumb:hover {
-  background-color: #026f73;
-}
 
 /* MENU BARRA SUPERIOR */
 /* Estilos para la barra superior */
 .navbar {
   height: 100px; /* Altura inicial */
   padding: 25px 0;
-  background: #028391;
+  background: #212121;
   transition: all 0.6s ease; /* Suaviza todos los cambios */
   display: flex;
   align-items: center;
@@ -81,7 +49,7 @@ mat-toolbar{
 .navbar.shrink {
   height: 60px; /* Altura al hacer scroll */
   padding: 10px 0;
-  background-color: #028391; /* Mantiene el fondo */
+  background-color: #212121; /* Mantiene el fondo */
   transition: all 0.6s ease; /* Suaviza el cambio */
 }
 
@@ -99,7 +67,7 @@ mat-toolbar{
 .navbar-expand-lg {
   height: 100px;
   position: fixed;
-  background: #028391;
+  background: #212121;
   opacity: 50;
   padding: 25px 0;
   transition: height 0.6s ease, padding 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
@@ -119,7 +87,7 @@ mat-toolbar{
   height: 60px;
   padding: 10px 0;
   transition: height 0.6s ease, padding 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
-  background-color: #028391;
+  background-color: #212121;
   opacity: 1;
   display: flex;
   align-items: center;
@@ -131,7 +99,7 @@ mat-toolbar{
 
 .navbar-expand-lg.navbar-shrink {
   padding: 10px 0;
-  background-color: #495E57;
+  background-color: #212121;
 }
 .navbar-expand-lg.navbar-shrink.navbar-brand {
   font-size: 1.0em;
@@ -178,7 +146,7 @@ mat-toolbar{
 
 /* navbar collapse, es el boton que aparece cuando se encuentra el menu en responsivo */
 .navbar-collapse {
-  background-color: #028391;
+  background-color: #212121;
   padding: 20px 50px;
   margin: 0px -30px;
 }

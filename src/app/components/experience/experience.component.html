@@ -1,4 +1,4 @@
-<section id="experiencia" class="experiencia-section mt-5 px-3">
+<section id="experiencia" class="experiencia-section">
   <div class="container-xxl">
     <h2 class="experiencia-titulo">Experiencia</h2>
     <mat-divider></mat-divider>
@@ -19,8 +19,8 @@
               <mat-card-content>
                 <h5 class="card-title">{{project.title}}</h5>
                 <p class="card-text">{{project.description}}</p>
-                <button class="btnpor" (click)="openDialog(project)">Ver más
-                  <mat-icon>visibility</mat-icon>
+                <button class="btnpor" (click)="openDialog(project)"> Ver más
+                  <mat-icon> visibility</mat-icon>
                 </button>
               </mat-card-content>
             </mat-card>
@@ -43,11 +43,19 @@
 
 <!-- Dialogs -->
 <ng-template #dialogTemplate let-data>
-  <h2 mat-dialog-title>{{data.title}}</h2>
-  <mat-dialog-content>
-    {{data.details}}
-  </mat-dialog-content>
-  <mat-dialog-actions>
-    <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
-  </mat-dialog-actions>
+  <div class="dialog-container">
+    <!-- Imagen a la izquierda -->
+    <div class="dialog-image">
+      <img [src]="data.fullimage || data.image" alt="{{data.title}}" />
+    </div>
+    <!-- Contenido a la derecha -->
+    <div class="dialog-content">
+      <h2 class="dialog-title">{{data.title}}</h2>
+      <p class="dialog-details">{{data.details}}</p>
+      <mat-dialog-actions>
+        <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
+      </mat-dialog-actions>
+    </div>
+  </div>
 </ng-template>
+

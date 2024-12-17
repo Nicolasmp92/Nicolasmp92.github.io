@@ -13,6 +13,12 @@
   text-justify: inter-word; /* Justificación entre palabras para mejorar el aspecto */
 }
 
+/* marco para imagen en pixel */
+.img-thumbnail{
+  background-color: #FEAE6F;
+  border:2px solid #6f4e37;
+}
+
 /* BOTONOES REDES SOCIALES */
 .social-container {
   margin: 30px 30px;
