@@ -27,7 +27,7 @@ export class ExperienceComponent {
   @ViewChild('dialogTemplate', { static: true }) dialogTemplate!: TemplateRef<any>;
 
   projects = [
-    { title: 'Recos.cl', description: 'Constructora.', image: 'img/header_Recos.png', fullimage:'img/Recosfull.png', details: 'Información detallada del proyecto 1.' },
+    { title: 'Recos.cl', description: 'Constructora.', image: 'img/header_Recos.png', fullimage:'img/Recosfull.png', details: 'WEB SPA informativa, para proporcionar mas informacion a los clientes y captar nuevas oportunidades de negocios.' },
     { title: 'colegioangeles.cl', description: 'Colegio Especial Ángeles.', image: 'img/header_Angeles.png',fullimage:'img/Angelesfull.png', details: 'Información detallada del proyecto 2.' },
     { title: 'Proyecto 3', description: 'Descripción breve del proyecto 3.', image: 'https://via.placeholder.com/150', details: 'Información detallada del proyecto 3.' }
   ];
