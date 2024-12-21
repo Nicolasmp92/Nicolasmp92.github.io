@@ -121,17 +121,18 @@ mat-card-content {
 
 
 
-
-
-
 /* Contenedor del modal */
 .dialog-container {
   display: flex;
   align-items: stretch;
   max-width: 100%;
-  max-height: 80vh; /* 80% del alto de la ventana */
+  max-height: 80vh;
   margin: auto;
   overflow-y: auto; /* Permite desplazamiento si el contenido es muy grande */
+}
+img{
+  max-width: 100%;
+  max-height: 100%;
 }
 
 /* Imagen a la izquierda */
@@ -151,9 +152,9 @@ mat-card-content {
 /* Contenido a la derecha */
 .dialog-content {
   flex: 1;
-  padding: 1.5rem;
+  /* padding: 1.5rem; */
   background-color: #f8f9fa; /* Fondo claro */
-  border-radius: 0 8px 8px 0;
+  /* border-radius: 0 8px 8px 0; */
   display: flex;
   flex-direction: column;
   justify-content: space-between; /* Botón "Cerrar" siempre al final */
@@ -165,6 +166,7 @@ mat-card-content {
   font-weight: bold;
   color: #028391;
   margin-bottom: 1rem;
+  text-align: center;
 }
 
 /* Detalles */
@@ -173,6 +175,15 @@ mat-card-content {
   color: #333;
   line-height: 1.5;
   margin-bottom: 1rem;
+}
+.dialog-details ul {
+  margin: 0;
+  padding-left: 20px;
+}
+
+.dialog-details li {
+  margin-bottom: 0.5rem;
+  color: #333;
 }
 
 /* Botón "Cerrar" */
@@ -187,4 +198,56 @@ mat-card-content {
 .btncerrar:hover {
   background-color: #FEAE6F;
   color: #fff;
+}
+
+
+
+
+
+
+.card-content {
+  display: flex;
+  align-items: center; /* Alinea verticalmente los elementos */
+  justify-content: space-between; /* Espacia los elementos horizontalmente */
+  gap: 1rem; /* Espaciado entre los elementos */
+}
+
+.card-title {
+  margin: 0; /* Elimina márgenes adicionales */
+  font-size: 1.25rem; /* Ajusta el tamaño del título */
+  font-weight: bold;
+}
+
+.card-text {
+  margin: 0; /* Elimina márgenes adicionales */
+  font-size: 1rem; /* Ajusta el tamaño del texto */
+  color: #666; /* Opcional: cambia el color del texto */
+}
+
+
+
+
+
+/* Contenedor de iconos */
+.tech-tags {
+  display: flex;
+  gap: 0.5rem; /* Espaciado entre iconos */
+  flex-wrap: wrap; /* Permite que los iconos se muevan a una nueva línea si no caben */
+  margin-top: 1rem;
+  margin-bottom: 10px;
+}
+
+/* Iconos */
+.tech-icon {
+  width: 24px; /* Ajusta el tamaño del icono */
+  height: 24px;
+  border-radius: 4px; /* Opcional: bordes redondeados */
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  transition: transform 0.2s, box-shadow 0.2s;
+  cursor: pointer;
+}
+
+.tech-icon:hover {
+  transform: scale(1.1); /* Aumenta el tamaño ligeramente al pasar el mouse */
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
 }

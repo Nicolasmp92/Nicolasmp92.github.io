@@ -15,6 +15,9 @@ html, body {
   box-sizing: border-box;
 }
 
+img{
+  max-width: 100%;
+}
 /* Si quieres establecer pesos específicos */
 body {
   font-weight: 400; /* Regular */
