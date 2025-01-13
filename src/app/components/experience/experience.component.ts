@@ -62,7 +62,7 @@ export class ExperienceComponent {
       description: 'Colegio.',
       image: 'img/header_Angeles.png',
       fullimage: 'img/Angelesfull.png',
-      tags: ['HTML5', 'CSS3', 'JavaScript'],
+      tags: ['Angular','HTML5' , 'CSS3', 'JavaScript'],
       details: `
         <p>Información detallada del colegio.</p>
         <ul>
@@ -76,7 +76,7 @@ export class ExperienceComponent {
       description: 'Soluciones tecnológicas.',
       image: 'img/header_tecnohoot.png',
       fullimage: 'img/Tecnofull.png',
-      tags: ['React', 'Node.js', 'MongoDB'],
+      tags: ['html5', 'CSS'],
       details: `
         <p>WEB SPA para servicios tecnológicos.</p>
         <ul>
