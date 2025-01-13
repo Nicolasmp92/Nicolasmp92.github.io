@@ -4,42 +4,54 @@
     <mat-divider></mat-divider>
 
     <!-- Nav tabs -->
-    <mat-tab-group>
+    <mat-tab-group (selectedIndexChange)="onTabChange($event)">
       <mat-tab label="Portafolio">
-        <div class="portafolio-item mt-3">
+        <div class="portafolio-item mt-3" label="Portafolio">
           <h3 class="portafolio-titulo">Mi Portafolio</h3>
           <p class="portafolio-descripcion">
-            Aquí puedes encontrar algunos de los proyectos en los que he trabajado, los que estoy trabajando y mi experiencia laborarl
+            Aquí puedes agregar una descripción de tu portafolio y los proyectos que has realizado.
           </p>
         </div>
-        <div class="row g-0 mt-4 px-3">
-          <div class="col-md-4" *ngFor="let project of projects">
+        <!-- Contenedor principal con clase row -->
+        <div class="row">
+          <div *ngFor="let project of projects" class="col-md-4">
             <mat-card class="mx-3">
-              <img mat-card-image [src]="project.image" alt="{{project.title}}">
+              <img mat-card-image [src]="project.image" alt="Imagen del proyecto {{ project.title }}">
               <mat-card-content>
-                <div class="card-content">
-                  <h5 class="card-title">{{project.title}}</h5>
-                  <p class="card-text">{{project.description}}</p>
+                <div class="titulo-descripcion">
+                  <h5 class="card-title">{{ project.title }}</h5>
+                  <p class="card-text">{{ project.description }}</p>
                 </div>
-                <div class="tech-tags mt-2">
-                  <img *ngFor="let habilidad of habilidadesFront"
-                       [src]="habilidad.icono"
-                       [alt]="habilidad.nombre"
-                       class="tech-icon"
-                       title="{{habilidad.nombre}}" />
+                <div class="tags-container">
+                  <ng-container *ngFor="let tag of project.tags">
+                    <img
+                      *ngIf="techIcons[tag]"
+                      [src]="techIcons[tag]"
+                      [alt]="tag"
+                      class="tech-icon"
+                    />
+                    <span *ngIf="!techIcons[tag]" class="tag-fallback">{{ tag }}</span>
+                  </ng-container>
                 </div>
                 <button class="btnpor" (click)="openDialog(project)"> Ver más
-                  <mat-icon class="mx-2"> visibility </mat-icon>
+                  <mat-icon>visibility</mat-icon>
                 </button>
               </mat-card-content>
             </mat-card>
           </div>
         </div>
+        <ng-template #noProjects>
+          <p class="no-data">No hay proyectos disponibles en este momento.</p>
+        </ng-template>
       </mat-tab>
+
       <mat-tab label="Experiencia">
-        <div class="experiencia-item mt-3" *ngFor="let experience of experiences">
+        <div class="experiencia-item" *ngFor="let experience of experiences">
           <h3 class="experiencia-puesto">{{experience.position}}</h3>
-          <p class="experiencia-institucion">{{experience.institution}} <span class="experiencia-fecha">{{experience.date}}</span></p>
+          <p class="experiencia-institucion">
+            {{experience.institution}}
+            <span class="experiencia-fecha">{{experience.date}}</span>
+          </p>
           <p class="experiencia-descripcion">{{experience.description}}</p>
           <ul class="experiencia-lista">
             <li *ngFor="let task of experience.tasks">{{task}}</li>
@@ -51,20 +63,22 @@
 </section>
 
 
-<!-- Mat-dialog -->
 <ng-template #dialogTemplate let-data>
-  <div class="dialog-container">
-    <!-- Imagen a la izquierda -->
-    <div class="dialog-image">
-      <img [src]="data.fullimage || data.image" alt="{{data.title}}" />
+  <button mat-button class="btncerrar-x" mat-dialog-close>&times;</button>
+  <h2 mat-dialog-title>{{data.title}}</h2>
+  <mat-dialog-content>
+    <div class="modal-content">
+      <!-- Descripción siempre visible -->
+      <div class="modal-description">
+        <p [innerHTML]="data.details"></p>
+      </div>
+      <!-- Imagen con barra de desplazamiento -->
+      <div class="modal-image-container">
+        <img [src]="data.fullimage" alt="Imagen completa de {{data.title}}" class="modal-image">
+      </div>
     </div>
-    <!-- Contenido a la derecha -->
-    <div class="dialog-content">
-      <h2 class="dialog-title">{{data.title}}</h2>
-      <div class="dialog-details" [innerHTML]="data.details"></div>
-      <mat-dialog-actions>
-        <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
-      </mat-dialog-actions>
-    </div>
-  </div>
+  </mat-dialog-content>
+  <mat-dialog-actions>
+    <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
+  </mat-dialog-actions>
 </ng-template>

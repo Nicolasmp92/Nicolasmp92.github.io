@@ -2,13 +2,11 @@
   <div class="container-xxl">
     <div class="row">
       <!-- Título Principal -->
-      <h1 class="fw-bold  glow-text">Más Sobre Mí</h1>
+      <h1 class="fw-bold title-text"> Más Sobre Mí</h1>
       <hr class="fw-bolder">
 
-      <!-- Contenido -->
-      <div class="col-md-12 d-flex align-items-start justify-content-between flex-wrap">
-        <!-- Categorías -->
-        <div class="about-categories">
+      <div class="col-md-6 d-flex align-items-start justify-content-between flex-wrap">
+        <div class="about-categories animated-slide-in fs-4">
           <h2 class="about-category text-poppins">💻 Tecnología</h2>
           <ul class="about-list">
             <li>Me apasiona la informática y el desarrollo front-end, aprendiendo y mejorando cada día. 🚀</li>
@@ -16,7 +14,7 @@
 
           <h2 class="about-category text-poppins">🎮 Gaming</h2>
           <ul class="about-list">
-            <li>Fan de la saga <em>Resident Evil</em> 🧟‍♂️🧬<em>y de los juegos de terror</em>. Disfruto jugando en PC.</li>
+            <li>Fan de la saga <em>Resident Evil</em> 🧟‍♂️🧬<em>y de muchos otros</em> soy más de jugar en PC.</li>
           </ul>
 
           <h2 class="about-category text-poppins">🌳 Naturaleza</h2>
@@ -29,14 +27,24 @@
             <li>Amo el manga y el anime, disfrutando de historias memorables y personajes inspiradores. 🎥</li>
           </ul>
         </div>
+      </div>
 
-        <!-- Imagen circular -->
-        <div class="circle-image ">
+      <div class="col-md-6 d-flex justify-content-center align-items-center mt-5">
+        <div class="circle-image">
+          <!-- Burbuja principal -->
           <div class="circle">
-            <img *ngFor="let image of images" [src]="image" alt="Instagram photo">
+            <a href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer">
+            <img [src]="currentImage" alt="Imagen principal">
+            </a>
+          </div>
+          <!-- Contenedor de burbujas -->
+          <div class="bubble-container-floating" #bubbleContainer>
+            <!-- Las burbujas se generarán dinámicamente aquí -->
           </div>
         </div>
       </div>
+
+
     </div>
   </div>
 </section>

@@ -1,6 +1,7 @@
 /* You can add global styles to this file, and also import other style files */
 
 html, body {
+  font-size: 62.5%; /*1 rem = 16px*/
   height: 100%;
   width: 100%; /* Asegura que el ancho sea del viewport */
   overflow-x: hidden; /* Evita desplazamiento horizontal global */
@@ -21,6 +22,7 @@ img{
 /* Si quieres establecer pesos específicos */
 body {
   font-weight: 400; /* Regular */
+  font-size: 1.6rem;
   color: #f8f9fa; /* Color de texto principal */
   background-color: #212121; /* Fondo oscuro como en tu diseño */
 }
@@ -32,7 +34,7 @@ section {
   justify-content: center; /* Centrado horizontal */
   box-sizing: border-box; /* Incluye padding en el cálculo */
   margin: 0; /* Evita márgenes no deseados */
-  padding-top: 100px;
+  padding-top: 10rem;
 }
 @keyframes hero-gradient-animation {
   0% {

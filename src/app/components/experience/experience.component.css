@@ -1,83 +1,101 @@
-
+/* TITULA DE LA SECCION */
 .experiencia-titulo {
-  font-size: 2rem;
+  font-size: 3rem;
+  margin-top: 0.5rem;
   font-weight: bold;
-  color: #f8f9fa; /* mi-paleta secundario */
+  color: #f8f9fa;
   text-align: center;
 }
 
 .mat-divider {
   margin-top: 1rem;
   margin-bottom: 1rem;
-  background-color: #F6DCAC; /* mi-paleta terciario */
+  background-color: #F6DCAC;
 }
 
+/* ---------------------------------- */
+/* TITULO Y DESCRIPCION PARA LA PESTAÑA PORTAFOLIO */
+.portafolio-titulo {
+  font-size: 2rem;
+  font-weight: bold;
+  color: #f8f9fa;
+}
 .portafolio-item {
   margin-top: 1rem;
-}
-
-.portafolio-titulo {
   font-size: 1.5rem;
-  font-weight: bold;
-  color: #f8f9fa; /* mi-paleta primario */
+  margin-bottom: 5rem;
 }
-
 .portafolio-descripcion {
-  color: #f8f9fa; /* colores-dominantes secundario */
+  color: #f8f9fa;
 }
-
+/* ------------------------------- */
+/* VALIDACION POR SI NO SE MUESTRAN PROYECTOS */
+.no-data {
+  text-align: center;
+  font-size: 1.2rem;
+  color: #66C2A5;
+  margin-top: 2rem;
+}
+/* ---------------------------- */
+/* TEXTO PARA LA SECCION EXPERIENCIA  */
 .experiencia-item {
   margin-top: 1rem;
 }
-
 .experiencia-puesto {
-  font-size: 1.25rem;
+  margin-top: 2rem;
+  font-size: 2rem;
   font-weight: bold;
-  color: #028391; /* mi-paleta secundario */
+  color: #FEAE6F;
 }
-
 .experiencia-institucion {
-  font-size: 1rem;
-  color: #66C2A5; /* colores-dominantes terciario */
+  font-size: 1.5rem;
+  color: #66C2A5;
+  font-style: italic;
+  padding: 0.5rem;
 }
-
 .experiencia-fecha {
-  font-size: 0.875rem;
-  color: #F6DCAC; /* colores-dominantes cuaternario */
+  font-size: 1.5rem;
+  color: #F6DCAC;
+  padding: 0.5rem;
 }
-
 .experiencia-descripcion {
-  color: #f8f9fa; /* colores-dominantes secundario */
+  color: #f8f9fa;
+  font-size: 1.5rem;
 }
-
 .experiencia-lista {
   list-style-type: disc;
-  padding-left: 1.5rem;
-  color: #f8f9fa; /* colores-dominantes cuaternario */
+  padding-left: 2rem;
+  font-size: 1.5rem;
+  color: #f8f9fa;
 }
+.experiencia-lista li {
+  margin-top: 1rem;
+  margin-left: 1.5rem;
+}
+/* ------------------------------- */
 
+/* PESTAÑA PARA LAS TARJETAS Y LOS PROYECTOS */
 mat-card {
   margin-bottom: 1rem;
-  overflow: hidden; /* Asegúrate de que el contenido no desborde */
-  background-color: #f8f9fa; /* mi-paleta quinto */
-  border: 1px solid #996655; /* colores-dominantes cuaternario */
-  display: flex;
+  overflow: hidden;
+  background-color: #f8f9fa;
+  border: 1px solid #996655;
   flex-direction: column;
-  max-width: 100%; /* Asegúrate de que las tarjetas no excedan el ancho disponible */
+  max-width: 100%;
 }
 
 .card-title {
   margin-top: 15px;
   font-size: 1.25rem;
   font-weight: bold;
-  color: #f8f9fa; /* mi-paleta primario */
+  color: #f8f9fa;
 }
 
 mat-card-content {
-  background-color: #1E1E1E; /* colores-dominantes primario */
-  white-space: nowrap; /* Evita que el texto se desborde */
-  overflow: hidden; /* Oculta el desbordamiento */
-  text-overflow: ellipsis; /* Añade puntos suspensivos al final del texto desbordado */
+  background-color: #1E1E1E;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
   flex-grow: 1;
 }
 
@@ -89,165 +107,197 @@ mat-card-content {
   border-radius: 8px;
   font-size: 17px;
   font-weight: 100;
-  color: #FEAE6F; /* mi-paleta cuaternario */
-  text-shadow: none;
+  color: #FEAE6F;
   background: transparent;
   cursor: pointer;
-  box-shadow: transparent;
-  border: 1px solid #996655; /* colores-dominantes cuaternario */
+  border: 1px solid #996655;
   transition: 0.5s ease;
   user-select: none;
-  line-height: 0.9;
   margin: 0 auto;
   display: flex;
   justify-content: center;
   align-items: center;
-  text-decoration: none;
 }
 
 .btnpor:hover, .btnpor:focus, .btnexp:hover, .btnexp:focus, .btncerrar:hover, .btncerrar:focus {
-  color: #f8f9fa; /* mi-paleta quinto */
-  background: #028391; /* mi-paleta secundario */
-  border: 1px solid #028391; /* mi-paleta secundario */
-  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391; /* Cambiado a color de la paleta mi-paleta */
-  text-decoration: none;
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
 }
 
-
-
-
-
-
-
-
-
-/* Contenedor del modal */
-.dialog-container {
+/* TITULO Y DESCRIPCION EN TARJETAS DE PORTAFOLIO */
+.titulo-descripcion {
   display: flex;
-  align-items: stretch;
-  max-width: 100%;
-  max-height: 80vh;
-  margin: auto;
-  overflow-y: auto; /* Permite desplazamiento si el contenido es muy grande */
-}
-img{
-  max-width: 100%;
-  max-height: 100%;
-}
-
-/* Imagen a la izquierda */
-.dialog-image {
-  flex: 0 0 50%; /* 50% del ancho */
-  max-height: 100%; /* Ajusta la altura según el contenido */
-  overflow: hidden;
-  border-radius: 8px 0 0 8px;
-}
-
-.dialog-image img {
-  width: 100%;
-  height: 100%;
-  object-fit: cover; /* Ajusta la imagen sin distorsionarse */
-}
-
-/* Contenido a la derecha */
-.dialog-content {
-  flex: 1;
-  /* padding: 1.5rem; */
-  background-color: #f8f9fa; /* Fondo claro */
-  /* border-radius: 0 8px 8px 0; */
-  display: flex;
-  flex-direction: column;
-  justify-content: space-between; /* Botón "Cerrar" siempre al final */
-}
-
-/* Título */
-.dialog-title {
-  font-size: 1.5rem;
-  font-weight: bold;
-  color: #028391;
-  margin-bottom: 1rem;
-  text-align: center;
-}
-
-/* Detalles */
-.dialog-details {
-  font-size: 1rem;
-  color: #333;
-  line-height: 1.5;
-  margin-bottom: 1rem;
-}
-.dialog-details ul {
-  margin: 0;
-  padding-left: 20px;
-}
-
-.dialog-details li {
-  margin-bottom: 0.5rem;
-  color: #333;
-}
-
-/* Botón "Cerrar" */
-.btncerrar {
-  color: #FEAE6F;
-  border: 1px solid #FEAE6F;
-  padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.3s ease, color 0.3s ease;
-}
-
-.btncerrar:hover {
-  background-color: #FEAE6F;
-  color: #fff;
-}
-
-
-
-
-
-
-.card-content {
-  display: flex;
-  align-items: center; /* Alinea verticalmente los elementos */
-  justify-content: space-between; /* Espacia los elementos horizontalmente */
-  gap: 1rem; /* Espaciado entre los elementos */
-}
-
-.card-title {
-  margin: 0; /* Elimina márgenes adicionales */
-  font-size: 1.25rem; /* Ajusta el tamaño del título */
-  font-weight: bold;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem;
 }
 
 .card-text {
-  margin: 0; /* Elimina márgenes adicionales */
-  font-size: 1rem; /* Ajusta el tamaño del texto */
-  color: #666; /* Opcional: cambia el color del texto */
+  margin: 0;
+  font-size: 1.2rem;
+  color: #66C2A5;
 }
 
-
-
-
-
-/* Contenedor de iconos */
-.tech-tags {
-  display: flex;
-  gap: 0.5rem; /* Espaciado entre iconos */
-  flex-wrap: wrap; /* Permite que los iconos se muevan a una nueva línea si no caben */
-  margin-top: 1rem;
-  margin-bottom: 10px;
-}
-
-/* Iconos */
-.tech-icon {
-  width: 24px; /* Ajusta el tamaño del icono */
-  height: 24px;
-  border-radius: 4px; /* Opcional: bordes redondeados */
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
-  transition: transform 0.2s, box-shadow 0.2s;
+/* BOTON CERRAR */
+.btncerrar-x {
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  width: 35px;
+  height: 35px;
+  font-size: 2rem;
+  font-weight: bold;
+  color: #FEAE6F;
+  background: transparent;
+  border: 1px solid #996655;
   cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  transition: 0.5s ease;
+}
+
+.btncerrar-x:hover {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+}
+
+/* BRILLO PARA PESTAÑAS ACTIVAS */
+.custom-active-tab {
+  position: relative;
+  color: #fff;
+  font-weight: bold;
+  overflow: hidden;
+}
+
+.custom-active-tab::after {
+  content: '';
+  position: absolute;
+  bottom: 0;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0.5) 50%, #fff 100%);
+  animation: slide 1.5s infinite;
+}
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+/* Contenedor principal de la modal */
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+/* Descripción siempre visible */
+.modal-description {
+  color: #f8f9fa;
+  font-size: 1.2rem;
+  margin-bottom: 1rem;
+  max-height: 150px;
+  overflow-y: auto; /* Si la descripción es muy larga, permite desplazarse */
+}
+
+/* Contenedor para la imagen */
+.modal-image-container {
+  position: relative;
+  width: 100%;
+  max-height: 400px;
+  overflow-y: auto; /* Barra de desplazamiento vertical */
+  border: 1px solid #996655;
+  border-radius: 8px;
+  background-color: #1E1E1E; /* Fondo oscuro para resaltar la imagen */
+}
+
+/* Imagen dentro de la modal */
+.modal-image {
+  width: 100%;
+  object-fit: contain; /* Asegura que la imagen no se recorte */
+}
+
+
+
+
+
+/* Estilo para las etiquetas de tecnologías */
+.tags-container {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #028391;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  margin: 1.5rem 1rem;
+}
+
+/* Contenedor de los tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-top: 1rem;
+}
+
+/* Estilo para los íconos de tecnologías */
+.tech-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
 }
 
 .tech-icon:hover {
-  transform: scale(1.1); /* Aumenta el tamaño ligeramente al pasar el mouse */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  transform: scale(1.2);
+}
+
+/* Estilo para etiquetas sin íconos */
+.tag-fallback {
+  font-size: 0.9rem;
+  background-color: #028391;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
+}
+
+
+
+.row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 1rem; /* Espaciado entre columnas */
+}
+
+.col-md-4 {
+  flex: 0 0 calc(33.333% - 1rem); /* Ajusta el tamaño para 3 columnas */
+  max-width: calc(33.333% - 1rem);
+}
+
+@media (max-width: 768px) {
+  .col-md-4 {
+    flex: 0 0 100%;
+    max-width: 100%;
+  }
 }

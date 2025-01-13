@@ -18,8 +18,8 @@ mat-sidenav {
 
 .sidenav-container {
   position: absolute;
-  top: 0px;
-  bottom: 0px;
+  top: 0;
+  bottom: 0;
   left: 0;
   right: 0;
   height: 100%;
@@ -27,7 +27,7 @@ mat-sidenav {
   background-color: #313131;
 }
 
-@media (max-width: 768px) {
+@media (max-width: 76.8rem) {
   .sidenav-container {
     flex-direction: column;
   }
@@ -37,8 +37,8 @@ mat-sidenav {
 /* MENU BARRA SUPERIOR */
 /* Estilos para la barra superior */
 .navbar {
-  height: 100px; /* Altura inicial */
-  padding: 25px 0;
+  height: 10rem; /* Altura inicial */
+  padding: 2.5rem 0;
   background: #212121;
   transition: all 0.6s ease; /* Suaviza todos los cambios */
   display: flex;
@@ -47,36 +47,36 @@ mat-sidenav {
 }
 
 .navbar.shrink {
-  height: 60px; /* Altura al hacer scroll */
-  padding: 10px 0;
+  height: 6rem; /* Altura al hacer scroll */
+  padding: 1rem 0;
   background-color: #212121; /* Mantiene el fondo */
   transition: all 0.6s ease; /* Suaviza el cambio */
 }
 
 /* Estilos para dispositivos mas pequeños */
-@media (max-width: 768px) {
+@media (max-width: 76.8rem) {
   .navbar {
-    height: 60px; /* Reduce la altura */
-    padding: 10px 0; /* Ajusta el relleno */
+    height: 6rem; /* Reduce la altura */
+    padding: 1rem 0; /* Ajusta el relleno */
   }
   .navbar-brand {
-    font-size: 1em; /* Ajusta el tamaño del texto de la marca */
+    font-size: 1rem; /* Ajusta el tamaño del texto de la marca */
   }
 
 }
 .navbar-expand-lg {
-  height: 100px;
+  height: 10rem;
   position: fixed;
   background: #212121;
   opacity: 50;
-  padding: 25px 0;
+  padding: 2.5rem 0;
   transition: height 0.6s ease, padding 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
   display: flex;
   align-items: center;
   justify-content: center;
 }
 .navbar-expand-lg.navbar-brand {
-  font-size: 2em;
+  font-size: 2rem;
   -webkit-transition: all .3s;
   -moz-transition: all .3s;
   transition: all .3s;
@@ -84,8 +84,8 @@ mat-sidenav {
 
 /* Estilos para cuando la barra se encoge */
 .navbar-expand-lg.shrink-toolbar {
-  height: 60px;
-  padding: 10px 0;
+  height: 6rem;
+  padding: 1rem 0;
   transition: height 0.6s ease, padding 0.6s ease, background-color 0.6s ease, opacity 0.6s ease;
   background-color: #212121;
   opacity: 1;
@@ -94,15 +94,15 @@ mat-sidenav {
   justify-content: center;
 }
 .navbar-expand-lg.navbar-nav>.active>a {
-  border-radius: 3px;
+  border-radius: 0.3rem;
 }
 
 .navbar-expand-lg.navbar-shrink {
-  padding: 10px 0;
+  padding: 1rem 0;
   background-color: #212121;
 }
 .navbar-expand-lg.navbar-shrink.navbar-brand {
-  font-size: 1.0em;
+  font-size: 1rem;
 }
 /* ----------------------------------------- */
 
@@ -116,7 +116,7 @@ mat-sidenav {
   background-color: #252525;
 }
 
-@media (min-width: 768px) {
+@media (min-width: 76.8rem) {
   .navbar-expand-lg {
     border: 0;
     -webkit-transition: padding 0.3s;
@@ -124,54 +124,54 @@ mat-sidenav {
     transition: padding 0.3s;
   }
   .navbar-expand-lg.navbar-brand {
-    font-size: 2em;
+    font-size: 2rem;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
     transition: all 0.3s;
   }
 
   .navbar-expand-lg.navbar-nav > .active > a {
-    border-radius: 3px;
+    border-radius: 0.3rem;
   }
 
   .navbar-expand-lg.navbar-shrink {
-    padding: 10px 0;
+    padding: 1rem 0;
     background-color: #495E57;
   }
 
   .navbar-expand-lg.navbar-shrink.navbar-brand {
-    font-size: 1.0em;
+    font-size: 1rem;
   }
 }
 
 /* navbar collapse, es el boton que aparece cuando se encuentra el menu en responsivo */
 .navbar-collapse {
   background-color: #212121;
-  padding: 20px 50px;
-  margin: 0px -30px;
+  padding: 2rem 5rem;
+  margin: 0 -3rem;
 }
 
 /* El estilo para cada link del menu */
 .nav-link {
   border: none;
-  padding: 10px;
+  padding: 1rem;
   position: relative;
   cursor: pointer;
-  font-size: 1rem;
+  font-size: 1.2rem;
   transition: all 0.3s ease;
 }
 
 .activebutton {
   background-color: #FEAE6F !important;
-  border-radius: 10px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
 }
 
 .nav-link:not(:active):hover,
 .nav-link:focus {
   background-color: #FEAE6F;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  border-radius: 10px;
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
+  border-radius: 1rem;
   color: #fff;
 }
 
@@ -185,11 +185,11 @@ mat-sidenav {
 .nav-link::before {
   content: "";
   position: absolute;
-  top: 5px;
-  left: -10px;
-  width: 5px;
-  height: 80%;
-  border-radius: 5px;
+  top: 0.5rem;
+  left: -1rem;
+  width: 0.5rem;
+  height: 8rem;
+  border-radius: 0.5rem;
   opacity: 0;
 }
 
@@ -200,7 +200,7 @@ mat-sidenav {
 }
 
 .nav-link i {
-  width: 15px;
+  width: 1.5rem;
 }
 
 .nav-options:hover :not(.nav-link:hover) {
@@ -212,10 +212,10 @@ mat-sidenav {
 /* BTN CURRICULUM */
 .btncv {
   width: 100%;
-  padding: 10px;
-  border-radius: 8px;
+  padding: 1rem;
+  border-radius: 0.8rem;
   border-color: #FFA500;
-  font-size: 17px;
+  font-size: 1.7rem;
   font-weight: 100;
   text-shadow: none;
   cursor: pointer;
@@ -226,7 +226,7 @@ mat-sidenav {
   justify-content: center;
   align-items: center;
   text-decoration: none;
-  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  box-shadow: 0 0 0.5rem #028391, 0 0 2rem #028391, 0 0 5rem #028391, 0 0 10rem #028391;
   text-decoration: none;
 }
 
@@ -241,14 +241,14 @@ mat-sidenav {
   justify-content: center;
   align-items: center;
   flex-direction: column;
-  margin-top: 20px;
+  margin-top: 2rem;
 }
 
 .profile-image {
   width: 100%;
   height: 100%;
   border-radius: 50%;
-  border: 3px solid #01204E;
+  border: 0.3rem solid #01204E;
   object-fit: cover;
   z-index: 2;
 }
@@ -258,22 +258,22 @@ mat-sidenav {
   display: flex;
   align-items: center;
   justify-content: center;
-  width: 150px;
-  height: 150px;
+  width: 15rem;
+  height: 15rem;
 }
 
 .image-container::before {
   content: "";
   position: absolute;
-  top: -5px;
-  left: -5px;
-  width: calc(100% + 10px);
-  height: calc(100% + 10px);
+  top: -0.5rem;
+  left: -0.5rem;
+  width: calc(100% + 1rem);
+  height: calc(100% + 1rem);
   border-radius: 999px;
   box-sizing: border-box;
   z-index: 2;
   background-image: linear-gradient(#FEAE6F, #F6DCAC, #028391);
-  box-shadow: 0 4px 15px #028391;
+  box-shadow: 0 0.4rem 1.5rem #028391;
   background-size: 100% 100%;
   animation: rotate 4s linear infinite;
 }
@@ -291,14 +291,14 @@ span {
   font-size: 1.5rem;
   color: #FEAE6F;
   text-transform: uppercase;
-  padding: 10px 20px;
-  border-radius: 10px;
-  border: 2px solid #FEAE6F;
+  padding: 1rem 2rem;
+  border-radius: 1rem;
+  border: 0.2rem solid #FEAE6F;
   background: #252525;
   box-shadow: 0 0.4rem #6f4e37;
   cursor: pointer;
-  margin: 35px 0;
-  margin-top: 140px;
+  margin: 3.5rem 0;
+  margin-top: 14rem;
 }
 
 span .bi:hover {
@@ -307,15 +307,15 @@ span .bi:hover {
 
 span .bi {
   color: #028391;
-  padding-left: 5px;
+  padding-left: 0.5rem;
 }
 
 /* BOTON PARA TARJETA DE PERFIL */
 button.toggle-btn {
   position: relative;
-  margin-top: 5px !important;
-  border-radius: 0 50px 50px 0;
-  border: 1px #f1f1f1 solid;
+  margin-top: 0.5rem !important;
+  border-radius: 0 5rem 5rem 0;
+  border: 0.1rem #f1f1f1 solid;
   border-left: none;
   z-index: 3000 !important;
   background-color: #252525;
@@ -325,7 +325,7 @@ button.toggle-btn {
 button.toggle-btn:hover {
   /* cursor: pointer; */
   background-color: #FEAE6F;
-  box-shadow: 0 0 5px #FEAE6F, 0 0 20px #FEAE6F, 0 0 50px #FEAE6F, 0 0 100px #FEAE6F;
+  box-shadow: 0 0 0.5rem #FEAE6F, 0 0 2rem #FEAE6F, 0 0 5rem #FEAE6F, 0 0 10rem #FEAE6F;
 }
 
 button.toggle-btn i {
@@ -339,13 +339,13 @@ button.toggle-btn i {
     transform: translateX(0);
   }
   25% {
-    transform: translateX(-5px);
+    transform: translateX(-0.5rem);
   }
   50% {
-    transform: translateX(5px);
+    transform: translateX(0.5rem);
   }
   75% {
-    transform: translateX(-5px);
+    transform: translateX(-0.5rem);
   }
   100% {
     transform: translateX(0);
@@ -357,11 +357,11 @@ button.toggle-btn i {
 }
 
 button.toggle-btn:hover i.bi-x {
-  transform: translateX(-5px);
+  transform: translateX(-0.5rem);
 }
 
 button.toggle-btn:hover i.bi-person-vcard-fill {
-  transform: translateX(5px);
+  transform: translateX(0.5rem);
 }
 
 /* TARJETA DE PERFIL DATOS DE CONTACTO */
@@ -378,9 +378,9 @@ button.toggle-btn:hover i.bi-person-vcard-fill {
 .nav-link.active {
   background-color: #FEAE6F;
   color: #fff !important;
-  border-radius: 50px 50px;
+  border-radius: 5rem;
   transition: background-color 0.3s, color 0.3s;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+  box-shadow: 0 0.4rem 0.8rem rgba(0, 0, 0, 0.2);
 }
 
 
@@ -390,14 +390,14 @@ button.toggle-btn:hover i.bi-person-vcard-fill {
 /* Botón Scroll to Top */
 .scroll-top {
   position: fixed;
-  bottom: 20px;
-  right: 20px;
+  bottom: 2rem;
+  right: 2rem;
   background-color: #028391;
   color: white;
   border-radius: 50%;
-  border: #f8f9fa 1px solid;
-  width: 50px;
-  height: 50px;
+  border: 0.1rem solid #f8f9fa;
+  width: 5rem;
+  height: 5rem;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -415,5 +415,5 @@ button.toggle-btn:hover i.bi-person-vcard-fill {
 
 .scroll-top:hover {
   background-color: #FEAE6F;
-  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  box-shadow: 0 0 0.5rem #028391, 0 0 2rem #028391, 0 0 5rem #028391, 0 0 10rem #028391;
 }

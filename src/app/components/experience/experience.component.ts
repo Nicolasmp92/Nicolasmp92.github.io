@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild } from '@angular/core';
+import { Component, TemplateRef, ViewChild, Renderer2 } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -6,7 +6,8 @@ import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
-import { NgFor } from '@angular/common';
+import { CommonModule } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 
 @Component({
   selector: 'app-experience',
@@ -20,95 +21,131 @@ import { NgFor } from '@angular/common';
     MatIconModule,
     MatDialogModule,
     MatDividerModule,
-    NgFor
-  ]
+    CommonModule,
+    NgFor,
+    NgIf,
+  ],
 })
 export class ExperienceComponent {
   @ViewChild('dialogTemplate', { static: true }) dialogTemplate!: TemplateRef<any>;
 
+  activeTabIndex: number = 0;
+
+  techIcons: { [key: string]: string } = {
+    Angular: 'iconos/angular.ico',
+    Bootstrap: 'iconos/bootstrap.ico',
+    JavaScript: 'iconos/js.ico',
+    HTML5: 'iconos/html5.ico',
+    CSS3: 'iconos/css3.ico',
+    TypeScript: 'iconos/Typescript_logo_2020.svg',
+  };
+
+  // Proyectos
   projects = [
     {
       title: 'Recos.cl',
       description: 'Constructora.',
       image: 'img/header_Recos.png',
       fullimage: 'img/Recosfull.png',
+      tags: ['Angular', 'Bootstrap', 'JavaScript'],
       details: `
         <p>WEB SPA informativa para proporcionar más información a los clientes y captar nuevas oportunidades de negocios.</p>
         <ul>
-          <li>Slider de imágenes principal.</li>
-          <li>Tarjetas descriptivas de misión, visión y valores.</li>
-          <li>Sección del equipo con descripción e imagen representativa.</li>
-          <li>Galería de proyectos con miniaturas y detalles.</li>
-          <li>Logotipos de clientes destacados.</li>
-          <li>Formulario de contacto funcional con campos de nombre, teléfono, correo y mensaje.</li>
-          <li>Botones para redes sociales en el pie de página.</li>
+          <li>Slider de imágenes principal con transiciones animadas.</li>
+          <li>Tarjetas descriptivas de misión, visión y valores corporativos.</li>
+          <li>Galería de proyectos terminados con vistas detalladas y ampliables.</li>
         </ul>
       `,
     },
     {
       title: 'colegioangeles.cl',
-      description: 'Colegio Ángeles.',
+      description: 'Colegio.',
       image: 'img/header_Angeles.png',
       fullimage: 'img/Angelesfull.png',
+      tags: ['HTML5', 'CSS3', 'JavaScript'],
       details: `
-        <p>Información detallada del proyecto 2.</p>
+        <p>Información detallada del colegio.</p>
         <ul>
-          <li>Slider principal.</li>
-          <li>Información institucional destacada.</li>
           <li>Galería de imágenes del colegio.</li>
-          <li>Formulario de contacto con campos de texto.</li>
-          <li>Botones para redes sociales.</li>
+          <li>Formulario de contacto con validación en tiempo real.</li>
         </ul>
       `,
     },
     {
-      title: 'Proyecto 3',
-      description: 'Descripción breve del proyecto 3.',
-      image: 'https://via.placeholder.com/150',
+      title: 'Tecnohoot',
+      description: 'Soluciones tecnológicas.',
+      image: 'img/header_tecnohoot.png',
+      fullimage: 'img/Tecnofull.png',
+      tags: ['React', 'Node.js', 'MongoDB'],
       details: `
-        <p>Información detallada del proyecto 3.</p>
+        <p>WEB SPA para servicios tecnológicos.</p>
+        <ul>
+          <li>Galería de imágenes representativas.</li>
+          <li>Botón de contacto funcional.</li>
+        </ul>
+      `,
+    },
+    {
+      title: 'chileagrofood',
+      description: 'Exportación de alimentos.',
+      image: 'img/header_agro.png',
+      fullimage: 'img/Angelesfull.png',
+      tags: ['Vue.js', 'Tailwind CSS'],
+      details: `
+        <p>Información sobre exportación de alimentos.</p>
         <ul>
           <li>Información del proyecto en formato SPA.</li>
-          <li>Galería de imágenes representativas.</li>
-          <li>Botón de contacto.</li>
+          <li>Botón de contacto funcional.</li>
         </ul>
       `,
     },
   ];
-  habilidadesFront = [
-    { icono: 'iconos/angular.ico', nombre: 'Angular', progreso: 80 },
-    { icono: 'iconos/js.ico', nombre: 'JavaScript', progreso: 80 },
-    { icono: 'iconos/html5.ico', nombre: 'HTML5', progreso: 80 },
-    { icono: 'iconos/css3.ico', nombre: 'CSS3', progreso: 80 },
-    { icono: 'iconos/bootstrap.ico', nombre: 'Bootstrap5ñ', progreso: 80 },];
 
+  // Experiencias
   experiences = [
     {
       position: 'Implementador Hospital Digital',
       institution: 'MINSAL',
-      date: '2021/Presente',
-      description: 'Prestando servicios como ingeniero en informática, apoyando en la gestión del cambio en proyectos de tecnologías de la información requeridos en MINSAL:',
+      date: '2021 - 2024',
+      description:
+        'Prestando servicios como ingeniero en informática, apoyando en la gestión del cambio en proyectos de tecnologías de la información requeridos en MINSAL:',
       tasks: [
         'Levantamiento de procesos y análisis funcional de sistemas informáticos.',
         'Aprobar y gestionar usuarios de las diferentes soluciones tecnológicas.',
         'Acompañamiento en la gestión del cambio a los usuarios en la implementación e incorporación del uso de las tecnologías de la información.',
         'Capacitar a los equipos locales en las diferentes soluciones tecnológicas y a su vez en la transferencia de su conocimiento.',
-        'Detectar oportunidades de mejora y realización de propuestas para mejorar las soluciones tecnológicas.'
-      ]
+        'Detectar oportunidades de mejora y realización de propuestas para mejorar las soluciones tecnológicas.',
+      ],
     },
     {
       position: 'Administrativo y soporte técnico',
-      institution: 'CESFAM',
+      institution: 'CESFAM Coltauco',
       date: '2017 – 2021',
-      description: 'Prestando servicios como técnico-administrativo y subrogante en el área de soporte técnico informático, desenvolviéndome en varios cargos de confianza como coordinador de SIGGES y subrogante de SOME.'
-    }
+      description:
+        'Prestando servicios como técnico-administrativo y subrogante en el área de soporte técnico informático, desenvolviéndome en varios cargos de confianza como coordinador de SIGGES y subrogante de SOME.',
+      tasks: [
+        'Coordinación de sistemas informáticos.',
+        'Gestión de procesos administrativos en el área de salud.',
+        'Resolución de problemas técnicos.',
+      ],
+    },
   ];
 
-  constructor(public dialog: MatDialog) {}
+  constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
-  openDialog(project: { title: string; description: string; image: string; details: string }): void {
+  onTabChange(index: number): void {
+    this.activeTabIndex = index;
+    console.log(`Cambio detectado: Pestaña activa es ${index}`);
+  }
+
+  openDialog(project: {
+    title: string;
+    description: string;
+    image: string;
+    details: string;
+  }): void {
     this.dialog.open(this.dialogTemplate, {
-      data: project
+      data: project,
     });
   }
 }

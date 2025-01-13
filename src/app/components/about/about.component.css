@@ -1,88 +1,89 @@
-/* Subtítulo */
-.text-poppins {
-  font-family: 'Poppins', sans-serif;
-  color: #FEAE6F;
-}
-
-/* Lista */
-.font-poppins {
-  font-family: 'Poppins', sans-serif;
-}
-
-/* Botón Estilizado */
-.btn-ver-mas {
-  font-family: 'Poppins', sans-serif;
-  font-size: 18px;
-  font-weight: 500;
-  padding: 10px 30px;
-  border-radius: 25px;
-  border: 2px solid #028391;
-  background: transparent;
-  color: #FEAE6F;
-  transition: all 0.3s ease-in-out;
-}
-
-.btn-ver-mas:hover {
-  background: #028391;
-  color: #f8f9fa;
-  border-color: #028391;
-  box-shadow: 0 0 15px #028391, 0 0 30px #028391;
-}
-
-/* Botón Seleccionado */
-.btn-ver-mas.active {
-  background: #028391;
-  color: #f8f9fa;
-  border-color: #028391;
-  box-shadow: 0 0 15px #028391, 0 0 30px #028391;
-}
-
-/* Imagen circular */
+/* Contenedor principal */
 .circle-image {
+  position: relative;
   display: flex;
   align-items: center;
   justify-content: center;
-  margin-top: 20px;
+  margin-top: 1.5rem;
+  width: 100%;
+  height: 100%;
+  max-width: 35rem;
+  max-height: 35rem;
 }
 
+/* Burbuja principal */
 .circle {
-  position: relative;
-  width: 400px;
-  height: 400px;
+  width: 30rem;
+  height: 30rem;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 10px #FEAE6F, 0 0 20px #FEAE6F;
+  box-shadow: 0 0 1.5rem #FEAE6F, 0 0 3rem #FEAE6F;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: transform 0.3s ease-in-out; /* Agregado para hover */
+  pointer-events: auto; /* Permitir interacción con la imagen principal */
+}
+
+.circle:hover {
+  transform: scale(1.1); /* Efecto de ampliación */
 }
 
 .circle img {
-  position: absolute;
-  width: 50%;
-  height: 50%;
+  width: 100%;
+  height: 100%;
   object-fit: cover;
-  transition: transform 0.3s ease-in-out;
+  border-radius: 50%;
 }
 
-.circle img:nth-child(1) {
-  top: 0;
-  left: 0;
+/* Contenedor de burbujas flotantes */
+.bubble-container-floating {
+  position: absolute;
+  width: 30rem;
+  height: 30rem;
+  overflow: visible; /* Cambiar para permitir que las burbujas sean visibles fuera del contenedor */
+  z-index: 3; /* Colocar las burbujas sobre la imagen */
+  pointer-events: none; /* Deshabilitar la interacción para las burbujas */
 }
 
-.circle img:nth-child(2) {
-  top: 0;
-  right: 0;
+/* Burbujas flotantes */
+.floating-bubble {
+  position: absolute;
+  border-radius: 50%;
+  opacity: 0;
+  animation: bubble-float 6s ease-in-out, bubble-fade 6s ease-in-out;
+  animation-fill-mode: forwards;
+  overflow: hidden;
 }
 
-.circle img:nth-child(3) {
-  bottom: 0;
-  left: 0;
+.floating-bubble img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 50%;
 }
 
-.circle img:nth-child(4) {
-  bottom: 0;
-  right: 0;
+/* Animación para flotar */
+@keyframes bubble-float {
+  0% {
+    transform: translateY(150%); /* Empieza más abajo para que nazca en el borde inferior */
+  }
+  80% {
+    transform: translateY(-60%); /* Ajusta para desaparecer antes del borde superior */
+  }
+  100% {
+    transform: translateY(-60%);
+  }
 }
 
-.circle img:hover {
-  transform: scale(1.1);
-  filter: brightness(1.2);
+/* Animación para desvanecer */
+@keyframes bubble-fade {
+  0%, 70% {
+    opacity: 1;
+  }
+  100% {
+    opacity: 0;
+    transform: scale(2);
+  }
 }
