@@ -12,9 +12,49 @@
   margin-bottom: 1rem;
   background-color: #F6DCAC;
 }
-
 /* ---------------------------------- */
+
+
 /* TITULO Y DESCRIPCION PARA LA PESTAÑA PORTAFOLIO */
+/* ETIQUETA SECCIONES Y TITULO SECCIONES*/
+.text-tab{
+  font-size: 1.5rem;
+}
+
+.custom-active-tab {
+  position: relative;
+  color: #FEAE6F;
+  font-weight: bold;
+  text-transform: uppercase;
+  overflow: hidden;
+}
+
+.custom-active-tab::after {
+  content: '';
+  position: absolute;
+  bottom: -5px;
+  left: -100%;
+  width: 100%;
+  height: 4px;
+  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0.5) 50%, #fff 100%);
+  animation: slide 1.5s infinite;
+}
+
+@keyframes slide {
+  0% {
+    left: -100%;
+  }
+  100% {
+    left: 100%;
+  }
+}
+
+
+/* --------------------------------------------------------- */
+
+
+
+/* Estilos personalizados para los tabs */
 .portafolio-titulo {
   font-size: 2rem;
   font-weight: bold;
@@ -85,18 +125,82 @@ mat-card {
 }
 
 .card-title {
-  margin-top: 15px;
+  /* margin-top: 15px; */
   font-size: 1.25rem;
   font-weight: bold;
   color: #f8f9fa;
-}
 
+}
+/* TARJETAS */
+.titulo-descripcion {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  margin: 1rem;
+
+}
+.card-text {
+  margin-bottom: 0.6rem !important;
+  font-size: 1.2rem;
+  color: #66C2A5;
+
+}
 mat-card-content {
   background-color: #1E1E1E;
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
   flex-grow: 1;
+}
+
+/* Estilo para las etiquetas de tecnologías */
+.tags-container {
+  margin-top: 1rem;
+}
+
+.tag {
+  display: inline-block;
+  background-color: #028391;
+  color: #fff;
+  font-size: 0.8rem;
+  font-weight: bold;
+  padding: 0.3rem 0.6rem;
+  margin: 0.2rem;
+  border-radius: 0.5rem;
+  text-transform: uppercase;
+  margin: 1.5rem 1rem;
+}
+
+/* Contenedor de los tags */
+.tags-container {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin: 1rem;
+}
+
+/* Estilo para los íconos de tecnologías */
+.tech-icon {
+  width: 24px;
+  height: 24px;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  transition: transform 0.3s ease;
+}
+
+.tech-icon:hover {
+  transform: scale(1.2);
+}
+
+/* Estilo para etiquetas sin íconos */
+.tag-fallback {
+  font-size: 0.9rem;
+  background-color: #028391;
+  color: white;
+  padding: 0.3rem 0.5rem;
+  border-radius: 4px;
+  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
+  text-transform: capitalize;
 }
 
 .btnpor, .btnexp, .btncerrar {
@@ -125,22 +229,9 @@ mat-card-content {
   border: 1px solid #028391;
   box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
 }
+/* ------------------------------------------------------------------------------------- */
 
-/* TITULO Y DESCRIPCION EN TARJETAS DE PORTAFOLIO */
-.titulo-descripcion {
-  display: flex;
-  align-items: center;
-  gap: 10px;
-  margin: 1rem;
-}
-
-.card-text {
-  margin: 0;
-  font-size: 1.2rem;
-  color: #66C2A5;
-}
-
-/* BOTON CERRAR */
+/* MODAL */
 .btncerrar-x {
   position: absolute;
   top: 10px;
@@ -165,35 +256,6 @@ mat-card-content {
   border: 1px solid #028391;
   box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
 }
-
-/* BRILLO PARA PESTAÑAS ACTIVAS */
-.custom-active-tab {
-  position: relative;
-  color: #fff;
-  font-weight: bold;
-  overflow: hidden;
-}
-
-.custom-active-tab::after {
-  content: '';
-  position: absolute;
-  bottom: 0;
-  left: -100%;
-  width: 100%;
-  height: 4px;
-  background: linear-gradient(to right, #fff 0%, rgba(255, 255, 255, 0.5) 50%, #fff 100%);
-  animation: slide 1.5s infinite;
-}
-
-@keyframes slide {
-  0% {
-    left: -100%;
-  }
-  100% {
-    left: 100%;
-  }
-}
-
 
 /* Contenedor principal de la modal */
 .modal-content {
@@ -229,75 +291,3 @@ mat-card-content {
 }
 
 
-
-
-
-/* Estilo para las etiquetas de tecnologías */
-.tags-container {
-  margin-top: 1rem;
-}
-
-.tag {
-  display: inline-block;
-  background-color: #028391;
-  color: #fff;
-  font-size: 0.8rem;
-  font-weight: bold;
-  padding: 0.3rem 0.6rem;
-  margin: 0.2rem;
-  border-radius: 0.5rem;
-  text-transform: uppercase;
-  margin: 1.5rem 1rem;
-}
-
-/* Contenedor de los tags */
-.tags-container {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
-  margin-top: 1rem;
-}
-
-/* Estilo para los íconos de tecnologías */
-.tech-icon {
-  width: 24px;
-  height: 24px;
-  border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  transition: transform 0.3s ease;
-}
-
-.tech-icon:hover {
-  transform: scale(1.2);
-}
-
-/* Estilo para etiquetas sin íconos */
-.tag-fallback {
-  font-size: 0.9rem;
-  background-color: #028391;
-  color: white;
-  padding: 0.3rem 0.5rem;
-  border-radius: 4px;
-  box-shadow: 0 0 3px rgba(0, 0, 0, 0.2);
-  text-transform: capitalize;
-}
-
-
-
-.row {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 1rem; /* Espaciado entre columnas */
-}
-
-.col-md-4 {
-  flex: 0 0 calc(33.333% - 1rem); /* Ajusta el tamaño para 3 columnas */
-  max-width: calc(33.333% - 1rem);
-}
-
-@media (max-width: 768px) {
-  .col-md-4 {
-    flex: 0 0 100%;
-    max-width: 100%;
-  }
-}

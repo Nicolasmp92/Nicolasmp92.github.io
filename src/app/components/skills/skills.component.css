@@ -1,51 +1,93 @@
-
+/* General Styles */
+.skills-section {
+  padding: 2rem 0;
+}
 
 .skills-title {
-  font-size: 2rem;
+  font-size: 2.5rem;
   font-weight: bold;
-  text-align: center;
-  margin-bottom: 1.5rem;
   color: #f8f9fa;
+  text-align: center;
+}
+
+.divider {
+  border: none;
+  height: 2px;
+  background-color: #028391;
+  margin: 1rem 0;
+}
+
+/* Skills Layout */
+.skills-content {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.skills-category {
+  width: 48%;
 }
 
 .skills-list {
-  margin-bottom: 1.5rem;
+  margin-top: 1rem;
 }
-.skill-img{
-  width: 50px;
-  height: 50px;
+
+.skill-item {
+  display: flex;
+  align-items: center;
+  margin-bottom: 1rem;
+}
+
+.skill-icon {
+  width: 40px;
+  height: 40px;
+  margin-right: 1rem;
 }
 
 .skill-name {
-  font-size: 1.2rem;
-  margin-bottom: 0.5rem;
+  font-size: 1.5rem;
+  font-weight: bold;
   color: #f8f9fa;
+  margin-right: 1rem;
 }
 
-.animated-progress .mat-progress-bar-fill::after {
-  animation: progressAnimation 1.5s ease-in-out forwards;
+/* Progress Bar */
+.progress-bar-container {
+  position: relative;
+  flex-grow: 1;
+  height: 25px;
+  background-color: #2a2a2a;
+  border-radius: 5px;
+  overflow: hidden;
+  margin-left: 1rem;
 }
 
-@keyframes progressAnimation {
+.progress-bar {
+  height: 100%;
+  position: relative;
+  border-radius: 5px;
+  transition: width 2s ease-in-out;
+  background-image: linear-gradient(45deg, rgba(255, 255, 255, 0.1) 25%, transparent 25%, transparent 50%, rgba(255, 255, 255, 0.1) 50%, rgba(255, 255, 255, 0.1) 75%, transparent 75%, transparent);
+  background-size: 40px 40px;
+  animation: stripes 1s linear infinite;
+}
+
+.progress-percentage {
+  position: absolute;
+  right: 10px;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 14px;
+  font-weight: bold;
+  color: #ffffff;
+}
+
+/* Keyframes for stripe animation */
+@keyframes stripes {
   from {
-      width: 0;
+    background-position: 0 0;
   }
   to {
-      width: 100%;
-  }
-}
-
-
-.skills-list {
-  opacity: 0;
-  transform: translateY(20px);
-  animation: fadeIn 1s ease-out forwards;
-  animation-delay: 0.3s; /* Retraso para que se active tras unos milisegundos */
-}
-
-@keyframes fadeIn {
-  to {
-      opacity: 1;
-      transform: translateY(0);
+    background-position: 40px 0;
   }
 }

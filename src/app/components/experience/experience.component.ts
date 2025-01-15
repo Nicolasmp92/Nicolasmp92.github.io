@@ -1,4 +1,4 @@
-import { Component, TemplateRef, ViewChild, Renderer2 } from '@angular/core';
+import { Component, TemplateRef, ViewChild, Renderer2,ViewEncapsulation  } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -8,11 +8,13 @@ import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
 import { CommonModule } from '@angular/common';
 import { NgFor, NgIf } from '@angular/common';
+import { ListKeyManager } from '@angular/cdk/a11y';
 
 @Component({
   selector: 'app-experience',
   templateUrl: './experience.component.html',
   styleUrls: ['./experience.component.css'],
+  encapsulation: ViewEncapsulation.None,
   standalone: true,
   imports: [
     MatTabsModule,
@@ -38,68 +40,120 @@ export class ExperienceComponent {
     HTML5: 'iconos/html5.ico',
     CSS3: 'iconos/css3.ico',
     TypeScript: 'iconos/Typescript_logo_2020.svg',
+    AngularMaterial: 'iconos/Material.svg',
   };
 
-  // Proyectos
-  projects = [
-    {
-      title: 'Recos.cl',
-      description: 'Constructora.',
-      image: 'img/header_Recos.png',
-      fullimage: 'img/Recosfull.png',
-      tags: ['Angular', 'Bootstrap', 'JavaScript'],
-      details: `
-        <p>WEB SPA informativa para proporcionar más información a los clientes y captar nuevas oportunidades de negocios.</p>
-        <ul>
-          <li>Slider de imágenes principal con transiciones animadas.</li>
-          <li>Tarjetas descriptivas de misión, visión y valores corporativos.</li>
-          <li>Galería de proyectos terminados con vistas detalladas y ampliables.</li>
-        </ul>
-      `,
-    },
-    {
-      title: 'colegioangeles.cl',
-      description: 'Colegio.',
-      image: 'img/header_Angeles.png',
-      fullimage: 'img/Angelesfull.png',
-      tags: ['Angular','HTML5' , 'CSS3', 'JavaScript'],
-      details: `
-        <p>Información detallada del colegio.</p>
-        <ul>
-          <li>Galería de imágenes del colegio.</li>
-          <li>Formulario de contacto con validación en tiempo real.</li>
-        </ul>
-      `,
-    },
-    {
-      title: 'Tecnohoot',
-      description: 'Soluciones tecnológicas.',
-      image: 'img/header_tecnohoot.png',
-      fullimage: 'img/Tecnofull.png',
-      tags: ['html5', 'CSS'],
-      details: `
-        <p>WEB SPA para servicios tecnológicos.</p>
-        <ul>
-          <li>Galería de imágenes representativas.</li>
-          <li>Botón de contacto funcional.</li>
-        </ul>
-      `,
-    },
-    {
-      title: 'chileagrofood',
-      description: 'Exportación de alimentos.',
-      image: 'img/header_agro.png',
-      fullimage: 'img/Angelesfull.png',
-      tags: ['Vue.js', 'Tailwind CSS'],
-      details: `
-        <p>Información sobre exportación de alimentos.</p>
-        <ul>
-          <li>Información del proyecto en formato SPA.</li>
-          <li>Botón de contacto funcional.</li>
-        </ul>
-      `,
-    },
-  ];
+
+ // Proyectos
+projects = [
+  {
+    title: 'Recos.cl',
+    description: 'Constructora.',
+    estado: 'En Desarrollo',
+    image: 'img/header_Recos.png',
+    fullimage: 'img/Recosfull.png',
+    tags: ['Angular', 'Bootstrap', 'HTML5', 'CSS3', 'JavaScript'],
+    seoTags: [
+      'construcción',
+      'remodelación',
+      'proyectos',
+      'contratistas',
+      'edificación',
+      'diseño de interiores',
+      'recos',
+      'constructora en Chile'
+    ],
+    details: `
+      <p>WEB SPA informativa para proporcionar más información a los clientes y captar nuevas oportunidades de negocios.</p>
+      <ul>
+        <li>Slider de imágenes principal con transiciones animadas.</li>
+        <li>Tarjetas descriptivas de misión, visión y valores corporativos.</li>
+        <li>Quienes somos: apartado de historia de la empresa y fotos de los fundadores.</li>
+        <li>Galería de proyectos terminados con vistas detalladas y ampliables.</li>
+        <li>Apartado mis clientes.</li>
+        <li>Formulario de contacto.</li>
+        <li>Mi ubicasion en Google maps.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'colegioangeles.cl',
+    description: 'Colegio.',
+    estado: 'Finalizada 2024',
+    Link: 'https://colegioangeles.cl/',
+    image: 'img/header_Angeles.png',
+    fullimage: 'img/Angelesfull.png',
+    tags: ['Angular', 'Bootstrap', 'HTML5', 'CSS3', 'JavaScript'],
+    seoTags: [
+      'educación',
+      'colegio especial',
+      'aprendizaje inclusivo',
+      'escuelas en Chile',
+      'educación gratuita',
+      'proyectos escolares',
+      'matrículas',
+      'educación para niños especiales'
+    ],
+    details: `
+      <p>Información detallada del colegio.</p>
+      <ul>
+        <li>Galería de imágenes del colegio.</li>
+        <li>Formulario de contacto con validación en tiempo real.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'Tecnohoot',
+    description: 'Soluciones tecnológicas.',
+    estado: 'Finalizada 2024',
+    image: 'img/header_tecnohoot.png',
+    fullimage: 'img/Tecnofull.png',
+    tags: ['HTML5', 'CSS3'],
+    seoTags: [
+      'soluciones tecnológicas',
+      'desarrollo web',
+      'software empresarial',
+      'aplicaciones SPA',
+      'tecnología avanzada',
+      'automatización de procesos',
+      'tecnohoot',
+      'consultoría tecnológica'
+    ],
+    details: `
+      <p>WEB SPA para servicios tecnológicos.</p>
+      <ul>
+        <li>Galería de imágenes representativas.</li>
+        <li>Botón de contacto funcional.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'chileagrofood',
+    description: 'Exportación de alimentos.',
+    estado: 'En Desarrollo',
+    image: 'img/header_agro.png',
+    fullimage: 'img/Angelesfull.png',
+    tags: ['Bootstrap', 'HTML5', 'CSS3'],
+    seoTags: [
+      'exportación de alimentos',
+      'agricultura en Chile',
+      'productos naturales',
+      'exportación internacional',
+      'frutas y verduras',
+      'comercio agrícola',
+      'chileagrofood',
+      'exportación de calidad'
+    ],
+    details: `
+      <p>Información sobre exportación de alimentos.</p>
+      <ul>
+        <li>Información del proyecto en formato SPA.</li>
+        <li>Botón de contacto funcional.</li>
+      </ul>
+    `,
+  },
+];
+
 
   // Experiencias
   experiences = [

@@ -1,23 +1,46 @@
 <section id="skills" class="skills-section">
-
   <div class="container">
     <h2 class="skills-title">Habilidades</h2>
+    <hr class="divider" />
 
-    <div class="row">
-    <div class="col-md-6">
-      <div class="skills-list" *ngFor="let habilidad of habilidadesFront">
-        <img class="skill-img" src="{{ habilidad.icono }}" alt="{{ habilidad.nombre }}" />
-        <h3 class="skill-name">{{ habilidad.nombre }}</h3>
-        <mat-progress-bar mode="determinate" [value]="habilidad.progreso" class="animated-progress"></mat-progress-bar>
+    <div class="skills-content">
+      <!-- Front-end Skills -->
+      <div class="skills-category">
+        <h3>Habilidades Front-End</h3>
+        <div class="skills-list">
+          <div class="skill-item mx-3" *ngFor="let skill of habilidadesFront">
+            <img [src]="skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon" />
+            <span class="skill-name">{{ skill.nombre }}</span>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar progress-bar-stripes"
+                [ngStyle]="{ width: skill.actualProgreso + '%' }"
+              >
+                <span class="progress-percentage">{{ skill.actualProgreso }}%</span>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Back-end Skills -->
+      <div class="skills-category">
+        <h3>Habilidades Back-End</h3>
+        <div class="skills-list">
+          <div class="skill-item mx-3" *ngFor="let skill of habilidadesBack">
+            <img [src]="skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon" />
+            <span class="skill-name">{{ skill.nombre }}</span>
+            <div class="progress-bar-container">
+              <div
+                class="progress-bar progress-bar-stripes"
+                [ngStyle]="{ width: skill.actualProgreso + '%' }"
+              >
+                <span class="progress-percentage">{{ skill.actualProgreso }}%</span>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
-    <div class="col-md-6">
-      <div class="skills-list" *ngFor="let habilidad of habilidadesBack">
-        <h3 class="skill-name">{{ habilidad.nombre }}</h3>
-        <mat-progress-bar mode="determinate" [value]="habilidad.progreso" class="animated-progress"></mat-progress-bar>
-      </div>
-    </div>
-  </div>
-
   </div>
 </section>

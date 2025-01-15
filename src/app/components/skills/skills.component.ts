@@ -1,37 +1,62 @@
 import { Component } from '@angular/core';
-import { MatProgressBarModule } from '@angular/material/progress-bar';
-import { NgFor } from '@angular/common';
+import { NgFor, NgStyle } from '@angular/common';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [
-    NgFor,
-    MatProgressBarModule
-  ],
+  imports: [NgFor, NgStyle],
   templateUrl: './skills.component.html',
-  styleUrl: './skills.component.css'
+  styleUrls: ['./skills.component.css'],
 })
 export class SkillsComponent {
-
   habilidadesFront = [
-    { icono: 'iconos/angular.ico', nombre: 'Angular', progreso: 80 },
-    { icono: 'iconos/js.ico', nombre: 'JavaScript', progreso: 80 },
-    { icono: 'iconos/html5.ico', nombre: 'HTML5', progreso: 80 },
-    { icono: 'iconos/css3.ico', nombre: 'CSS3', progreso: 80 },
-    { icono: 'iconos/bootstrap.ico', nombre: 'Bootstrap5ñ', progreso: 80 },
-    { icono: 'iconos/angular.ico', nombre: 'Git', progreso: 60 },
-    { icono: 'iconos/angular.ico', nombre: 'AWS', progreso: 60 },
-    { icono: 'iconos/angular.ico', nombre: 'Suite Office', progreso: 80 },
-    { icono: 'iconos/angular.ico', nombre: 'Nivel de inglés', progreso: 80 }
-  ];
-  habilidadesBack = [
-    { nombre: 'Java', progreso: 20 },
-    { nombre: 'Sql', progreso:60},
-    { nombre: 'PHP', progreso: 60 },
-    { nombre: 'Python', progreso: 20 },
-
-
+    { icono: 'iconos/angular.ico', nombre: 'Angular', progreso: 90, actualProgreso: 0, color: '#028391' },
+    { icono: 'iconos/js.ico', nombre: 'JavaScript', progreso: 85, actualProgreso: 0, color: '#FEAE6F' },
+    { icono: 'iconos/html5.ico', nombre: 'HTML5', progreso: 95, actualProgreso: 0, color: '#f8f9fa' },
+    { icono: 'iconos/css3.ico', nombre: 'CSS3', progreso: 80, actualProgreso: 0, color: '#028391' },
+    { icono: 'iconos/bootstrap.ico', nombre: 'Bootstrap', progreso: 75, actualProgreso: 0, color: '#FEAE6F' },
   ];
 
+
+    habilidadesBack = [
+      { icono: 'iconos/node-js.svg', nombre: 'Node.js', progreso: 70, actualProgreso: 0, color: '#028391' },
+      { icono: 'iconos/apache.svg', nombre: 'Apache', progreso: 60, actualProgreso: 0, color: '#FEAE6F' },
+      { icono: 'iconos/mongodb.svg', nombre: 'MongoDB', progreso: 65, actualProgreso: 0, color: '#f8f9fa' },
+      { icono: 'iconos/mysql.svg', nombre: 'MySQL', progreso: 80, actualProgreso: 0, color: '#028391' },
+      { icono: 'iconos/python.svg', nombre: 'Python', progreso: 70, actualProgreso: 0, color: '#FEAE6F' },
+  ];
+
+
+
+  constructor() {}
+
+  ngOnInit(): void {
+    this.animateProgress();
+  }
+
+  animateProgress() {
+    const interval = setInterval(() => {
+      let allCompleted = true;
+
+      // Animate Front-End Skills
+      this.habilidadesFront.forEach(skill => {
+        if (skill.actualProgreso < skill.progreso) {
+          skill.actualProgreso++;
+          allCompleted = false;
+        }
+      });
+
+      // Animate Back-End Skills
+      this.habilidadesBack.forEach(skill => {
+        if (skill.actualProgreso < skill.progreso) {
+          skill.actualProgreso++;
+          allCompleted = false;
+        }
+      });
+
+      if (allCompleted) {
+        clearInterval(interval);
+      }
+    }, 20); // Adjust speed of the animation
+  }
 }
