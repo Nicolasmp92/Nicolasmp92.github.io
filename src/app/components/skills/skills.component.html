@@ -1,46 +1,80 @@
-<section id="skills" class="skills-section">
+<section id="skills" class="skills-section py-5">
   <div class="container">
-    <h2 class="skills-title">Habilidades</h2>
-    <hr class="divider" />
+    <h2 class="skills-title text-center mb-4">Habilidades</h2>
+    <hr class="divider mx-auto mb-5" />
 
-    <div class="skills-content">
-      <!-- Front-end Skills -->
-      <div class="skills-category">
-        <h3>Habilidades Front-End</h3>
-        <div class="skills-list">
-          <div class="skill-item mx-3" *ngFor="let skill of habilidadesFront">
-            <img [src]="skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon" />
-            <span class="skill-name">{{ skill.nombre }}</span>
-            <div class="progress-bar-container">
-              <div
-                class="progress-bar progress-bar-stripes"
-                [ngStyle]="{ width: skill.actualProgreso + '%' }"
-              >
-                <span class="progress-percentage">{{ skill.actualProgreso }}%</span>
+    <div class="row">
+      <!-- Front-End Skills -->
+      <div class="col-12 col-md-6 skills-category px-5 mt-3">
+        <h3 class="text-center mb-4">Habilidades Front-End</h3>
+        <div class="d-flex align-items-center mt-4" *ngFor="let skill of habilidadesFront">
+          <img [src]="'iconos/' + skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon img-fluid me-3" loading="lazy" />
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center">
+              <figcaption class="skill-name fw-bold me-2">{{ skill.nombre }}</figcaption>
+              <button (click)="openDialog(skill)" class="btnc_ertificado">Ver Certificado</button>
+            </div>
+            <div class="d-flex align-items-center mt-2">
+              <div class="progress w-100 me-2" [ngClass]="{ 'highlight-progress-green': skill.actualProgreso > 80 }">
+                <div
+                  class="progress-bar bg-success striped"
+                  role="progressbar"
+                  [ngStyle]="{ width: skill.actualProgreso + '%' }"
+                  [attr.aria-valuenow]="skill.actualProgreso"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
               </div>
+              <span class="skill-percentage">{{ skill.actualProgreso }}%</span>
             </div>
           </div>
         </div>
       </div>
 
-      <!-- Back-end Skills -->
-      <div class="skills-category">
-        <h3>Habilidades Back-End</h3>
-        <div class="skills-list">
-          <div class="skill-item mx-3" *ngFor="let skill of habilidadesBack">
-            <img [src]="skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon" />
-            <span class="skill-name">{{ skill.nombre }}</span>
-            <div class="progress-bar-container">
-              <div
-                class="progress-bar progress-bar-stripes"
-                [ngStyle]="{ width: skill.actualProgreso + '%' }"
-              >
-                <span class="progress-percentage">{{ skill.actualProgreso }}%</span>
+      <!-- Back-End Skills -->
+      <div class="col-12 col-md-6 skills-category px-5 mt-3">
+        <h3 class="text-center mb-4">Habilidades Back-End</h3>
+        <div class="d-flex align-items-center mt-4" *ngFor="let skill of habilidadesBack">
+          <img [src]="'iconos/' + skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon img-fluid me-3" loading="lazy" />
+          <div class="flex-grow-1">
+            <div class="d-flex align-items-center">
+              <figcaption class="skill-name fw-bold me-2">{{ skill.nombre }}</figcaption>
+              <button (click)="openDialog(skill)" class="btnc_ertificado">Ver Certificado</button>
+            </div>
+            <div class="d-flex align-items-center mt-2">
+              <div class="progress w-100 me-2" [ngClass]="{ 'highlight-progress-blue': skill.actualProgreso > 80 }">
+                <div
+                  class="progress-bar bg-primary striped"
+                  role="progressbar"
+                  [ngStyle]="{ width: skill.actualProgreso + '%' }"
+                  [attr.aria-valuenow]="skill.actualProgreso"
+                  aria-valuemin="0"
+                  aria-valuemax="100"
+                ></div>
               </div>
+              <span class="skill-percentage">{{ skill.actualProgreso }}%</span>
             </div>
           </div>
         </div>
       </div>
     </div>
+
+    <ng-template #dialogTemplate let-data>
+      <button mat-fab class="btncerrar-x" mat-dialog-close><mat-icon>close</mat-icon></button>
+      <h2 mat-dialog-title>{{ data.nombre }}</h2>
+      <mat-dialog-content>
+        <div class="modal-content">
+          <div class="modal-description">
+            <p>Certificado de {{ data.detalles }}</p>
+          </div>
+          <div class="modal-image-container">
+            <iframe [src]="data.certificado" width="100%" height="500px"></iframe>
+          </div>
+        </div>
+      </mat-dialog-content>
+      <mat-dialog-actions>
+        <button mat-button class="btncerrar text-center" mat-dialog-close>Cerrar</button>
+      </mat-dialog-actions>
+    </ng-template>
   </div>
 </section>

@@ -73,7 +73,7 @@
 </section>
 
 <ng-template #dialogTemplate let-data>
-  <button mat-button class="btncerrar-x" mat-dialog-close>&times;</button>
+  <button mat-fab  class="btncerrar-x" mat-dialog-close><mat-icon>close</mat-icon></button>
   <h2 mat-dialog-title>
     {{ data.title }}
     <p class="text-start">{{ data.description }}</p>
