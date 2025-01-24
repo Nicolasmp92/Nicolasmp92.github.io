@@ -25,6 +25,11 @@
               {
                 "glob": "**/*",
                 "input": "public"
+              },
+              {
+                "glob": "404.html",
+                "input": "src",
+                "output": "/"
               }
             ],
             "styles": [
@@ -117,7 +122,9 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/nicolasmp92.github.io/"
+            "baseHref": "/nicolasmp92.github.io/",
+            "outputPath": "dist/niko",
+            "no-silent": true
           }
         }
       }

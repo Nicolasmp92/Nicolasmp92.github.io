@@ -7,16 +7,36 @@
   <meta name="keywords" content="Nicolás Muñoz, desarrollo front end, Angular, portafolio, CV, programación, desarrollador web">
   <meta name="author" content="Nicolás Muñoz">
   <title>Niko</title>
-  <base href="/">
+
+  <!-- Configuración correcta de rutas en GitHub Pages -->
+  <base href="/nicolasmp92.github.io/">
+
   <link rel="icon" type="image/x-icon" href="favicon.ico">
+
+  <!-- Fuentes de Google -->
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500&display=swap" rel="stylesheet">
   <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
+
+  <!-- reCAPTCHA -->
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1"></script>
+
+  <!-- Manejo de redirecciones en GitHub Pages -->
+  <script type="text/javascript">
+    (function() {
+      var path = window.location.pathname;
+      if (!path.startsWith("/nicolasmp92.github.io/")) {
+        window.location.href = "/nicolasmp92.github.io/" + path;
+      }
+    })();
+  </script>
 </head>
 <body class="mat-typography">
   <app-root></app-root>
+  <noscript>
+    Debes habilitar JavaScript para ver esta página correctamente.
+  </noscript>
 </body>
 </html>
