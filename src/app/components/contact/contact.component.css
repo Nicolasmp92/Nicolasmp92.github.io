@@ -1,30 +1,100 @@
-.contact-section {
-  background-color: #f1f1f1; /* Fondo claro */
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+.contact-title {
+  font-size: 3rem;
+  font-weight: 600;
+  color: #f8f9fa; /* Color blanco */
+  text-align: center;
 }
 
-.contact-title {
-  font-size: 2.5rem;
-  font-weight: 600;
-  color: #333;
+.form-group {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
 }
 
 .form-control {
   border-radius: 5px;
-  border: 1px solid #ccc;
+  border: 1px solid #996655;
+  background-color: transparent;
+  color: #FEAE6F;
   padding: 10px;
+  width: 100%;
+  font-size: 1.2rem;
 }
 
-.btn-primary {
-  background-color: #007bff;
-  border-color: #007bff;
-  padding: 0.5rem 1.5rem;
-  font-size: 1.1rem;
+/* BOTONES */
+.btn_enviar {
+  width: 100%;
+  max-width: 210px;
+  padding: 10px;
+  text-transform: uppercase;
+  border-radius: 8px;
+  font-size:2rem;
+  font-weight: 100;
+  color: #FEAE6F;
+  background: transparent;
+  cursor: pointer;
+  border: 1px solid #028391;
+  transition: 0.5s ease;
+  user-select: none;
+  margin: 0 auto;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
-.btn-primary:hover {
-  background-color: #0056b3;
-  border-color: #0056b3;
+.btn_enviar:hover,
+.btn_enviar:focus {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #996655, 0 0 20px #996655, 0 0 50px #996655, 0 0 100px #028391;
+}
+
+.error {
+  color: red;
+  font-size: 1rem;
+  margin-top: 5px;
+}
+
+.success-message {
+  color: green;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  margin-top: 1rem;
+}
+
+.recaptcha-container {
+  margin-bottom: 1.5rem;
+  text-align: center;
+}
+
+@media (max-width: 768px) {
+  .contact-section {
+    padding: 1rem;
+  }
+}
+
+
+/* Efectos formularios */
+.form-control {
+  border-radius: 8px;
+  border: 1px solid #996655;
+  background-color: transparent;
+  color: #FEAE6F;
+  padding: 15px;
+  width: 100%;
+  font-size: 1.2rem;
+  transition: all 0.3s ease-in-out;
+}
+
+.form-control:focus {
+  color: #f8f9fa;
+  background: #028391;
+  border: 1px solid #028391;
+  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  outline: none;
 }

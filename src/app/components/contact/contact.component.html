@@ -1,32 +1,84 @@
-<section id="contact" class="contact mt-5 mb-5 pt-5 pt-5">
+<section id="contact" class="mt-5 mb-5 pt-5 mt-5 mb-5 pt-5">
   <div class="container-xxl">
-    <h2>Contáctanos</h2>
-    <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
-      <div class="form-group">
+    <div class="row justify-content-center">
+      <div class="col-6 mx-auto text-center">
+        <h2 class="contact-title" >Contáctame</h2>
+        <hr >
+      </div>
+    </div>
+    <div class="row justify-content-center"><div class="col-6"><form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
+      <div class="form-group" >
         <label for="contact-name">Nombre</label>
-        <input type="text" id="contact-name" class="form-control" formControlName="name" placeholder="Tu nombre">
+        <input
+          type="text"
+          id="contact-name"
+          class="form-control input-effect"
+          formControlName="name"
+          placeholder="Tu nombre"
+          aria-label="Nombre completo">
         <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" class="error">
-          El nombre es obligatorio.
+          El nombre es obligatorio y solo puede contener letras.
         </div>
       </div>
 
       <div class="form-group">
         <label for="contact-email">Correo electrónico</label>
-        <input type="email" id="contact-email" class="form-control" formControlName="email" placeholder="Tu correo electrónico">
+        <input
+          type="email"
+          id="contact-email"
+          class="form-control"
+          formControlName="email"
+          placeholder="Tu correo electrónico"
+          aria-label="Correo electrónico">
         <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" class="error">
           Proporcione un correo electrónico válido.
         </div>
       </div>
 
       <div class="form-group">
+        <label for="contact-company">Empresa</label>
+        <input
+          type="text"
+          id="contact-company"
+          class="form-control"
+          formControlName="company"
+          placeholder="Nombre de la empresa"
+          aria-label="Empresa">
+      </div>
+
+      <div class="form-group">
+        <label for="contact-subject">Asunto</label>
+        <input
+          type="text"
+          id="contact-subject"
+          class="form-control"
+          formControlName="subject"
+          placeholder="Motivo del contacto"
+          aria-label="Asunto">
+      </div>
+
+      <div class="form-group">
         <label for="contact-message">Mensaje</label>
-        <textarea id="contact-message" class="form-control" formControlName="message" rows="4" placeholder="Tu mensaje"></textarea>
+        <textarea
+          id="contact-message"
+          class="form-control"
+          formControlName="message"
+          rows="4"
+          placeholder="Tu mensaje"
+          aria-label="Mensaje"></textarea>
         <div *ngIf="contactForm.get('message')?.invalid && contactForm.get('message')?.touched" class="error">
           El mensaje debe tener al menos 10 caracteres.
         </div>
       </div>
 
-      <button type="submit" class="btn btn-primary" [disabled]="contactForm.invalid">Enviar</button>
-    </form>
+      <div class="recaptcha-container">
+        <re-captcha (resolved)="resolved($event)" siteKey="TU_RECAPTCHA_SITE_KEY"></re-captcha>
+      </div>
+
+      <button type="submit" class="btn_enviar" [disabled]="contactForm.invalid || !captchaResolved.value">Enviar</button>
+
+      <div *ngIf="formSuccess" class="success-message">¡Mensaje enviado correctamente!</div>
+      <div *ngIf="formError" class="error-message">Hubo un error al enviar el mensaje. Inténtalo nuevamente.</div>
+    </form></div></div>
   </div>
 </section>
