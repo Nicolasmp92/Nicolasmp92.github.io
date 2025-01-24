@@ -54,7 +54,7 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.contactForm.valid && this.captchaResolved.value) {
-      emailjs.send('service_l1edi6e', 'YOUR_TEMPLATE_ID', this.contactForm.value, 'YOUR_USER_ID')
+      emailjs.send('service_l1edi6e', 'template_nhx7u14', this.contactForm.value, '-6-1-T266R-4Kgl9j')
         .then(() => {
           this.formSuccess = true;
           this.formError = false;
