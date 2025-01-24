@@ -1,7 +1,7 @@
 .contact-title {
   font-size: 3rem;
   font-weight: 600;
-  color: #f8f9fa; /* Color blanco */
+  color: #f8f9fa;
   text-align: center;
 }
 
@@ -11,76 +11,6 @@
 }
 
 .form-control {
-  border-radius: 5px;
-  border: 1px solid #996655;
-  background-color: transparent;
-  color: #FEAE6F;
-  padding: 10px;
-  width: 100%;
-  font-size: 1.2rem;
-}
-
-/* BOTONES */
-.btn_enviar {
-  width: 100%;
-  max-width: 210px;
-  padding: 10px;
-  text-transform: uppercase;
-  border-radius: 8px;
-  font-size:2rem;
-  font-weight: 100;
-  color: #FEAE6F;
-  background: transparent;
-  cursor: pointer;
-  border: 1px solid #028391;
-  transition: 0.5s ease;
-  user-select: none;
-  margin: 0 auto;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-}
-
-.btn_enviar:hover,
-.btn_enviar:focus {
-  color: #f8f9fa;
-  background: #028391;
-  border: 1px solid #028391;
-  box-shadow: 0 0 5px #996655, 0 0 20px #996655, 0 0 50px #996655, 0 0 100px #028391;
-}
-
-.error {
-  color: red;
-  font-size: 1rem;
-  margin-top: 5px;
-}
-
-.success-message {
-  color: green;
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
-.error-message {
-  color: red;
-  font-weight: bold;
-  margin-top: 1rem;
-}
-
-.recaptcha-container {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 1rem;
-  }
-}
-
-
-/* Efectos formularios */
-.form-control {
   border-radius: 8px;
   border: 1px solid #996655;
   background-color: transparent;
@@ -88,30 +18,25 @@
   padding: 15px;
   width: 100%;
   font-size: 1.2rem;
-  transition: all 0.3s ease-in-out;
 }
 
 .form-control:focus {
-  color: #f8f9fa;
   background: #028391;
   border: 1px solid #028391;
-  box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
+  box-shadow: 0 0 20px #028391;
   outline: none;
 }
 
-
-
-/* mensajes de validacion */
-.success-message {
-  color: green;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
+.btn_enviar {
+  max-width: 210px;
+  text-transform: uppercase;
+  font-size: 1.5rem;
+  color: #FEAE6F;
+  border: 1px solid #028391;
+  cursor: pointer;
 }
 
-.error-message {
-  color: red;
-  font-weight: bold;
+.success-message, .error-message {
   text-align: center;
-  margin-top: 15px;
+  font-weight: bold;
 }

@@ -33,12 +33,12 @@
               "node_modules/bootstrap/dist/css/bootstrap.min.css",
               "node_modules/@ctrl/ngx-emoji-mart/picker.css",
               "src/styles.css"
-              ],
-              "scripts": [
-                "node_modules/jquery/dist/jquery.min.js",
-                "node_modules/@popperjs/core/dist/umd/popper.min.js",
-                "node_modules/bootstrap/dist/js/bootstrap.min.js"
-              ]
+            ],
+            "scripts": [
+              "node_modules/jquery/dist/jquery.min.js",
+              "node_modules/@popperjs/core/dist/umd/popper.min.js",
+              "node_modules/bootstrap/dist/js/bootstrap.min.js"
+            ]
           },
           "configurations": {
             "production": {
@@ -54,7 +54,9 @@
                   "maximumError": "100KB"
                 }
               ],
-              "outputHashing": "all"
+              "outputHashing": "all",
+              "optimization": true,
+              "aot": true
             },
             "development": {
               "optimization": false,
