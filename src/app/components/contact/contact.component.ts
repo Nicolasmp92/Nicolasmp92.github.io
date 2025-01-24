@@ -53,22 +53,26 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    if (this.contactForm.valid && this.captchaResolved.value) {
-      emailjs.send('service_l1edi6e', 'YOUR_TEMPLATE_ID', this.contactForm.value, 'YOUR_USER_ID')
-        .then(() => {
-          this.formSuccess = true;
-          this.formError = false;
-          this.contactForm.reset();
-          this.captchaResolved.next(false);
-        })
-        .catch(() => {
-          this.formError = true;
-          this.formSuccess = false;
-        });
-    } else {
-      this.formError = true;
-      this.formSuccess = false;
-    }
+    grecaptcha.enterprise.ready(async () => {
+      const token = await grecaptcha.enterprise.execute('6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1', { action: 'submit' });
+
+      if (this.contactForm.valid && token) {
+        emailjs.send('service_l1edi6e', 'YOUR_TEMPLATE_ID', {
+          ...this.contactForm.value,
+          'g-recaptcha-response': token,
+        }, 'YOUR_USER_ID')
+          .then(() => {
+            this.formSuccess = true;
+            this.formError = false;
+            this.contactForm.reset();
+          })
+          .catch(() => {
+            this.formError = true;
+          });
+      } else {
+        this.formError = true;
+      }
+    });
   }
 
 
