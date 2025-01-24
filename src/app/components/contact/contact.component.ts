@@ -53,26 +53,43 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   onSubmit(): void {
-    grecaptcha.enterprise.ready(async () => {
-      const token = await grecaptcha.enterprise.execute('6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1', { action: 'submit' });
+    if (this.contactForm.valid) {
+      if (typeof grecaptcha !== 'undefined') {
+        grecaptcha.enterprise.ready(async () => {
+          try {
+            const token = await grecaptcha.enterprise.execute('6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1', { action: 'submit' });
 
-      if (this.contactForm.valid && token) {
-        emailjs.send('service_l1edi6e', 'YOUR_TEMPLATE_ID', {
-          ...this.contactForm.value,
-          'g-recaptcha-response': token,
-        }, 'YOUR_USER_ID')
-          .then(() => {
-            this.formSuccess = true;
-            this.formError = false;
-            this.contactForm.reset();
-          })
-          .catch(() => {
+            if (token) {
+              emailjs.send('service_l1edi6e', 'YOUR_TEMPLATE_ID', {
+                ...this.contactForm.value,
+                'g-recaptcha-response': token,
+              }, 'YOUR_USER_ID')
+                .then(() => {
+                  this.formSuccess = true;
+                  this.formError = false;
+                  this.contactForm.reset();
+                })
+                .catch(() => {
+                  this.formError = true;
+                  this.formSuccess = false;
+                });
+            } else {
+              this.formError = true;
+            }
+          } catch (error) {
+            console.error('Error al ejecutar reCAPTCHA:', error);
             this.formError = true;
-          });
+          }
+        });
       } else {
+        console.error('reCAPTCHA no está definido');
         this.formError = true;
       }
-    });
+    } else {
+      this.formError = true;
+    }
+    console.log('Formulario enviado:', this.contactForm.value);
+
   }
 
 
@@ -83,6 +100,7 @@ export class ContactComponent implements OnInit, OnDestroy {
   }
 
   ngOnDestroy(): void {
-    this.captchaResolved.unsubscribe();
+    this.captchaResolved.complete();
   }
+
 }

@@ -1,4 +1,4 @@
-<section id="contact" class="mt-5 mb-5 pt-5 mt-5 mb-5 pt-5">
+<section id="contact" class="mt-5 mb-5 pt-5">
   <div class="container-xxl">
     <div class="row justify-content-center">
       <div class="col-6 mx-auto text-center">
@@ -78,6 +78,7 @@
 
       <div class="recaptcha-container">
         <re-captcha (resolved)="resolved($event)" siteKey="6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1"></re-captcha>
+
       </div>
 
       <button type="submit" class="btn_enviar" [disabled]="contactForm.invalid || !captchaResolved.value">Enviar</button>
@@ -88,7 +89,6 @@
   </div>
 
 
-  <div *ngIf="formSuccess" class="success-message">¡Mensaje enviado correctamente!</div>
-<div *ngIf="formError" class="error-message">Hubo un error al enviar el mensaje. Inténtalo nuevamente.</div>
+
 
 </section>
