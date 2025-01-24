@@ -10,10 +10,6 @@ import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import emailjs from '@emailjs/browser';
 
-import { environment } from '../../environments/environment';
-
-
-
 
 @Component({
   selector: 'app-contact',
@@ -65,30 +61,30 @@ export class ContactComponent implements OnInit, OnDestroy {
 
     this.loading = true;
     try {
-      grecaptcha.ready(async () => {
-        const token = await grecaptcha.execute('6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1', { action: 'submit' });
+      grecaptcha.enterprise.ready(async () => {
+        const token = await grecaptcha.enterprise.execute('6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1', { action: 'submit' });
 
         if (token) {
-          emailjs.send('service_l1edi6e', 'template_xxxxxxx', {
-            name: this.contactForm.get('name')?.value,
-            email: this.contactForm.get('email')?.value,
-            company: this.contactForm.get('company')?.value,
-            subject: this.contactForm.get('subject')?.value,
-            message: this.contactForm.get('message')?.value,
-            'g-recaptcha-response': token
-          }, 'user_xxxxxxx')
-            .then(() => {
-              this.formSuccess = true;
-              this.formError = false;
-              this.contactForm.reset();
-            })
-            .catch((error) => {
-              console.error('Error enviando email: ', error);
-              this.formError = true;
-            })
-            .finally(() => {
-              this.loading = false;
-            });
+          console.log('Token reCAPTCHA generado:', token);
+          const recaptchaValid = await this.validateRecaptcha(token);
+
+          if (recaptchaValid) {
+            await emailjs.send('service_l1edi6e', 'template_nhx7u14', {
+              name: this.contactForm.get('name')?.value,
+              email: this.contactForm.get('email')?.value,
+              company: this.contactForm.get('company')?.value,
+              subject: this.contactForm.get('subject')?.value,
+              message: this.contactForm.get('message')?.value,
+              'g-recaptcha-response': token
+            }, 'wdBpqHWOib1FoT5FH');
+
+            this.formSuccess = true;
+            this.formError = false;
+            this.contactForm.reset();
+          } else {
+            console.error('Error en la validación de reCAPTCHA.');
+            this.formError = true;
+          }
         } else {
           throw new Error('Error al obtener el token de reCAPTCHA');
         }
@@ -96,7 +92,38 @@ export class ContactComponent implements OnInit, OnDestroy {
     } catch (error) {
       console.error('Error en la ejecución de reCAPTCHA: ', error);
       this.formError = true;
+    } finally {
       this.loading = false;
+    }
+  }
+
+  async validateRecaptcha(token: string): Promise<boolean> {
+    try {
+      const response = await fetch('https://recaptchaenterprise.googleapis.com/v1/projects/portafolioniko-1737733872090/assessments?key=wdBpqHWOib1FoT5FH', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json'
+        },
+        body: JSON.stringify({
+          event: {
+            token: token,
+            expectedAction: 'submit',
+            siteKey: '6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1'
+          }
+        })
+      });
+
+      const result = await response.json();
+      if (result && result.riskAnalysis && result.riskAnalysis.score >= 0.5) {
+        console.log('Validación reCAPTCHA exitosa:', result);
+        return true;
+      } else {
+        console.error('Fallo en la validación de reCAPTCHA:', result);
+        return false;
+      }
+    } catch (error) {
+      console.error('Error validando reCAPTCHA:', error);
+      return false;
     }
   }
 
