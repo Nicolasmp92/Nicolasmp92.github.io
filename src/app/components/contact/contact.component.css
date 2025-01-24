@@ -98,3 +98,20 @@
   box-shadow: 0 0 5px #028391, 0 0 20px #028391, 0 0 50px #028391, 0 0 100px #028391;
   outline: none;
 }
+
+
+
+/* mensajes de validacion */
+.success-message {
+  color: green;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
+
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
