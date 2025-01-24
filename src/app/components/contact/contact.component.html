@@ -39,7 +39,7 @@
               formControlName="message" rows="4" placeholder="Tu mensaje"></textarea>
           </div>
 
-          <button type="submit" class="btn_enviar" [disabled]="contactForm.invalid || loading">Enviar</button>
+          <button type="submit" class="btn_enviar fw-bolder" [disabled]="contactForm.invalid || loading">Enviar</button>
 
 
           <div *ngIf="formSuccess" class="success-message">¡Mensaje enviado correctamente!</div>

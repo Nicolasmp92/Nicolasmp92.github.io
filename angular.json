@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/niko",
-            "baseHref": "/",
+            "baseHref": "/nicolasmp92.github.io/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -56,12 +56,24 @@
               ],
               "outputHashing": "all",
               "optimization": true,
-              "aot": true
+              "aot": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/environments/environment.ts",
+                  "with": "src/app/environments/environment.prod.ts"
+                }
+              ]
             },
             "development": {
               "optimization": false,
               "extractLicenses": false,
-              "sourceMap": true
+              "sourceMap": true,
+              "fileReplacements": [
+                {
+                  "replace": "src/app/environments/environment.ts",
+                  "with": "src/app/environments/environment.ts"
+                }
+              ]
             }
           },
           "defaultConfiguration": "production"
@@ -103,7 +115,10 @@
           }
         },
         "deploy": {
-          "builder": "angular-cli-ghpages:deploy"
+          "builder": "angular-cli-ghpages:deploy",
+          "options": {
+            "baseHref": "/nicolasmp92.github.io/"
+          }
         }
       }
     }
