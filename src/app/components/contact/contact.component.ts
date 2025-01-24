@@ -7,6 +7,7 @@ import { NgIf } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import { RecaptchaModule } from 'ng-recaptcha';
+import emailjs from '@emailjs/browser';
 
 @Component({
   selector: 'app-contact',
@@ -37,6 +38,8 @@ export class ContactComponent implements OnInit, OnDestroy {
     this.contactForm = this.fb.group({
       name: ['', [Validators.required, Validators.pattern('^[a-zA-Z ]*$')]],
       email: ['', [Validators.required, Validators.email]],
+      company: [''],
+      subject: ['', Validators.required],
       message: ['', [Validators.required, Validators.minLength(10)]]
     });
   }
@@ -51,11 +54,16 @@ export class ContactComponent implements OnInit, OnDestroy {
 
   onSubmit(): void {
     if (this.contactForm.valid && this.captchaResolved.value) {
-      console.log('Formulario enviado:', this.contactForm.value);
-      this.formSuccess = true;
-      this.formError = false;
-      this.contactForm.reset();
-      this.captchaResolved.next(false);
+      emailjs.send('service_l1edi6e', 'YOUR_TEMPLATE_ID', this.contactForm.value, 'YOUR_USER_ID')
+        .then(() => {
+          this.formSuccess = true;
+          this.formError = false;
+          this.contactForm.reset();
+          this.captchaResolved.next(false);
+        })
+        .catch(() => {
+          this.formError = true;
+        });
     } else {
       this.formError = true;
     }
