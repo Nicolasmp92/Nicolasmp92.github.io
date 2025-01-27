@@ -28,7 +28,7 @@
   padding: 10px;
   text-transform: uppercase;
   border-radius: 8px;
-  font-size:2rem;
+  font-size: 2rem;
   font-weight: 100;
   color: #FEAE6F;
   background: transparent;
@@ -50,22 +50,38 @@
   box-shadow: 0 0 5px #996655, 0 0 20px #996655, 0 0 50px #996655, 0 0 100px #028391;
 }
 
-.error {
+/* Mensajes de validación */
+.error-message {
   color: red;
-  font-size: 1rem;
-  margin-top: 5px;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
 }
 
 .success-message {
   color: green;
   font-weight: bold;
-  margin-top: 1rem;
+  text-align: center;
+  margin-top: 15px;
 }
 
-.error-message {
-  color: red;
-  font-weight: bold;
-  margin-top: 1rem;
+/* Spinner de carga */
+.spinner-border {
+  border: 2px solid #FEAE6F;
+  border-right-color: transparent;
+  border-radius: 50%;
+  width: 1.5rem;
+  height: 1.5rem;
+  animation: spin 0.8s linear infinite;
+}
+
+@keyframes spin {
+  from {
+    transform: rotate(0deg);
+  }
+  to {
+    transform: rotate(360deg);
+  }
 }
 
 .recaptcha-container {
@@ -79,7 +95,14 @@
   }
 }
 
-/* mensajes de validacion */
+/* Mejoras en los mensajes de validación */
+.error-message {
+  color: red;
+  font-weight: bold;
+  text-align: center;
+  margin-top: 15px;
+}
+
 .success-message {
   color: green;
   font-weight: bold;
@@ -87,9 +110,15 @@
   margin-top: 15px;
 }
 
-.error-message {
+/* Mejora en accesibilidad para mensajes de error */
+.form-group .error-message {
+  font-size: 0.9rem;
   color: red;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
+  margin-top: 5px;
+}
+
+/* Estilos adicionales para los botones de envío durante la carga */
+.btn_enviar:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
 }
