@@ -23,14 +23,25 @@
   <!-- reCAPTCHA -->
   <script src="https://www.google.com/recaptcha/enterprise.js?render=6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1"></script>
 
+  <!-- Evitar errores de rutas en GitHub Pages -->
+  <script>
+    if (location.pathname !== '/' && !location.pathname.startsWith('/nicolasmp92.github.io')) {
+      location.href = '/nicolasmp92.github.io' + location.pathname;
+    }
+  </script>
+
   <!-- Evitar parpadeos -->
   <style>
-    app-root { display: none; }
+    app-root {
+      display: block;
+      opacity: 0;
+      transition: opacity 0.3s ease-in-out;
+    }
   </style>
 
-  <script type="text/javascript">
+  <script>
     document.addEventListener("DOMContentLoaded", function() {
-      document.querySelector("app-root").style.display = "block";
+      document.querySelector("app-root").style.opacity = "1";
     });
   </script>
 
