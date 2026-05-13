@@ -1,61 +1,65 @@
 <section id="skills" class="skills-section py-5">
   <div class="container">
-    <h2 class="skills-title text-center mb-4">Habilidades</h2>
-    <hr class="divider mx-auto mb-5" />
+    <h2 class="section-title">Habilidades</h2>
+    <hr class="section-divider" />
 
     <div class="row">
       <!-- Front-End Skills -->
       <div class="col-12 col-md-6 skills-category px-5 mt-3">
-        <h3 class="text-center mb-4">Habilidades Front-End</h3>
-        <div class="d-flex align-items-center mt-4" *ngFor="let skill of habilidadesFront">
-          <img [src]="'iconos/' + skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon img-fluid me-3" loading="lazy" />
-          <div class="flex-grow-1">
-            <div class="d-flex align-items-center">
-              <figcaption class="skill-name fw-bold me-2">{{ skill.nombre }}</figcaption>
-              <button (click)="openDialog(skill)" class="btnc_ertificado">Ver Certificado</button>
+        <h3 class="skills-category-title">Front-End</h3>
+        <div class="skill-item" *ngFor="let skill of habilidadesFront">
+          <div class="skill-icon-fallback">{{ skill.nombre.slice(0,2) }}</div>
+          <div class="skill-info">
+            <div class="skill-name">
+              <span>{{ skill.nombre }}</span>
+              <span class="skill-pct">{{ skill.actualProgreso }}%</span>
             </div>
-            <div class="d-flex align-items-center mt-2">
-              <div class="progress w-100 me-2" [ngClass]="{ 'highlight-progress-green': skill.actualProgreso > 80 }">
-                <div
-                  class="progress-bar bg-success striped"
-                  role="progressbar"
-                  [ngStyle]="{ width: skill.actualProgreso + '%' }"
-                  [attr.aria-valuenow]="skill.actualProgreso"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <span class="skill-percentage">{{ skill.actualProgreso }}%</span>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar"
+                [ngStyle]="{ width: skill.actualProgreso + '%' }"
+                [attr.aria-valuenow]="skill.actualProgreso"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
+            <button *ngIf="skill.certificado" (click)="openDialog(skill)" class="btnc_ertificado mt-2">Ver Certificado</button>
           </div>
         </div>
       </div>
 
       <!-- Back-End Skills -->
       <div class="col-12 col-md-6 skills-category px-5 mt-3">
-        <h3 class="text-center mb-4">Habilidades Back-End</h3>
-        <div class="d-flex align-items-center mt-4" *ngFor="let skill of habilidadesBack">
-          <img [src]="'iconos/' + skill.icono" [alt]="skill.nombre + ' icono'" class="skill-icon img-fluid me-3" loading="lazy" />
-          <div class="flex-grow-1">
-            <div class="d-flex align-items-center">
-              <figcaption class="skill-name fw-bold me-2">{{ skill.nombre }}</figcaption>
-              <button (click)="openDialog(skill)" class="btnc_ertificado">Ver Certificado</button>
+        <h3 class="skills-category-title">Back-End</h3>
+        <div class="skill-item" *ngFor="let skill of habilidadesBack">
+          <div class="skill-icon-fallback">{{ skill.nombre.slice(0,2) }}</div>
+          <div class="skill-info">
+            <div class="skill-name">
+              <span>{{ skill.nombre }}</span>
+              <span class="skill-pct">{{ skill.actualProgreso }}%</span>
             </div>
-            <div class="d-flex align-items-center mt-2">
-              <div class="progress w-100 me-2" [ngClass]="{ 'highlight-progress-blue': skill.actualProgreso > 80 }">
-                <div
-                  class="progress-bar bg-primary striped"
-                  role="progressbar"
-                  [ngStyle]="{ width: skill.actualProgreso + '%' }"
-                  [attr.aria-valuenow]="skill.actualProgreso"
-                  aria-valuemin="0"
-                  aria-valuemax="100"
-                ></div>
-              </div>
-              <span class="skill-percentage">{{ skill.actualProgreso }}%</span>
+            <div class="progress">
+              <div class="progress-bar" role="progressbar"
+                [ngStyle]="{ width: skill.actualProgreso + '%' }"
+                [attr.aria-valuenow]="skill.actualProgreso"
+                aria-valuemin="0" aria-valuemax="100"></div>
             </div>
+            <button *ngIf="skill.certificado" (click)="openDialog(skill)" class="btnc_ertificado mt-2">Ver Certificado</button>
           </div>
         </div>
+      </div>
+    </div>
+
+    <!-- DevOps & Tools -->
+    <div class="skills-tags-section mt-5">
+      <h3 class="skills-category-title">DevOps &amp; Tools</h3>
+      <div class="skills-tags">
+        <span *ngFor="let tool of devopsSkills" class="skill-tag">{{ tool }}</span>
+      </div>
+    </div>
+
+    <!-- Soft Skills -->
+    <div class="skills-tags-section mt-4">
+      <h3 class="skills-category-title">Soft Skills</h3>
+      <div class="skills-tags">
+        <span *ngFor="let s of softSkills" class="skill-tag skill-tag--soft">{{ s }}</span>
       </div>
     </div>
 

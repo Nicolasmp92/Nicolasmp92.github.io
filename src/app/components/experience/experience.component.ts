@@ -158,29 +158,52 @@ projects = [
   // Experiencias
   experiences = [
     {
-      position: 'Implementador Hospital Digital',
-      institution: 'MINSAL',
-      date: '2021 - 2024',
+      position: 'Desarrollador Full Stack',
+      institution: 'QzAgres',
+      date: 'Jun 2025 – Dic 2025',
       description:
-        'Prestando servicios como ingeniero en informática, apoyando en la gestión del cambio en proyectos de tecnologías de la información requeridos en MINSAL:',
+        'Diseñé e implementé la arquitectura de módulos de gestión con Laravel y Livewire, optimizando el cálculo dinámico de datos y reduciendo los tiempos de respuesta operativa.',
       tasks: [
-        'Levantamiento de procesos y análisis funcional de sistemas informáticos.',
-        'Aprobar y gestionar usuarios de las diferentes soluciones tecnológicas.',
-        'Acompañamiento en la gestión del cambio a los usuarios en la implementación e incorporación del uso de las tecnologías de la información.',
-        'Capacitar a los equipos locales en las diferentes soluciones tecnológicas y a su vez en la transferencia de su conocimiento.',
-        'Detectar oportunidades de mejora y realización de propuestas para mejorar las soluciones tecnológicas.',
+        'Diseñé e implementé arquitectura de módulos de gestión con Laravel y Livewire.',
+        'Optimicé procesos internos mediante lógica aplicada y cálculo dinámico de datos, reduciendo significativamente los tiempos de ejecución manual.',
+        'Programé sistemas de generación de reportes profesionales en PDF y Excel integrados a flujos de trabajo organizacionales.',
+        'Lideré el levantamiento de requerimientos junto a usuarios finales para asegurar soluciones robustas y mantenibles.',
       ],
     },
     {
-      position: 'Administrativo y soporte técnico',
-      institution: 'CESFAM Coltauco',
-      date: '2017 – 2021',
+      position: 'Analista de Gestión (Reemplazos)',
+      institution: 'Hospital Dr. Franco Rivera Zunino',
+      date: 'Ene 2025 – Jun 2025',
       description:
-        'Prestando servicios como técnico-administrativo y subrogante en el área de soporte técnico informático, desenvolviéndome en varios cargos de confianza como coordinador de SIGGES y subrogante de SOME.',
+        'Supervisión y análisis de indicadores institucionales, asegurando la calidad del dato y el cumplimiento de metas sanitarias.',
       tasks: [
-        'Coordinación de sistemas informáticos.',
-        'Gestión de procesos administrativos en el área de salud.',
-        'Resolución de problemas técnicos.',
+        'Control de indicadores institucionales y aseguramiento de calidad del dato.',
+        'Validación técnica en sistemas de gestión presupuestaria.',
+        'Soporte técnico en la unidad de priorización operativa.',
+      ],
+    },
+    {
+      position: 'Analista Funcional / Implementador Digital',
+      institution: 'Hospital Digital — MINSAL',
+      date: 'Nov 2021 – Jul 2024',
+      description:
+        'Documenté y levanté procesos para servicios clínicos críticos como TeleSalud, TeleACV y TeleOncología, coordinando la implementación de plataformas de telemedicina.',
+      tasks: [
+        'Documentación y levantamiento de procesos para servicios clínicos críticos (TeleSalud, TeleACV, TeleOncología).',
+        'Coordinación de la implementación de plataformas de telemedicina y soporte remoto.',
+        'Liderazgo en capacitación técnica y funcional de equipos multidisciplinarios para la adopción de nuevas plataformas institucionales.',
+      ],
+    },
+    {
+      position: 'Soporte TI & Coordinador SIGGES',
+      institution: 'CESFAM Coltauco',
+      date: 'Ene 2017 – Oct 2021',
+      description:
+        'Responsable de la continuidad operativa de plataformas internas de gestión y bases de datos locales, actuando como coordinador SIGGES y subrogante administrativo.',
+      tasks: [
+        'Administración y continuidad operativa de plataformas internas de gestión y bases de datos locales.',
+        'Coordinador SIGGES y subrogante administrativo.',
+        'Garantía del cumplimiento de estándares TI en salud pública.',
       ],
     },
   ];
@@ -189,7 +212,6 @@ projects = [
 
   onTabChange(index: number): void {
     this.activeTabIndex = index;
-    console.log(`Cambio detectado: Pestaña activa es ${index}`);
   }
 
   openDialog(project: {

@@ -1,4 +1,45 @@
-/* Contenedor principal */
+﻿/* ═══════════════════════════════════════════════
+   ABOUT SECTION
+═══════════════════════════════════════════════ */
+.about-section {
+  padding: 8rem 0;
+}
+
+/* Categories list */
+.about-categories {
+  display: flex;
+  flex-direction: column;
+  gap: 2.4rem;
+}
+
+.about-item {
+  border-left: 2px solid var(--border);
+  padding-left: 1.6rem;
+  transition: border-color var(--transition);
+}
+
+.about-item:hover {
+  border-color: var(--accent);
+}
+
+.about-category-title {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 0.4rem;
+  display: flex;
+  align-items: center;
+  gap: 0.6rem;
+}
+
+.about-item p {
+  font-size: 1.45rem;
+  color: var(--text-2);
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* Circle image */
 .circle-image {
   position: relative;
   display: flex;
@@ -7,27 +48,26 @@
   margin-top: 1.5rem;
   width: 100%;
   height: 100%;
-  max-width: 35rem;
-  max-height: 35rem;
+  max-width: 32rem;
+  max-height: 32rem;
 }
 
-/* Burbuja principal */
 .circle {
-  width: 30rem;
-  height: 30rem;
+  width: 28rem;
+  height: 28rem;
   border-radius: 50%;
   overflow: hidden;
-  box-shadow: 0 0 1.5rem #FEAE6F, 0 0 3rem #FEAE6F;
+  border: 1px solid var(--border);
   z-index: 2;
   display: flex;
   align-items: center;
   justify-content: center;
-  transition: transform 0.3s ease-in-out; /* Agregado para hover */
-  pointer-events: auto; /* Permitir interacción con la imagen principal */
+  transition: border-color 0.3s ease;
 }
 
 .circle:hover {
-  transform: scale(1.1); /* Efecto de ampliación */
+  border-color: var(--accent);
+  transform: scale(1.02);
 }
 
 .circle img {
@@ -37,21 +77,21 @@
   border-radius: 50%;
 }
 
-/* Contenedor de burbujas flotantes */
+/* Floating bubbles */
 .bubble-container-floating {
   position: absolute;
-  width: 30rem;
-  height: 30rem;
-  overflow: visible; /* Cambiar para permitir que las burbujas sean visibles fuera del contenedor */
-  z-index: 3; /* Colocar las burbujas sobre la imagen */
-  pointer-events: none; /* Deshabilitar la interacción para las burbujas */
+  width: 28rem;
+  height: 28rem;
+  overflow: visible;
+  z-index: 3;
+  pointer-events: none;
 }
 
-/* Burbujas flotantes */
 .floating-bubble {
   position: absolute;
   border-radius: 50%;
   opacity: 0;
+  border: 1px solid var(--accent);
   animation: bubble-float 6s ease-in-out, bubble-fade 6s ease-in-out;
   animation-fill-mode: forwards;
   overflow: hidden;
@@ -64,26 +104,19 @@
   border-radius: 50%;
 }
 
-/* Animación para flotar */
 @keyframes bubble-float {
-  0% {
-    transform: translateY(150%); /* Empieza más abajo para que nazca en el borde inferior */
-  }
-  80% {
-    transform: translateY(-60%); /* Ajusta para desaparecer antes del borde superior */
-  }
-  100% {
-    transform: translateY(-60%);
-  }
+  0%   { transform: translateY(150%); }
+  80%  { transform: translateY(-60%); }
+  100% { transform: translateY(-60%); }
 }
 
-/* Animación para desvanecer */
 @keyframes bubble-fade {
-  0%, 70% {
-    opacity: 1;
-  }
-  100% {
-    opacity: 0;
-    transform: scale(2);
-  }
+  0%, 70% { opacity: 0.7; }
+  100%    { opacity: 0; transform: scale(1.4); }
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .circle { width: 22rem; height: 22rem; }
+  .circle-image { max-width: 24rem; max-height: 24rem; }
 }

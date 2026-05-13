@@ -1,66 +1,59 @@
 <section id="home" class="home-section">
-  <!-- TÍTULO Y MÁS -->
-  <div class="container-xxl mb-lg-5 mt-5">
-    <h1 class="fw-bold text-decoration-none">Front-End Development</h1>
+  <div class="container-xxl">
+    <div class="row align-items-center g-5">
 
-    <!-- RESUMEN -->
-    <div class="row mt-5">
-      <div class="col-md-4">
-        <!-- Imagen de avatar -->
-        <div class="row">
-          <img class="img-thumbnail img-fluid animated" src="img/avatarP.png" alt="Avatar de Nicolás Muñoz">
+      <!-- Left: avatar + socials -->
+      <div class="col-md-4 d-flex flex-column align-items-center gap-4">
+        <div class="avatar-wrapper">
+          <img class="avatar-img" src="img/avatarP.png" alt="Avatar de Nicolás Muñoz">
         </div>
-        <!-- Redes sociales -->
-        <div class="row align-self-center">
-          <span class="social-container animated">
-            <a href="https://www.linkedin.com/in/nicolas-mu%C3%B1oz-2551b8b6/" target="_blank"
-              rel="noopener noreferrer">
-              <i class="bi bi-linkedin fs-2"></i>
-            </a>
-            <a href="https://github.com/Nicolasmp92" target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-github fs-2"></i>
-            </a>
-            <a href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-instagram fs-2"></i>
-            </a>
-            <a href="https://web.facebook.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer">
-              <i class="bi bi-facebook fs-2"></i>
-            </a>
-          </span>
+        <div class="social-links">
+          <a class="social-link" href="https://www.linkedin.com/in/nicolas-mu%C3%B1oz-2551b8b6/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn">
+            <i class="bi bi-linkedin"></i>
+          </a>
+          <a class="social-link" href="https://github.com/Nicolasmp92" target="_blank" rel="noopener noreferrer" aria-label="GitHub">
+            <i class="bi bi-github"></i>
+          </a>
+          <a class="social-link" href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer" aria-label="Instagram">
+            <i class="bi bi-instagram"></i>
+          </a>
+          <a class="social-link" href="https://web.facebook.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer" aria-label="Facebook">
+            <i class="bi bi-facebook"></i>
+          </a>
         </div>
       </div>
 
-      <div class="col-md-8">
-        <!-- Saludo -->
-        <div class="d-flex align-items-center">
-          <p class="saludo me-2 fs-2">👋</p>
-          <h4 class="text-star fw-bold brillo">Hola, Soy Nicolas:</h4>
+      <!-- Right: text -->
+      <div class="col-md-8 d-flex flex-column gap-4">
+        <div class="hero-greeting">
+          <span class="wave">👋</span>
+          <span class="greeting-text">Hola, soy Nicolás</span>
         </div>
-        <!-- Descripción -->
-        <p class="fw-bolder fs-4 lh-sm font-monospace text-justify animated">
-          👨‍💻 Desarrollador fullstack enfocado en Laravel 12, con pasión por el front-end y la experiencia de usuario.
-          Trabajo en la Región de O’Higgins, creando proyectos que combinan funcionalidad y diseño orientados al sector
-          agrícola.
-          Sigo perfeccionando mi camino en el desarrollo, explorando nuevas áreas con curiosidad y el deseo de crear
-          soluciones que funcionen bien y se vean mejor.
+
+        <h1 class="hero-title">Full Stack<br>Development</h1>
+
+        <p class="hero-desc">
+          Desarrollador Full Stack enfocado en Angular y Laravel, con pasión por
+          la experiencia de usuario y el diseño de interfaces. Trabajo en la Región de O'Higgins
+          creando soluciones que combinan funcionalidad y diseño orientados al sector agrícola.
         </p>
-        <!-- Tags -->
-        <div class="tags-container text-center">
-          <div class="tags">
-            <div class="tag">Angular</div>
-            <div class="tag">TypeScript</div>
-            <div class="tag">CSS</div>
-            <div class="tag">HTML 5</div>
-            <div class="tag">Javascript</div>
-            <div class="tag">Bootstrap 5</div>
-          </div>
+
+        <div class="tech-tags">
+          <span class="tech-tag">Angular</span>
+          <span class="tech-tag">TypeScript</span>
+          <span class="tech-tag">CSS3</span>
+          <span class="tech-tag">HTML5</span>
+          <span class="tech-tag">JavaScript</span>
+          <span class="tech-tag">Bootstrap 5</span>
+          <span class="tech-tag">Laravel</span>
         </div>
-        <!-- Botón para descargar currículum -->
-        <a class="text-decoration-none btncv mb-5" href="pdf/Nicolas_munoz_20_2024.pdf" download>
-          <i class="bi bi-file-earmark-pdf cvfont"></i>
-          DESCARGAR CURRICULUM
+
+        <a class="btn-cv" href="pdf/Nicolas_munoz_20_2024.pdf" download>
+          <i class="bi bi-file-earmark-arrow-down"></i>
+          Descargar CV
         </a>
       </div>
+
     </div>
   </div>
 </section>

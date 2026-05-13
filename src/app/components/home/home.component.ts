@@ -11,8 +11,6 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [
     MatCardModule,
     MatButtonModule,
-    MatCardModule,
-    MatButtonModule,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],

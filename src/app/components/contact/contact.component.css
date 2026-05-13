@@ -1,124 +1,119 @@
-.contact-title {
-  font-size: 3rem;
-  font-weight: 600;
-  color: #f8f9fa; /* Color blanco */
-  text-align: center;
+﻿/* ═══════════════════════════════════════════════
+   CONTACT SECTION
+═══════════════════════════════════════════════ */
+.contact-section {
+  padding: 8rem 0;
 }
 
-.form-group {
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
-}
-
-.form-control {
-  border-radius: 8px;
-  border: 1px solid #996655;
-  background-color: transparent;
-  color: #FEAE6F;
-  padding: 15px;
-  width: 100%;
-  font-size: 1.2rem;
-  transition: all 0.3s ease-in-out;
-}
-
-/* BOTONES */
-.btn_enviar {
-  width: 100%;
-  max-width: 210px;
-  padding: 10px;
-  text-transform: uppercase;
-  border-radius: 8px;
-  font-size: 2rem;
-  font-weight: 100;
-  color: #FEAE6F;
-  background: transparent;
-  cursor: pointer;
-  border: 1px solid #028391;
-  transition: 0.5s ease;
-  user-select: none;
+/* Form wrapper */
+.contact-form-wrapper {
+  max-width: 72rem;
   margin: 0 auto;
+}
+
+/* Form groups */
+.form-group {
+  margin-bottom: 2rem;
+}
+
+/* Material form fields override */
+::ng-deep .contact-section .mat-mdc-form-field {
+  width: 100%;
+}
+
+::ng-deep .contact-section .mat-mdc-text-field-wrapper {
+  background: var(--bg-1) !important;
+  border-radius: 0.8rem !important;
+}
+
+::ng-deep .contact-section .mdc-notched-outline__leading,
+::ng-deep .contact-section .mdc-notched-outline__notch,
+::ng-deep .contact-section .mdc-notched-outline__trailing {
+  border-color: var(--border) !important;
+}
+
+::ng-deep .contact-section .mat-mdc-form-field:hover .mdc-notched-outline__leading,
+::ng-deep .contact-section .mat-mdc-form-field:hover .mdc-notched-outline__notch,
+::ng-deep .contact-section .mat-mdc-form-field:hover .mdc-notched-outline__trailing {
+  border-color: var(--accent) !important;
+}
+
+::ng-deep .contact-section .mat-mdc-form-field.mat-focused .mdc-notched-outline__leading,
+::ng-deep .contact-section .mat-mdc-form-field.mat-focused .mdc-notched-outline__notch,
+::ng-deep .contact-section .mat-mdc-form-field.mat-focused .mdc-notched-outline__trailing {
+  border-color: var(--accent) !important;
+  border-width: 1px !important;
+}
+
+::ng-deep .contact-section .mat-mdc-input-element {
+  color: var(--text) !important;
+}
+
+::ng-deep .contact-section .mat-mdc-floating-label {
+  color: var(--text-3) !important;
+}
+
+::ng-deep .contact-section .mat-mdc-form-field.mat-focused .mat-mdc-floating-label {
+  color: var(--accent) !important;
+}
+
+/* Submit button */
+.btn-submit {
+  width: 100%;
+  padding: 1.3rem;
+  border: 1px solid var(--accent);
+  border-radius: 0.8rem;
+  background: var(--accent);
+  color: #fff;
+  font-size: 1.5rem;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  cursor: pointer;
+  transition: all var(--transition);
   display: flex;
-  justify-content: center;
   align-items: center;
+  justify-content: center;
+  gap: 0.8rem;
+  margin-top: 0.8rem;
 }
 
-.btn_enviar:hover,
-.btn_enviar:focus {
-  color: #f8f9fa;
-  background: #028391;
-  border: 1px solid #028391;
-  box-shadow: 0 0 5px #996655, 0 0 20px #996655, 0 0 50px #996655, 0 0 100px #028391;
+.btn-submit:hover:not(:disabled) {
+  background: transparent;
+  color: var(--accent);
 }
 
-/* Mensajes de validación */
-.error-message {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
-}
-
-.success-message {
-  color: green;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
-}
-
-/* Spinner de carga */
-.spinner-border {
-  border: 2px solid #FEAE6F;
-  border-right-color: transparent;
-  border-radius: 50%;
-  width: 1.5rem;
-  height: 1.5rem;
-  animation: spin 0.8s linear infinite;
-}
-
-@keyframes spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.recaptcha-container {
-  margin-bottom: 1.5rem;
-  text-align: center;
-}
-
-@media (max-width: 768px) {
-  .contact-section {
-    padding: 1rem;
-  }
-}
-
-/* Mejoras en los mensajes de validación */
-.error-message {
-  color: red;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
-}
-
-.success-message {
-  color: green;
-  font-weight: bold;
-  text-align: center;
-  margin-top: 15px;
-}
-
-/* Mejora en accesibilidad para mensajes de error */
-.form-group .error-message {
-  font-size: 0.9rem;
-  color: red;
-  margin-top: 5px;
-}
-
-/* Estilos adicionales para los botones de envío durante la carga */
-.btn_enviar:disabled {
-  opacity: 0.6;
+.btn-submit:disabled {
+  opacity: 0.5;
   cursor: not-allowed;
+}
+
+/* Spinner */
+.spinner-border {
+  width: 1.8rem;
+  height: 1.8rem;
+  border-width: 2px;
+}
+
+/* Status messages */
+.alert-success {
+  padding: 1.4rem 1.8rem;
+  border-radius: 0.8rem;
+  background: rgba(2, 131, 145, 0.1);
+  border: 1px solid var(--accent);
+  color: var(--accent);
+  font-size: 1.4rem;
+}
+
+.alert-danger {
+  padding: 1.4rem 1.8rem;
+  border-radius: 0.8rem;
+  background: rgba(220, 53, 69, 0.1);
+  border: 1px solid #dc3545;
+  color: #ff6b6b;
+  font-size: 1.4rem;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .contact-title { font-size: 2.8rem; }
 }

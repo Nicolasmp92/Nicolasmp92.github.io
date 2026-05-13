@@ -33,6 +33,7 @@ import { SkillsComponent } from './components/skills/skills.component';
 import { ContactComponent } from './components/contact/contact.component';
 import { FooterComponent } from './components/footer/footer.component';
 import { RouterLink } from '@angular/router';
+import { ThemeService } from './services/theme.service';
 
 @Component({
   selector: 'app-root',
@@ -48,7 +49,6 @@ import { RouterLink } from '@angular/router';
     MatInputModule,
     MatListModule,
     MatIconModule,
-    MatSidenavModule,
     ScrollingModule,
 
     RouterLink,
@@ -96,6 +96,7 @@ export class AppComponent implements OnInit, OnDestroy {
   options: FormGroup;
 
   constructor(
+    public themeService: ThemeService,
     private renderer: Renderer2,
     private _formBuilder: FormBuilder,
     private z: NgZone,
@@ -170,24 +171,18 @@ export class AppComponent implements OnInit, OnDestroy {
     this.sidenavState.next(!this.sidenavState.value);
   }
 
-  // Cierra el sidenav automáticamente si se hace clic en un enlace y
-  // la pantalla está en modo móvil.
-  // NO FUNCIONA VERIFICAR
+  // Cierra el sidenav en móvil cuando se hace clic en un enlace de navegación.
   closeSidenavOnLinkClick(): void {
-    // Verificar si el sidenav está abierto y si la pantalla está en modo móvil
-    if (window.innerWidth <= 768 && this.sidenav.opened) {
-      this.sidenav.close();
-      console.log('Cerrando sidenav');
+    if (window.innerWidth <= 992 && this.isSidenavOpen) {
+      this.sidenavState.next(false);
     }
   }
 
- // Colapsa el menú de navegación en pantallas móviles si está abierto.
+  // Colapsa el menú de navegación en pantallas móviles si está abierto.
   collapseNavbarResponsive(): void {
-    // Verificamos si estamos en una vista móvil
-    if (window.innerWidth <= 768) {
+    if (window.innerWidth <= 992) {
       const navbar = document.querySelector('.navbar-collapse');
       if (navbar && navbar.classList.contains('show')) {
-        // Remover la clase 'show' para colapsar el menú
         navbar.classList.remove('show');
       }
     }
@@ -199,35 +194,6 @@ export class AppComponent implements OnInit, OnDestroy {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
-
-  // Configura eventos para cerrar automáticamente el menú de navegación
-  // en pantallas móviles cuando se hace clic en un enlace del menú.
-  //NO FUNCIONA VERIFICAR
-  initCloseResponsiveMenuOnClick(): void {
-    const navLinks = document.querySelectorAll('.navbar-collapse ul li a');
-    const toggleButton = document.querySelector('.navbar-toggler');
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        if (toggleButton && !toggleButton.classList.contains('collapsed')) {
-          (toggleButton as HTMLElement).click();
-        }
-      });
-    });
-  }
-
-  // Configura un evento para cerrar el menú de navegación cuando se hace clic
-  // fuera de la barra de navegación en pantallas móviles.
-  //NO FUNCIONA VERIFICAR
-  initCloseResponsiveMenuOnClickOutside(): void {
-    document.body.addEventListener('click', (event) => {
-      const nav = document.querySelector('nav');
-      const toggleButton = document.querySelector('button.navbar-toggler');
-      const target = event.target as HTMLElement;
-      if (toggleButton && !toggleButton.classList.contains('collapsed') && !nav?.contains(target)) {
-        (toggleButton as HTMLElement).click();
-      }
-    });
   }
 
   // Navega a una URL abriendo el enlace en una nueva pestaña.

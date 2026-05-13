@@ -14,19 +14,33 @@ import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 })
 export class SkillsComponent {
   habilidadesFront = [
-    { icono: 'angular.ico', nombre: 'Angular', progreso: 85, actualProgreso: 0, certificado: 'angular35.5.pdf', detalles: 'Angular de cero a experto 35.5 horas.' },
-    { icono: 'js.ico', nombre: 'JavaScript', progreso: 85, actualProgreso: 0, certificado: 'JS1.pdf' , certificado2: 'JS2.pdf', detalles: 'JavaScript avanzado.' },
-    { icono: 'html5.ico', nombre: 'HTML5', progreso: 97, actualProgreso: 0, certificado: 'html5.pdf', detalles: 'HTML5 y su estructura semántica.' },
-    { icono: 'css3.ico', nombre: 'CSS3', progreso: 85, actualProgreso: 0, certificado: 'css.pdf', detalles: 'CSS3 para estilos avanzados.' },
-    { icono: 'bootstrap.ico', nombre: 'Bootstrap', progreso: 90, actualProgreso: 0, certificado: 'bootstrap.pdf', detalles: 'Framework de diseño Bootstrap.' },
+    { nombre: 'Angular',      progreso: 85, actualProgreso: 0, certificado: 'angular35.5.pdf', detalles: 'Angular de cero a experto 35.5 horas.' },
+    { nombre: 'JavaScript',   progreso: 85, actualProgreso: 0, certificado: 'JS1.pdf',          detalles: 'JavaScript avanzado.' },
+    { nombre: 'TypeScript',   progreso: 80, actualProgreso: 0, certificado: '',                detalles: '' },
+    { nombre: 'Bootstrap',    progreso: 90, actualProgreso: 0, certificado: 'bootstrap.pdf',   detalles: 'Framework de diseño Bootstrap.' },
+    { nombre: 'Tailwind CSS', progreso: 78, actualProgreso: 0, certificado: '',                detalles: '' },
+    { nombre: 'Livewire',     progreso: 75, actualProgreso: 0, certificado: '',                detalles: '' },
+    { nombre: 'Flutter',      progreso: 50, actualProgreso: 0, certificado: '',                detalles: '' },
   ];
 
   habilidadesBack = [
-    { icono: 'node-js.svg', nombre: 'Node.js', progreso: 70, actualProgreso: 0, certificado: 'nodejs.pdf', detalles: 'Backend con Node.js.' },
-    { icono: 'apache.svg', nombre: 'Apache', progreso: 60, actualProgreso: 0, certificado: 'apache.pdf', detalles: 'Configuración de servidores Apache.' },
-    { icono: 'mysql.png', nombre: 'MySQL', progreso: 81, actualProgreso: 0, certificado: 'mysql.pdf', detalles: 'Bases de datos con MySQL.' },
-    { icono: 'python.svg', nombre: 'Python', progreso: 40, actualProgreso: 0, certificado: 'python.pdf', detalles: 'Programación en Python.' },
-    { icono: 'Ruby.png', nombre: 'Ruby', progreso: 60, actualProgreso: 0, certificado: 'ruby.pdf', detalles: 'Ruby on Rails desarrollo web.' }
+    { nombre: 'PHP / Laravel', progreso: 82, actualProgreso: 0, certificado: '', detalles: '' },
+    { nombre: 'Node.js',       progreso: 70, actualProgreso: 0, certificado: 'nodejs.pdf', detalles: 'Backend con Node.js.' },
+    { nombre: 'Go',            progreso: 55, actualProgreso: 0, certificado: '', detalles: '' },
+    { nombre: 'MySQL',         progreso: 81, actualProgreso: 0, certificado: 'mysql.pdf',  detalles: 'Bases de datos con MySQL.' },
+    { nombre: 'PostgreSQL',    progreso: 72, actualProgreso: 0, certificado: '', detalles: '' },
+    { nombre: 'APIs REST',     progreso: 83, actualProgreso: 0, certificado: '', detalles: '' },
+  ];
+
+  devopsSkills = [
+    'Git', 'GitHub', 'Docker', 'Docker Desktop',
+    'Vite', 'XAMPP', 'CI/CD básico', 'Control de versiones',
+    'Despliegue en entornos reales',
+  ];
+
+  softSkills = [
+    'Levantamiento de requerimientos', 'Reingeniería de procesos',
+    'Power BI', 'Documentación técnica',
   ];
 
   @ViewChild('dialogTemplate') dialogTemplate: any;
@@ -54,7 +68,6 @@ export class SkillsComponent {
 
   openDialog(skill: any) {
     const safeUrl: SafeResourceUrl = this.sanitizer.bypassSecurityTrustResourceUrl('pdf/' + skill.certificado);
-    console.log('Abriendo certificado:', safeUrl);
     this.dialog.open(this.dialogTemplate, {
       data: {
         nombre: skill.nombre,

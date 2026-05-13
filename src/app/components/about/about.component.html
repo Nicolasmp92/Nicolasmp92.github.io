@@ -1,46 +1,57 @@
 <section id="about" class="about-section">
-  <div class="container-xxl">
-    <div class="row">
-      <!-- Título Principal -->
-      <h1 class="fw-bold title-text"> Más Sobre Mí</h1>
-      <hr class="fw-bolder">
+  <div class="container">
+    <div class="row g-5 align-items-center">
 
-      <div class="col-md-6 d-flex align-items-start justify-content-between flex-wrap">
-        <div class="about-categories animated-slide-in fs-4">
-          
-          <ul class="about-list">
-            
-          <h2 class="about-category text-poppins">💻 Tecnología</h2>
-          <li>Me apasiona la informática y el desarrollo front-end, aprendiendo y mejorando cada día. 🚀</li>
+      <!-- Text -->
+      <div class="col-12 col-md-7">
+        <h2 class="section-title">Sobre Mí</h2>
+        <hr class="section-divider">
+        <div class="about-categories">
 
-          <h2 class="about-category text-poppins">🎮 Gaming</h2>
-            <li>Fan de la saga <em>Resident Evil</em> 🧟‍♂️🧬<em>y de muchos otros</em> soy más de jugar en PC.</li>
+          <div class="about-item">
+            <h5 class="about-category-title"> Tecnología</h5>
+            <p>
+              Me apasiona la informática y el desarrollo full stack, combinando front-end y back-end para crear soluciones completas.
+            </p>
+          </div>
 
-          <h2 class="about-category text-poppins">🌳 Naturaleza</h2>
-            <li>Adoro el contacto con lo natural, me gusta el trekking y viajar. 🌿</li>
+          <div class="about-item">
+            <h5 class="about-category-title"> Gaming</h5>
+            <p>
+              Fan de la saga <em>Resident Evil</em>  soy más de jugar en PC.
+            </p>
+          </div>
 
-          <h2 class="about-category text-poppins">📚 Entretenimiento</h2>
-            <li>Amo el manga y el anime, disfrutando de historias memorables y personajes inspiradores. 🎥</li>
-            
-          </ul>
+          <div class="about-item">
+            <h5 class="about-category-title"> Naturaleza</h5>
+            <p>
+              Adoro el contacto con lo natural, me gusta el trekking y viajar. 
+            </p>
+          </div>
+
+          <div class="about-item">
+            <h5 class="about-category-title"> Entretenimiento</h5>
+            <p>
+              Amo el manga y el anime, disfrutando de historias memorables y personajes inspiradores. 
+            </p>
+          </div>
+
         </div>
       </div>
 
-      <div class="col-md-6 d-flex justify-content-center align-items-center mt-5">
+      <!-- Image -->
+      <div class="col-12 col-md-5 d-flex justify-content-center align-items-center">
         <div class="circle-image">
-          <!-- Burbuja principal -->
           <div class="circle">
             <a href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer">
             <img [src]="currentImage" alt="Imagen principal">
             </a>
           </div>
-          <!-- Contenedor de burbujas -->
           <div class="bubble-container-floating" #bubbleContainer>
             <!-- Las burbujas se generarán dinámicamente aquí -->
           </div>
         </div>
       </div>
-
 
     </div>
   </div>

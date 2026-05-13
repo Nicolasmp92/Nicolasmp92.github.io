@@ -1,28 +1,5 @@
 <footer>
-  <!-- Contenido del Footer -->
-  <div class="footer-content" [ngClass]="{ show: isFooterVisible }" [ngStyle]="{'background-color': backgroundColor}">
-    <!-- Circuito Circadiano -->
-    <div class="circadian-indicator">
-      <mat-icon>brightness_5</mat-icon>
-      <p>Circuito Circadiano</p>
-    </div>
-
-    <!-- Control deslizante -->
-    <div class="slider-container">
-      <input type="range" min="0" max="23" [value]="selectedHour" (input)="onSliderChange($event)" />
-      <p>{{ selectedHour }}:00</p>
-    </div>
-  </div>
-
-  <!-- Botón para mostrar/ocultar el footer -->
-  <button class="toggle-footer"[ngClass]="{ show: isFooterVisible }" (click)="toggleFooter()" placeholder="mostrar/ocultar footer">
-    <mat-icon>{{ isFooterVisible ? 'expand_less' : 'expand_more' }}</mat-icon>
+  <button class="scroll-top" (click)="scrollToTop()" [ngClass]="{ show: isScrollTopVisible }" aria-label="Volver arriba">
+    <mat-icon>keyboard_arrow_up</mat-icon>
   </button>
-
-  <!-- Botón Scroll to Top -->
-  <button class="scroll-top" (click)="scrollToTop()" [ngClass]="{ show: isScrollTopVisible }">
-    <mat-icon class="glow-text">vertical_align_top</mat-icon>
-  </button>
-
-
 </footer>
