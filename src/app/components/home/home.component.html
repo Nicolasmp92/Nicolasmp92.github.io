@@ -3,7 +3,7 @@
     <div class="row align-items-center g-5">
 
       <!-- Left: avatar + socials -->
-      <div class="col-md-4 d-flex flex-column align-items-center gap-4">
+      <div class="col-md-4 d-flex flex-column align-items-center gap-4" appAos aosDir="left" [aosDelay]="0">
         <div class="avatar-wrapper">
           <img class="avatar-img" src="img/avatarP.png" alt="Avatar de Nicolás Muñoz">
         </div>
@@ -25,20 +25,20 @@
 
       <!-- Right: text -->
       <div class="col-md-8 d-flex flex-column gap-4">
-        <div class="hero-greeting">
+        <div class="hero-greeting" appAos [aosDelay]="100">
           <span class="wave">👋</span>
           <span class="greeting-text">Hola, soy Nicolás</span>
         </div>
 
-        <h1 class="hero-title">Full Stack<br>Development</h1>
+        <h1 class="hero-title" appAos [aosDelay]="200">Full Stack<br>Development</h1>
 
-        <p class="hero-desc">
+        <p class="hero-desc" appAos [aosDelay]="300">
           Desarrollador Full Stack enfocado en Angular y Laravel, con pasión por
           la experiencia de usuario y el diseño de interfaces. Trabajo en la Región de O'Higgins
           creando soluciones que combinan funcionalidad y diseño orientados al sector agrícola.
         </p>
 
-        <div class="tech-tags">
+        <div class="tech-tags" appAos [aosDelay]="400">
           <span class="tech-tag">Angular</span>
           <span class="tech-tag">TypeScript</span>
           <span class="tech-tag">CSS3</span>
@@ -48,7 +48,7 @@
           <span class="tech-tag">Laravel</span>
         </div>
 
-        <a class="btn-cv" href="pdf/Nicolas_munoz_20_2024.pdf" download>
+        <a class="btn-cv" appAos [aosDelay]="500" href="pdf/Nicolas_Munoz_Palacios_CV.pdf" download="Nicolas_Munoz_Palacios_CV.pdf">
           <i class="bi bi-file-earmark-arrow-down"></i>
           Descargar CV
         </a>

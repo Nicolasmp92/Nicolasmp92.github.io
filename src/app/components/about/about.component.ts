@@ -1,9 +1,10 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [],
+  imports: [AnimateOnScrollDirective],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })

@@ -3,6 +3,7 @@ import { NgFor, NgIf } from '@angular/common';
 import {MatCardModule} from '@angular/material/card';
 import {MatButtonModule} from '@angular/material/button';
 import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 // import { PickerComponent } from '@ctrl/ngx-emoji-mart';
 
 @Component({
@@ -11,6 +12,7 @@ import { RouterLink, RouterLinkActive, RouterOutlet } from '@angular/router';
   imports: [
     MatCardModule,
     MatButtonModule,
+    AnimateOnScrollDirective,
   ],
   templateUrl: './home.component.html',
   styleUrls: ['./home.component.css'],

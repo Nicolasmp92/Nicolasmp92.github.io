@@ -22,8 +22,28 @@
   --navbar-collapse-bg: rgba(10, 10, 10, 0.97);
 }
 
-html, body {
+html {
+  /* 1rem = 10px on standard screens; scales up on larger displays */
   font-size: 62.5%;
+  height: 100%;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+/* Scale up base font-size on large screens so rem units grow proportionally */
+@media (min-width: 1400px) {
+  html { font-size: 68.75%; }  /* 1rem = 11px */
+}
+
+@media (min-width: 1920px) {
+  html { font-size: 75%; }     /* 1rem = 12px */
+}
+
+@media (min-width: 2560px) {
+  html { font-size: 87.5%; }   /* 1rem = 14px */
+}
+
+body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;

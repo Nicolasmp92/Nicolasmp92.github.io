@@ -1,4 +1,5 @@
 import { Component, TemplateRef, ViewChild, Renderer2,ViewEncapsulation  } from '@angular/core';
+import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
 import { MatCardModule } from '@angular/material/card';
@@ -26,6 +27,7 @@ import { ListKeyManager } from '@angular/cdk/a11y';
     CommonModule,
     NgFor,
     NgIf,
+    AnimateOnScrollDirective,
   ],
 })
 export class ExperienceComponent {
