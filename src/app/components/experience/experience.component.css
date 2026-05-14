@@ -67,6 +67,7 @@
 
 .container .row > [class*="col-"] {
   padding-bottom: 2.4rem;
+  align-items: stretch;
 }
 
 ::ng-deep .mat-mdc-card {
@@ -79,6 +80,7 @@
   display: flex;
   flex-direction: column;
   flex: 1;
+  height: 100%;
 }
 
 ::ng-deep .mat-mdc-card-content {
