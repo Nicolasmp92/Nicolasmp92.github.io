@@ -199,6 +199,23 @@ projects = [
     },
   ];
 
+  // Freelancer (actual)
+  freelancer = {
+    position: 'Desarrollador Full Stack Freelance',
+    date: '2024 – Actualidad',
+    description: 'Desarrollo de soluciones web a medida para diversas empresas, ofreciendo servicios especializados en front-end, back-end y diseño responsivo.',
+    clients: [
+      {
+        name: 'Wali',
+        service: 'Desarrollo de soluciones web a medida',
+      },
+      {
+        name: 'Tecnohoot',
+        service: 'Soluciones tecnológicas y landing pages',
+      },
+    ],
+  };
+
   constructor(public dialog: MatDialog, private renderer: Renderer2) {}
 
   onTabChange(index: number): void {

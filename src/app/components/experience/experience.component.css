@@ -228,6 +228,96 @@
   line-height: 1.6;
 }
 
+/* Freelancer section */
+.freelancer-item {
+  padding: 2.4rem 0;
+  border-bottom: 1px solid var(--border);
+  background: linear-gradient(to right, var(--accent-dim) 0%, transparent 4px);
+  border-left: 4px solid var(--accent);
+  padding-left: 1.6rem;
+}
+
+.freelancer-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 0.4rem;
+}
+
+.freelancer-badge {
+  font-size: 1.1rem;
+  padding: 0.3rem 1rem;
+  border-radius: 999px;
+  background: var(--accent);
+  color: #fff;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  text-transform: uppercase;
+}
+
+.freelancer-date {
+  margin-bottom: 1rem;
+  color: var(--accent);
+  font-weight: 500;
+}
+
+.freelancer-clients {
+  margin-top: 1.6rem;
+}
+
+.clients-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  color: var(--text);
+  margin-bottom: 1.2rem;
+}
+
+.clients-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 1.2rem;
+}
+
+.client-card {
+  display: flex;
+  align-items: flex-start;
+  gap: 1rem;
+  padding: 1.2rem;
+  border: 1px solid var(--border);
+  border-radius: 0.8rem;
+  background: var(--bg-1);
+  transition: border-color var(--transition);
+}
+
+.client-card:hover {
+  border-color: var(--accent);
+}
+
+.client-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  color: var(--accent);
+  flex-shrink: 0;
+}
+
+.client-info {
+  display: flex;
+  flex-direction: column;
+  gap: 0.3rem;
+}
+
+.client-name {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.client-service {
+  font-size: 1.2rem;
+  color: var(--text-2);
+}
+
 /* ─── Modal dialog (same structure as skills) ── */
 .btncerrar-x {
   position: absolute !important;

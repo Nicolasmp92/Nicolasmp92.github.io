@@ -48,7 +48,30 @@
         <ng-template mat-tab-label>
           <span class="text-tab" [ngClass]="{'custom-active-tab': activeTabIndex === 1}">Experiencia</span>
         </ng-template>
-        <div class="experiencia-item" *ngFor="let experience of experiences; let i = index" appAos aosDir="left" [aosDelay]="i * 90">
+
+        <!-- Freelancer Section (al inicio) -->
+        <div class="freelancer-item" appAos aosDir="left" [aosDelay]="0">
+          <div class="freelancer-header">
+            <h3 class="experiencia-puesto">{{ freelancer.position }}</h3>
+            <span class="freelancer-badge">Actual</span>
+          </div>
+          <p class="experiencia-fecha freelancer-date">{{ freelancer.date }}</p>
+          <p class="experiencia-descripcion">{{ freelancer.description }}</p>
+          <div class="freelancer-clients">
+            <h4 class="clients-title">Empresas a las que presto servicios:</h4>
+            <div class="clients-grid">
+              <div *ngFor="let client of freelancer.clients" class="client-card">
+                <mat-icon class="client-icon">business</mat-icon>
+                <div class="client-info">
+                  <span class="client-name">{{ client.name }}</span>
+                  <span class="client-service">{{ client.service }}</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="experiencia-item" *ngFor="let experience of experiences; let i = index" appAos aosDir="left" [aosDelay]="(i + 1) * 90">
           <h3 class="experiencia-puesto">{{ experience.position }}</h3>
           <p class="experiencia-institucion">
             {{ experience.institution }}
