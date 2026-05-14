@@ -47,6 +47,7 @@ body {
   height: 100%;
   width: 100%;
   overflow-x: hidden;
+  background-color: var(--bg-0);
 }
 
 * {
@@ -100,12 +101,17 @@ mat-sidenav-content,
 }
 
 ::-webkit-scrollbar-thumb {
-  background-color: #333;
+  background-color: var(--accent);
   border-radius: 3px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background-color: var(--accent);
+  background-color: rgba(2, 131, 145, 0.75);
+}
+
+/* reCAPTCHA badge — raised with transform (JS resets 'bottom', transform is untouched) */
+.grecaptcha-badge {
+  transform: translateY(-60px) !important;
 }
 
 /* ───────────────────────────────────────────
@@ -172,7 +178,7 @@ mat-sidenav-content,
 }
 
 [data-theme="light"] ::-webkit-scrollbar-thumb {
-  background-color: var(--border);
+  background-color: var(--accent);
 }
 
 /* ───────────────────────────────────────────

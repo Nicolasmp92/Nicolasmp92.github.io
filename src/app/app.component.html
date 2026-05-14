@@ -1,77 +1,9 @@
-
-
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav #sidenav mode="side"
-    [opened]="isSidenavOpen"
-    (openedChange)="sidenavState.next($event)"
-    [fixedInViewport]="options.value.fixed"
-    [fixedTopGap]="options.value.top"
-    [fixedBottomGap]="options.value.bottom">
-
-    <div class="sidenav-body">
-
-      <div class="profile-container">
-        <a routerLink="/home">
-          <div class="image-container">
-            <img class="profile-image" src="img/MiFotoDePerfil.jpg" alt="Foto de perfil de Nicolás Muñoz">
-          </div>
-        </a>
-        <p class="sidenav-name">Nicolás Muñoz</p>
-        <span class="role-badge">Full Stack Dev</span>
-      </div>
-
-      <ul class="contact-info">
-        <li>
-          <button class="btn-contact" (click)="navigateTo('tel:+56963978090')">
-            <mat-icon>call</mat-icon>
-            <span class="contact-text">+569 63978090</span>
-          </button>
-        </li>
-        <li>
-          <button class="btn-contact" (click)="navigateTo('tel:+56963978090')">
-            <mat-icon>call</mat-icon>
-            <span class="contact-text">+569 62308757</span>
-          </button>
-        </li>
-        <li>
-          <button class="btn-contact" (click)="navigateTo('mailto:nikolasmp92@gmail.com')">
-            <mat-icon>email</mat-icon>
-            <span class="contact-text">nikolasmp92&#64;gmail.com</span>
-          </button>
-        </li>
-        <li>
-          <button class="btn-contact" (click)="navigateTo('https://maps.app.goo.gl/7eTzs1oybKFieuNt7')">
-            <mat-icon>location_on</mat-icon>
-            <span class="contact-text">Coltauco, O'Higgins</span>
-          </button>
-        </li>
-        <li>
-          <button class="btn-contact">
-            <mat-icon>cake</mat-icon>
-            <span class="contact-text">14 de enero de 1992</span>
-          </button>
-        </li>
-      </ul>
-
-    </div>
-  </mat-sidenav>
-
-
-<mat-sidenav-content fxFlexFill cdkScrollable id="sidenav-content">
+<div id="app-root">
 
   <!-- MENU SUPERIOR -->
   <mat-toolbar color="primary" [ngClass]="{'shrink': shrinkToolbar}"
     #toolbar class="navbar navbar-expand-lg sticky-top">
     <div class="navbar-inner">
-
-      <!-- LEFT: sidenav toggle -->
-      <button aria-label="Tarjeta de contacto"
-        class="toggle-btn"
-        mat-icon-button
-        (click)="toggleSidenav()"
-        [ngClass]="{ 'icon-shake': !isSidenavOpen }">
-        <mat-icon>{{ isSidenavOpen ? 'close' : 'contact_page' }}</mat-icon>
-      </button>
 
       <!-- CENTER: nav links (collapses on mobile) -->
       <nav class="collapse navbar-collapse navbar-center" id="navbarNav">
@@ -80,7 +12,7 @@
             <a class="nav-link"
               [ngClass]="{'active': activeSection === link.section}"
               [routerLink]="link.path"
-              (click)="scrollToSection(link.section); collapseNavbarResponsive(); closeSidenavOnLinkClick()"
+              (click)="scrollToSection(link.section); collapseNavbarResponsive()"
               ariaCurrentWhenActive="page"
               mat-button>
               {{ link.label }}
@@ -106,14 +38,63 @@
     </div>
   </mat-toolbar>
 
-    <app-home></app-home>
-    <app-about></app-about>
-    <app-experience></app-experience>
-    <app-skills></app-skills>
-    <app-contact></app-contact>
+  <app-home></app-home>
+  <app-about></app-about>
+  <app-experience></app-experience>
+  <app-skills></app-skills>
+  <app-contact></app-contact>
 
-    <app-footer></app-footer>
+  <app-footer></app-footer>
 
+  <!-- Floating contact card (bottom-left) -->
+  <div class="contact-float-wrap">
+    <div class="contact-float-backdrop" [ngClass]="{'show': isContactCardOpen}" (click)="toggleContactCard()"></div>
+    <div class="contact-float-card" [ngClass]="{'show': isContactCardOpen}">
+      <div class="contact-float-profile">
+        <div class="contact-float-img-wrap">
+          <img class="contact-float-img" src="img/MiFotoDePerfil.jpg" alt="Foto de perfil de Nicolás Muñoz">
+        </div>
+        <p class="sidenav-name">Nicolás Muñoz</p>
+        <span class="role-badge">Full Stack Dev</span>
+      </div>
+      <ul class="contact-info">
+        <li>
+          <button class="btn-contact" (click)="navigateTo('tel:+56963978090')">
+            <mat-icon>call</mat-icon>
+            <span class="contact-text">+569 63978090</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn-contact" (click)="navigateTo('tel:+56962308757')">
+            <mat-icon>call</mat-icon>
+            <span class="contact-text">+569 62308757</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn-contact" (click)="navigateTo('mailto:nikolasmp92@gmail.com')">
+            <mat-icon>email</mat-icon>
+            <span class="contact-text">nikolasmp92&#64;gmail.com</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn-contact" (click)="navigateTo('https://maps.app.goo.gl/7eTzs1oybKFieuNt7')">
+            <mat-icon>location_on</mat-icon>
+            <span class="contact-text">Coltauco, O'Higgins</span>
+          </button>
+        </li>
+        <li>
+          <button class="btn-contact">
+            <mat-icon>cake</mat-icon>
+            <span class="contact-text">14 de enero de 1992</span>
+          </button>
+        </li>
+      </ul>
+    </div>
+    <button class="contact-float-btn" (click)="toggleContactCard()"
+      [ngClass]="{'active': isContactCardOpen}"
+      aria-label="Tarjeta de contacto">
+      <mat-icon>{{ isContactCardOpen ? 'close' : 'contact_page' }}</mat-icon>
+    </button>
+  </div>
 
-</mat-sidenav-content>
-</mat-sidenav-container>
+</div>

@@ -1,37 +1,8 @@
 ﻿/* ═══════════════════════════════════════════════
-   SIDENAV CONTAINER
+   APP ROOT
 ═══════════════════════════════════════════════ */
-mat-sidenav-container {
-  z-index: 1 !important;
-  background-color: transparent;
-}
-
-.sidenav-container {
-  position: absolute;
-  top: 0; bottom: 0; left: 0; right: 0;
-  height: 100%;
-  width: 100%;
-  background-color: var(--bg-0);
-}
-
-/* ═══════════════════════════════════════════════
-   SIDENAV PANEL
-═══════════════════════════════════════════════ */
-mat-sidenav {
-  background-color: var(--bg-1) !important;
-  border-right: 1px solid var(--border) !important;
-  color: var(--text);
-  width: 28rem;
-  overflow-x: hidden;
-}
-
-.sidenav-body {
-  padding: 3.2rem 2rem;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 2rem;
-  height: 100%;
+#app-root {
+  min-height: 100vh;
 }
 
 /* Profile image */
@@ -274,54 +245,6 @@ button.theme-toggle .mat-icon {
   line-height: 1;
 }
 
-/* Sidenav toggle button */
-button.toggle-btn {
-  position: relative;
-  overflow: hidden;
-  background: transparent;
-  border: 1px solid var(--border);
-  border-radius: 0.6rem;
-  color: var(--text-2);
-  width: 3.8rem;
-  height: 3.8rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  cursor: pointer;
-  transition: all var(--transition);
-  margin-left: 1.2rem;
-  flex-shrink: 0;
-}
-
-button.toggle-btn::after {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -80%;
-  width: 45%;
-  height: 200%;
-  background: linear-gradient(
-    to right,
-    transparent 0%,
-    rgba(255, 255, 255, 0.18) 50%,
-    transparent 100%
-  );
-  transform: skewX(-18deg);
-  animation: mirror-shine 3.2s ease-in-out infinite;
-}
-
-button.toggle-btn:hover {
-  border-color: var(--accent);
-  color: var(--accent);
-  background: var(--accent-dim);
-}
-
-button.toggle-btn mat-icon {
-  font-size: 1.8rem;
-  width: 1.8rem;
-  height: 1.8rem;
-  line-height: 1;
-}
 
 /* Mobile menu toggler */
 .mat-menu {
@@ -390,6 +313,123 @@ button.toggle-btn mat-icon {
   0%   { left: -80%; }
   35%  { left: 130%; }
   100% { left: 130%; }
+}
+
+/* ═══════════════════════════════════════════════
+   FLOATING CONTACT CARD
+═══════════════════════════════════════════════ */
+
+.contact-float-wrap {
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 3000;
+  width: 4.4rem;
+  height: 4.4rem;
+}
+
+.contact-float-btn {
+  width: 4.4rem;
+  height: 4.4rem;
+  border-radius: 50%;
+  border: 1px solid var(--border);
+  background: var(--bg-2);
+  color: var(--text-2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all var(--transition);
+  position: relative;
+  overflow: hidden;
+  animation: float-glow 3s ease-in-out infinite;
+}
+
+.contact-float-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.28) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  animation: mirror-shine 2.4s ease-in-out infinite;
+}
+
+.contact-float-btn.active,
+.contact-float-btn:hover {
+  background: var(--accent);
+  border-color: var(--accent);
+  color: #fff;
+  animation: none;
+}
+
+@keyframes float-glow {
+  0%, 100% { box-shadow: 0 0 0 0 rgba(2, 131, 145, 0); }
+  50%       { box-shadow: 0 0 0 7px rgba(2, 131, 145, 0.24); }
+}
+
+.contact-float-backdrop {
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  pointer-events: none;
+}
+
+.contact-float-backdrop.show {
+  pointer-events: all;
+}
+
+.contact-float-card {
+  position: absolute;
+  bottom: calc(4.4rem + 1rem);
+  left: 0;
+  background: var(--bg-1);
+  border: 1px solid var(--border);
+  border-radius: 1.6rem;
+  padding: 2rem;
+  min-width: 26rem;
+  box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(1.2rem) scale(0.96);
+  transform-origin: bottom left;
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+  pointer-events: none;
+}
+
+.contact-float-card.show {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0) scale(1);
+  pointer-events: all;
+}
+
+.contact-float-profile {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 1.6rem;
+}
+
+.contact-float-img-wrap {
+  width: 8rem;
+  height: 8rem;
+}
+
+.contact-float-img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid var(--accent);
 }
 
 /* ═══════════════════════════════════════════════

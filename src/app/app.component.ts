@@ -6,18 +6,13 @@ import { Component,
          NgZone,
          ChangeDetectorRef,
          OnDestroy } from '@angular/core';
-import { FormBuilder, FormGroup, FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatButtonModule } from '@angular/material/button';
-import { MatFormFieldModule } from '@angular/material/form-field';
-import { MatCheckboxModule } from '@angular/material/checkbox';
-import { MatSidenavModule, MatSidenav } from '@angular/material/sidenav';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
 import { NgClass, NgFor } from '@angular/common';
 import { throttleTime, debounceTime, map } from 'rxjs/operators';
-import { BehaviorSubject } from 'rxjs';
 import { ScrollingModule } from '@angular/cdk/scrolling';
 import { ScrollDispatcher, CdkScrollable } from '@angular/cdk/scrolling';
 
@@ -39,12 +34,7 @@ import { ThemeService } from './services/theme.service';
   selector: 'app-root',
   standalone: true,
   imports: [
-    FormsModule,
-    ReactiveFormsModule,
     MatButtonModule,
-    MatFormFieldModule,
-    MatCheckboxModule,
-    MatSidenavModule,
     MatToolbarModule,
     MatInputModule,
     MatListModule,
@@ -79,7 +69,6 @@ export class AppComponent implements OnInit, OnDestroy {
   ];
 
   @ViewChild('navbarNav') navbarNav!: ElementRef;
-  @ViewChild('sidenav') sidenav!: MatSidenav;
   @ViewChild('toolbar', { static: false }) toolbar!: ElementRef;
   @ViewChild('sidenavContent', { static: false }) sidenavContent!: ElementRef;
 
@@ -90,31 +79,19 @@ export class AppComponent implements OnInit, OnDestroy {
   private changeHeaderOn: number = 100;
   private didScroll: boolean = false;
 
-  sidenavState = new BehaviorSubject<boolean>(false);
-  isSidenavOpen = false;
+  isContactCardOpen = false;
   activeSection = 'home';
-  options: FormGroup;
   private sectionObserver?: IntersectionObserver;
 
   constructor(
     public themeService: ThemeService,
     private renderer: Renderer2,
-    private _formBuilder: FormBuilder,
     private z: NgZone,
     private changeDetectorRef: ChangeDetectorRef,
     private breakpointObserver: BreakpointObserver,
     private scrollDispatcher: ScrollDispatcher,
     private ngZone: NgZone
-  ) {
-    this.options = this._formBuilder.group({
-      fixed: false,
-      bottom: 0,
-      top: 0,
-    });
-    this.sidenavState.subscribe(state => {
-      this.isSidenavOpen = state;
-    });
-  }
+  ) {}
    // Se suscribe al evento de scroll utilizando ScrollDispatcher para detectar
   // cambios en la posición de desplazamiento. Aplica una lógica de debounce para
   // reducir la frecuencia de actualizaciones. Cambia la clase de la barra
@@ -185,16 +162,8 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  // Alterna el estado del sidenav (abrir/cerrar) utilizando BehaviorSubject.
-  toggleSidenav(): void {
-    this.sidenavState.next(!this.sidenavState.value);
-  }
-
-  // Cierra el sidenav en móvil cuando se hace clic en un enlace de navegación.
-  closeSidenavOnLinkClick(): void {
-    if (window.innerWidth <= 992 && this.isSidenavOpen) {
-      this.sidenavState.next(false);
-    }
+  toggleContactCard(): void {
+    this.isContactCardOpen = !this.isContactCardOpen;
   }
 
   // Colapsa el menú de navegación en pantallas móviles si está abierto.
@@ -221,18 +190,4 @@ export class AppComponent implements OnInit, OnDestroy {
     window.open(url, '_blank');
   }
 
-  // Agrega y remueve dinámicamente la clase 'active' a los enlaces de la barra
-  // de navegación según el enlace que se haya hecho clic.
-  handleRouterLinkActive(): void {
-    const navLinks = document.querySelectorAll('.navbar-nav .nav-link');
-
-    navLinks.forEach((link) => {
-      link.addEventListener('click', () => {
-        navLinks.forEach((navLink) => {
-          navLink.classList.remove('active');
-        });
-        link.classList.add('active');
-      });
-    });
-  }
 }
