@@ -225,8 +225,9 @@ label {
   border: 1px solid var(--border);
 }
 
-/* Mat card: force text to respond to our theme tokens */
+/* Mat card: force background and text to respond to our theme tokens */
 .mat-mdc-card {
+  background-color: var(--bg-1) !important;
   color: var(--text) !important;
 }
 
