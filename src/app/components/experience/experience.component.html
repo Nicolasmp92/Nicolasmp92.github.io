@@ -18,7 +18,7 @@
         <!-- Contenedor principal con clase row -->
         <div class="container">
           <div class="row">
-            <div *ngFor="let project of projects; let i = index" class="col-12 col-sm-6 col-md-4 col-lg-3" appAos [aosDelay]="i * 80">
+            <div *ngFor="let project of projects; let i = index" class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column" appAos [aosDelay]="i * 80">
               <mat-card class="mx-3">
                 <img mat-card-image [src]="project.image" alt="Imagen del proyecto {{ project.title }}">
                 <mat-card-content>
@@ -27,15 +27,7 @@
                     <p class="card-text text-start">{{ project.description }}</p>
                   </div>
                   <div class="tags-container">
-                    <ng-container *ngFor="let tag of project.tags">
-                      <img
-                        *ngIf="techIcons[tag]"
-                        [src]="techIcons[tag]"
-                        [alt]="tag"
-                        class="tech-icon"
-                      />
-                      <span *ngIf="!techIcons[tag]" class="tag-fallback" >{{ tag }}</span>
-                    </ng-container>
+                    <span *ngFor="let tag of project.tags" class="tag-fallback">{{ tag }}</span>
                   </div>
                   <button class="btnpor" (click)="openDialog(project)">
                     Ver más

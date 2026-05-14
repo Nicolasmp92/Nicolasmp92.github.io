@@ -35,17 +35,6 @@ export class ExperienceComponent {
 
   activeTabIndex: number = 0;
 
-  techIcons: { [key: string]: string } = {
-    Angular: 'iconos/angular.ico',
-    Bootstrap: 'iconos/bootstrap.ico',
-    JavaScript: 'iconos/js.ico',
-    HTML5: 'iconos/html5.ico',
-    CSS3: 'iconos/css3.ico',
-    TypeScript: 'iconos/Typescript_logo_2020.svg',
-    AngularMaterial: 'iconos/Material.svg',
-  };
-
-
  // Proyectos
 projects = [
   {

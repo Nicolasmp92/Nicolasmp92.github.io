@@ -20,7 +20,7 @@
                 [attr.aria-valuenow]="skill.actualProgreso"
                 aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <button *ngIf="skill.certificado" (click)="openDialog(skill)" class="btnc_ertificado mt-2">Ver Certificado</button>
+            <button *ngFor="let cert of skill.certificados" (click)="openDialog(skill.nombre, cert)" class="btnc_ertificado mt-2">{{ cert.label }}</button>
           </div>
         </div>
       </div>
@@ -41,7 +41,7 @@
                 [attr.aria-valuenow]="skill.actualProgreso"
                 aria-valuemin="0" aria-valuemax="100"></div>
             </div>
-            <button *ngIf="skill.certificado" (click)="openDialog(skill)" class="btnc_ertificado mt-2">Ver Certificado</button>
+            <button *ngFor="let cert of skill.certificados" (click)="openDialog(skill.nombre, cert)" class="btnc_ertificado mt-2">{{ cert.label }}</button>
           </div>
         </div>
       </div>
@@ -60,6 +60,20 @@
       <h3 class="skills-category-title">Soft Skills</h3>
       <div class="skills-tags">
         <span *ngFor="let s of softSkills" class="skill-tag skill-tag--soft">{{ s }}</span>
+      </div>
+    </div>
+
+    <!-- Certificados Adicionales -->
+    <div class="skills-category px-5 mt-5" appAos [aosDelay]="150">
+      <h3 class="skills-category-title">Otros Certificados</h3>
+      <div class="skill-item" *ngFor="let cert of certificadosExtras; let i = index" appAos [aosDelay]="i * 70">
+        <div class="skill-icon-fallback">{{ cert.nombre.slice(0,2) }}</div>
+        <div class="skill-info">
+          <div class="skill-name">
+            <span>{{ cert.nombre }}</span>
+          </div>
+          <button *ngFor="let c of cert.certificados" (click)="openDialog(cert.nombre, c)" class="btnc_ertificado mt-2">{{ c.label }}</button>
+        </div>
       </div>
     </div>
 

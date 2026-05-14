@@ -112,12 +112,13 @@ mat-sidenav {
   background: var(--bg-2);
 }
 
-.btn-contact i {
-  font-size: 1.7rem;
+.btn-contact mat-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+  line-height: 1;
   color: var(--accent);
-  width: 2.2rem;
   flex-shrink: 0;
-  text-align: center;
 }
 
 .contact-text {
@@ -276,6 +277,7 @@ button.theme-toggle .mat-icon {
 /* Sidenav toggle button */
 button.toggle-btn {
   position: relative;
+  overflow: hidden;
   background: transparent;
   border: 1px solid var(--border);
   border-radius: 0.6rem;
@@ -291,15 +293,34 @@ button.toggle-btn {
   flex-shrink: 0;
 }
 
+button.toggle-btn::after {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -80%;
+  width: 45%;
+  height: 200%;
+  background: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.18) 50%,
+    transparent 100%
+  );
+  transform: skewX(-18deg);
+  animation: mirror-shine 3.2s ease-in-out infinite;
+}
+
 button.toggle-btn:hover {
   border-color: var(--accent);
   color: var(--accent);
   background: var(--accent-dim);
 }
 
-button.toggle-btn i {
-  font-size: 1.7rem;
-  display: flex;
+button.toggle-btn mat-icon {
+  font-size: 1.8rem;
+  width: 1.8rem;
+  height: 1.8rem;
+  line-height: 1;
 }
 
 /* Mobile menu toggler */
@@ -347,19 +368,28 @@ button.toggle-btn i {
   color: var(--accent) !important;
   background: var(--accent-dim) !important;
   border-radius: 0.6rem;
+  position: relative;
+}
+
+.nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: 4px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 4px;
+  height: 4px;
+  border-radius: 50%;
+  background: var(--accent);
 }
 
 /* Navbar collapse — handled inline in media query above */
 
-/* Shake animation kept for toggle button (subtle) */
-@keyframes shake {
-  0%, 100% { transform: translateX(0); }
-  25% { transform: translateX(-3px); }
-  75% { transform: translateX(3px); }
-}
-
-.icon-shake i.bi-person-vcard-fill {
-  animation: shake 2.4s ease-in-out infinite;
+/* Mirror shine sweep animation */
+@keyframes mirror-shine {
+  0%   { left: -80%; }
+  35%  { left: 130%; }
+  100% { left: 130%; }
 }
 
 /* ═══════════════════════════════════════════════

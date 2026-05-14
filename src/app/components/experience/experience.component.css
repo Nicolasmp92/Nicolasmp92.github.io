@@ -56,7 +56,15 @@
   margin: 0;
 }
 
-/* Project cards */
+/* Project cards — equal height per row */
+.container .row {
+  align-items: stretch;
+}
+
+.container .row > [class*="col-"] {
+  padding-bottom: 2.4rem;
+}
+
 ::ng-deep .mat-mdc-card {
   background-color: var(--bg-1) !important;
   border: 1px solid var(--border) !important;
@@ -64,10 +72,15 @@
   box-shadow: none !important;
   transition: border-color var(--transition), transform var(--transition) !important;
   overflow: hidden;
-  margin-bottom: 2.4rem;
   display: flex;
   flex-direction: column;
-  height: 100%;
+  flex: 1;
+}
+
+::ng-deep .mat-mdc-card-content {
+  flex: 1 !important;
+  display: flex !important;
+  flex-direction: column;
 }
 
 ::ng-deep .mat-mdc-card:hover {
@@ -124,11 +137,18 @@
 }
 
 .tag-fallback {
-  font-size: 1.1rem;
-  padding: 0.3rem 1rem;
+  font-size: 1.15rem;
+  padding: 0.4rem 1rem;
   border: 1px solid var(--border);
   border-radius: 999px;
   color: var(--text-2);
+  background: var(--bg-2);
+  transition: border-color var(--transition), color var(--transition);
+}
+
+.tag-fallback:hover {
+  border-color: var(--accent);
+  color: var(--accent);
 }
 
 /* Ver más button */

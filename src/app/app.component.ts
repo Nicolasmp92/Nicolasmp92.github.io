@@ -15,7 +15,7 @@ import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatInputModule } from '@angular/material/input';
 import { MatListModule } from '@angular/material/list';
 import { MatIconModule } from '@angular/material/icon';
-import { NgClass, NgFor, NgIf } from '@angular/common';
+import { NgClass, NgFor } from '@angular/common';
 import { throttleTime, debounceTime, map } from 'rxjs/operators';
 import { BehaviorSubject } from 'rxjs';
 import { ScrollingModule } from '@angular/cdk/scrolling';
@@ -52,7 +52,6 @@ import { ThemeService } from './services/theme.service';
     ScrollingModule,
 
     RouterLink,
-    NgIf,
     NgFor,
     NgClass,
 
@@ -93,7 +92,9 @@ export class AppComponent implements OnInit, OnDestroy {
 
   sidenavState = new BehaviorSubject<boolean>(false);
   isSidenavOpen = false;
+  activeSection = 'home';
   options: FormGroup;
+  private sectionObserver?: IntersectionObserver;
 
   constructor(
     public themeService: ThemeService,
@@ -138,6 +139,7 @@ export class AppComponent implements OnInit, OnDestroy {
           }
         });
       });
+    setTimeout(() => this.initSectionObserver(), 0);
   }
  // Actualiza las clases de la barra de navegación para aplicar o quitar la clase 'shrink',
   // lo que permite cambiar su apariencia visual según el desplazamiento de la página.
@@ -160,10 +162,27 @@ export class AppComponent implements OnInit, OnDestroy {
   // Elimina el listener de scroll cuando el componente se destruye
   // para evitar problemas de rendimiento o memory leaks.
   ngOnDestroy(): void {
-    // Eliminar el listener al destruir el componente para evitar memory leaks
     if (this.scrollListener) {
       this.scrollListener();
     }
+    this.sectionObserver?.disconnect();
+  }
+
+  private initSectionObserver(): void {
+    this.sectionObserver = new IntersectionObserver(
+      (entries) => {
+        entries.forEach(entry => {
+          if (entry.isIntersecting) {
+            this.ngZone.run(() => { this.activeSection = entry.target.id; });
+          }
+        });
+      },
+      { root: null, rootMargin: '-30% 0px -30% 0px', threshold: 0 }
+    );
+    this.navigationLinks.forEach(link => {
+      const el = document.getElementById(link.section);
+      if (el) this.sectionObserver!.observe(el);
+    });
   }
 
   // Alterna el estado del sidenav (abrir/cerrar) utilizando BehaviorSubject.
@@ -190,6 +209,7 @@ export class AppComponent implements OnInit, OnDestroy {
  // Realiza un desplazamiento suave hacia una sección específica de la página
   // utilizando su ID.
   scrollToSection(sectionId: string): void {
+    this.activeSection = sectionId;
     const section = document.getElementById(sectionId);
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });

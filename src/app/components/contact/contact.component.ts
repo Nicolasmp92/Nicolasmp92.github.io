@@ -5,6 +5,7 @@ import { FormBuilder, FormGroup, Validators, ReactiveFormsModule, FormsModule } 
 import { MatButtonModule } from '@angular/material/button';
 import { MatFormFieldModule } from '@angular/material/form-field';
 import { MatInputModule } from '@angular/material/input';
+import { MatIconModule } from '@angular/material/icon';
 import { NgIf } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
@@ -19,6 +20,7 @@ import emailjs from '@emailjs/browser';
     MatButtonModule,
     MatFormFieldModule,
     MatInputModule,
+    MatIconModule,
     NgIf
   ],
   templateUrl: './contact.component.html',

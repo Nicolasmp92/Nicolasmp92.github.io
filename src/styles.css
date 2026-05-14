@@ -204,7 +204,7 @@ mat-sidenav-content,
   -webkit-text-fill-color: var(--text) !important;
 }
 
-label {
+label:not(.mat-mdc-floating-label):not(.mdc-floating-label) {
   font-size: 1.35rem;
   color: var(--text-2);
   margin-bottom: 0.6rem;

@@ -8,75 +8,52 @@
         <form [formGroup]="contactForm" (ngSubmit)="onSubmit()">
 
           <div class="row g-3">
-            <div class="col-12 col-sm-6 form-group">
-              <label for="contact-name">Nombre</label>
-              <input
-                type="text"
-                id="contact-name"
-                name="user_name"
-                class="form-control"
-                formControlName="name"
-                placeholder="Tu nombre"
-                aria-label="Nombre completo"
-                aria-describedby="nameError">
-              <div *ngIf="contactForm.get('name')?.invalid && contactForm.get('name')?.touched" id="nameError" class="error-message">
-                Nombre requerido — solo letras.
-              </div>
+            <div class="col-12 col-sm-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Nombre</mat-label>
+                <mat-icon matPrefix>person</mat-icon>
+                <input matInput formControlName="name" placeholder="Tu nombre">
+                <mat-error>Nombre requerido — solo letras.</mat-error>
+              </mat-form-field>
             </div>
 
-            <div class="col-12 col-sm-6 form-group">
-              <label for="contact-email">Correo electrónico</label>
-              <input
-                type="email"
-                id="contact-email"
-                name="user_email"
-                class="form-control"
-                formControlName="email"
-                placeholder="Tu correo electrónico"
-                aria-label="Correo electrónico"
-                aria-describedby="emailError">
-              <div *ngIf="contactForm.get('email')?.invalid && contactForm.get('email')?.touched" id="emailError" class="error-message">
-                Ingresa un correo electrónico válido.
-              </div>
+            <div class="col-12 col-sm-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Correo electrónico</mat-label>
+                <mat-icon matPrefix>email</mat-icon>
+                <input matInput type="email" formControlName="email" placeholder="Tu correo electrónico">
+                <mat-error>Ingresa un correo electrónico válido.</mat-error>
+              </mat-form-field>
             </div>
 
-            <div class="col-12 col-sm-6 form-group">
-              <label for="contact-company">Empresa</label>
-              <input
-                type="text"
-                id="contact-company"
-                name="user_company"
-                class="form-control"
-                formControlName="company"
-                placeholder="Nombre de la empresa"
-                aria-label="Empresa">
+            <div class="col-12 col-sm-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Empresa</mat-label>
+                <mat-icon matPrefix>business</mat-icon>
+                <input matInput formControlName="company" placeholder="Nombre de la empresa">
+              </mat-form-field>
             </div>
 
-            <div class="col-12 col-sm-6 form-group">
-              <label for="contact-subject">Asunto</label>
-              <input
-                type="text"
-                id="contact-subject"
-                name="user_subject"
-                class="form-control"
-                formControlName="subject"
-                placeholder="Motivo del contacto"
-                aria-label="Asunto">
+            <div class="col-12 col-sm-6">
+              <mat-form-field appearance="outline">
+                <mat-label>Asunto</mat-label>
+                <mat-icon matPrefix>subject</mat-icon>
+                <input matInput formControlName="subject" placeholder="Motivo del contacto">
+                <mat-error>El asunto es requerido.</mat-error>
+              </mat-form-field>
             </div>
 
-            <div class="col-12 form-group">
-              <label for="contact-message">Mensaje</label>
-              <textarea
-                id="contact-message"
-                name="user_message"
-                class="form-control"
-                formControlName="message"
-                rows="5"
-                placeholder="Tu mensaje"></textarea>
+            <div class="col-12">
+              <mat-form-field appearance="outline">
+                <mat-label>Mensaje</mat-label>
+                <textarea matInput formControlName="message" rows="5" placeholder="Tu mensaje"></textarea>
+                <mat-error>El mensaje debe tener al menos 10 caracteres.</mat-error>
+              </mat-form-field>
             </div>
           </div>
 
           <button type="submit" class="btn-submit mt-3" [disabled]="contactForm.invalid || loading">
+            <mat-icon>send</mat-icon>
             <span *ngIf="!loading">Enviar mensaje</span>
             <span *ngIf="loading" class="spinner-border spinner-border-sm" role="status" aria-hidden="true"></span>
           </button>

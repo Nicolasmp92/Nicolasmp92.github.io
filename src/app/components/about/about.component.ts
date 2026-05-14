@@ -1,10 +1,11 @@
 import { Component, ElementRef, OnInit, Renderer2, ViewChild } from '@angular/core';
+import { MatIconModule } from '@angular/material/icon';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-about',
   standalone: true,
-  imports: [AnimateOnScrollDirective],
+  imports: [MatIconModule, AnimateOnScrollDirective],
   templateUrl: './about.component.html',
   styleUrls: ['./about.component.css'],
 })
