@@ -14,7 +14,7 @@
           "builder": "@angular-devkit/build-angular:application",
           "options": {
             "outputPath": "dist/niko",
-            "baseHref": "/nicolasmp92.github.io/",
+            "baseHref": "/",
             "index": "src/index.html",
             "browser": "src/main.ts",
             "polyfills": [
@@ -125,7 +125,7 @@
         "deploy": {
           "builder": "angular-cli-ghpages:deploy",
           "options": {
-            "baseHref": "/nicolasmp92.github.io/",
+            "baseHref": "/",
             "outputPath": "dist/niko",
             "no-silent": true
           }
