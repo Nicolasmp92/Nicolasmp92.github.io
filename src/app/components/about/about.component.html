@@ -39,17 +39,18 @@
         </div>
       </div>
 
-      <!-- Image -->
-      <div class="col-12 col-md-5 d-flex justify-content-center align-items-center" appAos aosDir="right" [aosDelay]="200">
-        <div class="circle-image">
-          <div class="circle">
-            <a href="https://www.instagram.com/nikolas.munozpalacios/" target="_blank" rel="noopener noreferrer">
-            <img [src]="currentImage" alt="Imagen principal">
-            </a>
-          </div>
-          <div class="bubble-container-floating" #bubbleContainer>
-            <!-- Las burbujas se generarán dinámicamente aquí -->
-          </div>
+      <!-- Social links -->
+      <div class="col-12 col-md-5" appAos aosDir="right" [aosDelay]="200">
+        <div class="social-panel">
+          <h5 class="social-panel-title">Sígueme</h5>
+          <a *ngFor="let social of socials" class="social-btn" [href]="social.url" target="_blank" rel="noopener noreferrer">
+            <i class="bi" [ngClass]="social.icon"></i>
+            <span class="social-btn-text">
+              <span class="social-btn-name">{{ social.name }}</span>
+              <span class="social-btn-handle">{{ social.handle }}</span>
+            </span>
+            <mat-icon class="social-btn-arrow">arrow_outward</mat-icon>
+          </a>
         </div>
       </div>
 

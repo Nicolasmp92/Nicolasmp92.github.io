@@ -1,5 +1,5 @@
 <section id="experiencia" class="experiencia-section">
-  <div class="container-xxl">
+  <div class="container">
     <h2 class="section-title" appAos>Proyectos y Experiencia</h2>
     <hr class="section-divider" appAos [aosDelay]="100">
 
@@ -15,28 +15,30 @@
             Proyectos personales y profesionales desarrollados con Angular, Laravel, Bootstrap y otras tecnologías.
           </p>
         </div>
-        <!-- Contenedor principal con clase row -->
-        <div class="container">
-          <div class="row">
-            <div *ngFor="let project of projects; let i = index" class="col-12 col-sm-6 col-md-4 col-lg-3 d-flex flex-column" appAos [aosDelay]="i * 80">
-              <mat-card class="mx-3">
-                <img mat-card-image [src]="project.image" alt="Imagen del proyecto {{ project.title }}">
-                <mat-card-content>
-                  <div class="titulo-descripcion">
-                    <h5 class="card-title">{{ project.title }}</h5>
-                    <p class="card-text text-start">{{ project.description }}</p>
-                  </div>
-                  <div class="tags-container">
-                    <span *ngFor="let tag of project.tags" class="tag-fallback">{{ tag }}</span>
-                  </div>
-                  <button class="btnpor" (click)="openDialog(project)">
-                    Ver más
-                    <mat-icon>visibility</mat-icon>
-                  </button>
-                </mat-card-content>
-              </mat-card>
+        <!-- Grid de proyectos — todas las tarjetas de una fila comparten la misma altura -->
+        <div class="projects-grid">
+          <article *ngFor="let project of projects; let i = index" class="project-card" appAos [aosDelay]="i * 80">
+            <div class="project-media">
+              <img [src]="project.image" [alt]="'Imagen del proyecto ' + project.title" loading="lazy">
+              <span class="project-status" [class.is-dev]="project.estado === 'En Desarrollo'">{{ project.estado }}</span>
             </div>
-          </div>
+            <div class="project-body">
+              <h5 class="card-title">{{ project.title }}</h5>
+              <p class="card-text">{{ project.description }}</p>
+              <div class="tags-container">
+                <span *ngFor="let tag of project.tags" class="tag-fallback">{{ tag }}</span>
+              </div>
+            </div>
+            <div class="project-footer">
+              <button class="btnpor" (click)="openDialog(project)">
+                Ver más
+                <mat-icon>visibility</mat-icon>
+              </button>
+              <a *ngIf="project.Link" class="btnvisit" [href]="project.Link" target="_blank" rel="noopener noreferrer" [attr.aria-label]="'Visitar ' + project.title">
+                <mat-icon>open_in_new</mat-icon>
+              </a>
+            </div>
+          </article>
         </div>
 
         <ng-template #noProjects>
@@ -98,9 +100,14 @@
     </div>
     <div class="modal-main">
       <div class="modal-details" [innerHTML]="data.details"></div>
-      <div class="modal-img-wrap" *ngIf="data.fullimage">
-        <img [src]="data.fullimage" [alt]="data.title" class="modal-img">
+      <div class="modal-img-wrap" *ngIf="data.fullimage || data.gallery?.length">
+        <img *ngIf="data.fullimage" [src]="data.fullimage" [alt]="data.title" class="modal-img">
+        <img *ngFor="let img of data.gallery" [src]="img" [alt]="data.title" class="modal-img">
       </div>
     </div>
+    <a *ngIf="data.Link" class="modal-link" [href]="data.Link" target="_blank" rel="noopener noreferrer">
+      Visitar sitio
+      <mat-icon>open_in_new</mat-icon>
+    </a>
   </mat-dialog-content>
 </ng-template>

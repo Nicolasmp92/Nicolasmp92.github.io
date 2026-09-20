@@ -249,4 +249,58 @@ label:not(.mat-mdc-floating-label):not(.mdc-floating-label) {
   color: var(--text) !important;
 }
 
+/* ───────────────────────────────────────────
+   Accessibility modes (classes on <html>)
+─────────────────────────────────────────── */
+
+/* Reduce motion — honors OS preference AND the a11y widget toggle */
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
+}
+html.a11y-nomotion *,
+html.a11y-nomotion *::before,
+html.a11y-nomotion *::after {
+  animation-duration: 0.01ms !important;
+  animation-iteration-count: 1 !important;
+  transition-duration: 0.01ms !important;
+}
+
+/* High contrast */
+html.a11y-contrast {
+  --text-2: #d4d4d8;
+  --text-3: #a1a1aa;
+  --border: #4a4a52;
+}
+html.a11y-contrast[data-theme="light"] {
+  --text-2: #3f3f46;
+  --text-3: #71717a;
+  --border: #71717a;
+}
+
+/* Easy reading — wider letter/word spacing and line-height */
+html.a11y-easyread body {
+  letter-spacing: 0.04em;
+  word-spacing: 0.1em;
+}
+html.a11y-easyread p,
+html.a11y-easyread li {
+  line-height: 2;
+}
+
+/* Underline all links */
+html.a11y-underline a {
+  text-decoration: underline !important;
+  text-underline-offset: 0.3em;
+}
+
+/* Big cursor */
+html.a11y-bigcursor,
+html.a11y-bigcursor * {
+  cursor: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='48' height='48' viewBox='0 0 48 48'%3E%3Cpath d='M10 6 L10 38 L19 30 L25 44 L31 42 L25 28 L37 28 Z' fill='%23ffffff' stroke='%23000000' stroke-width='2.5'/%3E%3C/svg%3E") 10 6, auto !important;
+}
+
 /* End of global styles */

@@ -21,13 +21,66 @@
         </ul>
       </nav>
 
-      <!-- RIGHT: theme toggle + mobile hamburger -->
+      <!-- RIGHT: accessibility + mobile hamburger -->
       <div class="navbar-right">
-        <button class="theme-toggle" mat-icon-button
-          (click)="themeService.toggle()"
-          [attr.aria-label]="themeService.isDark ? 'Activar modo claro' : 'Activar modo oscuro'">
-          <mat-icon>{{ themeService.isDark ? 'light_mode' : 'dark_mode' }}</mat-icon>
-        </button>
+        <div class="a11y-wrap">
+          <button class="a11y-btn" (click)="toggleA11y()"
+            [ngClass]="{'active': isA11yOpen}"
+            aria-label="Opciones de accesibilidad">
+            <mat-icon>{{ isA11yOpen ? 'close' : 'accessibility_new' }}</mat-icon>
+          </button>
+          <div class="a11y-panel" [ngClass]="{'show': isA11yOpen}">
+            <div class="a11y-font-row">
+              <button class="a11y-ctl" (click)="decreaseFont()" [disabled]="fontScale <= FONT_MIN" aria-label="Reducir tamaño de fuente">
+                <mat-icon>text_decrease</mat-icon>
+              </button>
+              <span class="a11y-value">{{ fontPercent }}%</span>
+              <button class="a11y-ctl" (click)="increaseFont()" [disabled]="fontScale >= FONT_MAX" aria-label="Aumentar tamaño de fuente">
+                <mat-icon>text_increase</mat-icon>
+              </button>
+              <button class="a11y-ctl" (click)="resetFont()" [disabled]="fontScale === 1" aria-label="Restablecer tamaño de fuente">
+                <mat-icon>restart_alt</mat-icon>
+              </button>
+            </div>
+            <span class="a11y-sep-h"></span>
+
+            <button class="a11y-toggle" (click)="themeService.toggle()" [class.on]="!themeService.isDark">
+              <mat-icon>light_mode</mat-icon>
+              <span>Modo claro</span>
+              <mat-icon class="a11y-state">{{ !themeService.isDark ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+            <button class="a11y-toggle" (click)="toggleA11yOption('highContrast')" [class.on]="highContrast">
+              <mat-icon>invert_colors</mat-icon>
+              <span>Alto contraste</span>
+              <mat-icon class="a11y-state">{{ highContrast ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+            <button class="a11y-toggle" (click)="toggleA11yOption('easyRead')" [class.on]="easyRead">
+              <mat-icon>format_line_spacing</mat-icon>
+              <span>Lectura fácil</span>
+              <mat-icon class="a11y-state">{{ easyRead ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+            <button class="a11y-toggle" (click)="toggleA11yOption('reduceMotion')" [class.on]="reduceMotion">
+              <mat-icon>motion_photos_off</mat-icon>
+              <span>Reducir animaciones</span>
+              <mat-icon class="a11y-state">{{ reduceMotion ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+            <button class="a11y-toggle" (click)="toggleA11yOption('underlineLinks')" [class.on]="underlineLinks">
+              <mat-icon>format_underlined</mat-icon>
+              <span>Subrayar enlaces</span>
+              <mat-icon class="a11y-state">{{ underlineLinks ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+            <button class="a11y-toggle" (click)="toggleA11yOption('bigCursor')" [class.on]="bigCursor">
+              <mat-icon>mouse</mat-icon>
+              <span>Cursor grande</span>
+              <mat-icon class="a11y-state">{{ bigCursor ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+            <button class="a11y-toggle" (click)="toggleA11yOption('readingGuide')" [class.on]="readingGuide">
+              <mat-icon>straighten</mat-icon>
+              <span>Guía de lectura</span>
+              <mat-icon class="a11y-state">{{ readingGuide ? 'toggle_on' : 'toggle_off' }}</mat-icon>
+            </button>
+          </div>
+        </div>
         <button aria-label="Menu dispositivos móviles"
           class="navbar-toggler mat-menu"
           mat-icon-button type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -96,5 +149,8 @@
       <mat-icon>{{ isContactCardOpen ? 'close' : 'contact_page' }}</mat-icon>
     </button>
   </div>
+
+  <!-- Reading guide ruler -->
+  <div *ngIf="readingGuide" class="a11y-reading-guide" [style.top.px]="guideY"></div>
 
 </div>

@@ -10,6 +10,7 @@ import { NgIf } from '@angular/common';
 import { BehaviorSubject } from 'rxjs';
 import { debounceTime } from 'rxjs/operators';
 import emailjs from '@emailjs/browser';
+import { environment } from '../../environments/environment';
 
 @Component({
   selector: 'app-contact',
@@ -61,27 +62,31 @@ export class ContactComponent implements OnInit, OnDestroy {
     }
 
     this.loading = true;
+    this.formSuccess = false;
+    this.formError = false;
     try {
-      grecaptcha.enterprise.ready(async () => {
-        const token = await grecaptcha.enterprise.execute('6LerucEqAAAAALjQeotUhtdH9Q3W-Kd_37dCsBw1', { action: 'submit' });
-
-        if (token) {
-          await emailjs.send('service_l1edi6e', 'template_nhx7u14', {
-            name: this.contactForm.get('name')?.value,
-            email: this.contactForm.get('email')?.value,
-            company: this.contactForm.get('company')?.value,
-            subject: this.contactForm.get('subject')?.value,
-            message: this.contactForm.get('message')?.value,
-            'g-recaptcha-response': token
-          }, 'wdBpqHWOib1FoT5FH');
-
-          this.formSuccess = true;
-          this.formError = false;
-          this.contactForm.reset();
-        }
+      const token: string = await new Promise((resolve, reject) => {
+        grecaptcha.enterprise.ready(() => {
+          grecaptcha.enterprise
+            .execute(environment.recaptchaKey, { action: 'submit' })
+            .then(resolve)
+            .catch(reject);
+        });
       });
+
+      await emailjs.send('service_l1edi6e', 'template_nhx7u14', {
+        name: this.contactForm.get('name')?.value,
+        email: this.contactForm.get('email')?.value,
+        company: this.contactForm.get('company')?.value,
+        subject: this.contactForm.get('subject')?.value,
+        message: this.contactForm.get('message')?.value,
+        'g-recaptcha-response': token
+      }, 'wdBpqHWOib1FoT5FH');
+
+      this.formSuccess = true;
+      this.contactForm.reset();
     } catch (error) {
-      console.error('Error en la ejecución de reCAPTCHA: ', error);
+      console.error('Error al enviar el mensaje: ', error);
       this.formError = true;
     } finally {
       this.loading = false;

@@ -2,7 +2,6 @@ import { Component, TemplateRef, ViewChild, Renderer2,ViewEncapsulation  } from 
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
@@ -19,7 +18,6 @@ import { ListKeyManager } from '@angular/cdk/a11y';
   standalone: true,
   imports: [
     MatTabsModule,
-    MatCardModule,
     MatButtonModule,
     MatIconModule,
     MatDialogModule,
@@ -38,32 +36,60 @@ export class ExperienceComponent {
  // Proyectos
 projects = [
   {
-    title: 'Recos.cl',
-    description: 'Constructora.',
+    title: 'MP Ingeniería',
+    description: 'Ingeniería, construcción y asesoría integral.',
+    estado: 'Finalizada 2026',
+    Link: 'https://ingenieriamp.cl/',
+    image: 'img/header_mp.png',
+    fullimage: 'img/ingenieriamp.cl_.png',
+    tags: ['Angular', 'Bootstrap', 'HTML5', 'CSS3', 'TypeScript'],
+    seoTags: [
+      'ingeniería',
+      'construcción',
+      'obras civiles',
+      'estudios de suelo',
+      'arriendo de equipos',
+      'Rancagua',
+      'región de O\'Higgins',
+      'mp ingeniería'
+    ],
+    details: `
+      <p>Sitio web corporativo para MP Ensayos y Construcciones Ltda., empresa de ingeniería, construcción y asesoría con más de 5 años de trayectoria en la región de O'Higgins.</p>
+      <ul>
+        <li>Hero con indicadores destacados de la empresa.</li>
+        <li>Secciones de misión, visión y valores corporativos.</li>
+        <li>Catálogo de servicios: obras civiles, arriendo de equipos y estudios de suelo.</li>
+        <li>Red de colaboradores y empresas asociadas.</li>
+        <li>Modo claro/oscuro y diseño totalmente responsivo.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'RECOS Group',
+    description: 'Constructora, ventas y climatización.',
     estado: 'En Desarrollo',
-    image: 'img/header_Recos.png',
-    fullimage: 'img/Recosfull.png',
-    tags: ['Angular', 'Bootstrap', 'HTML5', 'CSS3', 'JavaScript'],
+    image: 'img/Recos.png',
+    fullimage: 'img/Recos.png',
+    gallery: ['img/Recos1.png', 'img/Recos2.png', 'img/Recos3.png'],
+    tags: ['Angular', 'TypeScript', 'HTML5', 'CSS3', 'i18n'],
     seoTags: [
       'construcción',
-      'remodelación',
-      'proyectos',
-      'contratistas',
-      'edificación',
-      'diseño de interiores',
-      'recos',
+      'obras civiles',
+      'climatización',
+      'HVAC',
+      'ventas de materiales',
+      'equipamiento',
+      'recos group',
       'constructora en Chile'
     ],
     details: `
-      <p>WEB SPA informativa para proporcionar más información a los clientes y captar nuevas oportunidades de negocios.</p>
+      <p>Plataforma corporativa de RECOS Group: "un solo grupo, tres ejes de servicio". Sitio multi-división con selector de idioma, modo claro/oscuro y buscador integrado.</p>
       <ul>
-        <li>Slider de imágenes principal con transiciones animadas.</li>
-        <li>Tarjetas descriptivas de misión, visión y valores corporativos.</li>
-        <li>Quienes somos: apartado de historia de la empresa y fotos de los fundadores.</li>
-        <li>Galería de proyectos terminados con vistas detalladas y ampliables.</li>
-        <li>Apartado mis clientes.</li>
-        <li>Formulario de contacto.</li>
-        <li>Mi ubicasion en Google maps.</li>
+        <li>Landing principal con acceso a las tres divisiones del grupo.</li>
+        <li><strong>Constructora:</strong> construcción y obras civiles; habilitación ágil de espacios comerciales y corporativos con cobertura de Antofagasta a Aysén.</li>
+        <li><strong>Ventas:</strong> división comercial de materiales, equipamiento y soluciones, con cotizaciones y despacho a regiones.</li>
+        <li><strong>Climatización (HVAC):</strong> diseño, instalación y mantención de sistemas de climatización como servicio integral, sin subcontratos externos.</li>
+        <li>Selector de idioma, alternancia de tema claro/oscuro y buscador.</li>
       </ul>
     `,
   },
@@ -123,7 +149,7 @@ projects = [
     description: 'Exportación de alimentos.',
     estado: 'En Desarrollo',
     image: 'img/header_agro.png',
-    fullimage: 'img/Angelesfull.png',
+    fullimage: 'img/Agrofull.png',
     tags: ['Bootstrap', 'HTML5', 'CSS3'],
     seoTags: [
       'exportación de alimentos',
@@ -148,6 +174,19 @@ projects = [
 
   // Experiencias
   experiences = [
+    {
+      position: 'Coordinador de Infraestructura de Información Científica',
+      institution: "Universidad de O'Higgins — Unidad de Bibliotecas",
+      date: '2026 – Actualidad',
+      description:
+        'Responsable del desarrollo, implementación y mantenimiento de la infraestructura tecnológica que soporta los sistemas de información científica y ciencia abierta de la universidad.',
+      tasks: [
+        'Diseño y administración de servidores, bases de datos y sistemas que soportan las plataformas de información científica.',
+        'Desarrollo y mantenimiento de plataformas de acceso abierto para publicaciones científicas (DSpace, Dataverse, VIVO).',
+        'Implementación de interfaces de integración entre repositorios y sistemas institucionales, incluyendo identificadores ORCID y DOI.',
+        'Aseguramiento del cumplimiento de estándares internacionales como el protocolo OAI-PMH y políticas de preservación digital.',
+      ],
+    },
     {
       position: 'Desarrollador Full Stack',
       institution: 'QzAgres',
@@ -205,6 +244,10 @@ projects = [
     date: '2024 – Actualidad',
     description: 'Desarrollo de soluciones web a medida para diversas empresas, ofreciendo servicios especializados en front-end, back-end y diseño responsivo.',
     clients: [
+      {
+        name: 'MP Ingeniería',
+        service: 'Sitio web corporativo en Angular',
+      },
       {
         name: 'Wali',
         service: 'Desarrollo de soluciones web a medida',
