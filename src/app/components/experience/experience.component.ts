@@ -36,6 +36,135 @@ export class ExperienceComponent {
  // Proyectos
 projects = [
   {
+    title: 'BeanFlow',
+    description: 'POS para cafetería: salón, comandas, barra y bodega.',
+    estado: 'En Desarrollo',
+    Link: 'https://github.com/Nicolasmp92/BeanFlow',
+    image: 'img/beanflow-salon.png',
+    fullimage: 'img/beanflow-dashboard.png',
+    gallery: [
+      'img/beanflow-salon.png',
+      'img/beanflow-barra.png',
+      'img/beanflow-bodega.png',
+      'img/beanflow-carta.png',
+    ],
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS', 'TypeScript'],
+    seoTags: [
+      'pos cafetería',
+      'punto de venta',
+      'comandas',
+      'gestión de mesas',
+      'control de inventario',
+      'recetas e insumos',
+      'angular spring boot',
+      'beanflow'
+    ],
+    details: `
+      <p>Sistema de punto de venta para cafetería construido sobre el stack empresarial propio: Angular + Spring Boot + PostgreSQL, con autenticación JWT y roles (garzón, cocina, caja, admin).</p>
+      <ul>
+        <li><strong>Salón:</strong> mapa de mesas con estados en vivo, apertura de cuentas y pedidos para llevar.</li>
+        <li><strong>Comandas:</strong> agregar ítems con notas, seguir estados de preparación y cobrar con método de pago.</li>
+        <li><strong>Barra:</strong> cola de cocina con estados pendiente → preparando → listo.</li>
+        <li><strong>Bodega:</strong> recetas por producto — al preparar un ítem se descuenta el insumo exacto (café, leche, vasos) con libro de movimientos auditable.</li>
+        <li><strong>Carta:</strong> disponibilidad derivada del stock real de insumos.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'KaiPetPoint',
+    description: 'POS multi-sucursal para petshop: ventas, caja, clientes y escáner.',
+    estado: 'En Desarrollo',
+    image: 'img/kaipetpoint-pos.png',
+    fullimage: 'img/kaipetpoint-dashboard.png',
+    gallery: [
+      'img/kaipetpoint-pos.png',
+      'img/kaipetpoint-caja.png',
+      'img/kaipetpoint-catalogo.png',
+      'img/kaipetpoint-clientes.png',
+    ],
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS', 'PWA'],
+    seoTags: [
+      'pos petshop',
+      'punto de venta multi-sucursal',
+      'control de caja',
+      'cuenta corriente clientes',
+      'lector de código de barras',
+      'venta a granel',
+      'kaipetpoint'
+    ],
+    details: `
+      <p>Punto de venta completo para tienda de mascotas con operación multi-sucursal, turnos de caja obligatorios y cuenta corriente de clientes.</p>
+      <ul>
+        <li><strong>Ventas:</strong> POS con búsqueda, escáner USB/cámara/teléfono remoto, venta a granel por kg y descuentos.</li>
+        <li><strong>Caja:</strong> turnos con fondo inicial, arqueo por medio de pago y cierre.</li>
+        <li><strong>Clientes:</strong> cuenta corriente (fiado) con abonos y estado de deuda.</li>
+        <li><strong>Catálogo:</strong> productos, marcas, categorías y mascotas con stock por sucursal y alertas.</li>
+        <li><strong>Multi-sucursal:</strong> selector de sucursal por sesión con stock y ventas separadas.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'StarterCustomeKit',
+    description: 'Kit base empresarial reusable: auth, usuarios, roles y tema.',
+    estado: 'En Desarrollo',
+    image: 'img/sck-usuarios.png',
+    fullimage: 'img/sck-dashboard.png',
+    gallery: [
+      'img/sck-usuarios.png',
+      'img/sck-items.png',
+      'img/sck-perfil.png',
+    ],
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS', 'Design Tokens'],
+    seoTags: [
+      'starter kit',
+      'plantilla empresarial',
+      'autenticación jwt',
+      'roles y permisos',
+      'sistema de diseño',
+      'tokens de tema',
+      'angular boilerplate'
+    ],
+    details: `
+      <p>Kit de inicio propio que unifica el stack y el sistema de diseño de todos los proyectos: un cambio en los tokens se propaga a cada aplicación derivada.</p>
+      <ul>
+        <li>Autenticación JWT con cookies httpOnly (web) y Bearer (móvil), roles y guards.</li>
+        <li>Sistema de diálogos modales sobre Angular CDK con iconos semánticos por tipo de acción.</li>
+        <li>Tokens de tema con paletas de acento intercambiables y modo claro/oscuro.</li>
+        <li>Base de BeanFlow, KaiPetPoint y Frunexis — homogeneidad visual y de comportamiento.</li>
+      </ul>
+    `,
+  },
+  {
+    title: 'Frunexis',
+    description: 'Gestión agrícola: trabajadores, contratos, especies y temporadas.',
+    estado: 'En Desarrollo',
+    image: 'img/frunexis-trabajadores.png',
+    fullimage: 'img/frunexis-dashboard.png',
+    gallery: [
+      'img/frunexis-trabajadores.png',
+      'img/frunexis-contratos.png',
+      'img/frunexis-especies.png',
+    ],
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS'],
+    seoTags: [
+      'gestión agrícola',
+      'trabajadores de temporada',
+      'contratos',
+      'especies y variedades',
+      'software campo',
+      'frunexis'
+    ],
+    details: `
+      <p>Sistema de gestión para operación agrícola: dotación, contratos por temporada y catálogo de especies.</p>
+      <ul>
+        <li><strong>Personal:</strong> trabajadores con datos contractuales y estado activo.</li>
+        <li><strong>Contratos:</strong> vínculos por temporada con fechas y condiciones.</li>
+        <li><strong>Catálogo:</strong> especies, familias y temporadas de cosecha.</li>
+        <li>Mismo stack empresarial: JWT, roles, diálogos modales y tokens de tema compartidos.</li>
+      </ul>
+    `,
+  },
+  {
     title: 'MP Ingeniería',
     description: 'Ingeniería, construcción y asesoría integral.',
     estado: 'Finalizada 2026',
