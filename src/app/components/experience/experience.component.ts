@@ -273,31 +273,6 @@ projects = [
       </ul>
     `,
   },
-  {
-    title: 'chileagrofood',
-    description: 'Exportación de alimentos.',
-    estado: 'En Desarrollo',
-    image: 'img/header_agro.png',
-    fullimage: 'img/Agrofull.png',
-    tags: ['Bootstrap', 'HTML5', 'CSS3'],
-    seoTags: [
-      'exportación de alimentos',
-      'agricultura en Chile',
-      'productos naturales',
-      'exportación internacional',
-      'frutas y verduras',
-      'comercio agrícola',
-      'chileagrofood',
-      'exportación de calidad'
-    ],
-    details: `
-      <p>Información sobre exportación de alimentos.</p>
-      <ul>
-        <li>Información del proyecto en formato SPA.</li>
-        <li>Botón de contacto funcional.</li>
-      </ul>
-    `,
-  },
 ];
 
 
