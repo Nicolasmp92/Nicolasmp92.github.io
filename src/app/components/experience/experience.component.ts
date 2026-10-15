@@ -36,6 +36,38 @@ export class ExperienceComponent {
  // Proyectos
 projects = [
   {
+    title: 'CABID',
+    description: 'Sitio institucional del CRUCH: contenido, calendario de eventos y panel de administración.',
+    estado: 'En Desarrollo',
+    image: 'img/cabid-eventos.png',
+    fullimage: 'img/cabid-home.png',
+    gallery: [
+      'img/cabid-home.png',
+      'img/cabid-eventos.png',
+      'img/cabid-admin-eventos.png',
+      'img/cabid-admin-form.png',
+    ],
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS', 'SSR'],
+    seoTags: [
+      'sitio institucional',
+      'bibliotecas universitarias',
+      'cruch',
+      'calendario de eventos',
+      'panel de administración',
+      'angular ssr',
+      'cabid'
+    ],
+    details: `
+      <p>Reconstrucción completa del sitio institucional de la Comisión Asesora de Bibliotecas y Documentación (CABID) del CRUCH: sitio público con SSR más panel de administración autenticado.</p>
+      <ul>
+        <li><strong>Sitio público:</strong> noticias, calendario mensual de eventos con detalle en modal, mapa de la red de bibliotecas, subcomisiones y sección Quiénes somos.</li>
+        <li><strong>Panel admin:</strong> CRUD de noticias y eventos con validación, subida de imágenes al servidor y enlaces externos tipados (inscripción, más información, sitio del evento).</li>
+        <li><strong>Backend:</strong> Spring Boot + PostgreSQL con JWT en cookie httpOnly, subida de archivos con nombres UUID y límites de tamaño.</li>
+        <li><strong>Frontend:</strong> Angular 22 SSR prerenderizado detrás de Nginx, modo vista previa sin backend y accesibilidad WCAG.</li>
+      </ul>
+    `,
+  },
+  {
     title: 'BeanFlow',
     description: 'POS para cafetería: salón, comandas, barra y bodega.',
     estado: 'En Desarrollo',
