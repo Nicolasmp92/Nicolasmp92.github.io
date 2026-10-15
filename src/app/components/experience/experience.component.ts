@@ -39,7 +39,7 @@ projects = [
     title: 'CABID',
     description: 'Sitio institucional del CRUCH: contenido, calendario de eventos y panel de administración.',
     estado: 'En Desarrollo',
-    image: 'img/cabid-eventos.png',
+    image: 'img/cabid-home.png',
     fullimage: 'img/cabid-home.png',
     gallery: [
       'img/cabid-home.png',
