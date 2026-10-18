@@ -104,8 +104,9 @@ projects = [
   },
   {
     title: 'KaiPetPoint',
-    description: 'POS multi-sucursal para petshop: ventas, caja, clientes y escáner.',
+    description: 'POS multi-sucursal para petshop: ventas, ofertas mayoristas, despacho a domicilio y fiado.',
     estado: 'En Desarrollo',
+    Link: 'https://github.com/Nicolasmp92/kaipetpoint',
     image: 'img/kaipetpoint-pos.png',
     fullimage: 'img/kaipetpoint-dashboard.png',
     gallery: [
@@ -114,7 +115,7 @@ projects = [
       'img/kaipetpoint-catalogo.png',
       'img/kaipetpoint-clientes.png',
     ],
-    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS', 'PWA'],
+    tags: ['Angular', 'Spring Boot', 'PostgreSQL', 'Tailwind CSS', 'OpenStreetMap'],
     seoTags: [
       'pos petshop',
       'punto de venta multi-sucursal',
@@ -122,16 +123,26 @@ projects = [
       'cuenta corriente clientes',
       'lector de código de barras',
       'venta a granel',
+      'ofertas por cantidad',
+      'precio mayorista',
+      'despacho a domicilio',
+      'zonas de reparto',
+      'boleta electrónica',
+      'calendario de ventas',
+      'reportes csv',
       'kaipetpoint'
     ],
     details: `
-      <p>Punto de venta completo para tienda de mascotas con operación multi-sucursal, turnos de caja obligatorios y cuenta corriente de clientes.</p>
+      <p>Punto de venta completo para tienda de mascotas con operación multi-sucursal, turnos de caja obligatorios y cuenta corriente de clientes. El servidor es autoridad de precios, stock y pagos — el POS solo previsualiza.</p>
       <ul>
-        <li><strong>Ventas:</strong> POS con búsqueda, escáner USB/cámara/teléfono remoto, venta a granel por kg y descuentos.</li>
+        <li><strong>Ventas:</strong> POS con búsqueda, escáner USB/cámara/teléfono remoto, venta a granel por kg, descuentos y cobro combinado (venta + abono a deuda en una operación).</li>
+        <li><strong>Ofertas:</strong> precio por cantidad con escalones (≥5 un. → precio mayorista, también por kg a granel), administrables por sucursal.</li>
+        <li><strong>Despacho a domicilio:</strong> entrega ligada a la venta con tablero pendiente → en reparto → entregado, zonas de cobro por lejanía definidas por el admin, mapa con OpenStreetMap/Nominatim y navegación por Google Maps.</li>
+        <li><strong>Clientes:</strong> cuenta corriente (fiado) con abonos, RUT validado con módulo 11, agrupación alfabética y filtro "con deuda".</li>
+        <li><strong>Boleta electrónica:</strong> emisión por venta con proveedor simulado, cola de reintentos y bandeja de documentos.</li>
+        <li><strong>Historial:</strong> calendario mensual con filtros por día y medio de pago, gráfico semanal en el panel que navega al día, y reportes CSV descargables (ventas, catálogo, movimientos).</li>
         <li><strong>Caja:</strong> turnos con fondo inicial, arqueo por medio de pago y cierre.</li>
-        <li><strong>Clientes:</strong> cuenta corriente (fiado) con abonos y estado de deuda.</li>
-        <li><strong>Catálogo:</strong> productos, marcas, categorías y mascotas con stock por sucursal y alertas.</li>
-        <li><strong>Multi-sucursal:</strong> selector de sucursal por sesión con stock y ventas separadas.</li>
+        <li><strong>Catálogo:</strong> productos, marcas, categorías y mascotas con stock por sucursal y alertas de bajo mínimo.</li>
       </ul>
     `,
   },
