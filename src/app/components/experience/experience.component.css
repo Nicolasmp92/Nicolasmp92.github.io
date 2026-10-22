@@ -316,63 +316,6 @@
   font-weight: 500;
 }
 
-.freelancer-clients {
-  margin-top: 1.6rem;
-}
-
-.clients-title {
-  font-size: 1.4rem;
-  font-weight: 600;
-  color: var(--text);
-  margin-bottom: 1.2rem;
-}
-
-.clients-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-  gap: 1.2rem;
-}
-
-.client-card {
-  display: flex;
-  align-items: flex-start;
-  gap: 1rem;
-  padding: 1.2rem;
-  border: 1px solid var(--border);
-  border-radius: 0.8rem;
-  background: var(--bg-1);
-  transition: border-color var(--transition);
-}
-
-.client-card:hover {
-  border-color: var(--accent);
-}
-
-.client-icon {
-  font-size: 2rem;
-  width: 2rem;
-  height: 2rem;
-  color: var(--accent);
-  flex-shrink: 0;
-}
-
-.client-info {
-  display: flex;
-  flex-direction: column;
-  gap: 0.3rem;
-}
-
-.client-name {
-  font-size: 1.35rem;
-  font-weight: 600;
-  color: var(--text);
-}
-
-.client-service {
-  font-size: 1.2rem;
-  color: var(--text-2);
-}
-
 /* ─── Modal dialog (same structure as skills) ── */
 .btncerrar-x {
   position: absolute !important;

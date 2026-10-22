@@ -389,20 +389,14 @@ projects = [
   freelancer = {
     position: 'Desarrollador Full Stack Freelance',
     date: '2024 – Actualidad',
-    description: 'Desarrollo de soluciones web a medida para diversas empresas, ofreciendo servicios especializados en front-end, back-end y diseño responsivo.',
-    clients: [
-      {
-        name: 'MP Ingeniería',
-        service: 'Sitio web corporativo en Angular',
-      },
-      {
-        name: 'Wali',
-        service: 'Desarrollo de soluciones web a medida',
-      },
-      {
-        name: 'Tecnohoot',
-        service: 'Soluciones tecnológicas y landing pages',
-      },
+    description: 'Diseño y construcción de soluciones web a medida: desde aplicaciones empresariales completas hasta sitios corporativos, cubriendo el ciclo completo desde el levantamiento de requerimientos hasta el despliegue en producción.',
+    tasks: [
+      'Desarrollo full stack con Angular (SPA y SSR), Spring Boot, Laravel/Livewire y PostgreSQL.',
+      'Construcción de sistemas de gestión y punto de venta: control de caja, inventario, facturación electrónica y despacho a domicilio.',
+      'Implementación de autenticación JWT con cookies httpOnly, roles de usuario y paneles de administración.',
+      'Sitios institucionales y corporativos con SSR, modo claro/oscuro, i18n y accesibilidad.',
+      'Despliegue en servidores Linux con Nginx: dominios, SSL y prerenderizado.',
+      'Sistema de diseño propio basado en tokens, compartido entre todos los proyectos para consistencia visual.',
     ],
   };
 
