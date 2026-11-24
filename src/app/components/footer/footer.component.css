@@ -26,6 +26,12 @@
 /* Brand */
 .footer-brand {
   display: flex;
+  flex-direction: column;
+  gap: 2rem;
+}
+
+.footer-brand-main {
+  display: flex;
   align-items: center;
   gap: 1.6rem;
 }
@@ -123,6 +129,317 @@
   background: var(--accent);
   border-color: var(--accent);
   color: #fff;
+}
+
+/* NAMP badge — miniatura del hero orbital de namp.cl */
+.namp-badge {
+  display: flex;
+  align-items: center;
+  gap: 1.4rem;
+  padding: 1rem 1.4rem;
+  border: 1px solid var(--border);
+  border-radius: 1.4rem;
+  background: var(--bg-2);
+  text-decoration: none;
+  transition: all var(--transition);
+}
+
+.namp-badge:hover {
+  border-color: rgba(212, 175, 55, 0.5);
+  background: var(--bg-0);
+}
+
+.namp-mark {
+  width: 6.4rem;
+  height: 6.4rem;
+  flex-shrink: 0;
+}
+
+.namp-badge-text {
+  display: flex;
+  flex-direction: column;
+  gap: 0.2rem;
+  line-height: 1.3;
+}
+
+.namp-badge-text strong {
+  font-size: 1.35rem;
+  font-weight: 600;
+  color: var(--text);
+  letter-spacing: -0.01em;
+}
+
+.namp-badge-text small {
+  font-size: 1.15rem;
+  color: #d4af37;
+  letter-spacing: 0.04em;
+}
+
+.namp-ring,
+.namp-dial {
+  transform-box: view-box;
+  transform-origin: 100px 100px;
+}
+
+.namp-dial circle {
+  stroke-dasharray: 2 7;
+  opacity: 0.6;
+}
+
+.namp-dial--outer {
+  animation: namp-spin 70s linear infinite;
+}
+
+.namp-dial--inner {
+  animation: namp-spin 48s linear infinite reverse;
+}
+
+.namp-dial--inner circle {
+  stroke-dasharray: 1.5 5;
+  opacity: 0.45;
+}
+
+.namp-ring--outer {
+  animation: namp-spin 13s linear infinite;
+  filter: drop-shadow(0 0 6px rgba(212, 175, 55, 0.4));
+}
+
+.namp-ring--inner {
+  animation: namp-spin 9s linear infinite reverse;
+  filter: drop-shadow(0 0 6px rgba(16, 185, 129, 0.4));
+}
+
+.namp-comet {
+  animation: namp-ignite 1.4s ease 0.9s both;
+}
+
+.namp-trail--hot {
+  opacity: 0.9;
+}
+
+.namp-trail--mid {
+  opacity: 0.3;
+  filter: blur(0.8px);
+}
+
+.namp-spark {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: namp-sparkle 2.4s ease-in-out infinite;
+  filter: blur(0.4px);
+}
+
+.namp-comet .namp-spark:nth-of-type(2) {
+  animation-delay: -0.8s;
+}
+
+.namp-comet .namp-spark:nth-of-type(3) {
+  animation-delay: -1.6s;
+}
+
+.namp-node {
+  transform-box: fill-box;
+  transform-origin: center;
+  animation: namp-node-pulse 3s ease-in-out infinite;
+}
+
+.namp-node-core {
+  fill: #ffffff;
+  opacity: 0.85;
+}
+
+.namp-orbit-path {
+  opacity: 0.55;
+}
+
+.namp-orbit-node {
+  opacity: 0;
+  fill: #10b981;
+}
+
+@supports (offset-path: path('M0 0')) {
+  .namp-orbit-node {
+    offset-path: path('M14 100a86 34 0 1 0 172 0a86 34 0 1 0 -172 0');
+    offset-rotate: 0deg;
+    animation: namp-orbit 8.5s linear infinite;
+  }
+
+  .namp-orbit-node:last-child {
+    opacity: 1;
+    filter: drop-shadow(0 0 5px rgba(16, 185, 129, 0.55));
+  }
+
+  .namp-orbit-node:not(:last-child) {
+    filter: blur(0.5px);
+  }
+
+  .namp-orbit-node--t1 {
+    opacity: 0.55;
+    animation-delay: 0.15s;
+  }
+
+  .namp-orbit-node--t2 {
+    opacity: 0.38;
+    animation-delay: 0.3s;
+  }
+
+  .namp-orbit-node--t3 {
+    opacity: 0.24;
+    animation-delay: 0.45s;
+  }
+
+  .namp-orbit-node--t4 {
+    opacity: 0.14;
+    animation-delay: 0.6s;
+  }
+}
+
+.namp-logo-n {
+  fill: none;
+  stroke-dasharray: 240;
+  stroke-dashoffset: 240;
+  animation: namp-draw 1.3s cubic-bezier(0.5, 0, 0.15, 1) 0.3s forwards;
+}
+
+.namp-constellation {
+  fill: none;
+  stroke: var(--border);
+  stroke-width: 0.6;
+  opacity: 0;
+  animation: namp-constellation-in 1.2s ease 2.6s both;
+}
+
+.namp-star {
+  opacity: 0;
+  transform-box: fill-box;
+  transform-origin: center;
+  animation:
+    namp-star-in 0.6s ease both,
+    namp-twinkle var(--tw, 3s) ease-in-out infinite;
+}
+
+.namp-star--flare {
+  filter: drop-shadow(0 0 3px rgba(212, 175, 55, 0.65));
+}
+
+.namp-stars > :nth-child(1) { --tw: 2.8s; animation-delay: 1.4s, 2s; }
+.namp-stars > :nth-child(2) { --tw: 3.6s; animation-delay: 2.15s, 2.75s; }
+.namp-stars > :nth-child(3) { --tw: 2.4s; animation-delay: 1.7s, 2.3s; }
+.namp-stars > :nth-child(4) { --tw: 3.1s; animation-delay: 2.45s, 3.05s; }
+.namp-stars > :nth-child(5) { --tw: 4s;   animation-delay: 1.55s, 2.15s; }
+.namp-stars > :nth-child(6) { --tw: 2.7s; animation-delay: 1.9s, 2.5s; }
+.namp-stars > :nth-child(7) { --tw: 3.4s; animation-delay: 2.3s, 2.9s; }
+.namp-stars > :nth-child(8) { --tw: 2.5s; animation-delay: 1.65s, 2.25s; }
+.namp-stars > :nth-child(9) { --tw: 3.8s; animation-delay: 2.05s, 2.65s; }
+.namp-stars > :nth-child(10) { --tw: 2.9s; animation-delay: 1.5s, 2.1s; }
+.namp-stars > :nth-child(11) { --tw: 3.3s; animation-delay: 2.6s, 3.2s; }
+.namp-stars > :nth-child(12) { --tw: 3s;   animation-delay: 1.8s, 2.4s; }
+.namp-stars > :nth-child(13) { --tw: 2.6s; animation-delay: 2.25s, 2.85s; }
+.namp-stars > :nth-child(14) { --tw: 3.7s; animation-delay: 1.6s, 2.2s; }
+
+@keyframes namp-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+@keyframes namp-draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+@keyframes namp-star-in {
+  from {
+    opacity: 0;
+    transform: scale(0.2);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+@keyframes namp-twinkle {
+  0%,
+  100% {
+    opacity: 0.2;
+  }
+  50% {
+    opacity: 1;
+  }
+}
+
+@keyframes namp-constellation-in {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 0.35;
+  }
+}
+
+@keyframes namp-node-pulse {
+  0%,
+  100% {
+    transform: scale(1);
+    opacity: 1;
+  }
+  50% {
+    transform: scale(1.4);
+    opacity: 0.75;
+  }
+}
+
+@keyframes namp-orbit {
+  to {
+    offset-distance: 100%;
+  }
+}
+
+@keyframes namp-ignite {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
+
+@keyframes namp-sparkle {
+  0%,
+  100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(0.68);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .namp-ring,
+  .namp-dial,
+  .namp-comet,
+  .namp-node,
+  .namp-spark,
+  .namp-orbit-node,
+  .namp-star,
+  .namp-constellation,
+  .namp-mark {
+    animation: none;
+  }
+
+  .namp-star {
+    opacity: 0.85;
+  }
+
+  .namp-constellation {
+    opacity: 0.35;
+  }
+
+  .namp-logo-n {
+    stroke-dashoffset: 0 !important;
+  }
 }
 
 /* Bottom bar */
