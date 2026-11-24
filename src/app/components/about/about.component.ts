@@ -36,11 +36,5 @@ export class AboutComponent {
       icon: 'bi-facebook',
       url: 'https://www.facebook.com/nikolas.munozpalacios/',
     },
-    {
-      name: 'Linktree',
-      handle: '@NikoMP',
-      icon: 'bi-link-45deg',
-      url: 'https://linktr.ee/NikoMP',
-    },
   ];
 }
