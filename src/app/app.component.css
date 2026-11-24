@@ -291,7 +291,7 @@
 
 .contact-float-wrap {
   position: fixed;
-  bottom: 2rem;
+  top: 7.6rem;
   left: 2rem;
   z-index: 3000;
   width: 4.4rem;
@@ -358,7 +358,7 @@
 
 .contact-float-card {
   position: absolute;
-  bottom: calc(4.4rem + 1rem);
+  top: calc(4.4rem + 1rem);
   left: 0;
   background: var(--bg-1);
   border: 1px solid var(--border);
@@ -368,8 +368,8 @@
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(1.2rem) scale(0.96);
-  transform-origin: bottom left;
+  transform: translateY(-1.2rem) scale(0.96);
+  transform-origin: top left;
   transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
   pointer-events: none;
 }
@@ -437,13 +437,15 @@
 }
 
 /* ═══════════════════════════════════════════════
-   ACCESSIBILITY WIDGET (in navbar)
+   ACCESSIBILITY WIDGET (floating bottom-left)
 ═══════════════════════════════════════════════ */
 .a11y-wrap {
-  position: relative;
+  position: fixed;
+  bottom: 2rem;
+  left: 2rem;
+  z-index: 3000;
   width: 4.4rem;
   height: 4.4rem;
-  flex-shrink: 0;
 }
 
 .a11y-btn {
@@ -490,8 +492,8 @@
 
 .a11y-panel {
   position: absolute;
-  top: calc(4.4rem + 1rem);
-  right: 0;
+  bottom: calc(4.4rem + 1rem);
+  left: 0;
   display: flex;
   flex-direction: column;
   gap: 0.4rem;
@@ -503,8 +505,8 @@
   box-shadow: 0 8px 40px rgba(0, 0, 0, 0.4);
   opacity: 0;
   visibility: hidden;
-  transform: translateY(-1.2rem) scale(0.96);
-  transform-origin: top right;
+  transform: translateY(1.2rem) scale(0.96);
+  transform-origin: bottom left;
   transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
   pointer-events: none;
   z-index: 3000;
