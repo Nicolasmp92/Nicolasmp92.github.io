@@ -1,4 +1,46 @@
-<footer>
+<footer class="site-footer">
+  <div class="footer-inner">
+
+    <div class="footer-brand">
+      <img class="footer-avatar" src="img/MiFotoDePerfil.jpg" alt="Foto de perfil de Nicolás Muñoz">
+      <div class="footer-id">
+        <p class="footer-name">Nicolás Muñoz</p>
+        <span class="footer-role">Full Stack Dev</span>
+      </div>
+    </div>
+
+    <nav class="footer-contact" aria-label="Datos de contacto">
+      <a class="footer-link" href="tel:+56963978090">
+        <mat-icon>call</mat-icon>
+        <span>+569 63978090</span>
+      </a>
+      <a class="footer-link" href="tel:+56962308757">
+        <mat-icon>call</mat-icon>
+        <span>+569 62308757</span>
+      </a>
+      <a class="footer-link" href="mailto:nikolasmp92@gmail.com">
+        <mat-icon>email</mat-icon>
+        <span>nikolasmp92&#64;gmail.com</span>
+      </a>
+      <a class="footer-link" href="https://maps.app.goo.gl/7eTzs1oybKFieuNt7" target="_blank" rel="noopener noreferrer">
+        <mat-icon>location_on</mat-icon>
+        <span>Coltauco, O'Higgins</span>
+      </a>
+    </nav>
+
+    <div class="footer-social" aria-label="Redes sociales">
+      <a *ngFor="let social of socials" class="social-btn" [href]="social.url" target="_blank" rel="noopener noreferrer"
+        [attr.aria-label]="social.name">
+        <i class="bi" [ngClass]="social.icon"></i>
+      </a>
+    </div>
+
+  </div>
+
+  <div class="footer-bottom">
+    <span>© {{ year }} Nicolás Muñoz — Coltauco, Región de O'Higgins, Chile</span>
+  </div>
+
   <button class="scroll-top" (click)="scrollToTop()" [ngClass]="{ show: isScrollTopVisible }" aria-label="Volver arriba">
     <mat-icon>keyboard_arrow_up</mat-icon>
   </button>

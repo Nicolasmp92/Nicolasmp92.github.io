@@ -147,6 +147,35 @@ projects = [
     `,
   },
   {
+    title: 'NAMP Ingeniería',
+    description: 'Sitio corporativo SSR con portafolio, panel de accesibilidad propio y animación SVG a medida.',
+    estado: 'En producción',
+    Link: 'https://namp.cl',
+    image: 'img/namp-web.webp',
+    fullimage: 'img/namp-web.webp',
+    gallery: ['img/namp-web.webp'],
+    tags: ['Angular', 'SSR', 'SCSS', 'Accesibilidad', 'SVG animado'],
+    seoTags: [
+      'sitio corporativo',
+      'servicios informáticos',
+      'desarrollo a medida',
+      'angular ssr',
+      'panel de accesibilidad',
+      'animación svg',
+      'namp',
+      'namp.cl'
+    ],
+    details: `
+      <p>Sitio corporativo de NAMP Ingeniería — la empresa propia de servicios informáticos. SPA en Angular con SSR, diseño "urban minimalist" a medida (cero librerías de UI) y tema dual oscuro/claro.</p>
+      <ul>
+        <li><strong>Hero animado:</strong> logo "N" que se dibuja con trazo SVG, sistema orbital con cometas y constelación estelar a medida.</li>
+        <li><strong>Accesibilidad:</strong> panel flotante propio con tamaño de texto, alto contraste, escala de grises, guía de lectura, cursor grande y reducción de movimiento — persistente y sin parpadeo.</li>
+        <li><strong>Portafolio integrado:</strong> vitrina de proyectos con demos en vivo (KaiPetPoint, CABID).</li>
+        <li><strong>Tema dual:</strong> oscuro/claro con toggle dentro del panel de accesibilidad.</li>
+      </ul>
+    `,
+  },
+  {
     title: 'StarterCustomeKit',
     description: 'Kit base empresarial reusable: auth, usuarios, roles y tema.',
     estado: 'En Desarrollo',

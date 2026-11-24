@@ -81,7 +81,6 @@ export class AppComponent implements OnInit, OnDestroy {
   private changeHeaderOn: number = 100;
   private didScroll: boolean = false;
 
-  isContactCardOpen = false;
   activeSection = 'home';
   private sectionObserver?: IntersectionObserver;
 
@@ -206,10 +205,6 @@ export class AppComponent implements OnInit, OnDestroy {
     });
   }
 
-  toggleContactCard(): void {
-    this.isContactCardOpen = !this.isContactCardOpen;
-  }
-
   // Accessibility widget
   toggleA11y(): void {
     this.isA11yOpen = !this.isA11yOpen;
@@ -282,11 +277,6 @@ export class AppComponent implements OnInit, OnDestroy {
     if (section) {
       section.scrollIntoView({ behavior: 'smooth', block: 'start' });
     }
-  }
-
-  // Navega a una URL abriendo el enlace en una nueva pestaña.
-  navigateTo(url: string): void {
-    window.open(url, '_blank');
   }
 
 }
