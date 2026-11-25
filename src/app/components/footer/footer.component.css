@@ -7,6 +7,7 @@
 }
 
 .footer-inner {
+  position: relative;
   max-width: 114rem;
   margin: 0 auto;
   padding: 4.8rem 1.6rem;
@@ -22,6 +23,17 @@
     justify-content: center;
     gap: clamp(8rem, 20vw, 26rem);
     padding-block: 6.4rem;
+  }
+
+  /* Divisor vertical en el centro del gap entre columnas */
+  .footer-inner::before {
+    content: '';
+    position: absolute;
+    top: 6.4rem;
+    bottom: 6.4rem;
+    left: 50%;
+    width: 1px;
+    background: var(--border);
   }
 }
 
