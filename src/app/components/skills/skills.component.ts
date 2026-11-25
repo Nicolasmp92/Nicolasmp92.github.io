@@ -82,7 +82,9 @@ export class SkillsComponent {
         nombre: nombre,
         certificado: safeUrl,
         detalles: cert.label
-      }
+      },
+      width: 'min(90rem, 94vw)',
+      maxHeight: '92vh',
     });
   }
 }

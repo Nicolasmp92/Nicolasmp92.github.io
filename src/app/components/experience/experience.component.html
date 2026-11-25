@@ -12,7 +12,7 @@
         <div class="portafolio-item mt-3" label="Portafolio">
           <h3 class="portafolio-titulo">Mi Portafolio</h3>
           <p class="portafolio-descripcion">
-            Proyectos personales y profesionales desarrollados con Angular, Laravel, Bootstrap y otras tecnologías.
+            Proyectos personales y profesionales con Angular, Spring Boot, PostgreSQL y Tailwind CSS — de sitios corporativos a sistemas POS completos.
           </p>
         </div>
         <!-- Grid de proyectos — todas las tarjetas de una fila comparten la misma altura -->
@@ -81,10 +81,9 @@
 </section>
 
 <ng-template #dialogTemplate let-data>
-  <button mat-fab class="btncerrar-x" mat-dialog-close><mat-icon>close</mat-icon></button>
-  <h2 mat-dialog-title>{{ data.title }}
-    <p class="dialog-subtitle">{{ data.description }}</p>
-  </h2>
+  <button mat-fab class="btncerrar-x" mat-dialog-close aria-label="Cerrar"><mat-icon>close</mat-icon></button>
+  <h2 mat-dialog-title>{{ data.title }}</h2>
+  <p class="dialog-subtitle">{{ data.description }}</p>
   <mat-dialog-content>
     <div class="modal-tags" *ngIf="data.seoTags?.length">
       <span *ngFor="let tag of data.seoTags" class="modal-tag">{{ tag }}</span>
@@ -96,9 +95,12 @@
         <img *ngFor="let img of data.gallery" [src]="img" [alt]="data.title" class="modal-img">
       </div>
     </div>
+  </mat-dialog-content>
+  <mat-dialog-actions align="end">
+    <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
     <a *ngIf="data.Link" class="modal-link" [href]="data.Link" target="_blank" rel="noopener noreferrer">
       Visitar sitio
       <mat-icon>open_in_new</mat-icon>
     </a>
-  </mat-dialog-content>
+  </mat-dialog-actions>
 </ng-template>

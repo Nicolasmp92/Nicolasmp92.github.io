@@ -57,10 +57,10 @@
   color: var(--accent) !important;
 }
 
-/* Submit button */
+/* Submit button — ancho contenido alineado a la derecha en escritorio */
 .btn-submit {
   width: 100%;
-  padding: 1.3rem;
+  padding: 1.2rem 3.2rem;
   border: 1px solid var(--accent);
   border-radius: 0.8rem;
   background: var(--accent);
@@ -75,6 +75,14 @@
   justify-content: center;
   gap: 0.8rem;
   margin-top: 0.8rem;
+}
+
+@media (min-width: 57.6rem) {
+  .btn-submit {
+    width: fit-content;
+    min-width: 24rem;
+    margin-left: auto;
+  }
 }
 
 .btn-submit:hover:not(:disabled) {

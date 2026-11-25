@@ -61,6 +61,18 @@ img {
   max-width: 100%;
 }
 
+/* Selection + focus ring — coherente con el acento del sitio */
+::selection {
+  background: var(--accent);
+  color: #fff;
+}
+
+:focus-visible {
+  outline: 2px solid var(--accent);
+  outline-offset: 2px;
+  border-radius: 0.4rem;
+}
+
 body {
   font-weight: 400;
   font-size: 1.6rem;

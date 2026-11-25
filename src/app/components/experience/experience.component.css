@@ -186,6 +186,7 @@
   align-items: center;
   justify-content: center;
   gap: 0.6rem;
+  min-height: 4rem;
   padding: 0.9rem 1.6rem;
   border: 1px solid var(--border);
   border-radius: 0.6rem;
@@ -346,7 +347,9 @@
   font-size: 1.35rem;
   font-weight: 400;
   color: var(--text-2);
-  margin: 0.2rem 0 0;
+  margin: -0.6rem 0 0;
+  padding: 0 2.4rem;
+  padding-right: 6rem;
 }
 
 /* Tags row */
@@ -381,6 +384,26 @@
   line-height: 1.75;
 }
 
+.modal-details p {
+  margin-bottom: 1.2rem;
+}
+
+.modal-details ul {
+  padding-left: 1.8rem;
+  display: flex;
+  flex-direction: column;
+  gap: 0.6rem;
+}
+
+.modal-details li::marker {
+  color: var(--accent);
+}
+
+.modal-details strong {
+  color: var(--text);
+  font-weight: 600;
+}
+
 .modal-img-wrap {
   flex: 0 0 auto;
   display: flex;
@@ -393,22 +416,41 @@
 
 .modal-img {
   max-width: 100%;
-  width: 28rem;
+  width: 32rem;
   border-radius: var(--radius);
   border: 1px solid var(--border);
   display: block;
   flex-shrink: 0;
 }
 
+/* Actions row — matches mat-dialog-actions[align=end] */
+.btncerrar {
+  padding: 0.8rem 1.8rem;
+  border: 1px solid var(--border);
+  border-radius: 0.6rem;
+  background: transparent;
+  color: var(--text-2);
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
+  cursor: pointer;
+  transition: all var(--transition);
+}
+
+.btncerrar:hover {
+  border-color: var(--accent);
+  color: var(--accent);
+  background: var(--accent-dim);
+}
+
 .modal-link {
   display: inline-flex;
   align-items: center;
   gap: 0.6rem;
-  margin-top: 2rem;
   padding: 0.8rem 1.8rem;
   border: 1px solid var(--accent);
   border-radius: 0.6rem;
-  color: var(--accent);
+  background: var(--accent);
+  color: #fff;
   font-size: 1.3rem;
   font-weight: 500;
   text-decoration: none;
@@ -422,8 +464,8 @@
 }
 
 .modal-link:hover {
-  background: var(--accent);
-  color: #fff;
+  background: transparent;
+  color: var(--accent);
 }
 
 /* No data */

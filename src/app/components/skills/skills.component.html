@@ -5,7 +5,7 @@
 
     <div class="row">
       <!-- Front-End Skills -->
-      <div class="col-12 col-md-6 skills-category px-5 mt-3">
+      <div class="col-12 col-md-6 skills-category px-3 px-md-5 mt-3">
         <h3 class="skills-category-title">Front-End</h3>
         <div class="skill-item" *ngFor="let skill of habilidadesFront; let i = index" appAos [aosDelay]="i * 70">
           <div class="skill-icon-fallback">{{ skill.nombre.slice(0,2) }}</div>
@@ -26,7 +26,7 @@
       </div>
 
       <!-- Back-End Skills -->
-      <div class="col-12 col-md-6 skills-category px-5 mt-3">
+      <div class="col-12 col-md-6 skills-category px-3 px-md-5 mt-3">
         <h3 class="skills-category-title">Back-End</h3>
         <div class="skill-item" *ngFor="let skill of habilidadesBack; let i = index" appAos aosDir="right" [aosDelay]="i * 70">
           <div class="skill-icon-fallback">{{ skill.nombre.slice(0,2) }}</div>
@@ -64,7 +64,7 @@
     </div>
 
     <!-- Certificados Adicionales -->
-    <div class="skills-category px-5 mt-5" appAos [aosDelay]="150">
+    <div class="skills-category px-3 px-md-5 mt-5" appAos [aosDelay]="150">
       <h3 class="skills-category-title">Otros Certificados</h3>
       <div class="skill-item" *ngFor="let cert of certificadosExtras; let i = index" appAos [aosDelay]="i * 70">
         <div class="skill-icon-fallback">{{ cert.nombre.slice(0,2) }}</div>
@@ -78,20 +78,14 @@
     </div>
 
     <ng-template #dialogTemplate let-data>
-      <button mat-fab class="btncerrar-x" mat-dialog-close><mat-icon>close</mat-icon></button>
+      <button mat-fab class="btncerrar-x" mat-dialog-close aria-label="Cerrar"><mat-icon>close</mat-icon></button>
       <h2 mat-dialog-title>{{ data.nombre }}</h2>
       <mat-dialog-content>
-        <div class="modal-content">
-          <div class="modal-description">
-            <p>Certificado de {{ data.detalles }}</p>
-          </div>
-          <div class="modal-image-container">
-            <iframe [src]="data.certificado" width="100%" height="500px"></iframe>
-          </div>
-        </div>
+        <p class="modal-description">Certificado de {{ data.detalles }}</p>
+        <iframe class="modal-pdf" [src]="data.certificado" title="Certificado de {{ data.nombre }}"></iframe>
       </mat-dialog-content>
-      <mat-dialog-actions>
-        <button mat-button class="btncerrar text-center" mat-dialog-close>Cerrar</button>
+      <mat-dialog-actions align="end">
+        <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
       </mat-dialog-actions>
     </ng-template>
   </div>

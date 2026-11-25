@@ -165,23 +165,37 @@
 }
 
 /* Modal */
+.modal-description {
+  font-size: 1.4rem;
+  color: var(--text-2);
+  margin-bottom: 1.6rem;
+}
+
+.modal-pdf {
+  width: 100%;
+  height: 56vh;
+  min-height: 32rem;
+  border: 1px solid var(--border);
+  border-radius: var(--radius);
+  display: block;
+}
+
 .btncerrar {
-  padding: 1rem 2.4rem;
+  padding: 0.8rem 1.8rem;
   border: 1px solid var(--border);
   border-radius: 0.6rem;
   background: transparent;
   color: var(--text-2);
-  font-size: 1.4rem;
+  font-size: 1.3rem;
+  font-family: 'Poppins', sans-serif;
   cursor: pointer;
   transition: all var(--transition);
-  display: flex;
-  align-items: center;
-  margin: 0 auto;
 }
 
 .btncerrar:hover {
   border-color: var(--accent);
   color: var(--accent);
+  background: var(--accent-dim);
 }
 
 .btncerrar-x {

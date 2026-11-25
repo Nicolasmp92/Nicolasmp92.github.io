@@ -105,8 +105,8 @@ projects = [
   {
     title: 'KaiPetPoint',
     description: 'POS multi-sucursal para petshop: ventas, ofertas mayoristas, despacho a domicilio y fiado.',
-    estado: 'En Desarrollo',
-    Link: 'https://github.com/Nicolasmp92/kaipetpoint',
+    estado: 'En producción',
+    Link: 'https://kpp.namp.cl',
     image: 'img/kaipetpoint-pos.png',
     fullimage: 'img/kaipetpoint-dashboard.png',
     gallery: [
@@ -130,6 +130,8 @@ projects = [
       'boleta electrónica',
       'calendario de ventas',
       'reportes csv',
+      'reportes excel',
+      'rol repartidor',
       'kaipetpoint'
     ],
     details: `
@@ -141,8 +143,9 @@ projects = [
         <li><strong>Clientes:</strong> cuenta corriente (fiado) con abonos, RUT validado con módulo 11, agrupación alfabética y filtro "con deuda".</li>
         <li><strong>Boleta electrónica:</strong> emisión por venta con proveedor simulado, cola de reintentos y bandeja de documentos.</li>
         <li><strong>Historial:</strong> calendario mensual con filtros por día y medio de pago, gráfico semanal en el panel que navega al día, y reportes CSV descargables (ventas, catálogo, movimientos).</li>
-        <li><strong>Caja:</strong> turnos con fondo inicial, arqueo por medio de pago y cierre.</li>
-        <li><strong>Catálogo:</strong> productos, marcas, categorías y mascotas con stock por sucursal y alertas de bajo mínimo.</li>
+        <li><strong>Caja:</strong> turnos con fondo inicial, arqueo por medio de pago, cierre y reporte de ventas del día descargable en Excel por turno.</li>
+        <li><strong>Despachos:</strong> rol Repartidor dedicado — menú limitado al tablero de entregas y su perfil, sin acceso a caja ni catálogo.</li>
+        <li><strong>Catálogo:</strong> productos, marcas, categorías y mascotas con stock por sucursal, alertas de bajo mínimo con campana de avisos y precios formateados con separador de miles al escribir.</li>
       </ul>
     `,
   },
@@ -443,6 +446,8 @@ projects = [
   }): void {
     this.dialog.open(this.dialogTemplate, {
       data: project,
+      width: 'min(96rem, 94vw)',
+      maxHeight: '92vh',
     });
   }
 }

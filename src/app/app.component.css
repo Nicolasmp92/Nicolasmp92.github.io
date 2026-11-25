@@ -285,6 +285,7 @@
   gap: 0.4rem;
   padding: 0.8rem;
   min-width: 26rem;
+  max-width: calc(100vw - 4rem);
   background: var(--bg-1);
   border: 1px solid var(--border);
   border-radius: 1.2rem;
