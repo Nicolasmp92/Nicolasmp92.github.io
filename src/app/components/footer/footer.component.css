@@ -19,8 +19,8 @@
 @media (min-width: 76.8rem) {
   .footer-inner {
     grid-template-columns: repeat(2, auto);
-    justify-content: space-between;
-    gap: 4.8rem;
+    justify-content: center;
+    gap: clamp(8rem, 20vw, 26rem);
     padding-block: 6.4rem;
   }
 }
