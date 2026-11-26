@@ -2,14 +2,14 @@ import { Component, ViewChild } from '@angular/core';
 import { NgFor, NgStyle, CommonModule } from '@angular/common';
 import { MatDialogModule, MatDialog } from '@angular/material/dialog';
 import { MatIconModule } from '@angular/material/icon';
-import { MatButtonModule } from '@angular/material/button';
+
 import { DomSanitizer, SafeResourceUrl } from '@angular/platform-browser';
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 
 @Component({
   selector: 'app-skills',
   standalone: true,
-  imports: [NgFor, NgStyle, MatDialogModule, MatIconModule, MatButtonModule, CommonModule, AnimateOnScrollDirective],
+  imports: [NgFor, NgStyle, MatDialogModule, MatIconModule, CommonModule, AnimateOnScrollDirective],
   templateUrl: './skills.component.html',
   styleUrls: ['./skills.component.css'],
 })

@@ -217,6 +217,12 @@
   transition: all var(--transition);
 }
 
+.btncerrar-x mat-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
+}
+
 .btncerrar-x:hover {
   color: #fff;
   background: var(--accent);

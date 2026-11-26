@@ -81,7 +81,7 @@
 </section>
 
 <ng-template #dialogTemplate let-data>
-  <button mat-fab class="btncerrar-x" mat-dialog-close aria-label="Cerrar"><mat-icon>close</mat-icon></button>
+  <button class="btncerrar-x" mat-dialog-close aria-label="Cerrar"><mat-icon>close</mat-icon></button>
   <h2 mat-dialog-title>{{ data.title }}</h2>
   <p class="dialog-subtitle">{{ data.description }}</p>
   <mat-dialog-content>
@@ -97,7 +97,7 @@
     </div>
   </mat-dialog-content>
   <mat-dialog-actions align="end">
-    <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
+    <button class="btncerrar" mat-dialog-close>Cerrar</button>
     <a *ngIf="data.Link" class="modal-link" [href]="data.Link" target="_blank" rel="noopener noreferrer">
       Visitar sitio
       <mat-icon>open_in_new</mat-icon>

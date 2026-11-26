@@ -319,11 +319,11 @@
 
 /* ─── Modal dialog (same structure as skills) ── */
 .btncerrar-x {
-  position: absolute !important;
+  position: absolute;
   top: 1rem;
   right: 1rem;
-  width: 3.2rem !important;
-  height: 3.2rem !important;
+  width: 3.2rem;
+  height: 3.2rem;
   font-size: 1.8rem;
   font-weight: 600;
   color: var(--text-2);
@@ -335,6 +335,12 @@
   justify-content: center;
   align-items: center;
   transition: all var(--transition);
+}
+
+.btncerrar-x mat-icon {
+  font-size: 2rem;
+  width: 2rem;
+  height: 2rem;
 }
 
 .btncerrar-x:hover {

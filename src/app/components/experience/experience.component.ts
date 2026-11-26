@@ -2,7 +2,6 @@ import { Component, TemplateRef, ViewChild, Renderer2,ViewEncapsulation  } from 
 import { AnimateOnScrollDirective } from '../../directives/animate-on-scroll.directive';
 import { MatDialog } from '@angular/material/dialog';
 import { MatTabsModule } from '@angular/material/tabs';
-import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { MatDialogModule } from '@angular/material/dialog';
 import { MatDividerModule } from '@angular/material/divider';
@@ -18,7 +17,6 @@ import { ListKeyManager } from '@angular/cdk/a11y';
   standalone: true,
   imports: [
     MatTabsModule,
-    MatButtonModule,
     MatIconModule,
     MatDialogModule,
     MatDividerModule,

@@ -78,14 +78,14 @@
     </div>
 
     <ng-template #dialogTemplate let-data>
-      <button mat-fab class="btncerrar-x" mat-dialog-close aria-label="Cerrar"><mat-icon>close</mat-icon></button>
+      <button class="btncerrar-x" mat-dialog-close aria-label="Cerrar"><mat-icon>close</mat-icon></button>
       <h2 mat-dialog-title>{{ data.nombre }}</h2>
       <mat-dialog-content>
         <p class="modal-description">Certificado de {{ data.detalles }}</p>
         <iframe class="modal-pdf" [src]="data.certificado" title="Certificado de {{ data.nombre }}"></iframe>
       </mat-dialog-content>
       <mat-dialog-actions align="end">
-        <button mat-button class="btncerrar" mat-dialog-close>Cerrar</button>
+        <button class="btncerrar" mat-dialog-close>Cerrar</button>
       </mat-dialog-actions>
     </ng-template>
   </div>
